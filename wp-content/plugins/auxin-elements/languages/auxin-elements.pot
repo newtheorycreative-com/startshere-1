@@ -1,9 +1,9 @@
 # Averta Copyright (c) {2020}
 msgid ""
 msgstr ""
-"Project-Id-Version: Phlox Core Elements 2.6.0\n"
+"Project-Id-Version: Phlox Core Elements 2.6.2\n"
 "Report-Msgid-Bugs-To: http://averta.net/phlox/wordpress-theme/\n"
-"POT-Creation-Date: 2020-07-06 07:02:34+00:00\n"
+"POT-Creation-Date: 2020-07-19 09:28:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,8 +59,8 @@ msgid "It's OK."
 msgstr ""
 
 #: admin/includes/admin-ajax.php:198
-#: includes/classes/class-auxin-welcome.php:1138
-#: includes/classes/class-auxin-welcome.php:1254
+#: includes/classes/class-auxin-welcome.php:1139
+#: includes/classes/class-auxin-welcome.php:1255
 msgid "Security Token Error!"
 msgstr ""
 
@@ -87,17 +87,17 @@ msgid "Activate"
 msgstr ""
 
 #: admin/includes/admin-ajax.php:242 admin/includes/admin-ajax.php:257
-#: includes/classes/class-auxin-demo-importer.php:189
+#: includes/classes/class-auxin-demo-importer.php:190
 msgid "Retry"
 msgstr ""
 
 #: admin/includes/admin-ajax.php:253
-#: includes/classes/class-auxin-demo-importer.php:113
-#: includes/classes/class-auxin-demo-importer.php:156
-#: includes/classes/class-auxin-demo-importer.php:191
-#: includes/classes/class-auxin-welcome.php:1233
-#: includes/classes/class-auxin-welcome.php:1268
-#: includes/classes/class-auxin-welcome.php:1628
+#: includes/classes/class-auxin-demo-importer.php:114
+#: includes/classes/class-auxin-demo-importer.php:157
+#: includes/classes/class-auxin-demo-importer.php:192
+#: includes/classes/class-auxin-welcome.php:1234
+#: includes/classes/class-auxin-welcome.php:1269
+#: includes/classes/class-auxin-welcome.php:1629
 msgid "Close"
 msgstr ""
 
@@ -338,7 +338,7 @@ msgid "You need to enter a unique id for notice."
 msgstr ""
 
 #: admin/includes/classes/class-auxin-notices.php:186
-#: includes/classes/class-auxin-welcome.php:1670
+#: includes/classes/class-auxin-welcome.php:1671
 msgid "Skip"
 msgstr ""
 
@@ -1230,7 +1230,7 @@ msgstr ""
 #: includes/elementor/widgets/icon.php:170
 #: includes/elementor/widgets/image.php:319
 #: includes/elementor/widgets/modern-button.php:184
-#: includes/elementor/widgets/modern-button.php:802
+#: includes/elementor/widgets/modern-button.php:806
 #: includes/elementor/widgets/quote.php:165
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1614
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1751
@@ -1298,7 +1298,7 @@ msgstr ""
 #: admin/includes/metaboxes/metabox-fields-general-header.php:707
 #: includes/elementor/widgets/button.php:163
 #: includes/elementor/widgets/divider.php:146
-#: includes/elementor/widgets/modern-button.php:307
+#: includes/elementor/widgets/modern-button.php:311
 #: includes/elementor/widgets/staff.php:755
 #: includes/elementor/widgets/text.php:1010 includes/elements/button.php:66
 #: includes/elements/divider.php:90 includes/elements/socials-list.php:63
@@ -1312,7 +1312,7 @@ msgstr ""
 #: includes/classes/class-auxin-svg-support.php:192
 #: includes/elementor/widgets/button.php:162
 #: includes/elementor/widgets/divider.php:145
-#: includes/elementor/widgets/modern-button.php:306
+#: includes/elementor/widgets/modern-button.php:310
 #: includes/elementor/widgets/staff.php:756
 #: includes/elementor/widgets/text.php:1009
 #: includes/elements/before-after.php:104 includes/elements/button.php:65
@@ -1327,7 +1327,7 @@ msgstr ""
 #: admin/includes/metaboxes/metabox-fields-general-header.php:709
 #: includes/classes/class-auxin-svg-support.php:193
 #: includes/elementor/widgets/button.php:161
-#: includes/elementor/widgets/modern-button.php:305
+#: includes/elementor/widgets/modern-button.php:309
 #: includes/elementor/widgets/staff.php:757
 #: includes/elementor/widgets/text.php:1008
 #: includes/elements/before-after.php:105 includes/elements/button.php:64
@@ -1390,7 +1390,7 @@ msgstr ""
 #: includes/elementor/widgets/custom-list.php:385
 #: includes/elementor/widgets/gallery.php:131
 #: includes/elementor/widgets/icon.php:125
-#: includes/elementor/widgets/modern-button.php:277
+#: includes/elementor/widgets/modern-button.php:281
 #: includes/elementor/widgets/quote.php:161
 #: includes/elementor/widgets/recent-posts-tiles-carousel.php:130
 #: includes/elementor/widgets/recent-posts-tiles.php:130
@@ -1430,11 +1430,11 @@ msgstr ""
 #: includes/elementor/widgets/image.php:539
 #: includes/elementor/widgets/mailchimp.php:352
 #: includes/elementor/widgets/mailchimp.php:609
-#: includes/elementor/widgets/modern-button.php:403
-#: includes/elementor/widgets/modern-button.php:514
-#: includes/elementor/widgets/modern-button.php:614
-#: includes/elementor/widgets/modern-button.php:726
-#: includes/elementor/widgets/modern-button.php:912
+#: includes/elementor/widgets/modern-button.php:407
+#: includes/elementor/widgets/modern-button.php:518
+#: includes/elementor/widgets/modern-button.php:618
+#: includes/elementor/widgets/modern-button.php:730
+#: includes/elementor/widgets/modern-button.php:916
 #: includes/elementor/widgets/recent-comments.php:201
 #: includes/elementor/widgets/recent-comments.php:284
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:997
@@ -1795,21 +1795,21 @@ msgid "Processing: Download"
 msgstr ""
 
 #: includes/classes/class-auxels-admin-assets.php:67
-#: includes/classes/class-auxin-welcome.php:1309
-#: includes/classes/class-auxin-welcome.php:1428
-#: includes/classes/class-auxin-welcome.php:1698
-#: includes/classes/class-auxin-welcome.php:1742
+#: includes/classes/class-auxin-welcome.php:1310
+#: includes/classes/class-auxin-welcome.php:1429
+#: includes/classes/class-auxin-welcome.php:1699
+#: includes/classes/class-auxin-welcome.php:1743
 msgid "Continue"
 msgstr ""
 
 #: includes/classes/class-auxels-admin-assets.php:68
 #: includes/classes/class-auxin-welcome.php:522
-#: includes/classes/class-auxin-welcome.php:1503
+#: includes/classes/class-auxin-welcome.php:1504
 msgid "Install Plugins"
 msgstr ""
 
 #: includes/classes/class-auxels-admin-assets.php:69
-#: includes/classes/class-auxin-welcome.php:1594
+#: includes/classes/class-auxin-welcome.php:1595
 msgid "Import Content"
 msgstr ""
 
@@ -1888,92 +1888,92 @@ msgstr ""
 msgid "%s Status"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:75
+#: includes/classes/class-auxin-demo-importer.php:76
 msgid "Import content"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:107
+#: includes/classes/class-auxin-demo-importer.php:108
 msgid "Page has been successfully generated."
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:110
+#: includes/classes/class-auxin-demo-importer.php:111
 msgid "Edit Page"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:137
+#: includes/classes/class-auxin-demo-importer.php:138
 msgid "Template content has been successfully imported."
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:145
-#: includes/classes/class-auxin-demo-importer.php:164
-#: includes/classes/class-auxin-welcome.php:806
+#: includes/classes/class-auxin-demo-importer.php:146
+#: includes/classes/class-auxin-demo-importer.php:165
+#: includes/classes/class-auxin-welcome.php:809
 msgid "Copy to clipboard"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:154
+#: includes/classes/class-auxin-demo-importer.php:155
 msgid "Import to my templates"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:181
+#: includes/classes/class-auxin-demo-importer.php:182
 msgid "Process failed!."
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:209
+#: includes/classes/class-auxin-demo-importer.php:210
 msgid "Invalid Inputs."
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:240
+#: includes/classes/class-auxin-demo-importer.php:241
 msgid "Step Failed!"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:247
+#: includes/classes/class-auxin-demo-importer.php:248
 msgid "Error in getting data!"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:270
+#: includes/classes/class-auxin-demo-importer.php:271
 msgid "Downloading Medias"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:276
+#: includes/classes/class-auxin-demo-importer.php:277
 msgid "Importing Media"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:292
-#: includes/classes/class-auxin-demo-importer.php:1208
+#: includes/classes/class-auxin-demo-importer.php:293
+#: includes/classes/class-auxin-demo-importer.php:1214
 msgid "Importing Users"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:297
-#: includes/classes/class-auxin-demo-importer.php:309
+#: includes/classes/class-auxin-demo-importer.php:298
+#: includes/classes/class-auxin-demo-importer.php:310
 msgid "Importing Contents"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:321
+#: includes/classes/class-auxin-demo-importer.php:322
 msgid "Importing Options"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:338
-#: includes/classes/class-auxin-demo-importer.php:544
+#: includes/classes/class-auxin-demo-importer.php:339
+#: includes/classes/class-auxin-demo-importer.php:545
 msgid "Importing Menus"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:344
+#: includes/classes/class-auxin-demo-importer.php:345
 msgid "Importing Widgets"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:424
+#: includes/classes/class-auxin-demo-importer.php:425
 msgid "Retrieve Body Fails"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:610
+#: includes/classes/class-auxin-demo-importer.php:611
 msgid "Importing Sliders"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:1271
+#: includes/classes/class-auxin-demo-importer.php:1277
 msgid "Preparing Site ..."
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:1286
+#: includes/classes/class-auxin-demo-importer.php:1292
 msgid "All steps are successful"
 msgstr ""
 
@@ -2215,13 +2215,13 @@ msgid "Remove"
 msgstr ""
 
 #: includes/classes/class-auxin-walker-nav-menu-back.php:371
-#: includes/classes/class-auxin-welcome.php:1312
-#: includes/classes/class-auxin-welcome.php:1340
-#: includes/classes/class-auxin-welcome.php:1431
-#: includes/classes/class-auxin-welcome.php:1505
-#: includes/classes/class-auxin-welcome.php:1596
-#: includes/classes/class-auxin-welcome.php:1700
-#: includes/classes/class-auxin-welcome.php:1744
+#: includes/classes/class-auxin-welcome.php:1313
+#: includes/classes/class-auxin-welcome.php:1341
+#: includes/classes/class-auxin-welcome.php:1432
+#: includes/classes/class-auxin-welcome.php:1506
+#: includes/classes/class-auxin-welcome.php:1597
+#: includes/classes/class-auxin-welcome.php:1701
+#: includes/classes/class-auxin-welcome.php:1745
 msgid "Cancel"
 msgstr ""
 
@@ -2356,7 +2356,7 @@ msgid ""
 msgstr ""
 
 #: includes/classes/class-auxin-welcome.php:412
-#: includes/classes/class-auxin-welcome.php:729
+#: includes/classes/class-auxin-welcome.php:732
 #: includes/elements/popular-posts-widget.php:388
 msgid "Recent"
 msgstr ""
@@ -2409,287 +2409,287 @@ msgstr ""
 msgid "Activated"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:742
+#: includes/classes/class-auxin-welcome.php:745
 msgid "Search Templates"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:749
+#: includes/classes/class-auxin-welcome.php:752
 msgid ""
 "An error occurred while downloading the list of templates. Please try again "
 "later."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:793
+#: includes/classes/class-auxin-welcome.php:796
 msgid "Download"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:814
-#: includes/classes/class-auxin-welcome.php:929
+#: includes/classes/class-auxin-welcome.php:817
+#: includes/classes/class-auxin-welcome.php:932
 msgid "Unlock"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:826
-#: includes/classes/class-auxin-welcome.php:940
-#: includes/classes/class-auxin-welcome.php:1230
-#: includes/classes/class-auxin-welcome.php:1625
+#: includes/classes/class-auxin-welcome.php:829
+#: includes/classes/class-auxin-welcome.php:943
+#: includes/classes/class-auxin-welcome.php:1231
+#: includes/classes/class-auxin-welcome.php:1626
 msgid "Preview"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:849
+#: includes/classes/class-auxin-welcome.php:852
 msgid "Save to my templates"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:860
+#: includes/classes/class-auxin-welcome.php:863
 msgid "Create new page"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:900
+#: includes/classes/class-auxin-welcome.php:903
 msgid ""
 "An error occurred while downloading the list of demo sites. Please try "
 "again later."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:924
-#: includes/classes/class-auxin-welcome.php:1337
+#: includes/classes/class-auxin-welcome.php:927
+#: includes/classes/class-auxin-welcome.php:1338
 msgid "Uninstall"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:924
-#: includes/classes/class-auxin-welcome.php:1241
+#: includes/classes/class-auxin-welcome.php:927
+#: includes/classes/class-auxin-welcome.php:1242
 msgid "Import"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1029
+#: includes/classes/class-auxin-welcome.php:1030
 msgid "You have already the latest version."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1033
+#: includes/classes/class-auxin-welcome.php:1034
 msgid "New updates are available."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1034
+#: includes/classes/class-auxin-welcome.php:1035
 msgid ""
 "The following items require update, click update button to update them to "
 "the latest version."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1043
+#: includes/classes/class-auxin-welcome.php:1044
 msgid "Last checked "
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1045
+#: includes/classes/class-auxin-welcome.php:1046
 msgid "ago"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1065
-#: includes/classes/class-auxin-welcome.php:1095
-#: includes/classes/class-auxin-welcome.php:1479
+#: includes/classes/class-auxin-welcome.php:1066
+#: includes/classes/class-auxin-welcome.php:1096
+#: includes/classes/class-auxin-welcome.php:1480
 msgid "Ready to update"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1115
+#: includes/classes/class-auxin-welcome.php:1116
 msgid "Update Now"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1118
+#: includes/classes/class-auxin-welcome.php:1119
 msgid "Check Again"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1145
+#: includes/classes/class-auxin-welcome.php:1146
 msgid "You can't remove this demo."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1224
+#: includes/classes/class-auxin-welcome.php:1225
 msgid "Done!"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1225
+#: includes/classes/class-auxin-welcome.php:1226
 msgid "Demo has been successfully uninstalled."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1287
+#: includes/classes/class-auxin-welcome.php:1288
 #: public/includes/frontend-ajax.php:154 public/includes/frontend-ajax.php:211
 msgid "An Error Occurred!"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1301
+#: includes/classes/class-auxin-welcome.php:1302
 msgid "Notice"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1303
+#: includes/classes/class-auxin-welcome.php:1304
 msgid ""
 "For better and faster result, it's recommended to install the demo on a "
 "clean WordPress website."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1329
+#: includes/classes/class-auxin-welcome.php:1330
 msgid "Warning!"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1331
+#: includes/classes/class-auxin-welcome.php:1332
 msgid "This process will erase all images, posts and settings of this demo..."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1336
+#: includes/classes/class-auxin-welcome.php:1337
 msgid "Are you sure you want to uninstall this demo?"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1346
-#: includes/classes/class-auxin-welcome.php:1602
+#: includes/classes/class-auxin-welcome.php:1347
+#: includes/classes/class-auxin-welcome.php:1603
 msgid "Please wait, this may take several minutes .."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1404
+#: includes/classes/class-auxin-welcome.php:1405
 msgid "An error occurred!"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1406
+#: includes/classes/class-auxin-welcome.php:1407
 msgid "Method not exist!"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1420
-#: includes/classes/class-auxin-welcome.php:1456
+#: includes/classes/class-auxin-welcome.php:1421
+#: includes/classes/class-auxin-welcome.php:1457
 msgid "Required Plugins for this demo."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1422
+#: includes/classes/class-auxin-welcome.php:1423
 msgid ""
 "For better and faster install process it's recommended to install demo on a "
 "clean WordPress website."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1457
+#: includes/classes/class-auxin-welcome.php:1458
 msgid "The following plugins are required to be installed for this demo."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1471
+#: includes/classes/class-auxin-welcome.php:1472
 msgid "Ready to install"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1475
+#: includes/classes/class-auxin-welcome.php:1476
 msgid "Not activated"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1521
+#: includes/classes/class-auxin-welcome.php:1522
 msgid "Import Demo Content of Phlox Theme."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1526
+#: includes/classes/class-auxin-welcome.php:1527
 msgid "Complete pre-build Website"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1531
+#: includes/classes/class-auxin-welcome.php:1532
 msgid "Import media (images, videos, etc.)"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1538
+#: includes/classes/class-auxin-welcome.php:1539
 msgid "Selected Data Only"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1544
+#: includes/classes/class-auxin-welcome.php:1545
 msgid "Posts/Pages"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1549
+#: includes/classes/class-auxin-welcome.php:1550
 msgid "Media"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1554
+#: includes/classes/class-auxin-welcome.php:1555
 msgid "Widgets"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1561
+#: includes/classes/class-auxin-welcome.php:1562
 msgid "Menus"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1566
+#: includes/classes/class-auxin-welcome.php:1567
 msgid "Theme Options"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1571
+#: includes/classes/class-auxin-welcome.php:1572
 msgid "MasterSlider (If Available)"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1581
+#: includes/classes/class-auxin-welcome.php:1582
 msgid "Importing Demo Content is in Progress..."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1582
+#: includes/classes/class-auxin-welcome.php:1583
 msgid ""
 "This process may take 5 to 10 minutes to complete, please do not close or "
 "refresh this page."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1616
+#: includes/classes/class-auxin-welcome.php:1617
 msgid "Congratulations!"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1617
+#: includes/classes/class-auxin-welcome.php:1618
 msgid "Demo has been successfully imported."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1622
+#: includes/classes/class-auxin-welcome.php:1623
 msgid "Customize"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1639
+#: includes/classes/class-auxin-welcome.php:1640
 msgid "Importing page content ..."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1654
+#: includes/classes/class-auxin-welcome.php:1655
 msgid ""
 "Images are copyrighted and watermarked. You can remove watermarks by having "
 "Envato Elements subscription"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1655
+#: includes/classes/class-auxin-welcome.php:1656
 msgid ""
 "By subscribing to Envato Elements you will have access to unlimited premium "
 "stock images, icons, graphical assets, videos and more."
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1657
+#: includes/classes/class-auxin-welcome.php:1658
 msgid "Explore and Subscribe"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1665
+#: includes/classes/class-auxin-welcome.php:1666
 msgid "Already an Envato Elements member?"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1665
+#: includes/classes/class-auxin-welcome.php:1666
 msgid "Activate here"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1683
-#: includes/classes/class-auxin-welcome.php:1713
+#: includes/classes/class-auxin-welcome.php:1684
+#: includes/classes/class-auxin-welcome.php:1714
 msgid "Verify Your Envato Elements Subscription"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1684
+#: includes/classes/class-auxin-welcome.php:1685
 msgid "Enter your email below and click continue button"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1686
+#: includes/classes/class-auxin-welcome.php:1687
 msgid "Enter your email"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1714
+#: includes/classes/class-auxin-welcome.php:1715
 msgid "Enter your token below to verify your Subscription"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1716
+#: includes/classes/class-auxin-welcome.php:1717
 msgid "Enter token here"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1718
+#: includes/classes/class-auxin-welcome.php:1719
 msgid "Verify token"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1731
+#: includes/classes/class-auxin-welcome.php:1732
 msgid "How to generate a token ?"
 msgstr ""
 
-#: includes/classes/class-auxin-welcome.php:1732
+#: includes/classes/class-auxin-welcome.php:1733
 msgid "Don't have subscription?"
 msgstr ""
 
@@ -2709,7 +2709,7 @@ msgstr ""
 #: includes/elementor/widgets/recent-posts-tiles.php:92
 #: includes/elementor/widgets/recent-posts-timeline.php:92
 #: includes/elementor/widgets/recent-products.php:101
-#: includes/elementor/widgets/theme-elements/modern-search.php:946
+#: includes/elementor/widgets/theme-elements/modern-search.php:947
 #: includes/elements/popular-posts-widget.php:16
 #: includes/elements/recent-posts-grid-carousel.php:16
 #: includes/elements/recent-posts-land-style.php:16
@@ -2936,7 +2936,7 @@ msgstr ""
 #: includes/elementor/widgets/icon.php:178
 #: includes/elementor/widgets/image.php:327
 #: includes/elementor/widgets/modern-button.php:192
-#: includes/elementor/widgets/modern-button.php:803
+#: includes/elementor/widgets/modern-button.php:807
 #: includes/elementor/widgets/quote.php:173
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1622
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1759
@@ -3177,7 +3177,7 @@ msgstr ""
 #: includes/elementor/widgets/heading-modern.php:120
 #: includes/elementor/widgets/heading-modern.php:270
 #: includes/elementor/widgets/icon.php:154
-#: includes/elementor/widgets/modern-button.php:207
+#: includes/elementor/widgets/modern-button.php:210
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:743
 #: includes/elementor/widgets/text.php:321
 #: includes/elementor/widgets/theme-elements/logo.php:182
@@ -3245,7 +3245,7 @@ msgstr ""
 #: includes/elementor/modules/dynamic-tags/post-time.php:34
 #: includes/elementor/modules/dynamic-tags/request-parameter.php:66
 #: includes/elementor/widgets/accordion.php:145
-#: includes/elementor/widgets/modern-button.php:273
+#: includes/elementor/widgets/modern-button.php:277
 #: includes/elementor/widgets/svg.php:107
 #: includes/elementor/widgets/text.php:111
 #: includes/elementor/widgets/theme-elements/logo.php:135
@@ -4150,10 +4150,10 @@ msgstr ""
 #: includes/elementor/widgets/heading-modern.php:915
 #: includes/elementor/widgets/heading-modern.php:991
 #: includes/elementor/widgets/heading-modern.php:1105
-#: includes/elementor/widgets/modern-button.php:654
-#: includes/elementor/widgets/modern-button.php:766
-#: includes/elementor/widgets/modern-button.php:872
-#: includes/elementor/widgets/modern-button.php:971
+#: includes/elementor/widgets/modern-button.php:658
+#: includes/elementor/widgets/modern-button.php:770
+#: includes/elementor/widgets/modern-button.php:876
+#: includes/elementor/widgets/modern-button.php:975
 #: includes/elementor/widgets/quote.php:288
 #: includes/elementor/widgets/tabs.php:480
 #: includes/elementor/widgets/theme-elements/breadcrumbs.php:240
@@ -4186,10 +4186,10 @@ msgstr ""
 #: includes/elementor/widgets/icon.php:360
 #: includes/elementor/widgets/mailchimp.php:298
 #: includes/elementor/widgets/mailchimp.php:544
-#: includes/elementor/widgets/modern-button.php:387
-#: includes/elementor/widgets/modern-button.php:440
-#: includes/elementor/widgets/modern-button.php:896
-#: includes/elementor/widgets/modern-button.php:995
+#: includes/elementor/widgets/modern-button.php:391
+#: includes/elementor/widgets/modern-button.php:444
+#: includes/elementor/widgets/modern-button.php:900
+#: includes/elementor/widgets/modern-button.php:999
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:957
 #: includes/elementor/widgets/recent-posts-land-style.php:551
 #: includes/elementor/widgets/recent-posts-masonry.php:630
@@ -4237,12 +4237,12 @@ msgstr ""
 #: includes/elementor/widgets/image.php:502
 #: includes/elementor/widgets/mailchimp.php:326
 #: includes/elementor/widgets/mailchimp.php:571
-#: includes/elementor/widgets/modern-button.php:290
-#: includes/elementor/widgets/modern-button.php:350
-#: includes/elementor/widgets/modern-button.php:475
-#: includes/elementor/widgets/modern-button.php:575
-#: includes/elementor/widgets/modern-button.php:687
-#: includes/elementor/widgets/modern-button.php:813
+#: includes/elementor/widgets/modern-button.php:294
+#: includes/elementor/widgets/modern-button.php:354
+#: includes/elementor/widgets/modern-button.php:479
+#: includes/elementor/widgets/modern-button.php:579
+#: includes/elementor/widgets/modern-button.php:691
+#: includes/elementor/widgets/modern-button.php:817
 #: includes/elementor/widgets/recent-comments.php:181
 #: includes/elementor/widgets/recent-comments.php:264
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:974
@@ -4375,10 +4375,10 @@ msgstr ""
 #: includes/elementor/widgets/icon.php:311
 #: includes/elementor/widgets/mailchimp.php:310
 #: includes/elementor/widgets/mailchimp.php:556
-#: includes/elementor/widgets/modern-button.php:375
-#: includes/elementor/widgets/modern-button.php:428
-#: includes/elementor/widgets/modern-button.php:884
-#: includes/elementor/widgets/modern-button.php:983
+#: includes/elementor/widgets/modern-button.php:379
+#: includes/elementor/widgets/modern-button.php:432
+#: includes/elementor/widgets/modern-button.php:888
+#: includes/elementor/widgets/modern-button.php:987
 #: includes/elementor/widgets/quote.php:333
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1403
 #: includes/elementor/widgets/staff.php:778
@@ -4449,14 +4449,14 @@ msgstr ""
 #: includes/elementor/widgets/mailchimp.php:423
 #: includes/elementor/widgets/mailchimp.php:578
 #: includes/elementor/widgets/mailchimp.php:616
-#: includes/elementor/widgets/modern-button.php:491
-#: includes/elementor/widgets/modern-button.php:530
-#: includes/elementor/widgets/modern-button.php:591
-#: includes/elementor/widgets/modern-button.php:630
-#: includes/elementor/widgets/modern-button.php:703
-#: includes/elementor/widgets/modern-button.php:742
-#: includes/elementor/widgets/modern-button.php:843
-#: includes/elementor/widgets/modern-button.php:942
+#: includes/elementor/widgets/modern-button.php:495
+#: includes/elementor/widgets/modern-button.php:534
+#: includes/elementor/widgets/modern-button.php:595
+#: includes/elementor/widgets/modern-button.php:634
+#: includes/elementor/widgets/modern-button.php:707
+#: includes/elementor/widgets/modern-button.php:746
+#: includes/elementor/widgets/modern-button.php:847
+#: includes/elementor/widgets/modern-button.php:946
 #: includes/elementor/widgets/recent-comments.php:188
 #: includes/elementor/widgets/recent-comments.php:208
 #: includes/elementor/widgets/recent-comments.php:271
@@ -4602,8 +4602,8 @@ msgstr ""
 #: includes/elementor/widgets/image.php:345
 #: includes/elementor/widgets/image.php:385
 #: includes/elementor/widgets/image.php:399
-#: includes/elementor/widgets/modern-button.php:222
-#: includes/elementor/widgets/modern-button.php:234
+#: includes/elementor/widgets/modern-button.php:226
+#: includes/elementor/widgets/modern-button.php:238
 #: includes/elementor/widgets/quote.php:221
 #: includes/elementor/widgets/recent-comments.php:155
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:282
@@ -4748,8 +4748,8 @@ msgstr ""
 #: includes/elementor/widgets/image.php:346
 #: includes/elementor/widgets/image.php:386
 #: includes/elementor/widgets/image.php:400
-#: includes/elementor/widgets/modern-button.php:223
-#: includes/elementor/widgets/modern-button.php:235
+#: includes/elementor/widgets/modern-button.php:227
+#: includes/elementor/widgets/modern-button.php:239
 #: includes/elementor/widgets/quote.php:222
 #: includes/elementor/widgets/recent-comments.php:156
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:283
@@ -4879,7 +4879,7 @@ msgstr ""
 #: includes/elementor/widgets/audio.php:150
 #: includes/elementor/widgets/button.php:275
 #: includes/elementor/widgets/button.php:283
-#: includes/elementor/widgets/modern-button.php:316
+#: includes/elementor/widgets/modern-button.php:320
 #: includes/elementor/widgets/tabs.php:149
 #: includes/elementor/widgets/text.php:1028
 #: includes/elementor/widgets/theme-elements/menu.php:610
@@ -4991,7 +4991,7 @@ msgstr ""
 #: includes/elementor/widgets/button.php:52
 #: includes/elementor/widgets/button.php:100
 #: includes/elementor/widgets/modern-button.php:101
-#: includes/elementor/widgets/modern-button.php:265
+#: includes/elementor/widgets/modern-button.php:269
 #: includes/elementor/widgets/text.php:278
 #: includes/elementor/widgets/text.php:992
 #: includes/elementor/widgets/theme-elements/modern-search.php:99
@@ -5022,7 +5022,7 @@ msgid "If you want to link your button."
 msgstr ""
 
 #: includes/elementor/widgets/button.php:130
-#: includes/elementor/widgets/modern-button.php:220
+#: includes/elementor/widgets/modern-button.php:223
 msgid "Open Video in Lightbox"
 msgstr ""
 
@@ -5040,7 +5040,7 @@ msgid "Button size"
 msgstr ""
 
 #: includes/elementor/widgets/button.php:160
-#: includes/elementor/widgets/modern-button.php:304
+#: includes/elementor/widgets/modern-button.php:308
 #: includes/elementor/widgets/text.php:1007 includes/elements/button.php:63
 #: includes/elements/text.php:674 includes/general-hooks.php:686
 #: includes/general-hooks.php:1091
@@ -5049,7 +5049,7 @@ msgstr ""
 
 #: includes/elementor/widgets/button.php:164
 #: includes/elementor/widgets/divider.php:147
-#: includes/elementor/widgets/modern-button.php:308
+#: includes/elementor/widgets/modern-button.php:312
 #: includes/elementor/widgets/text.php:1011 includes/elements/button.php:67
 #: includes/elements/divider.php:91 includes/elements/text.php:678
 #: includes/general-hooks.php:690 includes/general-hooks.php:1095
@@ -5072,7 +5072,7 @@ msgid "Box"
 msgstr ""
 
 #: includes/elementor/widgets/button.php:192
-#: includes/elementor/widgets/modern-button.php:291
+#: includes/elementor/widgets/modern-button.php:295
 #: includes/elementor/widgets/text.php:1336 includes/elements/button.php:95
 #: includes/elements/text.php:712 includes/general-hooks.php:721
 #: includes/general-hooks.php:1126
@@ -5080,7 +5080,7 @@ msgid "Round"
 msgstr ""
 
 #: includes/elementor/widgets/button.php:196
-#: includes/elementor/widgets/modern-button.php:292
+#: includes/elementor/widgets/modern-button.php:296
 #: includes/elementor/widgets/text.php:1340 includes/elements/button.php:99
 #: includes/elements/text.php:716 includes/general-hooks.php:725
 #: includes/general-hooks.php:1130
@@ -5100,7 +5100,7 @@ msgid "3D"
 msgstr ""
 
 #: includes/elementor/widgets/button.php:219
-#: includes/elementor/widgets/modern-button.php:278
+#: includes/elementor/widgets/modern-button.php:282
 #: includes/elementor/widgets/text.php:1364 includes/elements/button.php:126
 #: includes/elements/text.php:746 includes/general-hooks.php:762
 #: includes/general-hooks.php:1167
@@ -5121,10 +5121,10 @@ msgstr ""
 #: includes/elementor/widgets/carousel-navigation.php:292
 #: includes/elementor/widgets/carousel-navigation.php:399
 #: includes/elementor/widgets/heading-modern.php:949
-#: includes/elementor/widgets/modern-button.php:358
-#: includes/elementor/widgets/modern-button.php:411
-#: includes/elementor/widgets/modern-button.php:855
-#: includes/elementor/widgets/modern-button.php:954
+#: includes/elementor/widgets/modern-button.php:362
+#: includes/elementor/widgets/modern-button.php:415
+#: includes/elementor/widgets/modern-button.php:859
+#: includes/elementor/widgets/modern-button.php:958
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1340
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1370
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1550
@@ -5164,7 +5164,7 @@ msgstr ""
 #: includes/elementor/widgets/icon.php:107
 #: includes/elementor/widgets/icon.php:114
 #: includes/elementor/widgets/icon.php:194
-#: includes/elementor/widgets/modern-button.php:785
+#: includes/elementor/widgets/modern-button.php:789
 #: includes/elementor/widgets/text.php:116
 #: includes/elementor/widgets/text.php:126
 #: includes/elementor/widgets/theme-elements/modern-search.php:106
@@ -5195,7 +5195,7 @@ msgid "Icon alignment"
 msgstr ""
 
 #: includes/elementor/widgets/button.php:380
-#: includes/elementor/widgets/modern-button.php:800
+#: includes/elementor/widgets/modern-button.php:804
 #: includes/elementor/widgets/text.php:1116 includes/elements/button.php:191
 #: includes/elements/text.php:809 includes/general-hooks.php:847
 #: includes/general-hooks.php:1252
@@ -5233,7 +5233,7 @@ msgstr ""
 #: includes/elementor/widgets/custom-list.php:765
 #: includes/elementor/widgets/image.php:198
 #: includes/elementor/widgets/modern-button.php:108
-#: includes/elementor/widgets/modern-button.php:464
+#: includes/elementor/widgets/modern-button.php:468
 #: includes/elementor/widgets/quote.php:98
 #: includes/elementor/widgets/quote.php:148
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1349
@@ -5255,12 +5255,12 @@ msgstr ""
 #: includes/elementor/widgets/heading-modern.php:734
 #: includes/elementor/widgets/heading-modern.php:772
 #: includes/elementor/widgets/image.php:683
-#: includes/elementor/widgets/modern-button.php:504
-#: includes/elementor/widgets/modern-button.php:542
-#: includes/elementor/widgets/modern-button.php:604
-#: includes/elementor/widgets/modern-button.php:642
-#: includes/elementor/widgets/modern-button.php:716
-#: includes/elementor/widgets/modern-button.php:754
+#: includes/elementor/widgets/modern-button.php:508
+#: includes/elementor/widgets/modern-button.php:546
+#: includes/elementor/widgets/modern-button.php:608
+#: includes/elementor/widgets/modern-button.php:646
+#: includes/elementor/widgets/modern-button.php:720
+#: includes/elementor/widgets/modern-button.php:758
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1839
 #: includes/elementor/widgets/recent-posts-grid-carousel.php:1895
 #: includes/elementor/widgets/recent-posts-masonry.php:1255
@@ -5348,9 +5348,9 @@ msgstr ""
 #: includes/elementor/widgets/carousel-navigation.php:430
 #: includes/elementor/widgets/custom-list.php:949
 #: includes/elementor/widgets/icon.php:294
-#: includes/elementor/widgets/modern-button.php:300
-#: includes/elementor/widgets/modern-button.php:820
-#: includes/elementor/widgets/modern-button.php:919
+#: includes/elementor/widgets/modern-button.php:304
+#: includes/elementor/widgets/modern-button.php:824
+#: includes/elementor/widgets/modern-button.php:923
 #: includes/elementor/widgets/testimonial.php:756
 #: includes/elementor/widgets/text.php:1003
 #: includes/elementor/widgets/theme-elements/breadcrumbs.php:268
@@ -5880,7 +5880,7 @@ msgstr ""
 #: includes/elementor/widgets/icon.php:166
 #: includes/elementor/widgets/image.php:314
 #: includes/elementor/widgets/modern-button.php:180
-#: includes/elementor/widgets/modern-button.php:796
+#: includes/elementor/widgets/modern-button.php:800
 #: includes/elementor/widgets/svg.php:279
 #: includes/elementor/widgets/theme-elements/breadcrumbs.php:427
 #: includes/elementor/widgets/theme-elements/copyright.php:138
@@ -6200,14 +6200,14 @@ msgstr ""
 
 #: includes/elementor/widgets/heading-modern.php:244
 #: includes/elementor/widgets/modern-button.php:117
-#: includes/elementor/widgets/modern-button.php:561
+#: includes/elementor/widgets/modern-button.php:565
 #: includes/elements/highlight.php:18
 msgid "Highlighted Text"
 msgstr ""
 
 #: includes/elementor/widgets/heading-modern.php:257
 #: includes/elementor/widgets/modern-button.php:126
-#: includes/elementor/widgets/modern-button.php:673
+#: includes/elementor/widgets/modern-button.php:677
 msgid "After Text"
 msgstr ""
 
@@ -6243,7 +6243,7 @@ msgid "Framed"
 msgstr ""
 
 #: includes/elementor/widgets/icon.php:137
-#: includes/elementor/widgets/modern-button.php:286
+#: includes/elementor/widgets/modern-button.php:290
 msgid "Shape"
 msgstr ""
 
@@ -6526,31 +6526,35 @@ msgstr ""
 msgid "Justified"
 msgstr ""
 
-#: includes/elementor/widgets/modern-button.php:232
+#: includes/elementor/widgets/modern-button.php:224
+msgid "To use this option, the above link option should be a video"
+msgstr ""
+
+#: includes/elementor/widgets/modern-button.php:236
 msgid "Display Icon"
 msgstr ""
 
-#: includes/elementor/widgets/modern-button.php:322
+#: includes/elementor/widgets/modern-button.php:326
 msgid "black"
 msgstr ""
 
-#: includes/elementor/widgets/modern-button.php:326
+#: includes/elementor/widgets/modern-button.php:330
 msgid "White"
 msgstr ""
 
-#: includes/elementor/widgets/modern-button.php:330
+#: includes/elementor/widgets/modern-button.php:334
 msgid "Ball Blue"
 msgstr ""
 
-#: includes/elementor/widgets/modern-button.php:334
+#: includes/elementor/widgets/modern-button.php:338
 msgid "Mikado Yellow"
 msgstr ""
 
-#: includes/elementor/widgets/modern-button.php:338
+#: includes/elementor/widgets/modern-button.php:342
 msgid "Carmine Pink"
 msgstr ""
 
-#: includes/elementor/widgets/modern-button.php:801
+#: includes/elementor/widgets/modern-button.php:805
 msgid "Below"
 msgstr ""
 
@@ -7887,8 +7891,8 @@ msgid "Table Even Rows"
 msgstr ""
 
 #: includes/elementor/widgets/search.php:47
-#: includes/elementor/widgets/theme-elements/modern-search.php:908
-#: includes/elementor/widgets/theme-elements/modern-search.php:911
+#: includes/elementor/widgets/theme-elements/modern-search.php:909
+#: includes/elementor/widgets/theme-elements/modern-search.php:912
 #: includes/elements/search.php:14
 msgid "Search"
 msgstr ""
@@ -8623,7 +8627,16 @@ msgstr ""
 msgid "Fullscreen Menu"
 msgstr ""
 
-#: includes/elementor/widgets/theme-elements/menu.php:1415
+#: includes/elementor/widgets/theme-elements/menu.php:1403
+msgid "Close Button"
+msgstr ""
+
+#: includes/elementor/widgets/theme-elements/menu.php:1411
+#: includes/elementor/widgets/theme-elements/menu.php:1422
+msgid "Outline Color"
+msgstr ""
+
+#: includes/elementor/widgets/theme-elements/menu.php:1447
 msgid "There are no menus in your site."
 msgstr ""
 

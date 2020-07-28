@@ -246,7 +246,7 @@ class Contact_Form extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Placeholder', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => esc_html__( 'John Doe', 'bdthemes-element-pack' ),
+				'default'   => esc_html__( 'Your Name', 'bdthemes-element-pack' ),
 				'condition' => [
 					'show_labels' => 'yes',
 					'custom_text' => 'yes',
@@ -402,6 +402,7 @@ class Contact_Form extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Placeholder', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::TEXT,
+				'default'   => esc_html__( 'Your Message Here', 'bdthemes-element-pack' ),
 				'condition' => [
 					'show_labels' => 'yes',
 					'custom_text' => 'yes',
@@ -941,7 +942,7 @@ class Contact_Form extends Widget_Base {
 					'type'        => 'text',
 					'name'        => 'name',
 					'id'          => 'name' . $id,
-					'placeholder' => $settings['user_name_placeholder'],
+					'placeholder' => ($settings['user_name_placeholder']) ? $settings['user_name_placeholder'] : 'Your Name',
 					'class'       => [
 						'bdt-input',
 						'bdt-form-' . $settings['input_size'],
@@ -951,7 +952,7 @@ class Contact_Form extends Widget_Base {
 					'type'        => 'tel',
 					'name'        => 'contact',
 					'id'          => 'contact' . $id,
-					'placeholder' => $settings['contact_placeholder'],
+					'placeholder' => ($settings['contact_placeholder']) ? $settings['contact_placeholder'] : 'Your Contact Number',
 					'class'       => [
 						'bdt-input',
 						'bdt-form-' . $settings['input_size'],
@@ -961,7 +962,7 @@ class Contact_Form extends Widget_Base {
 					'type'        => 'text',
 					'name'        => 'subject',
 					'id'          => 'subject' . $id,
-					'placeholder' => $settings['subject_placeholder'],
+					'placeholder' => ($settings['subject_placeholder']) ? $settings['subject_placeholder'] : 'Your Message Subject',
 					'class'       => [
 						'bdt-input',
 						'bdt-form-' . $settings['input_size'],
@@ -971,7 +972,7 @@ class Contact_Form extends Widget_Base {
 					'type'        => 'email',
 					'name'        => 'email',
 					'id'          => 'email' . $id,
-					'placeholder' => $settings['email_placeholder'],
+					'placeholder' => ($settings['email_placeholder']) ? $settings['email_placeholder'] : 'example@email.com',
 					'class'       => [
 						'bdt-input',
 						'bdt-form-' . $settings['input_size'],
@@ -982,7 +983,7 @@ class Contact_Form extends Widget_Base {
 					'name'        => 'message',
 					'id'          => 'message' . $id,
 					'rows'		  => '5',
-					'placeholder' => $settings['message_placeholder'],
+					'placeholder' => ($settings['message_placeholder']) ? $settings['message_placeholder'] : 'Your Message Here',
 					'class'       => [
 						'bdt-textarea',
 						'bdt-form-' . $settings['input_size'],
@@ -1049,8 +1050,14 @@ class Contact_Form extends Widget_Base {
 				<div <?php echo $this->get_render_attribute_string( 'name-email-field-group' ); ?>>
 					<?php
 					if ( $settings['show_labels'] ) {
-						echo '<label ' . $this->get_render_attribute_string( 'user_name_label' ) . '>' . $settings['user_name_label'] . '</label>';
+						if ( 'yes' == $settings['custom_text'] ) {
+							echo '<label ' . $this->get_render_attribute_string( 'user_name_label' ) . '>' . $settings['user_name_label'] . '</label>';
+						} else {
+							echo '<label ' . $this->get_render_attribute_string( 'user_name_label' ) . '>' . esc_html__( 'Name*', 'bdthemes-element-pack' ) . '</label>';
+						}
 					}
+
+
 					echo '<div class="bdt-form-controls">';
 					echo '<input ' . $this->get_render_attribute_string( 'user_name_input' ) . ' required>';
 					echo '</div>';
@@ -1060,9 +1067,14 @@ class Contact_Form extends Widget_Base {
 
 				<div <?php echo $this->get_render_attribute_string( 'name-email-field-group' ); ?>>
 					<?php
-					if ( $settings['show_labels'] ) :
-						echo '<label ' . $this->get_render_attribute_string( 'email_address_label' ) . '>' . $settings['email_address_label'] . '</label>';
-					endif;
+					if ( $settings['show_labels'] ) {
+						if ( 'yes' == $settings['custom_text'] ) {
+							echo '<label ' . $this->get_render_attribute_string( 'email_address_label' ) . '>' . $settings['email_address_label'] . '</label>';
+						} else {
+							echo '<label ' . $this->get_render_attribute_string( 'email_address_label' ) . '>' . esc_html__( 'Email*', 'bdthemes-element-pack' ) . '</label>';
+						}
+					}
+
 					echo '<div class="bdt-form-controls">';
 					echo '<input ' . $this->get_render_attribute_string( 'email_address_input' ) . ' required>';
 					echo '</div>';
@@ -1072,8 +1084,13 @@ class Contact_Form extends Widget_Base {
 				<?php if ( $settings['contact_number'] ) : ?>
 					<div <?php echo $this->get_render_attribute_string( 'field-group' ); ?>>
 						<?php
+
 						if ( $settings['show_labels'] ) {
-							echo '<label ' . $this->get_render_attribute_string( 'contact_label' ) . '>' . $settings['contact_label'] . '</label>';
+							if ( 'yes' == $settings['custom_text'] ) {
+								echo '<label ' . $this->get_render_attribute_string( 'contact_label' ) . '>' . $settings['contact_label'] . '</label>';
+							} else {
+								echo '<label ' . $this->get_render_attribute_string( 'contact_label' ) . '>' . esc_html__( 'Contact Number', 'bdthemes-element-pack' ) . '</label>';
+							}
 						}
 						echo '<div class="bdt-form-controls">';
 						echo '<input ' . $this->get_render_attribute_string( 'contact_input' ) . '>';
@@ -1086,7 +1103,11 @@ class Contact_Form extends Widget_Base {
 				<div <?php echo $this->get_render_attribute_string( 'field-group' ); ?>>
 					<?php
 					if ( $settings['show_labels'] ) {
-						echo '<label ' . $this->get_render_attribute_string( 'subject_label' ) . '>' . $settings['subject_label'] . '</label>';
+						if ( 'yes' == $settings['custom_text'] ) {
+							echo '<label ' . $this->get_render_attribute_string( 'subject_label' ) . '>' . $settings['subject_label'] . '</label>';
+						} else {
+							echo '<label ' . $this->get_render_attribute_string( 'subject_label' ) . '>' . esc_html__( 'Subject*', 'bdthemes-element-pack' ) . '</label>';
+						}
 					}
 					echo '<div class="bdt-form-controls">';
 					echo '<input ' . $this->get_render_attribute_string( 'subject_input' ) . ' required>';
@@ -1097,9 +1118,13 @@ class Contact_Form extends Widget_Base {
 
 				<div <?php echo $this->get_render_attribute_string( 'field-group' ); ?>>
 					<?php
-					if ( $settings['show_labels'] ) :
-						echo '<label ' . $this->get_render_attribute_string( 'message_label' ) . '>' . $settings['message_label'] . '</label>';
-					endif;
+					if ( $settings['show_labels'] ) {
+						if ( 'yes' == $settings['custom_text'] ) {
+							echo '<label ' . $this->get_render_attribute_string( 'message_label' ) . '>' . $settings['message_label'] . '</label>';
+						} else {
+							echo '<label ' . $this->get_render_attribute_string( 'message_label' ) . '>' . esc_html__( 'Your Message*', 'bdthemes-element-pack' ) . '</label>';
+						}
+					}
 					echo '<div class="bdt-form-controls">';
 					echo '<textarea ' . $this->get_render_attribute_string( 'message_area' ) . ' required></textarea>';
 					echo '</div>';

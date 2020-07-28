@@ -647,7 +647,7 @@ class Iconnav extends Widget_Base {
 				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-icon-nav .tippy-backdrop' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-widget-bdt-iconnav .tippy-backdrop' => 'background-color: {{VALUE}};',
 				],
 			]
 		);

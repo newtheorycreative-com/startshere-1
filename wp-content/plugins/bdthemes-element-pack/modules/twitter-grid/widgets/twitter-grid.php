@@ -4,6 +4,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Css_Filter;
 
 use ElementPack\Modules\QueryControl\Controls\Group_Control_Posts;
 
@@ -22,7 +23,7 @@ class Twitter_Grid extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-twitter-grid bdt-new';
+		return 'bdt-wi-twitter-grid';
 	}
 
 	public function get_categories() {
@@ -399,7 +400,7 @@ class Twitter_Grid extends Widget_Base {
 		$this->add_control(
 			'avatar_width',
 			[
-				'label' => __( 'Width', 'bdthemes-element-pack' ),
+				'label' => __( 'Size', 'bdthemes-element-pack' ),
 				'type'  => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -450,6 +451,29 @@ class Twitter_Grid extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'        => 'avatar_border',
+				'label'       => __( 'Border', 'bdthemes-element-pack' ),
+				'placeholder' => '1px',
+				'default'     => '1px',
+				'selector'    => '{{WRAPPER}} .bdt-twitter-grid .bdt-twitter-thumb-wrapper',
+			]
+		);
+
+		$this->add_responsive_control(
+			'avatar_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .bdt-twitter-grid .bdt-twitter-thumb-wrapper, {{WRAPPER}} .bdt-twitter-grid .bdt-twitter-thumb-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
+				],
+			]
+		);
+
 		$this->add_responsive_control(
 			'avatar_padding',
 			[
@@ -474,18 +498,6 @@ class Twitter_Grid extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'avatar_border_radius',
-			[
-				'label'      => __( 'Border Radius', 'bdthemes-element-pack' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors'  => [
-					'{{WRAPPER}} .bdt-twitter-grid .bdt-twitter-thumb-wrapper, {{WRAPPER}} .bdt-twitter-grid .bdt-twitter-thumb-wrapper img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}; overflow: hidden;',
-				],
-			]
-		);
-
 		$this->add_control(
 			'avatar_opacity',
 			[
@@ -506,6 +518,22 @@ class Twitter_Grid extends Widget_Base {
 				],
 			]
 		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'avatar_shadow',
+				'selector' => '{{WRAPPER}} .bdt-twitter-grid .bdt-twitter-thumb-wrapper',
+			]
+		);
+
+		$this->add_group_control(
+            Group_Control_Css_Filter::get_type(),
+            [
+                'name'      => 'avatar_css_filters',
+                'selector'  => '{{WRAPPER}} .bdt-twitter-grid .bdt-twitter-thumb-wrapper',
+            ]
+        );
 
 		$this->end_controls_section();
 		

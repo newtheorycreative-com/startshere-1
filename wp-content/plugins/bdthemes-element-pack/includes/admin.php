@@ -45,11 +45,11 @@ class Admin {
 		$direction_suffix = is_rtl() ? '.rtl' : '';
 		$suffix           = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( 'bdt-uikit', BDTEP_ASSETS_URL . 'css/bdt-uikit' . $direction_suffix . '.css', [], '3.2' );
+		wp_enqueue_style( 'bdt-uikit', BDTEP_ASSETS_URL . 'css/bdt-uikit' . $direction_suffix . '.css', [], '3.5.5' );
 		wp_enqueue_style( 'element-pack-editor', BDTEP_ASSETS_URL . 'css/element-pack-editor' . $direction_suffix . '.css', [], BDTEP_VER );
 		wp_enqueue_style( 'bdthemes-element-pack-admin', BDTEP_ASSETS_URL . 'css/admin' . $direction_suffix . '.css', [], BDTEP_VER );
 
-		wp_enqueue_script( 'bdt-uikit', BDTEP_ASSETS_URL . 'js/bdt-uikit' . $suffix . '.js', [ 'jquery' ], BDTEP_VER );
+		wp_enqueue_script( 'bdt-uikit', BDTEP_ASSETS_URL . 'js/bdt-uikit' . $suffix . '.js', [ 'jquery' ], '3.5.5' );
 
 
 	}

@@ -10,7 +10,8 @@ use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Box_Shadow;       
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Text_Shadow;
 use Elementor\Utils;
 
 use ElementPack\Modules\HoverVideo\Skins;
@@ -19,8 +20,8 @@ use Elementor\Modules\DynamicTags\Module as TagsModule;
 if (!defined('ABSPATH')) {
     exit();
 }
+ 
 
-// Exit if accessed directly
 class Hover_Video extends Widget_Base
 {
 
@@ -36,7 +37,7 @@ class Hover_Video extends Widget_Base
 
     public function get_icon()
     {
-        return 'bdt-wi-hover-video';
+        return 'bdt-wi-hover-video bdt-new';
     }
 
     public function get_categories()
@@ -61,10 +62,9 @@ class Hover_Video extends Widget_Base
         return ['ep-hover-video'];
     }
 
-    // public function get_custom_help_url()
-    // {
-    //     return 'https://youtu.be/PIQ6BJtNpNU';
-    // }
+    public function get_custom_help_url() {
+        return 'https://youtu.be/RgoWlIm5KOo';
+    }
     
     public function _register_skins() {
         $this->add_skin( new Skins\Skin_Accordion( $this ) );
@@ -87,7 +87,7 @@ class Hover_Video extends Widget_Base
 			[
 				'label'       => esc_html__( 'Video Type', 'bdthemes-element-pack' ),
 				'type'        => Controls_Manager::SELECT,
-				'default'     => 'remote_url',
+				'default'     => 'hosted_url',
 				'label_block' => true,
 				'options'     => [
 					'remote_url' => esc_html__( 'Remote Video', 'bdthemes-element-pack' ),
@@ -109,11 +109,12 @@ class Hover_Video extends Widget_Base
 					'source_type' => 'remote_url',
 				],
 			]
-		);
-
+        );
+        
 		$repeater->add_control(
 			'hosted_url',
 			[
+                'label'       => __('Select Video', 'bdthemes-element-pack'),
 				'type'    => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active'     => true,
@@ -132,7 +133,7 @@ class Hover_Video extends Widget_Base
         $repeater->add_control(
             'hover_video_poster',
             [
-                'label'       => __('Video Poster', 'bdthemes-element-pack'),
+                'label'       => __('Select Poster', 'bdthemes-element-pack'),
                 'type'        => Controls_Manager::MEDIA,
                 'dynamic'     => [
                     'active' => true,
@@ -217,18 +218,17 @@ class Hover_Video extends Widget_Base
                 'fields'      => $repeater->get_controls(),
                 'default'     => [
                     [
-                        'hover_video_title'   => 'DUAL-LENS 360',
-                        'hover_item_icon'  => ['value' => 'far fa-laugh', 'library' => 'fa-regular'],
+                        'hover_video_title' => __( 'Hover Video 01', 'bdthemes-element-pack' ),
+                        'hover_item_icon'   => ['value' => 'far fa-laugh', 'library' => 'fa-regular'],
                     ],
                     [
-                        'hover_video_title'   => '4K WIDE ANGLE',
-                        'hover_item_icon'  => ['value' => 'far fa-laugh', 'library' => 'fa-regular'],
+                        'hover_video_title' => __( 'Hover Video 02', 'bdthemes-element-pack' ),
+                        'hover_item_icon'   => ['value' => 'far fa-laugh', 'library' => 'fa-regular'],
                     ],
-                    [
-                        'hover_video_title'   => '4K WIDE ANGLE',
-                        'hover_item_icon'  => ['value' => 'far fa-laugh', 'library' => 'fa-regular'],
-
-                    ],
+                    // [
+                    //     'hover_video_title' => __( 'Hover Video 03', 'bdthemes-element-pack' ),
+                    //     'hover_item_icon'   => ['value' => 'far fa-laugh', 'library' => 'fa-regular'],
+                    // ],
                 ],
                 'title_field' => '{{{ hover_video_title }}}',
             ]
@@ -261,12 +261,10 @@ class Hover_Video extends Widget_Base
             ]
         );
 
-
-
         $this->add_control(
             'progress_visibility',
             [
-                'label' => __('Show Progress', 'bdthemes-element-pack'),
+                'label' => __('Show Progress Bar', 'bdthemes-element-pack'),
                 'type'  => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
@@ -280,7 +278,6 @@ class Hover_Video extends Widget_Base
             ]
         );
 
-
         $this->add_control(
             'video_preload',
             [
@@ -290,11 +287,28 @@ class Hover_Video extends Widget_Base
             ]
         );
 
-           // preload="none"
+        $this->add_control(
+            'video_autoplay',
+            [
+                'label'   => __('Autoplay', 'bdthemes-element-pack'),
+                'type'    => Controls_Manager::SWITCHER,
+            ]
+        );
 
+        $this->add_control(
+            'btn_progress_visibility',
+            [
+                'label'   => __('Progress On Button', 'bdthemes-element-pack'),
+                'type'    => Controls_Manager::SWITCHER,
+                'condition'=> [
+                    '_skin' => ['']
+                ]
+            ]
+        );
 
         $this->end_controls_section();
 
+        //Style
         $this->start_controls_section(
             'hover_video',
             [
@@ -319,7 +333,7 @@ class Hover_Video extends Widget_Base
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-wrapper-list video' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-wrapper-list video, {{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -327,47 +341,321 @@ class Hover_Video extends Widget_Base
         $this->add_group_control(
            Group_Control_Box_Shadow::get_type(),
            [
-            'name'     => 'hover_video_shadow',
-            'selector' => '{{WRAPPER}} .bdt-hover-video .bdt-hover-wrapper-list video'
-        ]
-    );
+                'name'     => 'hover_video_shadow',
+                'selector' => '{{WRAPPER}} .bdt-hover-video .bdt-hover-wrapper-list video',
+                'condition' => [
+                    '_skin' => '',
+                ]
+            ]
+        );
 
         $this->add_group_control(
             Group_Control_Css_Filter::get_type(),
             [
-                'name'      => 'hover_video_css_filters',
+                'name'      => 'hover_video_css_filters_active',
                 'selector'  => '{{WRAPPER}} .bdt-hover-video .bdt-hover-wrapper-list video',
             ]
         );
 
- 
+        $this->add_control(
+            'hr',
+            [
+                'type'      => Controls_Manager::DIVIDER,
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'hover_video_item_heading',
+            [
+                'label'     => __('Hover Item', 'bdthemes-element-pack'),
+                'type'      => Controls_Manager::HEADING,
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->start_controls_tabs('mask_content_tabs');
+
+        $this->start_controls_tab(
+            'mask_content_normal',
+            [
+                'label' => __('Normal', 'bdthemes-element-pack'),
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+         $this->add_control(
+            'mask_content_color',
+            [
+                'label'     => __('Color', 'bdthemes-element-pack'),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask  i' => 'color: {{VALUE}}', 
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask .bdt-hover-text' => 'color: {{VALUE}}', 
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask  svg *' => 'stroke: {{VALUE}}', 
+                ],
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+        
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'      => 'mask_content_bg',
+                'selector'  => '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask .bdt-hover-mask-text-group',
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'accrordion_text_shadow',
+				'label' => __( 'Text Shadow', 'bdthemes-element-pack' ),
+                'selector' => '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask .bdt-hover-text',
+                'condition' => [
+                    '_skin!' => '',
+                ]
+			]
+		);
+
         $this->add_responsive_control(
-            'hover_video_spacing',
+            'mask_content_padding',
+            [
+                'label'      => esc_html__('Padding', 'bdthemes-element-pack'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask .bdt-hover-mask-text-group' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'mask_content_text',
+                'selector' => '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask .bdt-hover-text',
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'mask_content_align',
+            [
+                'label'       => __( 'Alignment', 'bdthemes-element-pack' ),
+                'type'        => Controls_Manager::CHOOSE,
+                'toggle'      => false,
+                'default'     => 'left',
+                'options'     => [
+                    'left'   => [
+                        'title' => __( 'Left', 'bdthemes-element-pack' ),
+                        'icon'  => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => __( 'Center', 'bdthemes-element-pack' ),
+                        'icon'  => 'eicon-text-align-center',
+                    ],
+                    'right'  => [
+                        'title' => __( 'Right', 'bdthemes-element-pack' ),
+                        'icon'  => 'eicon-text-align-right',
+                    ],
+                ],
+                'selectors'   => [
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask .bdt-hover-mask-text-group' => 'text-align: {{VALUE}};',
+                ],
+                'condition' => [
+                    '_skin!' => '',
+                ],
+                'render_type' => 'template'
+            ]
+        );
+    
+        $this->add_control(
+            'accr_mask_opacity',
+            [
+                'label'     => __('Opacity', 'bdthemes-element-pack'),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'step'=> 0.1,
+                        'max' => 1,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask .bdt-hover-mask-text-group' => 'opacity: {{SIZE}}',
+                ],
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'mask_hover_svg_img_heading',
+            [
+                'label'     => __('Icon', 'bdthemes-element-pack'),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'mask_hover_svg_img_size',
+            [
+                'label'     => __('Size', 'bdthemes-element-pack'),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [
+                    'px' => [
+                        'min' => 15,
+                        'max' => 50,
+                    ],
+                ], 
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask  i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask img' => 'width: {{SIZE}}{{UNIT}};',  
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask  svg' => 'width: {{SIZE}}{{UNIT}};', 
+                ],
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'mask_hover_svg_img_spacing',
             [
                 'label'     => __('Spacing', 'bdthemes-element-pack'),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => [
                     'px' => [
-                        'min' => 1,
+                        'min' => 15,
                         'max' => 50,
                     ],
                 ], 
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-wrapper-list' => 'margin-bottom: {{SIZE}}{{UNIT}};', 
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask .bdt-hover-icon' => 'padding-bottom: {{SIZE}}{{UNIT}};',
                 ],
+                'condition' => [
+                    '_skin!' => '',
+                ]
             ]
         );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'mask_content_active',
+            [
+                'label' => __('Active', 'bdthemes-element-pack'),
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'mask_content_color_active',
+            [
+                'label'     => __('Color', 'bdthemes-element-pack'),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask.active  i' => 'color: {{VALUE}}', 
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask.active .bdt-hover-text' => 'color: {{VALUE}}', 
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask.active  svg *' => 'stroke: {{VALUE}}', 
+                ],
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'      => 'mask_content_bg_active',
+                'selector'  => '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask.active .bdt-hover-mask-text-group',
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'mask_content_text_active',
+                'selector' => '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask.active .bdt-hover-text',
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'accr_mask_opacity_active',
+            [
+                'label'     => __('Opacity', 'bdthemes-element-pack'),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [
+                    'px' => [
+                        'min' => 0,
+                        'step'=> 0.1,
+                        'max' => 1,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-hover-video.skin-accordion .bdt-hover-wrapper-list .bdt-hover-mask-list .bdt-hover-mask.active .bdt-hover-mask-text-group' => 'opacity: {{SIZE}}',
+                ],
+                'condition' => [
+                    '_skin!' => '',
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
 
         $this->start_controls_section(
             'hover_progress_style',
             [
-                'label'     => __('Progress', 'bdthemes-element-pack'),
+                'label'     => __('Progress Bar', 'bdthemes-element-pack'),
                 'tab'       => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'progress_visibility' => ['yes'],
-                ]
+                'conditions' => [
+                    'relation' => 'or',
+                    'terms'    => [
+                        [
+                            'name'  => 'progress_visibility',
+                            'value' => 'yes',
+                        ],
+                        [
+                            'name'  => 'btn_progress_visibility',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
             ]
         );
 
@@ -379,6 +667,7 @@ class Hover_Video extends Widget_Base
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list .bdt-hover-bar-wrapper .bdt-hover-bar' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-btn-wrapper .bdt-hover-bar' => 'background-color: {{VALUE}}',
 
                 ],
             ]
@@ -390,7 +679,8 @@ class Hover_Video extends Widget_Base
                 'label'     => __('Fill Color', 'bdthemes-element-pack'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list .bdt-hover-bar-wrapper .bdt-hover-bar .bdt-hover-progress' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list .bdt-hover-bar-wrapper .bdt-hover-bar .bdt-hover-progress' => 'background-color: {{VALUE}}',   
+                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-btn-wrapper .bdt-hover-bar .bdt-hover-progress' => 'background-color: {{VALUE}}',
 
                 ],
             ]
@@ -410,6 +700,9 @@ class Hover_Video extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list .bdt-hover-bar-wrapper .bdt-hover-bar' => 'height: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list .bdt-hover-bar-wrapper .bdt-hover-bar .bdt-hover-progress'  => 'height: {{SIZE}}{{UNIT}};',
+
+                    '{{WRAPPER}} .bdt-hover-video.skin-default .bdt-hover-btn-wrapper .bdt-hover-btn .bdt-hover-bar'  => 'height: {{SIZE}}{{UNIT}};', 
+                    '{{WRAPPER}} .bdt-hover-video.skin-default .bdt-hover-btn-wrapper .bdt-hover-btn .bdt-hover-bar .bdt-hover-progress'  => 'height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -428,18 +721,24 @@ class Hover_Video extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list .bdt-hover-bar-wrapper .bdt-hover-bar' => 'width: {{SIZE}}{{UNIT}};', 
                 ],
+                'condition' => [
+                    '_skin!' => '',
+                ]
             ]
         );
 
         $this->add_control(
             'hover_progress_border_radius',
             [
-                'label'      => esc_html__('Border Radius', 'bdthemes-element-pack'),
+                'label'      => esc_html__('Radius', 'bdthemes-element-pack'),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list .bdt-hover-bar-wrapper .bdt-hover-bar' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list .bdt-hover-bar-wrapper .bdt-hover-bar .bdt-hover-progress'  => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+
+                    '{{WRAPPER}} .bdt-hover-video.skin-default .bdt-hover-btn-wrapper .bdt-hover-btn .bdt-hover-bar'  => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .bdt-hover-video.skin-default .bdt-hover-btn-wrapper .bdt-hover-btn .bdt-hover-bar .bdt-hover-progress'  => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -456,13 +755,13 @@ class Hover_Video extends Widget_Base
                     ],
                 ], 
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list' => 'margin-bottom: {{SIZE}}{{UNIT}};', 
+                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-bar-list' => 'margin-top: {{SIZE}}{{UNIT}};', 
                 ],
+                'condition' => [
+                    '_skin!' => '',
+                ]
             ]
         );
-
-        
-
 
         $this->end_controls_section();
 
@@ -475,6 +774,23 @@ class Hover_Video extends Widget_Base
                 'condition'=> [
                     '_skin' => ['']
                 ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'hover_button_spacing',
+            [
+                'label'     => __('Spacing', 'bdthemes-element-pack'),
+                'type'      => Controls_Manager::SLIDER,
+                'range'     => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 50,
+                    ],
+                ], 
+                'selectors' => [
+                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-btn-wrapper' => 'margin-top: {{SIZE}}{{UNIT}};', 
+                ],
             ]
         );
 
@@ -542,28 +858,23 @@ class Hover_Video extends Widget_Base
             ]
         );
 
+        $this->add_responsive_control(
+            'hover_button_margin',
+            [
+                'label'      => esc_html__('Margin', 'bdthemes-element-pack'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-btn-wrapper .bdt-hover-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
         $this->add_group_control(
            Group_Control_Box_Shadow::get_type(),
            [
-            'name'     => 'hover_button_shadow',
-            'selector' => '{{WRAPPER}} .bdt-hover-video .bdt-hover-wrapper-list video'
-        ]
-    );
-
-        $this->add_control(
-            'hover_button_spaceing',
-            [
-                'label'     => __('Spacing', 'bdthemes-element-pack'),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 15,
-                    ],
-                ], 
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-btn-wrapper .bdt-hover-btn:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};', 
-                ],
+                'name'     => 'hover_button_shadow',
+                'selector' => '{{WRAPPER}} .bdt-hover-video .bdt-hover-btn-wrapper .bdt-hover-btn'
             ]
         );
 
@@ -571,7 +882,7 @@ class Hover_Video extends Widget_Base
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'hover_button_text',
+                'name'     => 'hover_button_text_size',
                 'selector' => '{{WRAPPER}} .bdt-hover-video.skin-default .bdt-hover-btn-wrapper .bdt-hover-btn .bdt-hover-btn-text',
             ]
         );
@@ -605,15 +916,15 @@ class Hover_Video extends Widget_Base
         );
 
         $this->add_control(
-            'hover_svg_img_heading',
+            'mask_icon',
             [
-                'label'     => __('Icon/Image', 'bdthemes-element-pack'),
+                'label'     => __('Icon', 'bdthemes-element-pack'),
                 'type'      => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'hover_svg_img_size',
             [
                 'label'     => __('Size', 'bdthemes-element-pack'),
@@ -658,15 +969,6 @@ class Hover_Video extends Widget_Base
             ]
         );
 
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name'      => 'hover_button_bg_active',
-                'selector'  => '{{WRAPPER}} .bdt-hover-video .bdt-hover-btn-wrapper .bdt-hover-btn.active',
-            ]
-        );
-
         $this->add_control(
             'hover_button_color_active',
             [
@@ -689,14 +991,22 @@ class Hover_Video extends Widget_Base
                    '{{WRAPPER}} .bdt-hover-video .bdt-hover-btn-wrapper .bdt-hover-btn.active'  => 'border-color: {{VALUE}};',
                ],
                'condition' => [
-                'hover_button_border_border!' => '',
-            ],
-        ]
-    );
+                    'hover_button_border_border!' => '',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'      => 'hover_button_bg_active',
+                'selector'  => '{{WRAPPER}} .bdt-hover-video .bdt-hover-btn-wrapper .bdt-hover-btn.active',
+            ]
+        ); 
 
         $this->end_controls_tab();
-        $this->end_controls_tabs();
 
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
 
@@ -708,16 +1018,22 @@ class Hover_Video extends Widget_Base
 
         $this->add_render_attribute( 'hover_video_attr', 'class', 'bdt-hover-video' );
         $this->add_render_attribute( 'hover_video_attr', 'class', 'skin-default' );
-
+        
         $proVisibility = ($settings['progress_visibility']) == 'yes' ? 'yes' : 'no';
-
+        
         $video_preload = ($settings['video_preload']) == 'yes' ? 'auto' : 'none';
         
+        if ( 'yes' == $settings['video_autoplay'] ) {
+            $this->add_render_attribute( 'hover_video_wrapper', 'class', 'bdt-hover-wrapper-list autoplay' );
+        } else {
+            $this->add_render_attribute( 'hover_video_wrapper', 'class', 'bdt-hover-wrapper-list' );
+        }
 
         ?>
 
         <div <?php echo $this->get_render_attribute_string('hover_video_attr'); ?>>
-            <div class="bdt-hover-wrapper-list">
+            <span class="hover-video-loader"></span>
+            <div <?php echo $this->get_render_attribute_string('hover_video_wrapper'); ?>>
                 <?php
                 $i = 0;
                 foreach ($settings['hover_video_list'] as $index => $item):
@@ -737,7 +1053,7 @@ class Hover_Video extends Widget_Base
                     }
                     
                     if (!$video_source) {
-                        $video_poster = BDTEP_ASSETS_URL . 'images/video-not-found.svg';
+                        $video_poster = BDTEP_ASSETS_URL . 'images/no-video.svg';
                     }
 
                     ?>
@@ -780,14 +1096,18 @@ class Hover_Video extends Widget_Base
                 $i++;
                 $this->add_render_attribute('bdt_hover_btn_attr', 'class', 'bdt-hover-btn', true);
                 $this->add_render_attribute('bdt_hover_btn_attr', 'data-id', $this->get_id().'-'.$item['_id'], true);
+
+                $this->add_render_attribute('button_pro_attr', 'class', 'bdt-hover-progress', true); 
+                $this->add_render_attribute('button_pro_attr', 'data-id', $this->get_id().'-'.$item['_id'], true);
+
                 if ($i == 1) {
                     $this->add_render_attribute('bdt_hover_btn_attr', 'class', 'active');
+                    $this->add_render_attribute('button_pro_attr', 'class', 'active');
                 }
             // echo $i;
 
                 ?>
                 <div <?php echo $this->get_render_attribute_string('bdt_hover_btn_attr'); ?>>
-                    <!-- <img  src="http://192.168.0.101:8012/element-pack/circle/video-player/insta-360/assets/insta-360-btn-1.png"> -->
                     <?php if($settings['icon_visibility'] == 'yes'){ ?>
                         <div class="bdt-hover-icon-wrapper">
                             <span class="bdt-hover-icon">
@@ -823,6 +1143,11 @@ class Hover_Video extends Widget_Base
                     <div class="bdt-hover-btn-text">
                         <?php echo $item['hover_video_title']; ?>
                     </div>
+                    <?php if($settings['btn_progress_visibility'] == 'yes'){ ?>
+                   <div class="bdt-hover-bar">
+                       <div <?php echo $this->get_render_attribute_string('button_pro_attr'); ?>></div>
+                   </div>
+                    <?php } ?>
                 </div>
 
             <?php endforeach;?>
@@ -832,3 +1157,4 @@ class Hover_Video extends Widget_Base
     <?php
 }
 }
+ 

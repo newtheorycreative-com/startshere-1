@@ -11,8 +11,6 @@
         var iconBx = document.querySelectorAll('#' + $settings.tabs_id + ' .bdt-fancy-tabs-item');
         var contentBx = document.querySelectorAll('#' + $settings.tabs_id + ' .bdt-fancy-tabs-content');
 
-        // console.log(iconBx);
-
         for (var i = 0; i < iconBx.length; i++) {
             iconBx[i].addEventListener($settings.mouse_event, function() {
                 for (var i = 0; i < contentBx.length; i++) {

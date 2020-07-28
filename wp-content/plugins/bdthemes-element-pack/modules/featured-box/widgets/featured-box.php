@@ -28,7 +28,7 @@ class Featured_Box extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-featured-box bdt-new';
+		return 'bdt-wi-featured-box';
 	}
 
 	public function get_categories() {
@@ -42,6 +42,10 @@ class Featured_Box extends Widget_Base {
 	public function get_style_depends() {
 		return [ 'ep-featured-box' ];
 	}
+
+	public function get_custom_help_url() {
+        return 'https://youtu.be/Qe4yYXajhQg';
+    }
 
 	public function _register_skins() {
 		$this->add_skin( new Skins\Skin_Split( $this ) );

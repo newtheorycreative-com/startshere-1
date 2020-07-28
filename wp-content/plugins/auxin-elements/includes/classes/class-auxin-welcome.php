@@ -693,19 +693,22 @@ class Auxin_Welcome extends Auxin_Welcome_Base {
     /*-----------------------------------------------------------------------------------*/
 
     public function setup_templates(){
-        $tempList      = $this->get_demo_list( 'templates' );
+        $template_list = $this->get_demo_list( 'templates' );
 
         // Create subjects group by type
-        $subjectsGroup = array();
-        foreach ( $tempList['templates'] as $key => $args ) {
-            // Convert subject JSON to Array
-            $categoryStack = json_decode( $args['subject'], true );
-            // Set group type
-            if( ! isset( $subjectsGroup[ $args['type'] ] ) ) {
-                $subjectsGroup[ $args['type'] ] = array();
+        $subjects_group = array();
+
+        if( $template_list ){
+            foreach ( $template_list['templates'] as $key => $args ) {
+                // Convert subject JSON to Array
+                $categoryStack = json_decode( $args['subject'], true );
+                // Set group type
+                if( ! isset( $subjects_group[ $args['type'] ] ) ) {
+                    $subjects_group[ $args['type'] ] = array();
+                }
+                // Pass items to group type
+                $subjects_group[ $args['type'] ] = array_unique( array_merge( $subjects_group[ $args['type'] ], $categoryStack ), SORT_REGULAR );
             }
-            // Pass items to group type
-            $subjectsGroup[ $args['type'] ] = array_unique( array_merge( $subjectsGroup[ $args['type'] ], $categoryStack ), SORT_REGULAR );
         }
 
         $activeIsoGroup = get_option( 'aux_isotope_group_templates_kit', 'page' );
@@ -723,7 +726,7 @@ class Auxin_Welcome extends Auxin_Welcome_Base {
                 </div>
                 <div class="aux-isotope-filters-wrapper">
             <?php
-            foreach ( $subjectsGroup as $type => $subjects ) {
+            foreach ( $subjects_group as $type => $subjects ) {
             ?>
                 <ul class="aux-group-filter aux-grouping-<?php echo esc_attr( $type ); ?> <?php echo $activeIsoGroup !== $type ? 'aux-iso-hidden' : ''; ?>">
                     <li data-filter="all"><a href="#" class="aux-selected"><span data-select="<?php _e('Recent', 'auxin-elements'); ?>"><?php _e('Recent', 'auxin-elements'); ?></span></a></li>
@@ -745,10 +748,10 @@ class Auxin_Welcome extends Auxin_Welcome_Base {
 
             <div class="aux-templates-list aux-grid-list aux-isotope-templates" data-search-filter="true" data-grouping="<?php echo esc_attr( $activeIsoGroup ); ?> ">
             <?php
-                if( ! is_array( $tempList['templates'] ) ){
+                if( ! is_array( $template_list['templates'] ) ){
                     echo '<p class="aux-grid-item grid_12">'. __( 'An error occurred while downloading the list of templates. Please try again later.' ) .'</p>';
                 } else {
-                    foreach ( $tempList['templates'] as $key => $args ) {
+                    foreach ( $template_list['templates'] as $key => $args ) {
 
                         // Collect plugin filters for current item
                         $filter_categories = '';
@@ -961,8 +964,6 @@ class Auxin_Welcome extends Auxin_Welcome_Base {
 	 * Parse the demos list API
 	 */
     public function get_demo_list( $type = 'demos', $url = 'http://demo.phlox.pro/api/v2/info/', $sanitize_key = 'auxin_cache_demo_library_items' ) {
-
-        // $url = 'http://demo.phlox.pro/api/?demo_list&demo=beta&key=averta_avtdph';
 
         if( $type === 'templates' ){
             $url          = 'http://library.phlox.pro/info-api/';

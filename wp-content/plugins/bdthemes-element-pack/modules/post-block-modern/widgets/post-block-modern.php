@@ -884,7 +884,7 @@ class Post_Block_Modern extends Widget_Base {
 
 					            	<?php if ('yes' == $settings['show_meta']) : ?>
 
-										<?php $meta_list = '<span><span>'.esc_attr(get_the_date('d F Y')).'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
+										<?php $meta_list = '<span><span>'.get_the_date().'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
 
 										<div class="bdt-post-block-modern-meta bdt-subnav bdt-flex-middle bdt-flex-center"><?php echo wp_kses_post($meta_list); ?></div>
 
@@ -910,7 +910,7 @@ class Post_Block_Modern extends Widget_Base {
 					  		<div class="bdt-post-block-modern-desc">
 
 								<?php if ('yes' == $settings['show_meta']) : ?>
-									<?php $meta_list = '<span><span>'.esc_attr(get_the_date('d F Y')).'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
+									<?php $meta_list = '<span><span>'.get_the_date().'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
 									
 									<div class="bdt-post-block-modern-meta bdt-subnav"><?php echo wp_kses_post($meta_list); ?></div>
 								<?php endif ?>

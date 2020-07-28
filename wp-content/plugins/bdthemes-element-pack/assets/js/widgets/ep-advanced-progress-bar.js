@@ -8,15 +8,17 @@
         }
                     
  
- 
         elementorFrontend.waypoint($advancedProgressBar, function() {
             var $this = $(this);
-            var bar = $(".bdt-progress-item .bdt-progress-fill"),
+ 
+            //.bdt-progress-item .bdt-progress-fill
+            var bar = $(this).find(" .bdt-progress-fill"),
                 barPos,
                 windowBtm = $(window).scrollTop() + $(window).height();
             bar.each(function() {
                 barPos = $(this).offset().top;
-                if (barPos <= windowBtm) {
+
+                // if (barPos <= windowBtm) {
                     $(this).css("width", function() {
                          var thisMaxVal = $(this).attr("max-value");
                          var thisFillVal = $(this).attr("data-width").slice(0, -1); 
@@ -32,10 +34,10 @@
                         '-o-transform': 'scale(1)',
                         'transform': 'scale(1)'
                     });
-                }
+                // }
             });
         }, {
-            offset: 'bottom-in-view'
+            offset: '90%'
         });
  
     };

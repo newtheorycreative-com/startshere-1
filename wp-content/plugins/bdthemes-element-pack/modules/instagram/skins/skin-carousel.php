@@ -23,6 +23,15 @@ class Skin_Carousel extends Skin_Base {
 		$options   = get_option( 'element_pack_api_settings' );
 		$access_token    = (!empty($options['instagram_access_token'])) ? $options['instagram_access_token'] : '';
 
+		$instagram_app_secret = ( ! empty( $options['instagram_app_secret'] ) ) ? $options['instagram_app_secret'] : '';
+
+        if ( ! $instagram_app_secret ) {
+            element_pack_alert( 'Ops! You did not set Instagram App Secret in element pack settings!' );
+
+            return;
+        }
+
+		$data = $this->parent->get_instagram_data($instagram_app_secret);
 
 		if (!$access_token) {
 			element_pack_alert('Ops! You did not set Instagram Access Token in element pack settings!');
@@ -58,8 +67,6 @@ class Skin_Carousel extends Skin_Base {
 					'data-settings' => [
 						wp_json_encode(array_filter([
 							'action'              => 'element_pack_instagram_ajax_load',
-							'show_comment'        => ( $settings['show_comment'] ) ? true : false,
-							'show_like'           => ( $settings['show_like'] ) ? true : false,
 							'show_link'           => ( $settings['show_link'] ) ? true : false,
 							'show_lightbox'       => ( $settings['show_lightbox'] ) ? true : false,
 							'current_page'        => 1,
@@ -90,11 +97,42 @@ class Skin_Carousel extends Skin_Base {
 			
 			<div <?php echo $this->parent->get_render_attribute_string( 'instagram-carousel' ); ?>>
 			
-				<?php  for ( $dummy_item_count = 1; $dummy_item_count <= $settings["items"]["size"]; $dummy_item_count++ ) : ?>
-				
-				<div class="bdt-instagram-item"><div class="bdt-dummy-loader"></div></div>
+				<?php
+                $limit = 1;
+                foreach ( $data as $item ) { ?>
 
-				<?php endfor; ?>
+                    <div class="bdt-instagram-item-wrapper feed-type-video bdt-first-column">
+                        <div class="bdt-instagram-item bdt-transition-toggle bdt-position-relative bdt-scrollspy-inview bdt-animation-fade">
+                            <div class="bdt-instagram-thumbnail">
+                                <?php if ( 'VIDEO' == $item->media_type) : ?>
+                                    <video src="<?php echo $item->media_url; ?>" title="Image by: <?php echo $item->username; ?>">
+                                <?php else : ?>
+                                    <img src="<?php echo $item->media_url; ?>" alt="Image by: <?php echo $item->username; ?>" bdt-img>
+                                <?php endif; ?>
+                            </div>
+
+                            <?php if ( $settings['show_lightbox'] or $settings['show_link'] ) : ?>
+                            <a href="<?php echo $item->media_url; ?>" data-elementor-open-lightbox="no">
+                                <div class="bdt-transition-fade bdt-inline-clip bdt-position-cover bdt-overlay bdt-overlay-default ">
+									<?php if ('VIDEO' == $item->media_type) : ?>
+										<span class='bdt-position-center' bdt-icon="play"></span>
+									<?php else : ?>
+										<span class='bdt-position-center' bdt-icon="plus"></span>
+									<?php endif; ?>
+                                </div>
+                            </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                    
+                    <?php
+                    if ( $limit++ == $settings['items']['size'] ) {
+                        break;
+                    }
+                }
+                
+                ?>
 				
 			</div>
 			

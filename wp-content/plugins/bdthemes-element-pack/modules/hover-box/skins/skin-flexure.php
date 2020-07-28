@@ -77,19 +77,30 @@ class Skin_Flexure extends Elementor_Skin_Base {
 						$this->parent->add_render_attribute( 'box-item', 'class', 'bdt-hover-box-item', true );
 						
 						$this->parent->add_render_attribute( 'bdt-hover-box-title', 'class', 'bdt-hover-box-title', true );
+						$this->parent->add_render_attribute(
+							[
+								'title-link' => [
+									'class' => [
+										'bdt-hover-box-title-link',
+									],
+									'href'   => $item['title_link']['url'] ? esc_url($item['title_link']['url']) : 'javascript:void(0);',
+									'target' => $item['title_link']['is_external'] ? '_blank' : '_self'
+								]
+							], '', '', true
+						);
 						
 						?>
                         <div <?php echo ( $this->parent->get_render_attribute_string( 'box-item' ) ); ?> data-id="<?php echo esc_attr($tab_id); ?>">
 
                             <?php if ( $item['hover_box_title'] && ( 'yes' == $settings['show_title'] ) ) : ?>
                                 <<?php echo esc_html($settings['title_tags']); ?> <?php echo $this->parent->get_render_attribute_string('bdt-hover-box-title'); ?>>
-                                    <?php if ( '' !== $item['title_link']['url'] ) : ?>
-                                        <a href="<?php echo esc_url( $item['title_link']['url'] ); ?>">
-                                    <?php endif; ?>
-                                        <?php echo wp_kses( $item['hover_box_title'], element_pack_allow_tags('title') ); ?>
-                                    <?php if ( '' !== $item['title_link']['url'] ) : ?>
-                                        </a>
-                                    <?php endif; ?>
+									<?php if ( '' !== $item['title_link']['url'] ) : ?>
+										<a <?php echo $this->parent->get_render_attribute_string( 'title-link' ); ?>>
+									<?php endif; ?>
+										<?php echo wp_kses( $item['hover_box_title'], element_pack_allow_tags('title') ); ?>
+									<?php if ( '' !== $item['title_link']['url'] ) : ?>
+										</a>
+									<?php endif; ?>
                                 </<?php echo esc_html($settings['title_tags']); ?>>
                             <?php endif; ?>
 

@@ -30,7 +30,8 @@ class Auxin_Demo_Importer {
         'initial_version_free',
         'initial_date_pro',
         'initial_version_pro',
-        'client_key'
+        'client_key',
+        'imported_demo_id'
     ];
 
     /**
@@ -313,8 +314,8 @@ class Auxin_Demo_Importer {
 
                 }
 
-                auxin_delete_transient( 'aux-old-products-id-transformation' );
                 $this->update_imported_ids();
+                auxin_delete_transient( 'aux-old-products-id-transformation' );
                 if ( ! empty( $data['terms-meta'] ) ) {
                     $this->add_demo_terms_meta( $data['terms-meta'] );
                 }
@@ -829,6 +830,10 @@ class Auxin_Demo_Importer {
                     auxin_set_transient( "aux-elementor-library-{$post['ID']}-changs-to", $post_id, 48 * HOUR_IN_SECONDS );
                 }
 
+                if ( $post['post_type'] == 'post' ) {
+                    auxin_set_transient( "aux-post-{$post['ID']}-changs-to", $post_id, 48 * HOUR_IN_SECONDS );
+                }
+
                 if ( $post['post_type'] == 'page' ) {
                     auxin_set_transient( "aux-page-{$post['ID']}-changs-to", $post_id, 48 * HOUR_IN_SECONDS );
                 }
@@ -1091,12 +1096,13 @@ class Auxin_Demo_Importer {
                 // Change products's id in flexible recent posts element
                 preg_match_all( '/only_products__in":"[\d,]*/', $elementor_data, $product_id_strings, PREG_SET_ORDER );
                 if ( ! empty( $product_id_strings ) ) {
+                    $old_products_id = maybe_unserialize( auxin_get_transient( 'aux-old-products-id-transformation' ) );
                     foreach ( $product_id_strings as $key => $product_id_string ) {
                         $old_ids = str_replace( 'only_products__in":"', '', $product_id_string[0] );
                         $old_ids = explode( ',', $old_ids );
                         $new_id = [];
                         foreach( $old_ids as $key => $id ) {
-                            $new_id[] =  auxin_get_transient( "aux-elementor-library-{$id}-changs-to" );
+                            $new_id[] =  $old_products_id[ $id ];
                         }
                         $new_id = implode(',', $new_id );
                         $new_product_id_string = 'only_products__in":"' . $new_id . '"';
@@ -1112,7 +1118,7 @@ class Auxin_Demo_Importer {
                         $old_ids = explode( ',', $old_ids );
                         $new_id = [];
                         foreach( $old_ids as $key => $id ) {
-                            $new_id[] =  auxin_get_transient( "aux-elementor-library-{$id}-changs-to" );
+                            $new_id[] =  auxin_get_transient( "aux-post-{$id}-changs-to" );
                         }
                         $new_id = implode(',', $new_id );
                         $new_post_id_string = 'only_posts__in":"' . $new_id . '"';

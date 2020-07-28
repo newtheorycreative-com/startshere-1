@@ -13,8 +13,7 @@
         }
 
         var lottieContainer = document.getElementById($($lottie).attr('id'));
-
-        //console.log($settings);
+ 
         function lottieRun(lottieContainer) {
 
             var json_path_url = "";

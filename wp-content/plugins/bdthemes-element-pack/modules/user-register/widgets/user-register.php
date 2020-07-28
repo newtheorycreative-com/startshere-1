@@ -906,6 +906,12 @@ class User_Register extends Widget_Base {
 						'bdt-form-label',
 					]
 				],
+				'password_label' => [
+					'for'   => 'password' . esc_attr($id),
+					'class' => [
+						'bdt-form-label',
+					]
+				],
 				'first_name_input'    => [
 					'type'        => 'text',
 					'name'        => 'first_name',

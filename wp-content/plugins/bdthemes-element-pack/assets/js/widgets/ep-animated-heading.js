@@ -12,6 +12,14 @@
       return;
     }
 
+    function kill() { 
+      var splitTextTimeline = gsap.timeline(), 
+      mySplitText = new SplitText($quote, {type:"chars, words, lines"});
+      splitTextTimeline.clear().time(0);
+      mySplitText.revert();
+    }
+
+
     if ($settings.layout === 'animated') {
       $($animatedHeading).Morphext($settings);
     } else if ($settings.layout === 'typed') {
@@ -21,46 +29,41 @@
 
       var $quote = $($heading);
 
-      var timeline = gsap.timeline(), 
-      my_split_text = new SplitText($quote, {type:"chars, words, lines"});
+      var splitTextTimeline = gsap.timeline(), 
+      mySplitText = new SplitText($quote, {type:"chars, words, lines"});
 
-      var stringType = '';
-      
 
-      if ( 'lines' == $settings.animation_on ) {
-        stringType = my_split_text.lines;
-      } else if ( 'chars' == $settings.animation_on ) {
-        stringType = my_split_text.chars;
-      } else {
-        stringType = my_split_text.words;
-      }
       gsap.set($quote, {
                 perspective: $settings.anim_perspective //400
               });
 
-
+ 
       elementorFrontend.waypoint( $heading, function() {
-
-        function allDone(){
-          timeline.clear().time(0);
-         my_split_text.revert();
-       }
-
-       timeline.staggerFrom(stringType, 0.5, {
+        kill();
+        mySplitText.split({
+          type: 'chars, words, lines'
+        });
+        var stringType = '';
+        if ( 'lines' == $settings.animation_on ) {
+          stringType = mySplitText.lines;
+        } else if ( 'chars' == $settings.animation_on ) {
+          stringType = mySplitText.chars;
+        } else {
+          stringType = mySplitText.words;
+        }
+        splitTextTimeline.staggerFrom(stringType, 0.5, {
                     opacity: 0, //0
                     scale: $settings.anim_scale, //0
                     y: $settings.anim_rotation_y, //80
                     rotationX: $settings.anim_rotation_x, //180
                     transformOrigin: $settings.anim_transform_origin, //0% 50% -50  
                     // ease:Back.easeOut, //back
-                  }, $settings.anim_duration);
-
-
-     }, {
+                  }, $settings.anim_duration); 
+      }, {
 
             // offset: 'bottom-in-view',
-            offset: '75%',
-            triggerOnce :  true//($settings.anim_repeat) == 'false' ? false : true 
+            offset: '50%',
+            triggerOnce : ($settings.anim_repeat)// == 'false' ? false : true 
           } );
 
     } 

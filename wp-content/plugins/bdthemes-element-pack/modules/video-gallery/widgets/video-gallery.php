@@ -287,7 +287,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_thumbnail',
 			[
-				'label' => esc_html__( 'Thumbnail', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Playlist', 'bdthemes-element-pack' ),
 			]
 		);
 
@@ -297,7 +297,7 @@ class Video_Gallery extends Widget_Base {
 				'label'        => esc_html__( 'Thumbnail', 'bdthemes-element-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'prefix_class' => 'bdt-video-gallery-thumbnail-',
+				// 'prefix_class' => 'bdt-video-gallery-thumbnail-',
 			]
 		);
 
@@ -307,7 +307,7 @@ class Video_Gallery extends Widget_Base {
 				'label'        => esc_html__( 'Title', 'bdthemes-element-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'prefix_class' => 'bdt-video-gallery-title-',
+				// 'prefix_class' => 'bdt-video-gallery-title-',
 			]
 		);
 
@@ -340,7 +340,7 @@ class Video_Gallery extends Widget_Base {
 				'label'        => esc_html__( 'Description', 'bdthemes-element-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'prefix_class' => 'bdt-video-gallery-desc-',
+				// 'prefix_class' => 'bdt-video-gallery-desc-',
 			]
 		);
 		
@@ -498,7 +498,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_thumb_item',
 			[
-				'label' => __( 'Thumb Item', 'bdthemes-element-pack' ),
+				'label' => __( 'Playlist', 'bdthemes-element-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -529,7 +529,7 @@ class Video_Gallery extends Widget_Base {
 				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
-					'{{WRAPPER}} .rvs-nav-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .rvs-nav-container a.rvs-nav-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -929,7 +929,7 @@ class Video_Gallery extends Widget_Base {
 				'name'     => 'thumbnail_desc_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
 				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .rvs-nav-item-credits',
+				'selector' => '{{WRAPPER}} .rvs-nav-container .rvs-nav-item-credits',
 			]
 		);
 

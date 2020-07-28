@@ -24,7 +24,7 @@ class Step_Flow extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-step-flow bdt-new';
+		return 'bdt-wi-step-flow';
 	}
 
 	public function get_categories() {
@@ -43,9 +43,9 @@ class Step_Flow extends Widget_Base {
 		return [ 'ep-step-flow' ];
 	}
 
-	// public function get_custom_help_url() {
-	// 	return 'https://youtu.be/IU4s5Cc6CUA';
-	// }
+	public function get_custom_help_url() {
+		return 'https://youtu.be/YNjbt-5GO4k';
+	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
@@ -1959,7 +1959,7 @@ class Step_Flow extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bdt-direction-svg' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .bdt-direction-svg svg' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -2192,6 +2192,21 @@ class Step_Flow extends Widget_Base {
 		<?php
 	}
 
+	public function render_direction() {
+		$settings = $this->get_settings_for_display();
+
+		$svg_image = BDTEP_ASSETS_URL . 'images/direction/step-' . $settings['direction_style'] . '.svg';
+
+		?>
+
+			<div class="bdt-direction-svg">
+				<img class="bdt-animation-stroke" bdt-svg="stroke-animation: true" src="<?php echo $svg_image; ?>"
+					alt="Direction Arrows">
+			</div>
+
+		<?php
+	}
+
 	protected function render() {
 		$settings  = $this->get_settings_for_display();
 
@@ -2284,10 +2299,7 @@ class Step_Flow extends Widget_Base {
             </div>
             
             <?php if ( $settings['show_indicator'] === 'yes' ) : ?>
-				
-				<div class="bdt-direction-svg">
-					<?php echo element_pack_svg_icon('step-' . $settings['direction_style']); ?>
-				</div>
+				<?php $this->render_direction(); ?>
 
             <?php endif; ?>
 

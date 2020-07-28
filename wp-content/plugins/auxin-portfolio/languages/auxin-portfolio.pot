@@ -1,9 +1,9 @@
 # Averta Copyright (c) {2020}
 msgid ""
 msgstr ""
-"Project-Id-Version: Phlox Portfolio 2.0.0\n"
+"Project-Id-Version: Phlox Portfolio 2.0.1\n"
 "Report-Msgid-Bugs-To: http://averta.net/phlox/wordpress-theme/\n"
-"POT-Creation-Date: 2020-07-06 07:06:54+00:00\n"
+"POT-Creation-Date: 2020-07-12 10:46:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,7 +56,7 @@ msgid "Specifies a short description about the project."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:52
-#: includes/general-hooks.php:3432
+#: includes/general-hooks.php:3465
 msgid "Overview Title"
 msgstr ""
 
@@ -79,7 +79,7 @@ msgstr ""
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:231
 #: includes/elements/elementor/recent-portfolios-tile-carousel.php:152
 #: includes/elements/elementor/recent-portfolios-tile.php:150
-#: includes/elements/recent-portfolios.php:254 includes/general-hooks.php:831
+#: includes/elements/recent-portfolios.php:254 includes/general-hooks.php:864
 msgid "Default"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-masonry.php:410
 #: includes/elements/elementor/recent-portfolios-tile.php:428
 #: includes/elements/recent-portfolios.php:459 includes/general-hooks.php:137
-#: includes/general-hooks.php:1448
+#: includes/general-hooks.php:1481
 msgid "Left"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-masonry.php:414
 #: includes/elements/elementor/recent-portfolios-tile.php:432
 #: includes/elements/recent-portfolios.php:463 includes/general-hooks.php:141
-#: includes/general-hooks.php:1452
+#: includes/general-hooks.php:1485
 msgid "Center"
 msgstr ""
 
@@ -223,13 +223,13 @@ msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:173
 #: includes/elements/recent-portfolios-tile-carousel.php:285
-#: includes/general-hooks.php:1594
+#: includes/general-hooks.php:1627
 msgid "Dark"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:174
 #: includes/elements/recent-portfolios-tile-carousel.php:286
-#: includes/general-hooks.php:1595
+#: includes/general-hooks.php:1628
 msgid "Light"
 msgstr ""
 
@@ -246,67 +246,67 @@ msgid ""
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:219
-#: includes/general-hooks.php:667
+#: includes/general-hooks.php:700
 msgid "Skin for Next & Previous Links"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:220
-#: includes/general-hooks.php:668
+#: includes/general-hooks.php:701
 msgid "Specifies the skin for next and previous navigation block."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:235
-#: includes/general-hooks.php:685
+#: includes/general-hooks.php:718
 msgid "Classic Project Navigation"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:239
-#: includes/general-hooks.php:689
+#: includes/general-hooks.php:722
 msgid "Classic Project Navigation Without Title"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:243
-#: includes/general-hooks.php:681
+#: includes/general-hooks.php:714
 msgid "Minimal (default)"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:247
-#: includes/general-hooks.php:693
+#: includes/general-hooks.php:726
 msgid "Thumbnail with Arrow"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:251
-#: includes/general-hooks.php:697
+#: includes/general-hooks.php:730
 msgid "Thumbnail without Arrow"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:255
-#: includes/general-hooks.php:701
+#: includes/general-hooks.php:734
 msgid "Navigation with Light Background"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:259
-#: includes/general-hooks.php:705
+#: includes/general-hooks.php:738
 msgid "Navigation with Dark Background"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:263
-#: includes/general-hooks.php:709
+#: includes/general-hooks.php:742
 msgid "Sticky Thumbnail with Arrow"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:267
-#: includes/general-hooks.php:713
+#: includes/general-hooks.php:746
 msgid "Modern"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:276
-#: includes/general-hooks.php:758
+#: includes/general-hooks.php:791
 msgid "Next & Previous Button Link"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-metadata.php:277
-#: includes/general-hooks.php:759
+#: includes/general-hooks.php:792
 msgid ""
 "Specifies the link of button in next and previous navigation. leave it "
 "blank to use default portfolio archive link"
@@ -354,7 +354,7 @@ msgid "Related Portfolio"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:22
-#: includes/general-hooks.php:1901
+#: includes/general-hooks.php:1934
 msgid "Display Related Portfolios"
 msgstr ""
 
@@ -363,28 +363,28 @@ msgid "Enable it to display related porfolios section on single portfolio page."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:36
-#: includes/general-hooks.php:1929
+#: includes/general-hooks.php:1962
 msgid "Label of Related Section"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:37
-#: includes/general-hooks.php:1930
+#: includes/general-hooks.php:1963
 msgid "Specifies the label of related items section."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:51
-#: includes/general-hooks.php:1987
+#: includes/general-hooks.php:2020
 msgid "Related Items Type"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:52
-#: includes/general-hooks.php:1988
+#: includes/general-hooks.php:2021
 msgid "Specifies the appearance type for related portfolio element."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:65
-#: includes/elements/recent-portfolios.php:217 includes/general-hooks.php:2305
-#: includes/general-hooks.php:3009
+#: includes/elements/recent-portfolios.php:217 includes/general-hooks.php:2338
+#: includes/general-hooks.php:3042
 msgid "Grid"
 msgstr ""
 
@@ -396,70 +396,70 @@ msgid "Carousel"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:71
-#: includes/general-hooks.php:2008 includes/general-hooks.php:2486
-#: includes/general-hooks.php:3181
+#: includes/general-hooks.php:2041 includes/general-hooks.php:2519
+#: includes/general-hooks.php:3214
 msgid "Number of Columns"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:92
-#: includes/general-hooks.php:2028
+#: includes/general-hooks.php:2061
 msgid "Align Center"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:93
-#: includes/general-hooks.php:2029
+#: includes/general-hooks.php:2062
 msgid "Enable it to make related portfolios section text center."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:112
-#: includes/general-hooks.php:2046
+#: includes/general-hooks.php:2079
 msgid "Full Width Related Section"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:113
-#: includes/general-hooks.php:2047
+#: includes/general-hooks.php:2080
 msgid "Enable it to make related portfolios section full width."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:132
-#: includes/general-hooks.php:2064
+#: includes/general-hooks.php:2097
 msgid "Snap Related Items"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:133
-#: includes/general-hooks.php:2065
+#: includes/general-hooks.php:2098
 msgid "Enable it to remove space between related portfolio items."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:152
-#: includes/general-hooks.php:2082
+#: includes/general-hooks.php:2115
 msgid "Display Portfolio Categories"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:153
-#: includes/general-hooks.php:2083
+#: includes/general-hooks.php:2116
 msgid ""
 "Enable it to display the categories of each portfolio item in related "
 "portfolios section."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:172
-#: includes/general-hooks.php:2121
+#: includes/general-hooks.php:2154
 msgid "Display The Button Under Related Items"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:173
-#: includes/general-hooks.php:2122
+#: includes/general-hooks.php:2155
 msgid "You can specific to show the button under related items"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:192
-#: includes/general-hooks.php:2139
+#: includes/general-hooks.php:2172
 msgid "Link the Button Under Related Items To"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:193
-#: includes/general-hooks.php:2140
+#: includes/general-hooks.php:2173
 msgid ""
 "Whether to display a button bellow related items section in order to direct "
 "visitors to portfolio archive page or not. You can link the button to the "
@@ -467,32 +467,32 @@ msgid ""
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:211
-#: includes/general-hooks.php:2146
+#: includes/general-hooks.php:2179
 msgid "Archive page"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:212
-#: includes/general-hooks.php:2147
+#: includes/general-hooks.php:2180
 msgid "Custom URL"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:217
-#: includes/general-hooks.php:2165
+#: includes/general-hooks.php:2198
 msgid "Custom Link for Related Items Button"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:218
-#: includes/general-hooks.php:2166
+#: includes/general-hooks.php:2199
 msgid "A custom link for the button under related items section."
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:242
-#: includes/general-hooks.php:2191
+#: includes/general-hooks.php:2224
 msgid "Custom label for Related Items Button"
 msgstr ""
 
 #: admin/includes/metaboxes/metabox-fields-portfolio-related.php:243
-#: includes/general-hooks.php:2192
+#: includes/general-hooks.php:2225
 msgid "A custom label for the button under related items section."
 msgstr ""
 
@@ -567,7 +567,7 @@ msgid ""
 msgstr ""
 
 #: includes/classes/class-auxpfo-post-type-portfolio.php:53
-#: includes/general-hooks.php:39 includes/general-hooks.php:2979
+#: includes/general-hooks.php:39 includes/general-hooks.php:3012
 msgid "Portfolio"
 msgstr ""
 
@@ -967,8 +967,8 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-tile-carousel.php:259
 #: includes/elements/elementor/recent-portfolios-tile.php:597
 #: includes/elements/recent-portfolios-tile-carousel.php:300
-#: includes/elements/recent-portfolios.php:621 includes/general-hooks.php:1147
-#: includes/general-hooks.php:1520
+#: includes/elements/recent-portfolios.php:621 includes/general-hooks.php:1180
+#: includes/general-hooks.php:1553
 msgid "None"
 msgstr ""
 
@@ -1298,7 +1298,7 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-tile-carousel.php:414
 #: includes/elements/elementor/recent-portfolios-tile.php:315
 #: includes/elements/recent-portfolios-tile-carousel.php:163
-#: includes/elements/recent-portfolios.php:119 includes/general-hooks.php:3395
+#: includes/elements/recent-portfolios.php:119 includes/general-hooks.php:3428
 msgid "Author"
 msgstr ""
 
@@ -1432,34 +1432,34 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-grid-carousel.php:584
 #: includes/elements/elementor/recent-portfolios-grid.php:772
 #: includes/elements/elementor/recent-portfolios-masonry.php:651
-#: includes/elements/recent-portfolios.php:661 includes/general-hooks.php:2460
-#: includes/general-hooks.php:3157
+#: includes/elements/recent-portfolios.php:661 includes/general-hooks.php:2493
+#: includes/general-hooks.php:3190
 msgid "Space"
 msgstr ""
 
 #: includes/elements/elementor/recent-portfolios-grid-carousel.php:585
 #: includes/elements/elementor/recent-portfolios-grid.php:773
 #: includes/elements/elementor/recent-portfolios-masonry.php:652
-#: includes/elements/recent-portfolios.php:662 includes/general-hooks.php:2461
-#: includes/general-hooks.php:3158
+#: includes/elements/recent-portfolios.php:662 includes/general-hooks.php:2494
+#: includes/general-hooks.php:3191
 msgid "Specifies horizontal space between items (pixel)."
 msgstr ""
 
 #: includes/elements/elementor/recent-portfolios-grid-carousel.php:597
 #: includes/elements/elementor/recent-portfolios-grid.php:785
-#: includes/elements/recent-portfolios.php:293 includes/general-hooks.php:1964
+#: includes/elements/recent-portfolios.php:293 includes/general-hooks.php:1997
 msgid "Image aspect ratio"
 msgstr ""
 
 #: includes/elements/elementor/recent-portfolios-grid-carousel.php:601
-#: includes/elements/recent-portfolios.php:301 includes/general-hooks.php:1977
-#: includes/general-hooks.php:2339 includes/general-hooks.php:3043
+#: includes/elements/recent-portfolios.php:301 includes/general-hooks.php:2010
+#: includes/general-hooks.php:2372 includes/general-hooks.php:3076
 msgid "Horizontal 4:3"
 msgstr ""
 
 #: includes/elements/elementor/recent-portfolios-grid-carousel.php:602
-#: includes/elements/recent-portfolios.php:302 includes/general-hooks.php:1978
-#: includes/general-hooks.php:2340 includes/general-hooks.php:3044
+#: includes/elements/recent-portfolios.php:302 includes/general-hooks.php:2011
+#: includes/general-hooks.php:2373 includes/general-hooks.php:3077
 msgid "Horizontal 16:9"
 msgstr ""
 
@@ -1498,24 +1498,24 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-grid-carousel.php:634
 #: includes/elements/elementor/recent-portfolios-grid.php:822
 #: includes/elements/elementor/recent-portfolios-masonry.php:687
-#: includes/elements/recent-portfolios.php:332 includes/general-hooks.php:2371
-#: includes/general-hooks.php:3075
+#: includes/elements/recent-portfolios.php:332 includes/general-hooks.php:2404
+#: includes/general-hooks.php:3108
 msgid "No animation"
 msgstr ""
 
 #: includes/elements/elementor/recent-portfolios-grid-carousel.php:638
 #: includes/elements/elementor/recent-portfolios-grid.php:826
 #: includes/elements/elementor/recent-portfolios-masonry.php:691
-#: includes/elements/recent-portfolios.php:336 includes/general-hooks.php:2376
-#: includes/general-hooks.php:3079
+#: includes/elements/recent-portfolios.php:336 includes/general-hooks.php:2409
+#: includes/general-hooks.php:3112
 msgid "Classic with lightbox style 1"
 msgstr ""
 
 #: includes/elements/elementor/recent-portfolios-grid-carousel.php:642
 #: includes/elements/elementor/recent-portfolios-grid.php:830
 #: includes/elements/elementor/recent-portfolios-masonry.php:695
-#: includes/elements/recent-portfolios.php:340 includes/general-hooks.php:2381
-#: includes/general-hooks.php:3083
+#: includes/elements/recent-portfolios.php:340 includes/general-hooks.php:2414
+#: includes/general-hooks.php:3116
 msgid "Classic with lightbox style 2"
 msgstr ""
 
@@ -1526,9 +1526,9 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-tile.php:663
 #: includes/elements/recent-portfolios-tile-carousel.php:103
 #: includes/elements/recent-portfolios.php:344
-#: includes/elements/recent-portfolios.php:412 includes/general-hooks.php:2386
-#: includes/general-hooks.php:2432 includes/general-hooks.php:3087
-#: includes/general-hooks.php:3129
+#: includes/elements/recent-portfolios.php:412 includes/general-hooks.php:2419
+#: includes/general-hooks.php:2465 includes/general-hooks.php:3120
+#: includes/general-hooks.php:3162
 msgid "Overlay title style 1"
 msgstr ""
 
@@ -1539,9 +1539,9 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-tile.php:667
 #: includes/elements/recent-portfolios-tile-carousel.php:107
 #: includes/elements/recent-portfolios.php:348
-#: includes/elements/recent-portfolios.php:413 includes/general-hooks.php:2391
-#: includes/general-hooks.php:2436 includes/general-hooks.php:3091
-#: includes/general-hooks.php:3133
+#: includes/elements/recent-portfolios.php:413 includes/general-hooks.php:2424
+#: includes/general-hooks.php:2469 includes/general-hooks.php:3124
+#: includes/general-hooks.php:3166
 msgid "Overlay title style 2"
 msgstr ""
 
@@ -1552,9 +1552,9 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-tile.php:671
 #: includes/elements/recent-portfolios-tile-carousel.php:111
 #: includes/elements/recent-portfolios.php:352
-#: includes/elements/recent-portfolios.php:414 includes/general-hooks.php:2396
-#: includes/general-hooks.php:2440 includes/general-hooks.php:3095
-#: includes/general-hooks.php:3137
+#: includes/elements/recent-portfolios.php:414 includes/general-hooks.php:2429
+#: includes/general-hooks.php:2473 includes/general-hooks.php:3128
+#: includes/general-hooks.php:3170
 msgid "Overlay title with lightbox style 1"
 msgstr ""
 
@@ -1565,9 +1565,9 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-tile.php:675
 #: includes/elements/recent-portfolios-tile-carousel.php:115
 #: includes/elements/recent-portfolios.php:356
-#: includes/elements/recent-portfolios.php:415 includes/general-hooks.php:2401
-#: includes/general-hooks.php:2444 includes/general-hooks.php:3099
-#: includes/general-hooks.php:3141
+#: includes/elements/recent-portfolios.php:415 includes/general-hooks.php:2434
+#: includes/general-hooks.php:2477 includes/general-hooks.php:3132
+#: includes/general-hooks.php:3174
 msgid "Overlay title with lightbox style 2"
 msgstr ""
 
@@ -1768,7 +1768,7 @@ msgstr ""
 #: includes/elements/elementor/recent-portfolios-grid.php:418
 #: includes/elements/elementor/recent-portfolios-masonry.php:418
 #: includes/elements/elementor/recent-portfolios-tile.php:436
-#: includes/elements/recent-portfolios.php:467 includes/general-hooks.php:1456
+#: includes/elements/recent-portfolios.php:467 includes/general-hooks.php:1489
 msgid "Right"
 msgstr ""
 
@@ -1951,8 +1951,8 @@ msgstr ""
 
 #: includes/elements/elementor/recent-portfolios-grid.php:1180
 #: includes/elements/elementor/recent-portfolios-masonry.php:1013
-#: includes/elements/recent-portfolios.php:380 includes/general-hooks.php:2672
-#: includes/general-hooks.php:2751
+#: includes/elements/recent-portfolios.php:380 includes/general-hooks.php:2705
+#: includes/general-hooks.php:2784
 msgid "Entry Box Border Color"
 msgstr ""
 
@@ -2145,13 +2145,13 @@ msgstr ""
 msgid "Different layout types of appearing items."
 msgstr ""
 
-#: includes/elements/recent-portfolios.php:221 includes/general-hooks.php:2309
-#: includes/general-hooks.php:3013
+#: includes/elements/recent-portfolios.php:221 includes/general-hooks.php:2342
+#: includes/general-hooks.php:3046
 msgid "Masonry"
 msgstr ""
 
-#: includes/elements/recent-portfolios.php:225 includes/general-hooks.php:2313
-#: includes/general-hooks.php:3017
+#: includes/elements/recent-portfolios.php:225 includes/general-hooks.php:2346
+#: includes/general-hooks.php:3050
 msgid "Tiles"
 msgstr ""
 
@@ -2159,13 +2159,13 @@ msgstr ""
 msgid "Post Tile styles"
 msgstr ""
 
-#: includes/elements/recent-portfolios.php:303 includes/general-hooks.php:1979
-#: includes/general-hooks.php:2341 includes/general-hooks.php:3045
+#: includes/elements/recent-portfolios.php:303 includes/general-hooks.php:2012
+#: includes/general-hooks.php:2374 includes/general-hooks.php:3078
 msgid "Square 1:1"
 msgstr ""
 
-#: includes/elements/recent-portfolios.php:304 includes/general-hooks.php:1980
-#: includes/general-hooks.php:2342 includes/general-hooks.php:3046
+#: includes/elements/recent-portfolios.php:304 includes/general-hooks.php:2013
+#: includes/general-hooks.php:2375 includes/general-hooks.php:3079
 msgid "Vertical 3:4"
 msgstr ""
 
@@ -2173,8 +2173,8 @@ msgstr ""
 msgid "Portfolio hover type"
 msgstr ""
 
-#: includes/elements/recent-portfolios.php:362 includes/general-hooks.php:2639
-#: includes/general-hooks.php:2723
+#: includes/elements/recent-portfolios.php:362 includes/general-hooks.php:2672
+#: includes/general-hooks.php:2756
 msgid "Entry Box Background Color"
 msgstr ""
 
@@ -2223,7 +2223,7 @@ msgstr ""
 msgid "Single Portfolio"
 msgstr ""
 
-#: includes/general-hooks.php:50 includes/general-hooks.php:786
+#: includes/general-hooks.php:50 includes/general-hooks.php:819
 msgid "Preview a Single Portfolio Page"
 msgstr ""
 
@@ -2235,35 +2235,35 @@ msgstr ""
 msgid "Specifies single portfolio template."
 msgstr ""
 
-#: includes/general-hooks.php:108 includes/general-hooks.php:2514
+#: includes/general-hooks.php:108 includes/general-hooks.php:2547
 msgid "Custom Max Width"
 msgstr ""
 
-#: includes/general-hooks.php:109 includes/general-hooks.php:2515
+#: includes/general-hooks.php:109 includes/general-hooks.php:2548
 msgid "Specifies the maximum width of website."
 msgstr ""
 
-#: includes/general-hooks.php:116 includes/general-hooks.php:2522
+#: includes/general-hooks.php:116 includes/general-hooks.php:2555
 msgid "Default Site Max Width"
 msgstr ""
 
-#: includes/general-hooks.php:117 includes/general-hooks.php:2523
+#: includes/general-hooks.php:117 includes/general-hooks.php:2556
 msgid "1000 Pixels"
 msgstr ""
 
-#: includes/general-hooks.php:118 includes/general-hooks.php:2524
+#: includes/general-hooks.php:118 includes/general-hooks.php:2557
 msgid "1200 Pixels"
 msgstr ""
 
-#: includes/general-hooks.php:119 includes/general-hooks.php:2525
+#: includes/general-hooks.php:119 includes/general-hooks.php:2558
 msgid "1400 Pixels"
 msgstr ""
 
-#: includes/general-hooks.php:120 includes/general-hooks.php:2526
+#: includes/general-hooks.php:120 includes/general-hooks.php:2559
 msgid "1600 Pixels"
 msgstr ""
 
-#: includes/general-hooks.php:121 includes/general-hooks.php:2527
+#: includes/general-hooks.php:121 includes/general-hooks.php:2560
 msgid "1900 Pixels"
 msgstr ""
 
@@ -2315,7 +2315,7 @@ msgstr ""
 msgid "Share Button Icon"
 msgstr ""
 
-#: includes/general-hooks.php:335 includes/general-hooks.php:539
+#: includes/general-hooks.php:335
 msgid "Icon Color"
 msgstr ""
 
@@ -2323,7 +2323,7 @@ msgstr ""
 msgid "Share icon color"
 msgstr ""
 
-#: includes/general-hooks.php:368 includes/general-hooks.php:572
+#: includes/general-hooks.php:368 includes/general-hooks.php:605
 msgid "Icon Hover Color"
 msgstr ""
 
@@ -2353,713 +2353,721 @@ msgstr ""
 msgid "Like Icon"
 msgstr ""
 
-#: includes/general-hooks.php:540
+#: includes/general-hooks.php:539
+msgid "Icon Liked Color"
+msgstr ""
+
+#: includes/general-hooks.php:540 includes/general-hooks.php:573
 msgid "Like icon color"
 msgstr ""
 
-#: includes/general-hooks.php:573
+#: includes/general-hooks.php:572
+msgid "Icon Not Liked Color"
+msgstr ""
+
+#: includes/general-hooks.php:606
 msgid "Like icon hover color"
 msgstr ""
 
-#: includes/general-hooks.php:605
+#: includes/general-hooks.php:638
 msgid "Like Button Icon Size"
 msgstr ""
 
-#: includes/general-hooks.php:639
+#: includes/general-hooks.php:672
 msgid "Like Button Margin"
 msgstr ""
 
-#: includes/general-hooks.php:722
+#: includes/general-hooks.php:755
 msgid "Next Portfolio Label"
 msgstr ""
 
-#: includes/general-hooks.php:723 includes/general-hooks.php:741
+#: includes/general-hooks.php:756 includes/general-hooks.php:774
 msgid "Specifies the word after next and previous navigation."
 msgstr ""
 
-#: includes/general-hooks.php:740
+#: includes/general-hooks.php:773
 msgid "Previous Portfolio Label"
 msgstr ""
 
-#: includes/general-hooks.php:785
+#: includes/general-hooks.php:818
 msgid "Portfolio Title"
 msgstr ""
 
-#: includes/general-hooks.php:791
+#: includes/general-hooks.php:824
 msgid "Display Title Bar Section"
 msgstr ""
 
-#: includes/general-hooks.php:792
+#: includes/general-hooks.php:825
 msgid "Enable it to show the title section."
 msgstr ""
 
-#: includes/general-hooks.php:808
+#: includes/general-hooks.php:841
 msgid "Layout presets"
 msgstr ""
 
-#: includes/general-hooks.php:850
+#: includes/general-hooks.php:883
 msgid "Title bar with light overlay which is aligned center"
 msgstr ""
 
-#: includes/general-hooks.php:868
+#: includes/general-hooks.php:901
 msgid "Fullscreen title bar with light overlay on background"
 msgstr ""
 
-#: includes/general-hooks.php:886
+#: includes/general-hooks.php:919
 msgid "Fullscreen title bar with dark overlay on background"
 msgstr ""
 
-#: includes/general-hooks.php:904
+#: includes/general-hooks.php:937
 msgid "Fullscreen title bar with border around the title"
 msgstr ""
 
-#: includes/general-hooks.php:922
+#: includes/general-hooks.php:955
 msgid "Fullscreen title bar with dark box around the title"
 msgstr ""
 
-#: includes/general-hooks.php:940
+#: includes/general-hooks.php:973
 msgid "Title aligned left with dark overlay on background"
 msgstr ""
 
-#: includes/general-hooks.php:958
+#: includes/general-hooks.php:991
 msgid "Tile overlaps the title area section and is aligned center"
 msgstr ""
 
-#: includes/general-hooks.php:979
+#: includes/general-hooks.php:1012
 msgid "Enable advanced setting"
 msgstr ""
 
-#: includes/general-hooks.php:980
+#: includes/general-hooks.php:1013
 msgid "Enable it to customize preset layouts."
 msgstr ""
 
-#: includes/general-hooks.php:1003
+#: includes/general-hooks.php:1036
 msgid "Content Width"
 msgstr ""
 
-#: includes/general-hooks.php:1023
+#: includes/general-hooks.php:1056
 msgid "Boxed"
 msgstr ""
 
-#: includes/general-hooks.php:1027
+#: includes/general-hooks.php:1060
 msgid "Full Width Content with Space on Sides"
 msgstr ""
 
-#: includes/general-hooks.php:1031
+#: includes/general-hooks.php:1064
 msgid "Full Width Content"
 msgstr ""
 
-#: includes/general-hooks.php:1040
+#: includes/general-hooks.php:1073
 msgid "Title Section Height"
 msgstr ""
 
-#: includes/general-hooks.php:1067
+#: includes/general-hooks.php:1100
 msgid "Auto Height"
 msgstr ""
 
-#: includes/general-hooks.php:1068
+#: includes/general-hooks.php:1101
 msgid "Full Height"
 msgstr ""
 
-#: includes/general-hooks.php:1073
+#: includes/general-hooks.php:1106
 msgid "Vertical Position"
 msgstr ""
 
-#: includes/general-hooks.php:1074
+#: includes/general-hooks.php:1107
 msgid "Specifies vertical alignment of title and subtitle."
 msgstr ""
 
-#: includes/general-hooks.php:1075
+#: includes/general-hooks.php:1108
 msgid ""
 "Note: Parallax feature in not available for \"Bottom Overlap\" vertical "
 "mode."
 msgstr ""
 
-#: includes/general-hooks.php:1101
+#: includes/general-hooks.php:1134
 msgid "Top"
 msgstr ""
 
-#: includes/general-hooks.php:1102
+#: includes/general-hooks.php:1135
 msgid "Middle"
 msgstr ""
 
-#: includes/general-hooks.php:1103
+#: includes/general-hooks.php:1136
 msgid "Bottom"
 msgstr ""
 
-#: includes/general-hooks.php:1104
+#: includes/general-hooks.php:1137
 msgid "Bottom Overlap"
 msgstr ""
 
-#: includes/general-hooks.php:1109
+#: includes/general-hooks.php:1142
 msgid "Scroll Down Arrow"
 msgstr ""
 
-#: includes/general-hooks.php:1110
+#: includes/general-hooks.php:1143
 msgid "This option only applies if section height is \"Full Height\"."
 msgstr ""
 
-#: includes/general-hooks.php:1151
+#: includes/general-hooks.php:1184
 msgid "Round"
 msgstr ""
 
-#: includes/general-hooks.php:1158
+#: includes/general-hooks.php:1191
 msgid "Display Titles"
 msgstr ""
 
-#: includes/general-hooks.php:1159
+#: includes/general-hooks.php:1192
 msgid "Enable it to display title/subtitle in title section."
 msgstr ""
 
-#: includes/general-hooks.php:1187
+#: includes/general-hooks.php:1220
 msgid "Border for Heading"
 msgstr ""
 
-#: includes/general-hooks.php:1188
+#: includes/general-hooks.php:1221
 msgid "Enable it to display a border around the title and subtitle area."
 msgstr ""
 
-#: includes/general-hooks.php:1221
+#: includes/general-hooks.php:1254
 msgid "Boxed Title"
 msgstr ""
 
-#: includes/general-hooks.php:1222
+#: includes/general-hooks.php:1255
 msgid "Enable it to wrap the title and subtitle in a box with background color."
 msgstr ""
 
-#: includes/general-hooks.php:1255
+#: includes/general-hooks.php:1288
 msgid "Title Box Custom Color"
 msgstr ""
 
-#: includes/general-hooks.php:1256
+#: includes/general-hooks.php:1289
 msgid ""
 "Specifies a custom background color for the box around the title and "
 "subtitle."
 msgstr ""
 
-#: includes/general-hooks.php:1294
+#: includes/general-hooks.php:1327
 msgid "Display Post Meta"
 msgstr ""
 
-#: includes/general-hooks.php:1295
+#: includes/general-hooks.php:1328
 msgid "Enable it to display post meta information on title section."
 msgstr ""
 
-#: includes/general-hooks.php:1323
+#: includes/general-hooks.php:1356
 msgid "Display Breadcrumb"
 msgstr ""
 
-#: includes/general-hooks.php:1324
+#: includes/general-hooks.php:1357
 msgid "Enable it to display breadcrumb on title section."
 msgstr ""
 
-#: includes/general-hooks.php:1352
+#: includes/general-hooks.php:1385
 msgid "Border for Breadcrumb"
 msgstr ""
 
-#: includes/general-hooks.php:1353
+#: includes/general-hooks.php:1386
 msgid "Enable it to display border around breadcrumb."
 msgstr ""
 
-#: includes/general-hooks.php:1386
+#: includes/general-hooks.php:1419
 msgid "Breadcrumb Separator Icon"
 msgstr ""
 
-#: includes/general-hooks.php:1420
+#: includes/general-hooks.php:1453
 msgid "Text Align"
 msgstr ""
 
-#: includes/general-hooks.php:1463
+#: includes/general-hooks.php:1496
 msgid "Overlay Color"
 msgstr ""
 
-#: includes/general-hooks.php:1464
+#: includes/general-hooks.php:1497
 msgid ""
 "The color that overlay on the background. Please note that color should "
 "have transparency."
 msgstr ""
 
-#: includes/general-hooks.php:1492
+#: includes/general-hooks.php:1525
 msgid "Overlay Pattern"
 msgstr ""
 
-#: includes/general-hooks.php:1524
+#: includes/general-hooks.php:1557
 msgid "Hash"
 msgstr ""
 
-#: includes/general-hooks.php:1531
+#: includes/general-hooks.php:1564
 msgid "Overlay Pattern Opacity"
 msgstr ""
 
-#: includes/general-hooks.php:1567
+#: includes/general-hooks.php:1600
 msgid "Color Mode"
 msgstr ""
 
-#: includes/general-hooks.php:1602
+#: includes/general-hooks.php:1635
 msgid "Enable Title Background"
 msgstr ""
 
-#: includes/general-hooks.php:1603
+#: includes/general-hooks.php:1636
 msgid "Enable it to display custom background for title section."
 msgstr ""
 
-#: includes/general-hooks.php:1631
+#: includes/general-hooks.php:1664
 msgid "Enable Parallax Effect"
 msgstr ""
 
-#: includes/general-hooks.php:1632
+#: includes/general-hooks.php:1665
 msgid "Enable it to have parallax background effect on this section."
 msgstr ""
 
-#: includes/general-hooks.php:1633
+#: includes/general-hooks.php:1666
 msgid ""
 "Note: Parallax feature in not available for \"Bottom Overlap\" mode for "
 "\"Vertical Position\" option."
 msgstr ""
 
-#: includes/general-hooks.php:1666
+#: includes/general-hooks.php:1699
 msgid "Background Color"
 msgstr ""
 
-#: includes/general-hooks.php:1667
+#: includes/general-hooks.php:1700
 msgid "Specifies a background color for title bar."
 msgstr ""
 
-#: includes/general-hooks.php:1701
+#: includes/general-hooks.php:1734
 msgid "Background Size"
 msgstr ""
 
-#: includes/general-hooks.php:1702
+#: includes/general-hooks.php:1735
 msgid "Specifies the background size."
 msgstr ""
 
-#: includes/general-hooks.php:1734
+#: includes/general-hooks.php:1767
 msgid "Auto"
 msgstr ""
 
-#: includes/general-hooks.php:1738
+#: includes/general-hooks.php:1771
 msgid "Contain"
 msgstr ""
 
-#: includes/general-hooks.php:1742
+#: includes/general-hooks.php:1775
 msgid "Cover"
 msgstr ""
 
-#: includes/general-hooks.php:1750
+#: includes/general-hooks.php:1783
 msgid "Background Image"
 msgstr ""
 
-#: includes/general-hooks.php:1751
+#: includes/general-hooks.php:1784
 msgid "Specifies a background image for title bar."
 msgstr ""
 
-#: includes/general-hooks.php:1785
+#: includes/general-hooks.php:1818
 msgid "Background Video MP4"
 msgstr ""
 
-#: includes/general-hooks.php:1786 includes/general-hooks.php:1821
-#: includes/general-hooks.php:1856
+#: includes/general-hooks.php:1819 includes/general-hooks.php:1854
+#: includes/general-hooks.php:1889
 msgid ""
 "You can upload custom video for title background</br>Note: if you set "
 "custom image, default image backgrounds will be ignored."
 msgstr ""
 
-#: includes/general-hooks.php:1820
+#: includes/general-hooks.php:1853
 msgid "Background Video Ogg"
 msgstr ""
 
-#: includes/general-hooks.php:1855
+#: includes/general-hooks.php:1888
 msgid "Background Video WebM"
 msgstr ""
 
-#: includes/general-hooks.php:1895
+#: includes/general-hooks.php:1928
 msgid "Related Portfolios"
 msgstr ""
 
-#: includes/general-hooks.php:1896
+#: includes/general-hooks.php:1929
 msgid "Setting for Related Portfolios Section in Single Page"
 msgstr ""
 
-#: includes/general-hooks.php:1902
+#: includes/general-hooks.php:1935
 msgid "Enable it to display related portfolios section on single portfolio page."
 msgstr ""
 
-#: includes/general-hooks.php:1913
+#: includes/general-hooks.php:1946
 msgid "Title Typography"
 msgstr ""
 
-#: includes/general-hooks.php:1942
+#: includes/general-hooks.php:1975
 msgid "Related Projects/Works"
 msgstr ""
 
-#: includes/general-hooks.php:1947
+#: includes/general-hooks.php:1980
 msgid "Label Typography"
 msgstr ""
 
-#: includes/general-hooks.php:2100
+#: includes/general-hooks.php:2133
 msgid "Category Terms Typography"
 msgstr ""
 
-#: includes/general-hooks.php:2145
+#: includes/general-hooks.php:2178
 msgid "Hide it"
 msgstr ""
 
-#: includes/general-hooks.php:2213
+#: includes/general-hooks.php:2246
 msgid "Browse All Projects"
 msgstr ""
 
-#: includes/general-hooks.php:2217
+#: includes/general-hooks.php:2250
 msgid "Button Typography"
 msgstr ""
 
-#: includes/general-hooks.php:2238
+#: includes/general-hooks.php:2271
 msgid "Button Background"
 msgstr ""
 
-#: includes/general-hooks.php:2264
+#: includes/general-hooks.php:2297
 msgid "Portfolio Page"
 msgstr ""
 
-#: includes/general-hooks.php:2265
+#: includes/general-hooks.php:2298
 msgid "Preview Portfolio Page"
 msgstr ""
 
-#: includes/general-hooks.php:2270
+#: includes/general-hooks.php:2303
 msgid "Custom Page For Archive"
 msgstr ""
 
-#: includes/general-hooks.php:2271
+#: includes/general-hooks.php:2304
 msgid "Enable this option to select custom page for archive page"
 msgstr ""
 
-#: includes/general-hooks.php:2280
+#: includes/general-hooks.php:2313
 msgid "Select Page"
 msgstr ""
 
-#: includes/general-hooks.php:2296
+#: includes/general-hooks.php:2329
 msgid "Portfolio Template"
 msgstr ""
 
-#: includes/general-hooks.php:2297
+#: includes/general-hooks.php:2330
 msgid "Choose your portfolio template."
 msgstr ""
 
-#: includes/general-hooks.php:2317 includes/general-hooks.php:3021
+#: includes/general-hooks.php:2350 includes/general-hooks.php:3054
 msgid "Land"
 msgstr ""
 
-#: includes/general-hooks.php:2326 includes/general-hooks.php:3030
+#: includes/general-hooks.php:2359 includes/general-hooks.php:3063
 msgid "Image Aspect Ratio"
 msgstr ""
 
-#: includes/general-hooks.php:2356 includes/general-hooks.php:3060
+#: includes/general-hooks.php:2389 includes/general-hooks.php:3093
 msgid "Portfolio Hover Type"
 msgstr ""
 
-#: includes/general-hooks.php:2357 includes/general-hooks.php:2419
-#: includes/general-hooks.php:3061 includes/general-hooks.php:3116
+#: includes/general-hooks.php:2390 includes/general-hooks.php:2452
+#: includes/general-hooks.php:3094 includes/general-hooks.php:3149
 msgid "Hover over images to see the animation."
 msgstr ""
 
-#: includes/general-hooks.php:2418 includes/general-hooks.php:3115
+#: includes/general-hooks.php:2451 includes/general-hooks.php:3148
 msgid "Tile Portfolio Item Type"
 msgstr ""
 
-#: includes/general-hooks.php:2534 includes/general-hooks.php:3209
+#: includes/general-hooks.php:2567 includes/general-hooks.php:3242
 msgid "Number of Columns in Tablet"
 msgstr ""
 
-#: includes/general-hooks.php:2563 includes/general-hooks.php:3238
+#: includes/general-hooks.php:2596 includes/general-hooks.php:3271
 msgid "Number of Columns in Mobile"
 msgstr ""
 
-#: includes/general-hooks.php:2591 includes/general-hooks.php:3266
+#: includes/general-hooks.php:2624 includes/general-hooks.php:3299
 msgid "Display Like Button"
 msgstr ""
 
-#: includes/general-hooks.php:2592 includes/general-hooks.php:3267
+#: includes/general-hooks.php:2625 includes/general-hooks.php:3300
 msgid ""
 "Enable it to display %s like button%s on portfolio portfolios. Please note "
 "WP Ulike plugin needs to be activaited to use this option."
 msgstr ""
 
-#: includes/general-hooks.php:2616 includes/general-hooks.php:2705
+#: includes/general-hooks.php:2649 includes/general-hooks.php:2738
 msgid "Enable Entry Box Coloring"
 msgstr ""
 
-#: includes/general-hooks.php:2617 includes/general-hooks.php:2706
+#: includes/general-hooks.php:2650 includes/general-hooks.php:2739
 msgid "Specifies the border/background color for entry box."
 msgstr ""
 
-#: includes/general-hooks.php:2641 includes/general-hooks.php:2725
+#: includes/general-hooks.php:2674 includes/general-hooks.php:2758
 msgid "Specifies the background color for entry box."
 msgstr ""
 
-#: includes/general-hooks.php:2674 includes/general-hooks.php:2753
+#: includes/general-hooks.php:2707 includes/general-hooks.php:2786
 msgid "Specifies the border color for entry box."
 msgstr ""
 
-#: includes/general-hooks.php:2779
+#: includes/general-hooks.php:2812
 msgid "Portfolio Sidebar Position"
 msgstr ""
 
-#: includes/general-hooks.php:2780
+#: includes/general-hooks.php:2813
 msgid "Specifies the position of sidebar on portfolio page."
 msgstr ""
 
-#: includes/general-hooks.php:2786 includes/general-hooks.php:3300
+#: includes/general-hooks.php:2819 includes/general-hooks.php:3333
 msgid "No Sidebar"
 msgstr ""
 
-#: includes/general-hooks.php:2790 includes/general-hooks.php:3304
+#: includes/general-hooks.php:2823 includes/general-hooks.php:3337
 msgid "Right Sidebar"
 msgstr ""
 
-#: includes/general-hooks.php:2794 includes/general-hooks.php:3308
+#: includes/general-hooks.php:2827 includes/general-hooks.php:3341
 msgid "Left Sidebar"
 msgstr ""
 
-#: includes/general-hooks.php:2798 includes/general-hooks.php:3312
+#: includes/general-hooks.php:2831 includes/general-hooks.php:3345
 msgid "Left Left Sidebar"
 msgstr ""
 
-#: includes/general-hooks.php:2802 includes/general-hooks.php:3316
+#: includes/general-hooks.php:2835 includes/general-hooks.php:3349
 msgid "Right Right Sidebar"
 msgstr ""
 
-#: includes/general-hooks.php:2806 includes/general-hooks.php:3320
+#: includes/general-hooks.php:2839 includes/general-hooks.php:3353
 msgid "Left Right Sidebar"
 msgstr ""
 
-#: includes/general-hooks.php:2810 includes/general-hooks.php:3324
+#: includes/general-hooks.php:2843 includes/general-hooks.php:3357
 msgid "Right Left Sidebar"
 msgstr ""
 
-#: includes/general-hooks.php:2822
+#: includes/general-hooks.php:2855
 msgid "Portfolio Sidebar Style"
 msgstr ""
 
-#: includes/general-hooks.php:2823
+#: includes/general-hooks.php:2856
 msgid "Specifies the style of sidebar on portfolio page."
 msgstr ""
 
-#: includes/general-hooks.php:2837 includes/general-hooks.php:3347
+#: includes/general-hooks.php:2870 includes/general-hooks.php:3380
 msgid "Simple"
 msgstr ""
 
-#: includes/general-hooks.php:2841 includes/general-hooks.php:3351
+#: includes/general-hooks.php:2874 includes/general-hooks.php:3384
 msgid "Bordered Sidebar"
 msgstr ""
 
-#: includes/general-hooks.php:2845 includes/general-hooks.php:3355
+#: includes/general-hooks.php:2878 includes/general-hooks.php:3388
 msgid "Overlap Background"
 msgstr ""
 
-#: includes/general-hooks.php:2854
+#: includes/general-hooks.php:2887
 msgid "Number of Portfolios Per Page"
 msgstr ""
 
-#: includes/general-hooks.php:2855
+#: includes/general-hooks.php:2888
 msgid "Specifies the number of portfolios items to show on each page."
 msgstr ""
 
-#: includes/general-hooks.php:2873
+#: includes/general-hooks.php:2906
 msgid "Display Title Bar?"
 msgstr ""
 
-#: includes/general-hooks.php:2874
+#: includes/general-hooks.php:2907
 msgid ""
 "Specifies whether to display the title bar at top of portfolio archive page "
 "or not."
 msgstr ""
 
-#: includes/general-hooks.php:2892
+#: includes/general-hooks.php:2925
 msgid "Display Breadcrumb?"
 msgstr ""
 
-#: includes/general-hooks.php:2893
+#: includes/general-hooks.php:2926
 msgid ""
 "Specifies whether to display the breadcrumb in title bar of portfolio "
 "archive page or not."
 msgstr ""
 
-#: includes/general-hooks.php:2915
+#: includes/general-hooks.php:2948
 msgid "Display Title?"
 msgstr ""
 
-#: includes/general-hooks.php:2916
+#: includes/general-hooks.php:2949
 msgid ""
 "Specifies whether to display the title in title bar of portfolio archive "
 "page or not."
 msgstr ""
 
-#: includes/general-hooks.php:2938
+#: includes/general-hooks.php:2971
 msgid "Custom Title"
 msgstr ""
 
-#: includes/general-hooks.php:2961
+#: includes/general-hooks.php:2994
 msgid "Custom Breadcrumb Label"
 msgstr ""
 
-#: includes/general-hooks.php:2988
+#: includes/general-hooks.php:3021
 msgid "Portfolio Category & tag"
 msgstr ""
 
-#: includes/general-hooks.php:2989
+#: includes/general-hooks.php:3022
 msgid "Portfolio Category & tag page Setting"
 msgstr ""
 
-#: includes/general-hooks.php:2993
+#: includes/general-hooks.php:3026
 msgid "Taxonomy Page Template"
 msgstr ""
 
-#: includes/general-hooks.php:3292
+#: includes/general-hooks.php:3325
 msgid "Taxonomy Page Sidebar Position"
 msgstr ""
 
-#: includes/general-hooks.php:3333
+#: includes/general-hooks.php:3366
 msgid "Sidebar Style"
 msgstr ""
 
-#: includes/general-hooks.php:3334
+#: includes/general-hooks.php:3367
 msgid "Specifies the style of sidebar on category & tag page."
 msgstr ""
 
-#: includes/general-hooks.php:3368
+#: includes/general-hooks.php:3401
 msgid "Portfolio MetaData"
 msgstr ""
 
-#: includes/general-hooks.php:3369
+#: includes/general-hooks.php:3402
 msgid "Portfolio MetaData Setting"
 msgstr ""
 
-#: includes/general-hooks.php:3373
+#: includes/general-hooks.php:3406
 msgid "Label for Launch Project Button"
 msgstr ""
 
-#: includes/general-hooks.php:3374
+#: includes/general-hooks.php:3407
 msgid "Specify a label for launch project button."
 msgstr ""
 
-#: includes/general-hooks.php:3381
+#: includes/general-hooks.php:3414
 msgid "Launch Project"
 msgstr ""
 
-#: includes/general-hooks.php:3385
+#: includes/general-hooks.php:3418
 msgid "Portfolio MetaDatas"
 msgstr ""
 
-#: includes/general-hooks.php:3386
+#: includes/general-hooks.php:3419
 msgid ""
 "Specify the number of fields and the label of each one for portfolio "
 "metadatas"
 msgstr ""
 
-#: includes/general-hooks.php:3392
+#: includes/general-hooks.php:3425
 msgid "Project URL"
 msgstr ""
 
-#: includes/general-hooks.php:3393
+#: includes/general-hooks.php:3426
 msgid "Client"
 msgstr ""
 
-#: includes/general-hooks.php:3394
+#: includes/general-hooks.php:3427
 msgid "Release Date"
 msgstr ""
 
-#: includes/general-hooks.php:3396
+#: includes/general-hooks.php:3429
 msgid "Custom Field 1"
 msgstr ""
 
-#: includes/general-hooks.php:3397
+#: includes/general-hooks.php:3430
 msgid "Custom Field 2"
 msgstr ""
 
-#: includes/general-hooks.php:3398
+#: includes/general-hooks.php:3431
 msgid "Custom Field 3"
 msgstr ""
 
-#: includes/general-hooks.php:3399
+#: includes/general-hooks.php:3432
 msgid "Custom Field 4"
 msgstr ""
 
-#: includes/general-hooks.php:3400
+#: includes/general-hooks.php:3433
 msgid "Custom Field 5"
 msgstr ""
 
-#: includes/general-hooks.php:3401
+#: includes/general-hooks.php:3434
 msgid "Custom Field 6"
 msgstr ""
 
-#: includes/general-hooks.php:3402
+#: includes/general-hooks.php:3435
 msgid "Custom Field 7"
 msgstr ""
 
-#: includes/general-hooks.php:3403
+#: includes/general-hooks.php:3436
 msgid "Custom Field 8"
 msgstr ""
 
-#: includes/general-hooks.php:3404
+#: includes/general-hooks.php:3437
 msgid "Custom Field 9"
 msgstr ""
 
-#: includes/general-hooks.php:3405
+#: includes/general-hooks.php:3438
 msgid "Custom Field 10"
 msgstr ""
 
-#: includes/general-hooks.php:3406
+#: includes/general-hooks.php:3439
 msgid "Custom Field 11"
 msgstr ""
 
-#: includes/general-hooks.php:3407
+#: includes/general-hooks.php:3440
 msgid "Custom Field 12"
 msgstr ""
 
-#: includes/general-hooks.php:3418 includes/general-hooks.php:3419
+#: includes/general-hooks.php:3451 includes/general-hooks.php:3452
 msgid "Single Portfolio Appearance"
 msgstr ""
 
-#: includes/general-hooks.php:3423
+#: includes/general-hooks.php:3456
 msgid "Content"
 msgstr ""
 
-#: includes/general-hooks.php:3441
+#: includes/general-hooks.php:3474
 msgid "Overview Content"
 msgstr ""
 
-#: includes/general-hooks.php:3450
+#: includes/general-hooks.php:3483
 msgid "Meta"
 msgstr ""
 
-#: includes/general-hooks.php:3459
+#: includes/general-hooks.php:3492
 msgid "Meta Terms"
 msgstr ""
 
-#: includes/general-hooks.php:3468
+#: includes/general-hooks.php:3501
 msgid "Launch Button"
 msgstr ""
 
-#: includes/general-hooks.php:3477
+#: includes/general-hooks.php:3510
 msgid "Launch Button Background"
 msgstr ""
 
-#: includes/general-hooks.php:3522
+#: includes/general-hooks.php:3555
 msgid "Portfolio Options"
 msgstr ""
 
-#: includes/general-hooks.php:3543
+#: includes/general-hooks.php:3576
 msgid "Likes"
 msgstr ""
 
-#: includes/general-hooks.php:3575
+#: includes/general-hooks.php:3608
 msgid "Like"
 msgstr ""
 
-#: includes/general-hooks.php:3602
+#: includes/general-hooks.php:3635
 msgid "Share"
 msgstr ""
 
-#: includes/general-hooks.php:3641 public/includes/templates-post.php:19
+#: includes/general-hooks.php:3674 public/includes/templates-post.php:19
 msgid "Related Projects"
 msgstr ""
 

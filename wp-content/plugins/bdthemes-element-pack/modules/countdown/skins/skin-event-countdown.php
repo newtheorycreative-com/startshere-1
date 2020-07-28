@@ -6,7 +6,6 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Icons_Manager;
-use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 

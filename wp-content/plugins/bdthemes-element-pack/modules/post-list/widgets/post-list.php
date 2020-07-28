@@ -710,7 +710,7 @@ class Post_List extends Widget_Base {
 
 												<div class="bdt-post-list-meta bdt-subnav bdt-flex-middle">
 													<?php if ($settings['show_date']) : ?>
-														<?php echo '<span>'.esc_attr(get_the_date('d F Y')).'</span>'; ?>
+														<?php echo '<span>'.get_the_date().'</span>'; ?>
 													<?php endif ?>
 
 													<?php if ($settings['show_category']) : ?>

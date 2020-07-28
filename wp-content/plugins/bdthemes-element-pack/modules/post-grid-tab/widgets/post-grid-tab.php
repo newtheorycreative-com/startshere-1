@@ -386,7 +386,7 @@ class Post_Grid_Tab extends Widget_Base {
 					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
 				],
 				'condition' => [
-					'icon!' => '',
+					'post_grid_tab_icon[value]!' => '',
 				],
 			]
 		);
@@ -405,7 +405,7 @@ class Post_Grid_Tab extends Widget_Base {
 					],
 				],
 				'condition' => [
-					'icon!' => '',
+					'post_grid_tab_icon[value]!' => '',
 				],
 				'selectors' => [
 					'{{WRAPPER}} .bdt-post-grid-tab .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
@@ -638,7 +638,7 @@ class Post_Grid_Tab extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-item-title'   => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-item-title'   => 'padding-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);

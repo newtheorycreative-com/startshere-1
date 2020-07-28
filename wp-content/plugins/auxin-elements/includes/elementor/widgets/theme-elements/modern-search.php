@@ -900,6 +900,7 @@ class ModernSearch extends Widget_Base {
             <form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" >
                 <div class="aux-search-input-form">
                     <input type="text" class="aux-search-field"  placeholder="<?php esc_attr_e('Search...', 'auxin-elements' ); ?>" name="s" autocomplete="off" data-post-types="<?php echo esc_attr ( wp_json_encode( $args['post_types'] ) ) ;?>" />
+                    <input type="hidden" name='post_type' value="<?php echo implode( ',', $args['post_types'] );?>">
                     <?php if ( $args['display_cats'] ) { ;?>
                         <?php $this->render_category( ['post_types' => $args['post_types'] ] );?>
                     <?php };?>

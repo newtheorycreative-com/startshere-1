@@ -171,6 +171,9 @@ class Carousel extends Widget_Base {
 				'label'        => __( 'Thumbnail Show Link?', 'bdthemes-element-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
+				'condition' => [
+					'thumbnail_show' => 'yes',
+				],
 			]
 		);
 
@@ -1221,7 +1224,7 @@ class Carousel extends Widget_Base {
 			'item_shadow_padding',
 			[
 				'label'       => __( 'Match Padding', 'bdthemes-element-pack' ),
-				'description' => __( 'You have to add padding for matching overlaping hover shadow', 'bdthemes-element-pack' ),
+				'description' => __( 'You have to add padding for matching overlaping normal/hover box shadow when you used Box Shadow option.', 'bdthemes-element-pack' ),
 				'type'        => Controls_Manager::SLIDER,
 				'range'       => [
 					'px' => [
@@ -1235,7 +1238,7 @@ class Carousel extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .swiper-container' => 'padding: {{SIZE}}{{UNIT}}; margin: 0 -{{SIZE}}{{UNIT}};'
-				]
+				],
 			]
 		);
 
@@ -1641,7 +1644,7 @@ class Carousel extends Widget_Base {
 				'label'     => __( 'Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-carousel .bdt-carousel-meta span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bdt-carousel .bdt-carousel-meta span *' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1653,6 +1656,7 @@ class Carousel extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .bdt-carousel .bdt-carousel-meta span:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bdt-carousel .bdt-carousel-meta span:hover a' => 'color: {{VALUE}};',
 				],
 			]
 		);

@@ -457,6 +457,10 @@ function auxin_front_end_update_query( $query ) {
         $query->set(
             'post_type', array( 'page', 'post', 'portfolio', 'staff', 'service', 'testimonial', 'news', 'faq' , 'product' )
         );
+
+        if ( ! empty( $_GET['post_type'] ) ) {
+            $query->set( 'post_type', explode( ',', sanitize_text_field( $_GET['post_type'] ) ) );
+        }
         return $query;
     }
 
@@ -602,19 +606,47 @@ function auxin_allow_img_srcset_shortcode( $allowedposttags, $context ) {
             'fill' => [],
             'width' => [],
             'height' => [],
-            'transform' => []
+            'transform' => [],
+            'stroke-width' => [],
+            'stroke' => [],
+            'opacity' => []
         ];
         $allowedposttags['g'] = [
             'fill' => [],
             'width' => [],
             'height' => [],
-            'transform' => []
+            'transform' => [],
+            'opacity' => []
         ];
         $allowedposttags['rect'] = [
             'fill' => [],
             'width' => [],
             'height' => [],
-            'transform' => []
+            'transform' => [],
+            'opacity' => []
+        ];
+        $allowedposttags['text'] = [
+            'fill' => [],
+            'width' => [],
+            'height' => [],
+            'transform' => [],
+            'font-size' => [],
+            'font-family' => [],
+            'font-weight' => [],
+            'letter-spacing' => [],
+            'x' => [],
+            'y' => [],
+            'opacity' => []
+        ];
+        $allowedposttags['tspan'] = [
+            'fill' => [],
+            'transform' => [],
+            'font-size' => [],
+            'font-family' => [],
+            'letter-spacing' => [],
+            'x' => [],
+            'y' => [],
+            'opacity' => []
         ];
         $allowedposttags['style'] = [
             'type' => [],

@@ -185,7 +185,7 @@ class Advanced_Icon_Box extends Widget_Base {
 			'description_text',
 			[
 				'label'   => __( 'Description', 'bdthemes-element-pack' ),
-				'type'    => Controls_Manager::TEXTAREA,
+				'type'    => Controls_Manager::WYSIWYG,
 				'dynamic' => [
 					'active' => true,
 				],
@@ -1775,13 +1775,12 @@ class Advanced_Icon_Box extends Widget_Base {
 					'slash'       => esc_html__( 'Slash', 'bdthemes-element-pack' ),
 					'triangle'    => esc_html__( 'Triangle', 'bdthemes-element-pack' ),
 					'wave'        => esc_html__( 'Wave', 'bdthemes-element-pack' ),
-					'kiss-curl'   => esc_html__( 'Kiss-curl', 'bdthemes-element-pack' ),
+					'kiss-curl'   => esc_html__( 'Kiss Curl', 'bdthemes-element-pack' ),
 					'zemik'       => esc_html__( 'Zemik', 'bdthemes-element-pack' ),
 					'finest'       => esc_html__( 'Finest', 'bdthemes-element-pack' ),
 					'furrow'       => esc_html__( 'Furrow', 'bdthemes-element-pack' ),
 					'peak'         => esc_html__( 'Peak', 'bdthemes-element-pack' ),
 					'melody'       => esc_html__( 'Melody', 'bdthemes-element-pack' ),
-					// 'ripple'      => esc_html__( 'Ripple', 'bdthemes-element-pack' ),
 					'bloomstar'   => esc_html__( 'Bloomstar', 'bdthemes-element-pack' ),
 					'bobbleaf' 	  => esc_html__( 'Bobbleaf', 'bdthemes-element-pack' ),
 					'demaxa' 	  => esc_html__( 'Demaxa', 'bdthemes-element-pack' ),
@@ -1791,6 +1790,7 @@ class Advanced_Icon_Box extends Widget_Base {
 					'separk' 	  => esc_html__( 'Separk', 'bdthemes-element-pack' ),
 					'zigzag-dot'  => esc_html__( 'Zigzag Dot', 'bdthemes-element-pack' ),
 					'zozobe' 	  => esc_html__( 'Zozobe', 'bdthemes-element-pack' ),
+					// 'ripple'      => esc_html__( 'Ripple', 'bdthemes-element-pack' ),
 					// 'leaf-line'   => esc_html__( 'Leaf Line', 'bdthemes-element-pack' ),
 					// 'multinus' 	  => esc_html__( 'Multinus', 'bdthemes-element-pack' ),
 					// 'rotate-box'  => esc_html__( 'Rotate Box', 'bdthemes-element-pack' ),
@@ -2693,7 +2693,7 @@ class Advanced_Icon_Box extends Widget_Base {
 
 				<?php if ( $settings['description_text'] ) : ?>
 					<div <?php echo $this->get_render_attribute_string( 'description_text' ); ?>>
-						<?php echo wp_kses( $settings['description_text'], element_pack_allow_tags('text') ); ?>
+						<?php echo $this->parse_text_editor( $settings['description_text'] ); ?>
 					</div>
 				<?php endif; ?>
 

@@ -4672,7 +4672,7 @@ function auxin_define_options_info( $fields_sections_list ){
         );
 
         $options[] = array(
-            'title'         => __( 'Icon Color', 'phlox-pro' ),
+            'title'         => __( 'Icon Liked Color', 'phlox-pro' ),
             'description'   => __( 'Like icon color','phlox-pro' ),
             'id'            => 'blog_post_like_icon_color',
             'section'       => 'blog-section-single',
@@ -4683,7 +4683,40 @@ function auxin_define_options_info( $fields_sections_list ){
                 if( ! $value ){
                     $value = esc_attr( auxin_get_option( 'blog_post_like_icon_color' ) );
                 }
-                return $value ? ".single-post .wp_ulike_general_class button::before { color:{$value}; }" : '';
+                return $value ? ".single-post .wp_ulike_is_liked button::before { color:{$value}; }" : '';
+            },
+            'dependency'  => array(
+                array(
+                     'id'      => 'show_post_single_meta_info',
+                     'value'   => array('1'),
+                     'operator'=> ''
+                ),
+                array(
+                    'id'      => 'show_blog_post_like_button',
+                    'value'   => array('1'),
+                    'operator'=> ''
+                ),
+                array(
+                    'id'      => 'blog_post_like_button_type',
+                    'value'   => array('icon'),
+                    'operator'=> ''
+                )
+            )
+        );
+
+        $options[] = array(
+            'title'         => __( 'Icon Not Liked Color', 'phlox-pro' ),
+            'description'   => __( 'Like icon color','phlox-pro' ),
+            'id'            => 'blog_post_not_like_icon_color',
+            'section'       => 'blog-section-single',
+            'transport'     => 'postMessage',
+            'type'          => 'color',
+            'default'       => '',
+            'style_callback' => function( $value = null ){
+                if( ! $value ){
+                    $value = esc_attr( auxin_get_option( 'blog_post_not_like_icon_color' ) );
+                }
+                return $value ? ".single-post .wp_ulike_is_unliked button::before { color:{$value}; }" : '';
             },
             'dependency'  => array(
                 array(

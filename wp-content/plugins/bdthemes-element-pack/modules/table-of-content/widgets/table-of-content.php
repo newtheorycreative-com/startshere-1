@@ -520,8 +520,9 @@ class Table_Of_Content extends Widget_Base {
 		$this->add_control(
 			'history',
 			[
-				'label' => esc_html__( 'Index Click History', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Click History', 'bdthemes-element-pack' ),
 				'type'  => Controls_Manager::SWITCHER,
+				'description'       => __( 'Click History is the list of web pages a user has visited recently of Table Of Content.', 'bdthemes-element-pack' ),
 			]
 		);
 
@@ -628,6 +629,17 @@ class Table_Of_Content extends Widget_Base {
                     '#bdt-toc-{{ID}} .bdt-nav > li.bdt-active > a' => 'color: {{VALUE}};',
                 ],
             ]
+		);
+		
+		$this->add_control(
+            'header_text_color',
+            [
+                'label'     => __( 'Header Text Color', 'bdthemes-element-pack' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '#bdt-toc-{{ID}} .bdt-table-of-content-header h4' => 'color: {{VALUE}};',
+                ],
+            ]
         );
 
         $this->add_control(
@@ -643,10 +655,10 @@ class Table_Of_Content extends Widget_Base {
         		],
         		'size_units' => [ 'px' ],
         		'selectors'  => [
-        			'.bdt-table-of-content .bdt-nav>.bdt-nav li a' => 'padding: {{SIZE}}{{UNIT}} 0;',
+        			'.bdt-table-of-content .bdt-nav li a, .bdt-table-of-content .bdt-nav>.bdt-nav li a' => 'padding: {{SIZE}}{{UNIT}} 0;',
         		],
         	]
-        );
+		);
 
         $this->add_responsive_control(
             'index_padding',
@@ -923,6 +935,7 @@ class Table_Of_Content extends Widget_Base {
 			[
 				'drop-settings' => [
 					'class'    => ['bdt-drop', 'bdt-card', 'bdt-card-secondary'],
+					'id' => 'bdt-toc-' . $this->get_id(),
 					'bdt-drop' => [
 						wp_json_encode([
 							"toggle"     => "#" . $id,

@@ -174,7 +174,6 @@ class Hover_Box extends Widget_Base {
 						'name'          => 'button_link',
 						'label'         => esc_html__( 'Button Link', 'bdthemes-element-pack' ),
 						'type'          => Controls_Manager::URL,
-						'default'       => ['url' => '#'],
 						'show_external' => false,
 						'dynamic'       => [ 'active' => true ],
 						'condition'     => [
@@ -1415,6 +1414,30 @@ class Hover_Box extends Widget_Base {
 						}
 						
 						$this->add_render_attribute( 'bdt-hover-box-title', 'class', 'bdt-hover-box-title', true );
+					
+						$this->add_render_attribute(
+							[
+								'title-link' => [
+									'class' => [
+										'bdt-hover-box-title-link',
+									],
+									'href'   => $item['title_link']['url'] ? esc_url($item['title_link']['url']) : 'javascript:void(0);',
+									'target' => $item['title_link']['is_external'] ? '_blank' : '_self'
+								]
+							], '', '', true
+						);
+ 
+						$this->add_render_attribute(
+							[
+								'button-link' => [
+									'class' => [
+										'bdt-hover-box-title',
+									],
+									'href'   => $item['button_link']['url'] ? esc_url($item['button_link']['url']) : 'javascript:void(0);',
+									'target' => $item['button_link']['is_external'] ? '_blank' : '_self'
+								]
+							], '', '', true
+						);
 						
 						?>
 						<div>
@@ -1436,13 +1459,15 @@ class Hover_Box extends Widget_Base {
 
 								<?php if ( $item['hover_box_title'] && ( 'yes' == $settings['show_title'] ) ) : ?>
 									<<?php echo esc_html($settings['title_tags']); ?> <?php echo $this->get_render_attribute_string('bdt-hover-box-title'); ?>>
-										<?php if ( '' !== $item['title_link']['url'] ) : ?>
-											<a href="<?php echo esc_url( $item['title_link']['url'] ); ?>">
-										<?php endif; ?>
-											<?php echo wp_kses( $item['hover_box_title'], element_pack_allow_tags('title') ); ?>
-										<?php if ( '' !== $item['title_link']['url'] ) : ?>
-											</a>
-										<?php endif; ?>
+										
+											<?php if ( '' !== $item['title_link']['url'] ) : ?>
+												<a <?php echo $this->get_render_attribute_string( 'title-link' ); ?>>
+											<?php endif; ?>
+												<?php echo wp_kses( $item['hover_box_title'], element_pack_allow_tags('title') ); ?>
+											<?php if ( '' !== $item['title_link']['url'] ) : ?>
+												</a>
+											<?php endif; ?>
+										
 									</<?php echo esc_html($settings['title_tags']); ?>>
 								<?php endif; ?>
 
@@ -1454,13 +1479,9 @@ class Hover_Box extends Widget_Base {
 
 								<?php if ($item['hover_box_button'] && ( 'yes' == $settings['show_button'] )) : ?>
 									<div class="bdt-hover-box-button">
-										<?php if ( '' !== $item['button_link']['url'] ) : ?>
-											<a href="<?php echo esc_url( $item['button_link']['url'] ); ?>">
-										<?php endif; ?>
+										<a <?php echo $this->get_render_attribute_string( 'button-link' ); ?>>
 											<?php echo wp_kses_post($item['hover_box_button']); ?>
-										<?php if ( '' !== $item['button_link']['url'] ) : ?>
-											</a>
-										<?php endif; ?>
+										</a>
 									</div>
 								<?php endif; ?>
 

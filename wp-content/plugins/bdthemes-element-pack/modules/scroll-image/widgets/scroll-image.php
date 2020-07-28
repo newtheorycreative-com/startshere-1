@@ -149,7 +149,7 @@ class Scroll_Image extends Widget_Base {
 					'size' => 320,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-scroll-image' => 'min-height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bdt-scroll-image-container .bdt-scroll-image' => 'min-height: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'image_framing!' => 'yes'

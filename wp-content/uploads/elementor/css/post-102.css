@@ -1,0 +1,55 @@
+.elementor-102 .elementor-element.elementor-element-bec4d8b{margin-top:200px;margin-bottom:050px;padding:0px 35px 0px 35px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-title a{font-size:25px;font-weight:600;line-height:30px;letter-spacing:-0.75px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-title{margin-bottom:28px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-info, .elementor-102 .elementor-element.elementor-element-cd557a5 .entry-info a{font-size:16px;font-weight:400;text-transform:uppercase;font-style:normal;line-height:19px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-info{margin-bottom:33px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-content{font-size:16px;font-weight:400;line-height:23px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-meta{margin-bottom:-30px;}.elementor-102 .elementor-element.elementor-element-cd557a5{text-align:left;}.elementor-102 .elementor-element.elementor-element-cd557a5 .column-entry{padding:25px 10px 25px 10px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .type-post .entry-main{padding:0% 0% 0% 0%;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-meta .aux-read-more{box-shadow:0px 15px 40px 0px rgba(255,115,106,0.66);color:#ffffff;padding:0px 0px 0px 0px;}.elementor-widget .tippy-tooltip .tippy-content{text-align:center;}@media(max-width:1024px){.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-title a{font-size:20px;line-height:24px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-title{margin-bottom:16px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-info{margin-bottom:8px;}.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-content{font-size:13px;line-height:23px;}}@media(max-width:767px){.elementor-102 .elementor-element.elementor-element-bec4d8b{margin-top:170px;margin-bottom:0px;}}/* Start custom CSS for aux_recent_posts, class: .elementor-element-cd557a5 */.elementor-102 .elementor-element.elementor-element-cd557a5 .aux-col{
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 105px;
+    position: relative;
+    z-index: 5;
+}
+ .elementor-102 .elementor-element.elementor-element-cd557a5 .aux-col:hover  .hentry .entry-title a,  .elementor-102 .elementor-element.elementor-element-cd557a5 .aux-col:hover .entry-content p{
+    color: #fff!important;
+    transition: color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94)70ms!important;
+}
+.elementor-102 .elementor-element.elementor-element-cd557a5 .aux-widget-recent-posts .aux-grid-table-layout.aux-has-bghover .column-entry a:hover{
+    text-decoration: none;
+}
+@media screen  and (min-width:1025px){
+    .elementor-102 .elementor-element.elementor-element-cd557a5 .aux-col{       
+    margin-right: 96px;
+    height: auto;
+    width: calc(34% - 75px);
+    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94)700ms!important;
+}}
+@media screen  and (max-width:1300px){
+    .elementor-102 .elementor-element.elementor-element-cd557a5 .aux-col{
+    height: auto;
+    padding: 20px;
+}}
+.elementor-102 .elementor-element.elementor-element-cd557a5 .aux-col:after{
+    content: '';
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94)70ms!important;
+    opacity: 1;
+}
+.elementor-102 .elementor-element.elementor-element-cd557a5 .aux-col:after{
+    border-radius:20px;
+    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94)70ms!important;
+}
+.elementor-102 .elementor-element.elementor-element-cd557a5 .aux-col:hover:after{
+    background-color:rgba(50,63,255,0.60);
+    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94)70ms!important;
+}
+.elementor-102 .elementor-element.elementor-element-cd557a5  .aux-col:nth-child(3n){
+    margin-right: 0!important;
+}
+.elementor-102 .elementor-element.elementor-element-cd557a5 .aux-col{
+    margin-bottom: 65px!important;
+}
+.elementor-102 .elementor-element.elementor-element-cd557a5 .entry-info{
+    text-align: left;
+}/* End custom CSS */

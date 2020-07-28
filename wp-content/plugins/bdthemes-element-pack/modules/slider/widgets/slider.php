@@ -194,10 +194,20 @@ class Slider extends Widget_Base {
 		$this->add_control(
 			'origin',
 			[
-				'label'   => esc_html__( 'Origin', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Content Position', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'center',
-				'options' => element_pack_position(),
+				'options' => [
+					'top-left'      => esc_html__('Top Left', 'bdthemes-element-pack'),
+					'top-center'    => esc_html__('Top Center', 'bdthemes-element-pack'),
+					'top-right'     => esc_html__('Top Right', 'bdthemes-element-pack'),
+					'center'        => esc_html__('Center', 'bdthemes-element-pack'),
+					'center-left'   => esc_html__('Center Left', 'bdthemes-element-pack'),
+					'center-right'  => esc_html__('Center Right', 'bdthemes-element-pack'),
+					'bottom-left'   => esc_html__('Bottom Left', 'bdthemes-element-pack'),
+					'bottom-center' => esc_html__('Bottom Center', 'bdthemes-element-pack'),
+					'bottom-right'  => esc_html__('Bottom Right', 'bdthemes-element-pack'),
+				]
 			]
 		);
 

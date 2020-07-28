@@ -1,3 +1,70 @@
+## 5.3.0 [26th July 2020]
+
+### Added
+
+- Visibility Control added for widget and section
+- Elementor Template Widget added in Appearance > widgets for show any pre-made template in sidebar
+- Skin Tiny Countdown Added in CountDown Widget
+- Icon Area Custom Width Option added in Fancy Tabs Widget
+- Sub Label show/hide option added in Gravity Forms Widget
+
+### Fixed
+
+- Hover animation issue fixed in Scroll Button Widget
+- Playlist padding and Description Typography issue fixed in Video Gallery Widget
+- Border issue fixed in Logo Grid Widget
+- List left side spacing issue fixed in Price List Widget
+- Min Height issue fixed in Scroll Image Widget
+- Item spacing issue fixed in Table of content Widget
+- Input spacing, width, button width issue fixed in Gravity Forms Widget
+- Animation issue fixed in Advanced Progress Bar Widget (Thanks Abdoul Ouedraogo)
+
+
+## 5.2.0 [17th July 2020]
+
+### Added
+
+- Hover Video Widget Added
+- Image Accordion Widget Added
+- Image Expand Widget Added
+- User Name show/hide option added in User Login Widget
+- Fancy Animation added in Scroll Button Widget
+- Arrows animation added in Step Flow Widget
+- Slide Per column option added in Testimonial Carousel Widget
+- Pagination Option Added in Testimonial Grid Widget
+- Header Text Color option added in Table Of Content Widget
+- Close Button some control option added in Modal Widget
+- Currency position & format option added in Price Table Widget
+
+### Fixed
+
+- Avatar showing issue fixed in User Login Widget(Thanks Kornchai Dilokchareamkun)
+- Post Grid skin alite & Harold Text limit issue fixed(Thanks Adi Heutschi)
+- Title and button icon spacing issue fixed in Post Grid Tab Widget
+- Pagination offset issue fixed
+- Meta color issue fixed in Post Slider Widget
+- Icon position & spacing issue fixed in Modal Widget
+- Minor issue solved in Animated Heading Widget
+- Label & Placeholder default not showing issue fixed in Simple Contact Form Widget
+- Button svg icon default color issue fixed in Slider, SlideShow Widget
+- Svg icon default color issue fixed in Toggle Widget
+- Wc Add To Cart Not showing issue fixed in Add to cart Widget(Thanks Gerson Ruano)
+- Icon Horizontal/vartical Offset issue fixed in Advanced Counter Widget
+- Dropdown background color issue fixed in Table of Content Widgets
+- Instagram API issue fixed you need to use new Access token system for get work it
+
+### Updated
+
+- Description control option updated in Advanced Icon Box Widget
+
+### Removed
+
+- Content Position default option removed in Slider, SlideShow widget
+
+### Noted
+
+- Instagram widget comment and like count feature remove due to new API don't support like and comment count features.
+
 ## 5.1.1 [29th June 2020]
 
 ### Added
