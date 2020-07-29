@@ -273,6 +273,10 @@ $nonce = wp_create_nonce( 'cpappb_actions_list' );
 			<p>The add-on enables the option to accept payment deposit as fixed amount or percent of the booking cost</p>
 		</div> 
         <div class="ahb-addon">
+			<label><input type="checkbox" disabled>Double opt-in email verification</label>
+			<p>Double opt-in email verification link to mark the booking as approved</p>
+		</div>         
+        <div class="ahb-addon">
 			<label><input type="checkbox" disabled>Edition / Booking modification for customers</label>
 			<p>The add-on allows customers to modify/edit bookings</p>
 		</div>         

@@ -29,7 +29,7 @@ class Honeycombs extends Widget_Base
 
     public function get_icon()
     {
-        return 'bdt-wi-honeycombs bdt-new';
+        return 'bdt-wi-honeycombs';
     }
 
     public function get_categories()
@@ -52,9 +52,9 @@ class Honeycombs extends Widget_Base
         return ['hexagon', 'box', 'honeycomb'];
     }
 
-    // public function get_custom_help_url() {
-    //     return 'https://youtu.be/faIeyW7LOJ8';
-    // }
+    public function get_custom_help_url() {
+        return 'https://youtu.be/iTWXzc329vQ';
+    }
 
     protected function _register_controls()
     {

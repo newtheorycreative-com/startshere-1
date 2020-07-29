@@ -1,4 +1,4 @@
-/*! Auxin WordPress Framework - v5.4.0 - 2020-07-06
+/*! Auxin WordPress Framework - v5.4.1 - 2020-07-19
  *  Scripts for initializing admin plugins 
 
  *  http://averta.net
@@ -1902,7 +1902,7 @@
             }
         }
         // Fix gutenberg issue
-        if( typeof wp.blocks !== "undefined" ){
+        if( typeof wp.blocks !== "undefined" && wp.data.select( 'core/editor' ) != null ){
             var lastFormat = '';
             wp.data.subscribe( onWPDataChange );
             onWPDataChange();

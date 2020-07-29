@@ -81,6 +81,9 @@ class AUXELS {
         // load common functionalities
         include_once( AUXELS_INC_DIR . '/index.php' );
 
+        if ( defined( 'WP_CLI' ) && WP_CLI ) {
+          include( AUXELS_ADMIN_DIR . '/includes/classes/class-auxin-cli-commands.php' );
+        }
 
         // Dashboard and Administrative Functionality
         if ( is_admin() ) {

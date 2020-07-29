@@ -2345,7 +2345,7 @@ function auxin_after_setup_theme_extra(){
     // gererate shortcodes in widget text
     add_filter('widget_text', 'do_shortcode');
     // Remove wp ulike auto disaply filter
-    remove_filter( 'the_content', 'wp_ulike_put_posts' );
+    remove_filter( 'the_content', 'wp_ulike_put_posts', 15 );
 }
 add_action( 'after_setup_theme', 'auxin_after_setup_theme_extra' );
 
@@ -3465,6 +3465,11 @@ function auxels_improve_usage_feedback( $args ) {
     if ( false == $transient = auxin_get_transient( 'auxels_usage_trac' ) ) {
         $migrated = ( THEME_ID == 'phlox-pro' && ! empty( get_option( 'theme_mods_phlox' ) ) ) ? true : false;
         $args['body']['client_meta']['migrated'] = $migrated; 
+
+        $last_imported_demo = get_option( 'auxin_last_imported_demo', '' );
+        if ( ! empty( $last_imported_demo ) && $last_imported_demo['id'] ) {
+            $args['body']['client_meta'][ THEME_ID . '_imported_demo_id' ] = $last_imported_demo['id']; 
+        }
         
         // plugins usage
         $plugins = [

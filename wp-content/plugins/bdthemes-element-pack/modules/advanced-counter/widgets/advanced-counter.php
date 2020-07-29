@@ -291,118 +291,118 @@ class Advanced_Counter extends Widget_Base
         );
 
         $this->add_responsive_control(
-            'top_icon_vertical_offset',
-            [
-                'label'     => esc_html__('Icon Vertical Offset', 'bdthemes-element-pack'),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 200,
-                    ],
-                ],
-                'condition' => [
-                    'position' => 'top',
-                    'show_icon' => 'yes',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-advanced-counter-icon' => 'margin-top: -{{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
+			'top_icon_vertical_offset',
+			[
+				'label' => esc_html__('Icon Vertical Offset', 'bdthemes-element-pack'),
+				'type'  => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0,
+				],
+				'tablet_default' => [
+					'size' => 0,
+				],
+				'mobile_default' => [
+					'size' => 0,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 200,
+					],
+				],
+				'condition' => [
+					'position' => 'top',
+				],
+			]
+		);
 
-        $this->add_responsive_control(
-            'top_icon_horizontal_offset',
-            [
-                'label'     => esc_html__('Icon Horizontal Offset', 'bdthemes-element-pack'),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'default'   => [
-                    'size' => 0,
-                ],
-                'condition' => [
-                    'position' => 'top',
-                    'show_icon' => 'yes',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-advanced-counter-icon' => 'transform: translateX({{SIZE}}{{UNIT}});',
-                ],
-            ]
-        );
+		$this->add_responsive_control(
+			'top_icon_horizontal_offset',
+			[
+				'label' => esc_html__('Icon Horizontal Offset', 'bdthemes-element-pack'),
+				'type'  => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => -200,
+						'max' => 200,
+					],
+				],
+				'default' => [
+					'size' => 0,
+				],
+				'tablet_default' => [
+					'size' => 0,
+				],
+				'mobile_default' => [
+					'size' => 0,
+				],
+				'condition' => [
+					'position' => 'top',
+				],
+				'selectors' => [
+					'(desktop){{WRAPPER}} .bdt-advanced-counter-icon' => 'transform: translate({{top_icon_horizontal_offset.SIZE}}{{UNIT}}, -{{top_icon_vertical_offset.SIZE}}px);',
+					'(tablet){{WRAPPER}} .bdt-advanced-counter-icon' => 'transform: translate({{top_icon_horizontal_offset_tablet.SIZE}}{{UNIT}}, -{{top_icon_vertical_offset_tablet.SIZE}}px);',
+					'(mobile){{WRAPPER}} .bdt-advanced-counter-icon' => 'transform: translate({{top_icon_horizontal_offset_mobile.SIZE}}{{UNIT}}, -{{top_icon_vertical_offset_mobile.SIZE}}px);',
+				],
+			]
+		);
 
-        $this->add_responsive_control(
-            'left_icon_horizontal_offset',
-            [
-                'label'     => esc_html__('Icon Horizontal Offset', 'bdthemes-element-pack'),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 200,
-                    ],
-                ],
-                'default'   => [
-                    'size' => 0,
-                ],
-                'condition' => [
-                    'position' => 'left',
-                    'show_icon' => 'yes',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-advanced-counter-icon' => 'margin-left: -{{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
+		$this->add_responsive_control(
+			'left_right_icon_horizontal_offset',
+			[
+				'label' => esc_html__('Icon Horizontal Offset', 'bdthemes-element-pack'),
+				'type'  => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0,
+				],
+				'tablet_default' => [
+					'size' => 0,
+				],
+				'mobile_default' => [
+					'size' => 0,
+				],
+				'range' => [
+					'px' => [
+						'min'  => -200,
+						'max'  => 200,
+					],
+				],
+				'condition' => [
+					'position' => ['left', 'right'],
+				],
+			]
+		);
 
-        $this->add_responsive_control(
-            'right_icon_horizontal_offset',
-            [
-                'label'     => esc_html__('Icon Horizontal Offset', 'bdthemes-element-pack'),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => [
-                    'px' => [
-                        'min' => 0,
-                        'max' => 200,
-                    ],
-                ],
-                'default'   => [
-                    'size' => 0,
-                ],
-                'condition' => [
-                    'position' => 'right',
-                    'show_icon' => 'yes',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-advanced-counter-icon' => 'margin-right: -{{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'left_right_icon_vertical_offset',
-            [
-                'label'     => esc_html__('Icon Vertical Offset', 'bdthemes-element-pack'),
-                'type'      => Controls_Manager::SLIDER,
-                'range'     => [
-                    'px' => [
-                        'min' => -200,
-                        'max' => 200,
-                    ],
-                ],
-                'condition' => [
-                    'position' => ['left', 'right'],
-                    'show_icon' => 'yes',
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bdt-advanced-counter-icon' => 'transform: translateY({{SIZE}}{{UNIT}});',
-                ],
-            ]
-        );
+		$this->add_responsive_control(
+			'left_right_icon_vertical_offset',
+			[
+				'label' => esc_html__('Icon Vertical Offset', 'bdthemes-element-pack'),
+				'type'  => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => -200,
+						'max' => 200,
+					],
+				],
+				'default' => [
+					'size' => 0,
+				],
+				'tablet_default' => [
+					'size' => 0,
+				],
+				'mobile_default' => [
+					'size' => 0,
+				],
+				'condition' => [
+					'position' => ['left', 'right'],
+				],
+				'selectors' => [
+					'(desktop){{WRAPPER}} .bdt-advanced-counter-icon' => 'transform: translate({{left_right_icon_horizontal_offset.SIZE}}{{UNIT}}, {{left_right_icon_vertical_offset.SIZE}}{{UNIT}});',
+					'(tablet){{WRAPPER}} .bdt-advanced-counter-icon' => 'transform: translate({{left_right_icon_horizontal_offset_tablet.SIZE}}{{UNIT}}, {{left_right_icon_vertical_offset_tablet.SIZE}}{{UNIT}});',
+					'(mobile){{WRAPPER}} .bdt-advanced-counter-icon' => 'transform: translate({{left_right_icon_horizontal_offset_mobile.SIZE}}{{UNIT}}, {{left_right_icon_vertical_offset_mobile.SIZE}}{{UNIT}});',
+				],
+			]
+		);
 
         $this->end_controls_section();
 

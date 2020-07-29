@@ -1341,7 +1341,7 @@ class Post_Block extends Widget_Base {
 
             						<div class="bdt-post-block-meta bdt-subnav bdt-flex-middle">
             							<?php if ($settings['featured_show_date']) : ?>
-            								<?php echo '<span>'.esc_attr(get_the_date('d F Y')).'</span>'; ?>
+            								<?php echo '<span>'.get_the_date().'</span>'; ?>
             							<?php endif ?>
 
             							<?php if ($settings['featured_show_category']) : ?>

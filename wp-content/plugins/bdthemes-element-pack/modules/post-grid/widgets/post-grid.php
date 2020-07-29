@@ -645,19 +645,10 @@ class Post_Grid extends Widget_Base {
 				'description' => esc_html__('It\'s just work for main content, but not working with excerpt. If you set 0 so you will get full main content.', 'bdthemes-element-pack'),
 				'type'       => Controls_Manager::NUMBER,
 				'default'    => 15,
-				'conditions' => [
-					'terms' => [
-						[
-							'name'  => 'show_excerpt',
-							'value' => 'yes'
-						],
-						[
-							'name'     => '_skin',
-							'operator' => '!=',
-							'value'    => ['bdt-harold', 'bdt-alite']
-						]
-					]
-				]
+				'condition' => [
+					'_skin!' => ['bdt-harold', 'bdt-alite'],
+					'show_excerpt' => 'yes'
+				],
 			]
 		);
 
@@ -665,20 +656,13 @@ class Post_Grid extends Widget_Base {
 			'primary_excerpt_length',
 			[
 				'label'      => esc_html__( 'Primary Text Limit', 'bdthemes-element-pack' ),
+				'description' => esc_html__('It\'s just work for main content, but not working with excerpt. If you set 0 so you will get full main content.', 'bdthemes-element-pack'),
 				'type'       => Controls_Manager::NUMBER,
 				'default'    => 40,
-				'conditions' => [
-					'terms' => [
-						[
-							'name'  => 'show_excerpt',
-							'value' => 'yes'
-						],
-						[
-							'name'  => '_skin',
-							'value' => ['bdt-harold', 'bdt-alite']
-						]
-					]
-				]
+				'condition' => [
+					'_skin' => ['bdt-harold', 'bdt-alite'],
+					'show_excerpt' => 'yes'
+				],
 			]
 		);
 
@@ -686,20 +670,13 @@ class Post_Grid extends Widget_Base {
 			'secondary_excerpt_length',
 			[
 				'label'      => esc_html__( 'Secondary Text Limit', 'bdthemes-element-pack' ),
+				'description' => esc_html__('It\'s just work for main content, but not working with excerpt. If you set 0 so you will get full main content.', 'bdthemes-element-pack'),
 				'type'       => Controls_Manager::NUMBER,
 				'default'    => 15,
-				'conditions' => [
-					'terms' => [
-						[
-							'name'  => 'show_excerpt',
-							'value' => 'yes'
-						],
-						[
-							'name'  => '_skin',
-							'value' => ['bdt-harold', 'bdt-alite']
-						]
-					]
-				]
+				'condition' => [
+					'_skin' => ['bdt-harold', 'bdt-alite'],
+					'show_excerpt' => 'yes'
+				],
 			]
 		);
 
@@ -2062,7 +2039,7 @@ class Post_Grid extends Widget_Base {
 				if ( has_excerpt() ) {
 					the_excerpt();
 				} else {
-					echo element_pack_custom_excerpt($this->get_settings_for_display('excerpt_length'), $strip_shortcode);
+					echo element_pack_custom_excerpt( $excerpt_length , $strip_shortcode);
 				}
             ?>
 			</div>

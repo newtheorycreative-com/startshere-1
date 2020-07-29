@@ -102,11 +102,15 @@ final class Manager {
             'helpdesk',
             'honeycombs',
             'hover-box',
+            'hover-video',
             'image-compare',
             'image-magnifier',
-            'instagram',
+            'image-accordion',
+            'image-expand',
             'iconnav',
             'iframe',
+            'instagram',
+            'interactive-card',
             'lightbox',
             'lottie-image',
             'lottie-icon-box',
@@ -135,6 +139,8 @@ final class Manager {
             'post-list',
             'protected-content',
             'profile-card',
+            'portfolio-list',
+            'portfolio-carousel',
             'qrcode',
             'reading-progress',
             'scrollnav',
@@ -146,6 +152,7 @@ final class Manager {
             'scroll-image',
             'scroll-button',
             'source-code',
+            'step-flow',
             'switcher',
             'svg-image',
             'tabs',
@@ -166,13 +173,6 @@ final class Manager {
             'twitter-grid',
             'video-gallery',
             'weather',
-            'portfolio-list',
-            'portfolio-carousel',
-            'step-flow',
-            'interactive-card',
-            // 'image-accordion',
-            // 'fancy-wide',
-            // 'hover-video',
         ];
 
         $faq               = element_pack_option('faq', 'element_pack_third_party_widget', 'on');
@@ -211,6 +211,7 @@ final class Manager {
         $widget_tooltip      = element_pack_option('widget_tooltip_show', 'element_pack_elementor_extend', 'on');
         $transform_effects   = element_pack_option('widget_transform_effects', 'element_pack_elementor_extend', 'on');
         $widget_equal_height = element_pack_option('widget_equal_height', 'element_pack_elementor_extend', 'off');
+        $visibility_control  = element_pack_option('visibility_control', 'element_pack_elementor_extend', 'off');
 
         if ( 'on' === $transform_effects ) {
             $modules[] = 'transform-effects';
@@ -245,6 +246,10 @@ final class Manager {
 
         if ( 'on' === $widget_equal_height ) {
             $modules[] = 'equal-height';
+        }
+
+        if ( 'on' === $visibility_control ) {
+            $modules[] = 'visibility-control';
         }
 
         if ( is_plugin_active('booked/booked.php') and 'on' === $booked_calendar ) {

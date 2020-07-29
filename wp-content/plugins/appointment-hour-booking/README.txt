@@ -939,7 +939,10 @@ Please note that the pro features aren't advised as part of the free plugin in t
 = 1.2.47 =
 * Fixed captcha bug
 
+= 1.2.48 =
+* Dropdown fields CSS improvements
+
 == Upgrade Notice ==
 
-= 1.2.47 =
-* Fixed captcha bug
+= 1.2.48 =
+* Dropdown fields CSS improvements

@@ -248,30 +248,6 @@ class User_Login extends Widget_Base {
 		);
 
 		$this->add_control(
-			'show_custom_password_text',
-			[
-				'label'   => esc_html__( 'Custom Lost Password Text', 'bdthemes-element-pack' ),
-				'type'    => Controls_Manager::SWITCHER,
-				'condition' => [
-					'show_lost_password'   => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'custom_password_text',
-			[
-				'label'   => esc_html__( 'Lost Password Text', 'bdthemes-element-pack' ),
-				'type'      => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Lost Password?', 'bethemes-element-pack' ),
-				'condition' => [
-					'show_lost_password'   => 'yes',
-					'show_custom_password_text' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
 			'hr_1',
 			[
 				'type'    => Controls_Manager::	DIVIDER,
@@ -312,30 +288,6 @@ class User_Login extends Widget_Base {
 					],
 				]
 			);
-
-			$this->add_control(
-				'show_custom_register_text',
-				[
-					'label'   => esc_html__( 'Custom Register Text', 'bdthemes-element-pack' ),
-					'type'    => Controls_Manager::SWITCHER,
-					'condition' => [
-						'show_register'   => 'yes',
-					],
-				]
-			);
-	
-			$this->add_control(
-				'custom_register_text',
-				[
-					'label'   => esc_html__( 'Register Text', 'bdthemes-element-pack' ),
-					'type'      => Controls_Manager::TEXT,
-					'default' => esc_html__( 'Register', 'bethemes-element-pack' ),
-					'condition' => [
-						'show_register'   => 'yes',
-						'show_custom_register_text' => 'yes',
-					],
-				]
-			);
 		}
 
 		$this->add_control(
@@ -354,29 +306,7 @@ class User_Login extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'custom_remember',
-			[
-				'label'   => esc_html__( 'Custom Remember Text', 'bdthemes-element-pack' ),
-				'type'    => Controls_Manager::SWITCHER,
-				'condition' => [
-					'show_remember_me'   => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'custom_remember_text',
-			[
-				'label'   => esc_html__( 'Remember Text', 'bdthemes-element-pack' ),
-				'type'      => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Remember Me', 'bethemes-element-pack' ),
-				'condition' => [
-					'show_remember_me'   => 'yes',
-					'custom_remember' => 'yes',
-				],
-			]
-		);
+		
 
 		$this->add_control(
 			'hr_4',
@@ -431,27 +361,14 @@ class User_Login extends Widget_Base {
 		);
 
 		$this->add_control(
-			'show_custom_message',
+			'show_user_name',
 			[
-				'label'   => esc_html__( 'Custom Welcome Message', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Show User Name', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
 				'condition' => [
-					'show_logged_in_message'   => 'yes',
 					'show_logged_in_content'   => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'logged_in_custom_message',
-			[
-				'label'     => esc_html__( 'Custom Message', 'bdthemes-element-pack' ),
-				'type'      => Controls_Manager::TEXT,
-				'default'   => esc_html__( 'Hey,', 'bdthemes-element-pack' ),
-				'condition' => [
-					'show_logged_in_message'   => 'yes',
-					'show_custom_message'   => 'yes',
-					'show_logged_in_content'   => 'yes',
+					'_skin!'   => '',
 				],
 			]
 		);
@@ -463,7 +380,7 @@ class User_Login extends Widget_Base {
 				'description'   => esc_html__( 'When user logged in this avatar shown in dropdown/modal button.', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::SWITCHER,
                 'condition' => [
-                    'skin!'   => '',
+                    '_skin!'   => '',
                 ],
 			]
 		);
@@ -592,11 +509,8 @@ class User_Login extends Widget_Base {
 		$this->add_control(
 			'custom_labels',
 			[
-				'label'     => esc_html__( 'Custom Label', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Custom Text', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'condition' => [
-					'show_labels' => 'yes',
-				],
 				'separator'	=> 'before',
 			]
 		);
@@ -621,7 +535,6 @@ class User_Login extends Widget_Base {
 				'type'      => Controls_Manager::TEXT,
 				'default'   => esc_html__( 'Username or Email', 'bdthemes-element-pack' ),
 				'condition' => [
-					'show_labels'   => 'yes',
 					'custom_labels' => 'yes',
 				],
 			]
@@ -647,11 +560,63 @@ class User_Login extends Widget_Base {
 				'type'      => Controls_Manager::TEXT,
 				'default'   => esc_html__( 'Password', 'bdthemes-element-pack' ),
 				'condition' => [
-					'show_labels'   => 'yes',
 					'custom_labels' => 'yes',
 				],
 			]
 		);
+
+		$this->add_control(
+			'custom_password_text',
+			[
+				'label'   => esc_html__( 'Lost Password Text', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Lost Password?', 'bethemes-element-pack' ),
+				'condition' => [
+					'show_lost_password'   => 'yes',
+					'custom_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'custom_register_text',
+			[
+				'label'   => esc_html__( 'Register Text', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Register', 'bethemes-element-pack' ),
+				'condition' => [
+					'show_register'   => 'yes',
+					'custom_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'custom_remember_text',
+			[
+				'label'   => esc_html__( 'Remember Text', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Remember Me', 'bethemes-element-pack' ),
+				'condition' => [
+					'show_remember_me'   => 'yes',
+					'custom_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'logged_in_custom_message',
+			[
+				'label'     => esc_html__( 'Welcome Message', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => esc_html__( 'Hey,', 'bdthemes-element-pack' ),
+				'condition' => [
+					'show_logged_in_message'   => 'yes',
+					'custom_labels'   => 'yes',
+					'show_logged_in_content'   => 'yes',
+				],
+			]
+		); 
 
 		$this->end_controls_section();
 
@@ -1638,7 +1603,7 @@ class User_Login extends Widget_Base {
                         <li>
                             <span class="bdt-user-name">
                                 <?php if ( $settings['show_logged_in_message'] ) : ?>
-                                    <?php if ( $settings['logged_in_custom_message'] and $settings['show_custom_message'] ) : ?>
+                                    <?php if ( $settings['logged_in_custom_message'] and $settings['custom_labels'] ) : ?>
                                         <?php echo esc_html($settings['logged_in_custom_message']); ?>
                                     <?php else : ?>
                                         <?php esc_html_e( 'Hi', 'bdthemes-element-pack' ); ?>,
@@ -1829,7 +1794,7 @@ class User_Login extends Widget_Base {
                 <div class="bdt-field-group bdt-remember-me">
                     <label for="remember-me-<?php echo esc_attr($id); ?>" class="bdt-form-label">
 						<input type="checkbox" id="remember-me-<?php echo esc_attr($id); ?>" class="bdt-checkbox" name="rememberme" value="forever">
-						<?php if ($settings['custom_remember']) : ?>
+						<?php if ($settings['custom_labels']) : ?>
 							<?php echo esc_html_e( $settings['custom_remember_text'] ); ?>
 						<?php else : ?>
 							<?php esc_html_e( 'Remember Me', 'bdthemes-element-pack' ); ?>
@@ -1862,7 +1827,7 @@ class User_Login extends Widget_Base {
 						}
 						?>
 						<a class="bdt-lost-password" href="<?php echo esc_url($lost_password_url); ?>">
-							<?php if ($settings['show_custom_password_text']) : ?>
+							<?php if ($settings['custom_labels']) : ?>
 								<?php echo esc_html_e( $settings['custom_password_text'] ); ?>
 							<?php else : ?>
 								<?php esc_html_e( 'Lost password?', 'bdthemes-element-pack' ); ?>
@@ -1879,7 +1844,7 @@ class User_Login extends Widget_Base {
 						}
 						?>
                         <a class="bdt-register" href="<?php echo esc_url($register_url); ?>">
-							<?php if ($settings['show_custom_register_text']) : ?>
+							<?php if ($settings['custom_labels']) : ?>
 								<?php echo esc_html_e( $settings['custom_register_text'] ); ?>
 							<?php else : ?>
 								<?php esc_html_e( 'Register', 'bdthemes-element-pack' ); ?>

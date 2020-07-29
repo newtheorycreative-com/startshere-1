@@ -133,9 +133,12 @@ class Skin_Harold extends Elementor_Skin_Base {
 		</div>	
  		<?php
 
- 		if ($settings['show_pagination']) {
- 			element_pack_post_pagination($wp_query);
- 		}
+		if ($settings['show_pagination']) { ?>
+			<div class="ep-pagination">
+				<?php element_pack_post_pagination($wp_query); ?>
+			</div>
+			<?php
+		}
 		wp_reset_postdata();
 	}
 }

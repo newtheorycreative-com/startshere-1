@@ -382,17 +382,17 @@ class Advanced_Progress_Bar extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'progress_bar_padding',
-            [
-                'label'      => esc_html__('Padding', 'bdthemes-element-pack'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors'  => [
-                    '{{WRAPPER}} .bdt-advanced-progress-bar .bdt-progress-fill' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
+        // $this->add_control(
+        //     'progress_bar_padding',
+        //     [
+        //         'label'      => esc_html__('Padding', 'bdthemes-element-pack'),
+        //         'type'       => Controls_Manager::DIMENSIONS,
+        //         'size_units' => ['px', 'em', '%'],
+        //         'selectors'  => [
+        //             '{{WRAPPER}} .bdt-advanced-progress-bar .bdt-progress-fill' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+        //         ],
+        //     ]
+        // );
 
         $this->end_controls_section();
 
@@ -426,6 +426,15 @@ class Advanced_Progress_Bar extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'show_progress_fill',
+            [
+                'label'   => __('Fill Color', 'bdthemes-element-pack'),
+                'type'    => Controls_Manager::SWITCHER,
+                'default' => 'yes'
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
@@ -435,6 +444,7 @@ class Advanced_Progress_Bar extends Widget_Base
                 'selector'  => '{{WRAPPER}} .bdt-advanced-progress-bar .bdt-progress-fill',
                 'condition' => [
                     'skills_extra_style!' => ['bdt-progress-rainbow-animate'],
+                    'show_progress_fill' => 'yes'
                 ],
             ]
         );
@@ -514,13 +524,13 @@ class Advanced_Progress_Bar extends Widget_Base
                 'size_units' => ['px'],
                 'range'      => [
                     'px' => [
-                        'min' => -50,
+                        'min' => 20,
                         'max' => 100,
                     ],
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-advanced-progress-bar .bdt-progress-item .bdt-progress-parcentage'         => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .bdt-advanced-progress-bar .bdt-progress-item .bdt-progress-parcentage::before' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .bdt-advanced-progress-bar .bdt-progress-item .bdt-progress-parcentage'         => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .bdt-advanced-progress-bar .bdt-progress-item .bdt-progress-parcentage::before' => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );

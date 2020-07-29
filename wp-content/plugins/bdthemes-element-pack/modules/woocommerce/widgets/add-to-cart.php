@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class Add_To_Cart extends Widget_Button {
 
 	public function get_name() {
-		return 'wc-add-to-cart';
+		return 'bdt-wc-add-to-cart';
 	}
 
 	public function get_title() {

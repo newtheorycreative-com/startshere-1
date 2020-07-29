@@ -214,7 +214,7 @@ class ElementPack_Admin_Settings {
                     'widget_type'  => 'pro',
                     'content_type' => 'others',
                     'demo_url'     => 'https://elementpack.pro/demo/element/advanced-google-map/',
-                    'video_url'    => 'https://youtu.be/Lq_st2IWZiE',
+                    'video_url'    => 'https://youtu.be/qaZ-hv6UPDY',
                 ],
                 [
                     'name'         => 'advanced-heading',
@@ -548,16 +548,16 @@ class ElementPack_Admin_Settings {
                     'demo_url'     => 'https://elementpack.pro/demo/element/fancy-tabs/',
                     'video_url'    => 'https://youtu.be/wBTRSjofce4',
                 ],
-                // [
-                //     'name'         => 'fancy-wide',
-                //     'label'        => esc_html__( 'Fancy Wide', 'bdthemes-element-pack' ),
-                //     'type'         => 'checkbox',
-                //     'default'      => "off",
-                //     'widget_type'  => 'pro',
-                //     'content_type' => 'custom new',
-                //     'demo_url'     => 'https://elementpack.pro/demo/element/fancy-wide/',
-                //     'video_url'    => '',
-                // ],
+                [
+                    'name'         => 'image-expand',
+                    'label'        => esc_html__( 'Image Expand', 'bdthemes-element-pack' ),
+                    'type'         => 'checkbox',
+                    'default'      => "off",
+                    'widget_type'  => 'pro',
+                    'content_type' => 'custom new',
+                    'demo_url'     => 'https://elementpack.pro/demo/element/image-expand/',
+                    'video_url'    => 'https://youtu.be/gNg7vpypycY',
+                ],
                 [
                     'name'         => 'flip-box',
                     'label'        => esc_html__( 'Flip Box', 'bdthemes-element-pack' ),
@@ -574,9 +574,9 @@ class ElementPack_Admin_Settings {
                     'type'         => 'checkbox',
                     'default'      => "off",
                     'widget_type'  => 'pro',
-                    'content_type' => 'custom new',
+                    'content_type' => 'custom',
                     'demo_url'     => 'https://elementpack.pro/demo/element/featured-box/',
-                    'video_url'    => '',
+                    'video_url'    => 'https://youtu.be/Qe4yYXajhQg',
                 ],
                 [
                     'name'         => 'google-reviews',
@@ -616,18 +616,18 @@ class ElementPack_Admin_Settings {
                     'widget_type'  => 'pro',
                     'content_type' => 'others carousel',
                     'demo_url'     => 'https://elementpack.pro/demo/element/instagram-feed/',
-                    'video_url'    => 'https://www.youtube.com/watch?v=6bxWo_kSh1A&t=24s',
+                    'video_url'    => 'https://youtu.be/uj9WpuFIZb8',
                 ],
-                // [
-                //     'name'         => 'image-accordion',
-                //     'label'        => esc_html__( 'Image Accordion', 'bdthemes-element-pack' ),
-                //     'type'         => 'checkbox',
-                //     'default'      => "off",
-                //     'widget_type'  => 'pro',
-                //     'content_type' => 'custom new',
-                //     'demo_url'     => 'https://elementpack.pro/demo/element/image-accordion/',
-                //     'video_url'    => '',
-                // ],
+                [
+                    'name'         => 'image-accordion',
+                    'label'        => esc_html__( 'Image Accordion', 'bdthemes-element-pack' ),
+                    'type'         => 'checkbox',
+                    'default'      => "off",
+                    'widget_type'  => 'pro',
+                    'content_type' => 'custom new',
+                    'demo_url'     => 'https://elementpack.pro/demo/element/image-accordion/',
+                    'video_url'    => 'https://youtu.be/jQWU4kxXJpM',
+                ],
                 [
                     'name'         => 'image-compare',
                     'label'        => esc_html__( 'Image Compare', 'bdthemes-element-pack' ),
@@ -654,9 +654,9 @@ class ElementPack_Admin_Settings {
                     'type'         => 'checkbox',
                     'default'      => "off",
                     'widget_type'  => 'pro',
-                    'content_type' => 'others new',
+                    'content_type' => 'others',
                     'demo_url'     => 'https://elementpack.pro/demo/element/interactive-card/',
-                    'video_url'    => '',
+                    'video_url'    => 'https://youtu.be/r8IXJUD3PA4',
                 ],
                 [
                     'name'         => 'helpdesk',
@@ -678,25 +678,25 @@ class ElementPack_Admin_Settings {
                     'demo_url'     => 'https://elementpack.pro/demo/element/hover-box/',
                     'video_url'    => 'https://youtu.be/lWdF9-SV-2I',
                 ],
-//                [
-//                    'name'         => 'hover-video',
-//                    'label'        => esc_html__( 'Hover Video', 'bdthemes-element-pack' ),
-//                    'type'         => 'checkbox',
-//                    'default'      => "off",
-//                    'widget_type'  => 'pro',
-//                    'content_type' => 'custom new',
-//                    'demo_url'     => 'https://elementpack.pro/demo/element/hover-video/',
-//                    'video_url'    => '',
-//                ],
+                [
+                    'name'         => 'hover-video',
+                    'label'        => esc_html__( 'Hover Video', 'bdthemes-element-pack' ),
+                    'type'         => 'checkbox',
+                    'default'      => "off",
+                    'widget_type'  => 'pro',
+                    'content_type' => 'custom new',
+                    'demo_url'     => 'https://elementpack.pro/demo/element/hover-video/',
+                    'video_url'    => 'https://youtu.be/RgoWlIm5KOo',
+                ],
                 [
                     'name'         => 'honeycombs',
                     'label'        => esc_html__( 'Honeycombs', 'bdthemes-element-pack' ),
                     'type'         => 'checkbox',
                     'default'      => "off",
                     'widget_type'  => 'pro',
-                    'content_type' => 'custom new',
+                    'content_type' => 'custom',
                     'demo_url'     => 'https://elementpack.pro/demo/element/honeycombs/',
-                    'video_url'    => '',
+                    'video_url'    => 'https://youtu.be/iTWXzc329vQ',
                 ],
                 [
                     'name'         => 'lightbox',
@@ -1093,9 +1093,9 @@ class ElementPack_Admin_Settings {
                     'type'         => 'checkbox',
                     'default'      => "off",
                     'widget_type'  => 'free',
-                    'content_type' => 'others new',
+                    'content_type' => 'others',
                     'demo_url'     => 'https://elementpack.pro/demo/element/step-flow/',
-                    'video_url'    => '',
+                    'video_url'    => 'https://youtu.be/YNjbt-5GO4k',
                 ],
                 [
                     'name'         => 'switcher',
@@ -1363,6 +1363,16 @@ class ElementPack_Admin_Settings {
                     'video_url'    => 'https://youtu.be/h19c3FOxYlc',
                 ],
 
+                [
+                    'name'         => 'visibility_control',
+                    'label'        => esc_html__( 'Visibility Control', 'bdthemes-element-pack' ),
+                    'type'         => 'checkbox',
+                    'default'      => "off",
+                    'content_type' => 'new',
+                    // 'demo_url'     => 'https://elementpack.pro/demo/element/visibility-control/',
+                    // 'video_url'    => 'https://youtu.be/h19c3FOxYlc',
+                ],
+
             ],
             'element_pack_api_settings' => [
                 [
@@ -1421,6 +1431,37 @@ class ElementPack_Admin_Settings {
                 ],
 
 
+//                [
+//                    'name'              => 'instagram_access_token',
+//                    'label'             => esc_html__( 'Instagram Access Token', 'bdthemes-element-pack' ),
+//                    'desc'              => __( 'Go to <a href="https://instagram.pixelunion.net/" target="_blank">This Link</a> and Generate the access token then copy and paste here.', 'bdthemes-element-pack' ),
+//                    'placeholder'       => '---------------',
+//                    'type'              => 'text',
+//                    'sanitize_callback' => 'sanitize_text_field'
+//                ],
+                [
+                    'name'              => 'instagram_group_start',
+                    'label'             => esc_html__( 'Instagram Access', 'bdthemes-element-pack' ),
+                    'desc'              => __( 'Go to <a href="https://developers.facebook.com/docs/instagram-basic-display-api/getting-started" target="_blank">https://developers.facebook.com/docs/instagram-basic-display-api/getting-started</a> for create your Consumer key and Access Token.', 'bdthemes-element-pack' ),
+                    'type'              => 'start_group',
+                    'video_url'         => 'https://youtu.be/IrQVteaaAow',
+                ],
+
+                [
+                    'name'              => 'instagram_app_id',
+                    'label'             => esc_html__( 'Instagram App ID', 'bdthemes-element-pack' ),
+                    'placeholder'       => '---------------',
+                    'type'              => 'text',
+                    'sanitize_callback' => 'sanitize_text_field'
+                ],
+                [
+                    'name'              => 'instagram_app_secret',
+                    'label'             => esc_html__( 'Instagram App Secret', 'bdthemes-element-pack' ),
+                    'placeholder'       => '---------------',
+                    'type'              => 'text',
+                    'sanitize_callback' => 'sanitize_text_field'
+                ],
+
                 [
                     'name'              => 'instagram_access_token',
                     'label'             => esc_html__( 'Instagram Access Token', 'bdthemes-element-pack' ),
@@ -1428,6 +1469,11 @@ class ElementPack_Admin_Settings {
                     'placeholder'       => '---------------',
                     'type'              => 'text',
                     'sanitize_callback' => 'sanitize_text_field'
+                ],
+
+                [
+                    'name'              => 'instagram_group_end',
+                    'type'              => 'end_group',
                 ],
 
                 [
@@ -1737,7 +1783,7 @@ class ElementPack_Admin_Settings {
             'widget_type'  => 'pro',
             'content_type' => 'forms',
             'demo_url'     => 'https://elementpack.pro/demo/element/everest-forms/',
-            'video_url'    => '',
+            'video_url'    => 'https://youtu.be/jfZhIFpdvcg',
         ];
 
         $third_party_widget['element_pack_third_party_widget'][] = [
@@ -2232,8 +2278,8 @@ set_time_limit(90);
 
                             <ul class="bdt-list bdt-list-divider" bdt-lightbox>
                                 <li>
-                                    <a href="https://youtu.be/fOBbuJ-gQNY">
-                                        <h4 class="ep-link-title">What's New in Version V5.0.0</h4>
+                                    <a href="https://youtu.be/fzq1GsNcPAw">
+                                        <h4 class="ep-link-title">What's New in Version V5.2.0</h4>
                                     </a>
                                 </li>
                                 <li>

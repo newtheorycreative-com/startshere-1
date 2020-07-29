@@ -110,7 +110,7 @@ class Element_Pack_Loader {
 		require BDTEP_INC_PATH . 'class-svg-support.php';
 		// all widgets control from here
 		require BDTEP_INC_PATH . 'modules-manager.php';
-		// wpml compatiblity class for wpml support
+		// wpml compatibility class for wpml support
 		require BDTEP_INC_PATH . 'class-elements-wpml-compatibility.php';
 		// For changelog file parse
 		require BDTEP_INC_PATH . 'class-parsedown.php';
@@ -122,9 +122,11 @@ class Element_Pack_Loader {
             require BDTEP_INC_PATH . 'magic-copy/class-elementpack-magic-copy.php';
         }
 
+        // register the elementor template loading widget
+        require BDTEP_INC_PATH . 'widgets/elementor-template.php';
+
 		// Facebook access token generator control for editor
 		require BDTEP_INC_PATH . 'class-fb-access-token-generator-control.php';
-		require BDTEP_INC_PATH . 'controls/image-mask-control.php';
 
 		require BDTEP_INC_PATH . 'class-google-recaptcha.php';
 
@@ -198,7 +200,7 @@ class Element_Pack_Loader {
 		$suffix   = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		$settings = get_option( 'element_pack_api_settings' );
 
-		wp_register_script( 'bdt-uikit-icons', BDTEP_ASSETS_URL . 'js/bdt-uikit-icons' . $suffix . '.js', ['jquery', 'bdt-uikit'], '3.5.3', true );
+		wp_register_script( 'bdt-uikit-icons', BDTEP_ASSETS_URL . 'js/bdt-uikit-icons' . $suffix . '.js', ['jquery', 'bdt-uikit'], '3.5.5', true );
 		wp_register_script( 'goodshare', BDTEP_ASSETS_URL . 'vendor/js/goodshare' . $suffix . '.js', ['jquery'], '4.1.2', true );
 		wp_register_script( 'aspieprogress', BDTEP_ASSETS_URL . 'vendor/js/jquery-asPieProgress' . $suffix . '.js', ['jquery'], '0.4.7', true );
 		wp_register_script( 'morphext', BDTEP_ASSETS_URL . 'vendor/js/morphext' . $suffix . '.js', ['jquery'], '2.4.7', true );
@@ -249,7 +251,7 @@ class Element_Pack_Loader {
 		wp_register_script( 'moment-timezone-with-data', BDTEP_ASSETS_URL . 'vendor/js/moment-timezone-with-data' . $suffix . '.js', ['jquery'], '0.0.1', true );
 		wp_register_script( 'image-compare-viewer', BDTEP_ASSETS_URL . 'vendor/js/image-compare-viewer' . $suffix . '.js', ['jquery'], '0.0.1', true );
         wp_register_script( 'gsap', BDTEP_ASSETS_URL . 'vendor/js/gsap' . $suffix . '.js', [], '3.3.0', true );
-        wp_register_script( 'spilt-text', BDTEP_ASSETS_URL . 'vendor/js/SplitText' . $suffix . '.js', ['gsap'], '3.3.0', true );
+        wp_register_script( 'split-text', BDTEP_ASSETS_URL . 'vendor/js/SplitText' . $suffix . '.js', ['gsap'], '3.3.0', true );
         wp_register_script( 'wavify', BDTEP_ASSETS_URL . 'vendor/js/wavify' . $suffix . '.js', ['gsap'], '0.0.1', true );
          
     }
@@ -276,7 +278,7 @@ class Element_Pack_Loader {
 
 		$direction_suffix = is_rtl() ? '.rtl' : '';
 
-		wp_enqueue_style( 'bdt-uikit', BDTEP_ASSETS_URL . 'css/bdt-uikit' . $direction_suffix . '.css', [], '3.5.3' );
+		wp_enqueue_style( 'bdt-uikit', BDTEP_ASSETS_URL . 'css/bdt-uikit' . $direction_suffix . '.css', [], '3.5.5' );
 		wp_enqueue_style( 'element-pack-site', BDTEP_ASSETS_URL . 'css/element-pack-site' . $direction_suffix . '.css', [], BDTEP_VER );		
 	}
 
@@ -289,7 +291,7 @@ class Element_Pack_Loader {
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'bdt-uikit', BDTEP_ASSETS_URL . 'js/bdt-uikit' . $suffix . '.js', ['jquery'], '3.5.3' );
+		wp_enqueue_script( 'bdt-uikit', BDTEP_ASSETS_URL . 'js/bdt-uikit' . $suffix . '.js', ['jquery'], '3.5.5' );
 		wp_enqueue_script( 'element-pack-site', BDTEP_ASSETS_URL . 'js/element-pack-site' . $suffix . '.js', ['jquery', 'elementor-frontend'], BDTEP_VER );
 
 		$script_config = [ 

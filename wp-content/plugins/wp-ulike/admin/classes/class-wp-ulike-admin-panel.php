@@ -612,7 +612,6 @@ if ( ! class_exists( 'wp_ulike_admin_panel' ) ) {
                     'options'     => array(
                         'do_not_log'  => __('Do Not Log', WP_ULIKE_SLUG),
                         'by_cookie'   => __('Logged By Cookie', WP_ULIKE_SLUG),
-                        'by_ip'       => __('Logged By IP', WP_ULIKE_SLUG),
                         'by_username' => __('Logged By Username', WP_ULIKE_SLUG)
                     ),
                     'default'     => 'by_username',
@@ -663,6 +662,13 @@ if ( ! class_exists( 'wp_ulike_admin_panel' ) ) {
                         'asc'  => __('Ascending', WP_ULIKE_SLUG),
                         'desc' => __('Descending', WP_ULIKE_SLUG)
                     ),
+                    'dependency' => array( 'enable_likers_box', '==', 'true' ),
+                ),
+                'hide_likers_for_anonymous_users' => array(
+                    'id'    => 'hide_likers_for_anonymous_users',
+                    'type'  => 'switcher',
+                    'default' => false,
+                    'title' => __('Hide For Anonymous Users', WP_ULIKE_SLUG),
                     'dependency' => array( 'enable_likers_box', '==', 'true' ),
                 ),
                 'disable_likers_pophover' => array(

@@ -8,6 +8,7 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Icons_Manager;
+use Elementor\Repeater;
 use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -197,9 +198,20 @@ class Fancy_Tabs extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
+			'tabs_item_cutom_width',
+			[
+				'label' => esc_html__('Icon Area Width(%)', 'bdthemes-prime-slider'),
+				'type'  => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .bdt-fancy-tabs .bdt-custom-width.bdt-width-1-2\@s' => 'Width: {{SIZE}}%;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
 			'columns',
 			[
-				'label'          => esc_html__( 'Columns', 'bdthemes-element-pack' ),
+				'label'          => esc_html__( 'Icon Columns', 'bdthemes-element-pack' ),
 				'type'           => Controls_Manager::SELECT,
 				'default'        => '2',
 				'tablet_default' => '2',
@@ -218,7 +230,7 @@ class Fancy_Tabs extends Widget_Base {
 		$this->add_control(
 			'column_gap',
 			[
-				'label'   => esc_html__( 'Column Gap', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Icon Column Gap', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'medium',
 				'options' => [
@@ -1340,19 +1352,19 @@ class Fancy_Tabs extends Widget_Base {
 			<div class="bdt-grid bdt-flex bdt-flex-middle">
 
 				<?php if ( 'left' == $settings['fancy_tabs_position'] ) : ?>
-					<div class="bdt-width-1-1 bdt-width-1-2@s bdt-flex-center">
+					<div class="bdt-width-1-1 bdt-width-1-2@s bdt-flex-center bdt-custom-width">
 						<?php $this->tab_items(); ?>
 					</div>
-					<div class="bdt-width-1-1 bdt-width-1-2@s">
+					<div class="bdt-width-1-1 bdt-width-expand@s">
 						<?php $this->tabs_content(); ?>
 					</div>
 				<?php endif; ?>
 
 				<?php if ( 'right' == $settings['fancy_tabs_position'] ) : ?>
-					<div class="bdt-width-1-1 bdt-width-1-2@s">
+					<div class="bdt-width-1-1 bdt-width-expand@s">
 						<?php $this->tabs_content(); ?>
 					</div>
-					<div class="bdt-width-1-1 bdt-width-1-2@s bdt-flex-center">
+					<div class="bdt-width-1-1 bdt-width-1-2@s bdt-flex-center bdt-custom-width">
 						<?php $this->tab_items(); ?>
 					</div>
 				<?php endif; ?>
@@ -1446,7 +1458,6 @@ class Fancy_Tabs extends Widget_Base {
 
         $this->add_render_attribute( 'tab-settings', 'bdt-fancy-tabs-items', 'connect: #bdt-tab-content-' .  esc_attr($id) . ';' );
 
-
 		?>
 			<div <?php echo ( $this->get_render_attribute_string( 'tab-settings' ) ); ?>>
 				<div class="bdt-grid bdt-grid-<?php echo esc_attr($settings['column_gap']); ?> bdt-child-width-1-<?php echo esc_attr($mobile_cols); ?> bdt-child-width-1-<?php echo esc_attr($tablet_cols); ?>@s bdt-child-width-1-<?php echo esc_attr($desktop_cols); ?>@l" bdt-grid>
@@ -1478,8 +1489,6 @@ class Fancy_Tabs extends Widget_Base {
 	
 								<?php if ( $has_icon or $has_image ) : ?>
 									<span class="bdt-icon-wrapper">
-	
-	
 										<?php if ( $has_icon and 'icon' == $item['icon_type'] ) { ?>
 	
 											<?php Icons_Manager::render_icon( $item['selected_icon'], [ 'aria-hidden' => 'true' ] ); ?>

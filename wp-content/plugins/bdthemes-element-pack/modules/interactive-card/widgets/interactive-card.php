@@ -27,7 +27,7 @@ class Interactive_Card extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'bdt-wi-interactive-card bdt-new';
+        return 'bdt-wi-interactive-card';
     }
 
     public function get_categories() {
@@ -44,6 +44,10 @@ class Interactive_Card extends Widget_Base {
 
     public function get_script_depends() {
         return ['gsap', 'wavify', 'ep-interactive-card'];
+    }
+
+    public function get_custom_help_url() {
+        return 'https://youtu.be/r8IXJUD3PA4';
     }
 
     protected function _register_controls() {
@@ -662,7 +666,31 @@ class Interactive_Card extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image, {{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'card_iamge_padding',
+            [
+                'label'      => __('Padding', 'bdthemes-element-pack'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'card_iamge_margin',
+            [
+                'label'      => __('Margin', 'bdthemes-element-pack'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );

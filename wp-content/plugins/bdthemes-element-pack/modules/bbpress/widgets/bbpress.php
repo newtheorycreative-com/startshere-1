@@ -81,15 +81,15 @@ class Bbpress extends Widget_Base {
 
 		$this->end_controls_section();
 
-		$this->start_controls_section(
-			'section_header_style',
-			[
-				'label' => esc_html__( 'Style', 'bdthemes-element-pack' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			]
-		);		
-
-		$this->end_controls_section();
+//		$this->start_controls_section(
+//			'section_header_style',
+//			[
+//				'label' => esc_html__( 'Style', 'bdthemes-element-pack' ),
+//				'tab'   => Controls_Manager::TAB_STYLE,
+//			]
+//		);
+//
+//		$this->end_controls_section();
 	}
 
 	private function get_shortcode() {

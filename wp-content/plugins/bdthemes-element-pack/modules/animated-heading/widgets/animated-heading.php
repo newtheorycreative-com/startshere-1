@@ -30,7 +30,7 @@ class AnimatedHeading extends Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'animated', 'heading', 'headline', 'vivid' ];
+		return [ 'animated', 'heading', 'headline', 'split', 'gsap', 'vivid' ];
 	}
 
 	public function get_style_depends() {
@@ -38,7 +38,7 @@ class AnimatedHeading extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'morphext', 'typed', 'gsap', 'spilt-text', 'ep-animated-heading' ];
+		return [ 'morphext', 'typed', 'gsap', 'split-text', 'ep-animated-heading' ];
 	}
 
 	public function get_custom_help_url() {
@@ -46,6 +46,7 @@ class AnimatedHeading extends Widget_Base {
 	}
 
 	protected function _register_controls() {
+		
 		$this->start_controls_section(
 			'section_content_heading',
 			[
@@ -269,14 +270,14 @@ class AnimatedHeading extends Widget_Base {
 
 		$this->end_popover();
 
-		// $this->add_control(
-  //           'spilt_anim_repeat',
-  //           [
-  //               'label'   => __('Animation Repeat', 'bdthemes-element-pack'),
-  //               'type'    => Controls_Manager::SWITCHER,
-  //               'default' => 'no',
-  //           ]
-  //       );
+		$this->add_control(
+            'spilt_anim_repeat',
+            [
+                'label'   => __('Animation Repeat', 'bdthemes-element-pack'),
+                'type'    => Controls_Manager::SWITCHER,
+                'default' => 'no',
+            ]
+        );
 
 		$this->end_controls_section();
 
@@ -616,20 +617,19 @@ class AnimatedHeading extends Widget_Base {
 							wp_json_encode([
 								'layout'     => $settings['heading_layout'],
 								'animation_on'     => $settings['animation_on'],
-								//'anim_repeat'    => ($settings['spilt_anim_repeat']) == 'yes' ? 'false' : 'true',
 								'anim_perspective'    => ($settings['anim_perspective']['size']) ? $settings['anim_perspective']['size'] : 400,
 								'anim_duration'    => ($settings['anim_duration']['size']) ? $settings['anim_duration']['size'] : 0.1,
 								'anim_scale'    => ($settings['anim_scale']['size']) ? $settings['anim_scale']['size'] : 0,
 								'anim_rotation_y'    => ($settings['anim_rotationY']['size']) ? $settings['anim_rotationY']['size'] : 80,
 								'anim_rotation_x'    => ($settings['anim_rotationX']['size']) ? $settings['anim_rotationX']['size'] : 180,
 								'anim_transform_origin'    => ($settings['anim_transform_origin']) ? $settings['anim_transform_origin'] : '0% 50% -50',
+								'anim_repeat' => (!empty($settings['spilt_anim_repeat'])) ? false : true ,
 					        ])
 						]
 					]
 				]
 			);
-		}
-
+		} 
 
 
 
@@ -639,7 +639,11 @@ class AnimatedHeading extends Widget_Base {
 
 		   	$final_heading .= '<div ' . $this->get_render_attribute_string( 'animated-heading' ) . '>';
 			
-			if ($settings['animated_heading'] and 'animated' OR 'spilt_text' == $settings['heading_layout']) {
+			if ($settings['animated_heading'] and 'animated' == $settings['heading_layout']) {
+		   		$final_heading .= rtrim(esc_attr($settings['animated_heading']), ',');
+			}
+ 
+			if ( $settings['animated_heading'] and $settings['heading_layout'] == 'split_text' ) {
 		   		$final_heading .= rtrim(esc_attr($settings['animated_heading']), ',');
 			}
 

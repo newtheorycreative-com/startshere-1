@@ -1392,7 +1392,39 @@ class MenuBox extends Widget_Base {
             Group_Control_Text_Shadow::get_type(),
             [
                 'name'      => 'fullscr_current_item_text_shadow',
-                'selector'  => '{{WRAPPER}} .aux-fs-menu .aux-menu-depth-0.current-menu-item > a'
+                'selector'  => '{{WRAPPER}} .aux-fs-menu .aux-menu-depth-0.current-menu-item > a',
+                'separator' => 'after'
+            ]
+        );
+
+        $this->add_control(
+            'fullscr_close_btn_heading',
+            [
+                'label' => __( 'Close Button', 'auxin-elements' ),
+                'type' => Controls_Manager::HEADING
+            ]
+        );
+
+        $this->add_control(
+            'fullscr_close_btn_border_color',
+            [
+                'label' => __( 'Outline Color', 'auxin-elements' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .aux-fs-popup .aux-panel-close' => 'border-color: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'fullscr_close_btn_symbol_color',
+            [
+                'label' => __( 'Outline Color', 'auxin-elements' ),
+                'type'  => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .aux-fs-popup .aux-panel-close .aux-close:before' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .aux-fs-popup .aux-panel-close .aux-close:after'  => 'background-color: {{VALUE}};'
+                ]
             ]
         );
 

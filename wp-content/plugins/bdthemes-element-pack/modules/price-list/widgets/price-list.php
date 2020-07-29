@@ -514,7 +514,7 @@ class Price_List extends Widget_Base {
         if ( $url ) {
             $unique_link_id = 'item-link-' . $item_id;
 
-            $this->add_render_attribute( $unique_link_id, 'class', 'bdt-grid bdt-flex-'. esc_attr($settings['vertical_align']) );
+            $this->add_render_attribute( $unique_link_id, 'class', 'bdt-grid bdt-grid-collapse bdt-flex-'. esc_attr($settings['vertical_align']) );
             $this->add_render_attribute( $unique_link_id, 'class', esc_attr($bdt_has_image) );
 
 

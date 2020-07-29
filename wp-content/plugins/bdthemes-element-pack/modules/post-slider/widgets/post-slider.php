@@ -954,6 +954,9 @@ class Post_Slider extends Widget_Base {
 			[
 				'label' => esc_html__( 'Meta', 'bdthemes-element-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_meta' => 'yes',
+				]
 			]
 		);
 
@@ -963,7 +966,7 @@ class Post_Slider extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-meta' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bdt-post-slider .bdt-post-slider-meta span' => 'color: {{VALUE}};',
 				],
 			]
 		);

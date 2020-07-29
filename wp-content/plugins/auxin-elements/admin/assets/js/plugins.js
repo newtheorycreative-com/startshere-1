@@ -1,4 +1,4 @@
-/*! Phlox Core Plugin - v2.6.0 (2020-07)
+/*! Phlox Core Plugin - v2.6.2 (2020-07)
  *  All required javascript plugins for admin 
  *  http://phlox.pro/
  *  Place any jQuery/helper plugins in here, instead of separate, slower script files!

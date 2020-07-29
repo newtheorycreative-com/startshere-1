@@ -202,7 +202,7 @@ $.extend(
 			{
 			    data2[i].t1 = data2[i].h1 * 60 + data2[i].m1*1;// - me.pb;
 			    data2[i].t2 = data2[i].h2 * 60 + data2[i].m2*1;// + me.pa;
-			    if (typeof data2[i].serviceindex !== 'undefined')
+			    if (typeof data2[i].serviceindex !== 'undefined' && typeof data2[i].nopadding === 'undefined' )
 			    {
 			        try{
 			        data2[i].t1 -= me.services[data2[i].serviceindex].pb;

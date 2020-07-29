@@ -83,6 +83,7 @@
         var $is_load_more_click    = false;
         var $is_load_more_tab_name = '';
         var $is_load_more_paged    = '';
+        var $current_filter_tab    = ''
 
         $(document).on('click', '.bdt-demo-template-library-group .load_more_btn', function (e) {
             var _this      = $(this);
@@ -114,6 +115,9 @@
                 success   : function (response) {
                     if ( response.success ) {
                         _this.before(response.data);
+                        if ($current_filter_tab){
+                            $('.pro-free-nagivation-item[data-filter="'+$current_filter_tab + '"]').trigger('click')
+                        }
                         _this.data('paged', response.paged);
                         $is_load_more_paged = response.paged;
                         if ( totalPaged === response.paged ) {
@@ -165,6 +169,9 @@
                 success   : function (response) {
                     if ( response.success ) {
                         currentSelector.html(response.data);
+                        if ($current_filter_tab){
+                            $('.pro-free-nagivation-item[data-filter="'+$current_filter_tab + '"]').trigger('click')
+                        }
                         _this.addClass('loaded-data');
                     } else {
                         $(currentSelector).find('p').text(response.data);
@@ -280,10 +287,13 @@
             var filter = _this.data('filter');
 
             if ( filter === 'free' ) {
+                $current_filter_tab ='free';
                 filter = 0;
             } else if ( filter === 'pro' ) {
+                $current_filter_tab ='pro';
                 filter = 1;
             } else {
+                $current_filter_tab='';
                 filter = '*';
             }
 

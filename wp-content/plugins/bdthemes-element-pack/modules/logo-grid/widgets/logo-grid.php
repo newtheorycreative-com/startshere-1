@@ -172,6 +172,7 @@ class Logo_Grid extends Widget_Base {
                 'default' => 'box',
                 'prefix_class' => 'bdt-logo-grid--',
                 'style_transfer' => true,
+                'render_type'  => 'template',
             ]
         );
 
@@ -192,6 +193,7 @@ class Logo_Grid extends Widget_Base {
                 'mobile_default' => 2,
                 'prefix_class' => 'bdt-logo-grid--col-%s',
                 'style_transfer' => true,
+                'render_type'  => 'template',
             ]
         );
 
@@ -381,22 +383,36 @@ class Logo_Grid extends Widget_Base {
             [
                 'label' => __( 'Border Width', 'bdthemes-element-pack' ),
                 'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
+                'default' => [
+					'size' => 2,
+				],
+				'tablet_default' => [
+					'size' => 2,
+				],
+				'mobile_default' => [
+					'size' => 2,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
                 'selectors' => [
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border .bdt-logo-grid-item' => 'border-right-width: {{grid_border_width.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border .bdt-logo-grid-item' => 'border-right-width: {{grid_border_width.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width.SIZE}}{{UNIT}};',
                     '(tablet){{WRAPPER}}.bdt-logo-grid--border .bdt-logo-grid-item' => 'border-right-width: {{grid_border_width_tablet.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
                     '(mobile){{WRAPPER}}.bdt-logo-grid--border .bdt-logo-grid-item' => 'border-right-width: {{grid_border_width_mobile.SIZE}}{{UNIT}}; border-bottom-width: {{grid_border_width_mobile.SIZE}}{{UNIT}};',
 
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-child(2n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-child(3n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-child(4n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-child(5n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-child(6n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-child(-n+2)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-child(-n+3)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-child(-n+4)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-child(-n+5)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-child(-n+6)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-child(2n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-child(3n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-child(4n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-child(5n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-child(6n+1)' => 'border-left-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-child(-n+2)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-child(-n+3)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-child(-n+4)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-child(-n+5)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-child(-n+6)' => 'border-top-width: {{grid_border_width.SIZE}}{{UNIT}};',
 
                     '(tablet){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col--tablet2 .bdt-logo-grid-item:nth-child(2n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
                     '(tablet){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col--tablet3 .bdt-logo-grid-item:nth-child(3n+1)' => 'border-left-width: {{grid_border_width_tablet.SIZE}}{{UNIT}};',
@@ -455,16 +471,16 @@ class Logo_Grid extends Widget_Base {
                     '{{WRAPPER}}.bdt-logo-grid--border .bdt-logo-grid-item:first-child' => 'border-top-left-radius: {{TOP}}{{UNIT}};',
                     '{{WRAPPER}}.bdt-logo-grid--border .bdt-logo-grid-item:last-child' => 'border-bottom-right-radius: {{BOTTOM}}{{UNIT}};',
 
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
 
                     '(tablet){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col--tablet2 .bdt-logo-grid-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
                     '(tablet){{WRAPPER}}.bdt-logo-grid--border.bdt-logo-grid--col--tablet2 .bdt-logo-grid-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',
@@ -493,16 +509,16 @@ class Logo_Grid extends Widget_Base {
                     '{{WRAPPER}}.bdt-logo-grid--tictactoe .bdt-logo-grid-item:first-child' => 'border-top-left-radius: {{TOP}}{{UNIT}};',
                     '{{WRAPPER}}.bdt-logo-grid--tictactoe .bdt-logo-grid-item:last-child' => 'border-bottom-right-radius: {{BOTTOM}}{{UNIT}};',
 
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
-                    '(desktop+){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-2 .bdt-logo-grid-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-child(3)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-3 .bdt-logo-grid-item:nth-last-child(3)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-child(4)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-4 .bdt-logo-grid-item:nth-last-child(4)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-child(5)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-5 .bdt-logo-grid-item:nth-last-child(5)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-child(6)' => 'border-top-right-radius: {{grid_border_radius.RIGHT}}{{UNIT}};',
+                    '(desktop){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col-6 .bdt-logo-grid-item:nth-last-child(6)' => 'border-bottom-left-radius: {{grid_border_radius.LEFT}}{{UNIT}};',
 
                     '(tablet){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col--tablet2 .bdt-logo-grid-item:nth-child(2)' => 'border-top-right-radius: {{grid_border_radius_tablet.RIGHT}}{{UNIT}};',
                     '(tablet){{WRAPPER}}.bdt-logo-grid--tictactoe.bdt-logo-grid--col--tablet2 .bdt-logo-grid-item:nth-last-child(2)' => 'border-bottom-left-radius: {{grid_border_radius_tablet.LEFT}}{{UNIT}};',

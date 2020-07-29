@@ -2,11 +2,11 @@
 Contributors: alimir
 Donate link: https://wpulike.com/?utm_source=wp-repo&utm_medium=link&utm_campaign=readme
 Author: Ali Mirzaei
-Tags: like, marketing, elementor, favorite, dislike, multisite, rating, voting, statistics, gamification, bookmark, member
+Tags: like, marketing, elementor, favorite, statistics, multisite, rating, voting, dislike, gamification, bookmark, member
 Requires PHP: 5.6
 Requires at least: 5.0
 Tested up to: 5.4.2
-Stable tag: 4.2.7
+Stable tag: 4.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -151,6 +151,23 @@ define( 'WP_MEMORY_LIMIT', '256M' );
 </code>
 
 == Changelog ==
+
+= 4.3.2 =
+* Added: New option to hide likers box for anonymous users.
+* Fixed: Display thumbnail issue on Widget.
+* Fixed: Option translations issue.
+* Fixed: Some other small issues.
+
+= 4.3.1 =
+* Fixed: Third-party plugin issues.
+
+= 4.3.0 =
+* Added: ‌New php classification for front-end processes.
+* Added: Comment meta box options. [PRO]
+* Added: The "last X days" option for Elementor period limits. [PRO]
+* Added: New features to the Elementor "Top Posts" widget. [PRO]
+* Updated: Ultimate member functionalities.
+* Fixed: Some major issues.
 
 = 4.2.7 =
 * Fixed: Some type issues.
@@ -688,6 +705,9 @@ define( 'WP_MEMORY_LIMIT', '256M' );
 * The initial version
 
 == Upgrade Notice ==
+
+= 4.3.0 =
+In this update, we have made changes to the class structure that have made plugin development much easier. So we had to delete the $wp_ulike_class global variable. If you used this variable manually, replace it with the class wp_ulike_cta_process.
 
 = 4.1.3 =
 In this release we have added a new option called  "Enable Deprecated Options" which enables you to restore all the old settings.

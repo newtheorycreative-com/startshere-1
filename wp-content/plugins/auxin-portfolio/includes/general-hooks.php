@@ -278,7 +278,7 @@ function auxin_define_portfolio_theme_options( $fields_sections_list ){
         'default'     => '1',
         'type'        => 'switch'
     );
-    
+
     $options[] = array(
         'title'       => __( 'Share Type', 'auxin-portfolio' ),
         'description' => __( 'Enable it to display text instead of icon.', 'auxin-portfolio' ),
@@ -493,7 +493,7 @@ function auxin_define_portfolio_theme_options( $fields_sections_list ){
             'choices'     => array(
                 'icon'  => __( 'Icon', 'auxin-portfolio' ),
                 'text'  => __( 'Text', 'auxin-portfolio' )
-            ), 
+            ),
             'dependency'  => array(
                 array(
                     'id'      => 'show_portfolio_single_share_like_section',
@@ -536,7 +536,7 @@ function auxin_define_portfolio_theme_options( $fields_sections_list ){
         );
 
         $options[] = array(
-            'title'         => __( 'Icon Color', 'auxin-portfolio' ),
+            'title'         => __( 'Icon Liked Color', 'auxin-portfolio' ),
             'description'   => __( 'Like icon color','auxin-portfolio' ),
             'id'            => 'portfolio_single_like_icon_color',
             'section'       => 'portfolio-section-single',
@@ -547,7 +547,40 @@ function auxin_define_portfolio_theme_options( $fields_sections_list ){
                 if( ! $value ){
                     $value = esc_attr( auxin_get_option( 'portfolio_single_like_icon_color' ) );
                 }
-                return $value ? ".single-portfolio .wp_ulike_general_class button::before { color:{$value}; }" : '';
+                return $value ? ".single-portfolio .wp_ulike_is_liked button::before { color:{$value}; }" : '';
+            },
+            'dependency'  => array(
+                array(
+                     'id'      => 'show_portfolio_single_share_like_section',
+                     'value'   => array('1'),
+                     'operator'=> ''
+                ),
+                array(
+                    'id'      => 'show_portfolio_single_like',
+                    'value'   => array('1'),
+                    'operator'=> ''
+                ),
+                array(
+                    'id'      => 'portfolio_single_like_button_type',
+                    'value'   => array('icon'),
+                    'operator'=> ''
+                )
+            )
+        );
+
+        $options[] = array(
+            'title'         => __( 'Icon Not Liked Color', 'auxin-portfolio' ),
+            'description'   => __( 'Like icon color','auxin-portfolio' ),
+            'id'            => 'portfolio_single_not_like_icon_color',
+            'section'       => 'portfolio-section-single',
+            'transport'     => 'postMessage',
+            'type'          => 'color',
+            'default'       => '',
+            'style_callback' => function( $value = null ){
+                if( ! $value ){
+                    $value = esc_attr( auxin_get_option( 'portfolio_single_not_like_icon_color' ) );
+                }
+                return $value ? ".single-portfolio .wp_ulike_is_unliked button::before { color:{$value}; }" : '';
             },
             'dependency'  => array(
                 array(

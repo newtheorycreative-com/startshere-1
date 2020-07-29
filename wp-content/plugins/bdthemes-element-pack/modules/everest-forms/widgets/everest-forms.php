@@ -36,9 +36,9 @@ class Everest_Forms extends Widget_Base {
 		return [ 'ep-everest-forms', 'element-pack-font' ];
 	}
 
-	// public function get_custom_help_url() {
-	// 	return 'https://youtu.be/rMKAUIy1fKc';
-	// }
+	public function get_custom_help_url() {
+		return 'https://youtu.be/jfZhIFpdvcg';
+	}
 
 	protected function _register_controls() {
 		$this->start_controls_section(
