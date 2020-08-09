@@ -12,7 +12,7 @@ if ( !defined('BDTEP') ) {
     define('BDTEP', '');
 } //Add prefix for all widgets <span class="bdt-widget-badge"></span>
 if ( !defined('BDTEP_CP') ) {
-    define('BDTEP_CP', '<span class="bdt-widget-badge"></span>');
+    define('BDTEP_CP', '<span class="bdt-ep-widget-badge"></span>');
 } // if you have any custom style
 if ( !defined('BDTEP_SLUG') ) {
     define('BDTEP_SLUG', 'element-pack');

@@ -3,7 +3,6 @@ namespace ElementPack\Modules\ThumbGallery\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
-use Elementor\Core\Schemes;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
@@ -684,7 +683,7 @@ class Thumb_Gallery extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-title',
 			]
 		);
@@ -758,7 +757,7 @@ class Thumb_Gallery extends Widget_Base {
 			[
 				'name'     => 'text_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-text',
 			]
 		);
@@ -873,7 +872,7 @@ class Thumb_Gallery extends Widget_Base {
 			[
 				'name'     => 'button_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-thumb-gallery .bdt-thumb-gallery-button',
 			]
 		);
@@ -1245,13 +1244,11 @@ class Thumb_Gallery extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
-				'condition' => [
-					'thumbnavs_border_border!' => '',
-				],
 				'selectors' => [
 					'{{WRAPPER}} .bdt-thumb-gallery-thumbnav a:hover' => 'border-color: {{VALUE}};',
 				],
 				'condition' => [
+					'thumbnavs_border_border!' => '',
 					'navigation!' => ['arrows', 'both', 'none'],
 				],
 			]
@@ -1600,7 +1597,6 @@ class Thumb_Gallery extends Widget_Base {
 			return;
 		}
 
-		$settings  = $this->get_settings_for_display();
 		$animation = ($settings['button_hover_animation']) ? ' elementor-animation-'.$settings['button_hover_animation'] : '';
 
 		if ( ! isset( $settings['icon'] ) && ! Icons_Manager::is_migration_allowed() ) {

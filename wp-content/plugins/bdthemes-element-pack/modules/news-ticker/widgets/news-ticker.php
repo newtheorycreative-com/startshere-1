@@ -398,7 +398,7 @@ class News_Ticker extends Widget_Base {
 			[
 				'name'      => 'label_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .bdt-news-ticker .bdt-news-ticker-label-inner',
 				'condition' => [
 					'show_label' => 'yes'

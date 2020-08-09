@@ -1,5 +1,7 @@
 <?php
 namespace ElementPack\Modules\HoverBox\Widgets;
+
+use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -65,10 +67,108 @@ class Hover_Box extends Widget_Base {
 			]
 		);
 
+
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'selected_icon', 
+			[
+				'label'            => __( 'Icon', 'bdthemes-element-pack' ),
+				'type'             => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-star',
+					'library' => 'fa-solid',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'hover_box_title', 
+			[
+				'label'       => __( 'Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => __( 'Tab Title' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'title_link', 
+			[
+				'label'         => esc_html__( 'Title Link', 'bdthemes-element-pack' ),
+				'type'          => Controls_Manager::URL,
+				'default'       => ['url' => ''],
+				'show_external' => false,
+				'dynamic'       => [ 'active' => true ],
+				'condition'     => [
+					'hover_box_title!' => ''
+				]
+			]
+		);	
+
+
+		$repeater->add_control(
+			'hover_box_sub_title', 
+			[
+				'label'       => __( 'Sub Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'hover_box_content', 
+			[
+
+				'type'       => Controls_Manager::WYSIWYG,
+				'dynamic'    => [ 'active' => true ],
+				'default'    => __( 'Box Content', 'bdthemes-element-pack' ),
+			]
+		);	
+
+		$repeater->add_control(
+			'hover_box_button', 
+			[
+				'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__( 'Read More' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'button_link', 
+			[
+				'label'         => esc_html__( 'Button Link', 'bdthemes-element-pack' ),
+				'type'          => Controls_Manager::URL,
+				'show_external' => false,
+				'dynamic'       => [ 'active' => true ],
+				'condition'     => [
+					'hover_box_button!' => ''
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'slide_image', 
+			[
+				'label'   => esc_html__( 'Background Image', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::MEDIA,
+				'dynamic' => [ 'active' => true ],
+				'default' => [
+					'url' => BDTEP_ASSETS_URL . 'images/slide/item-'.rand(1,6).'.jpg',
+				],
+			]
+		);
+
 		$this->add_control(
 			'hover_box',
 			[
 				'type'    => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'hover_box_sub_title'   => __( 'This is label', 'bdthemes-element-pack' ),
@@ -112,86 +212,6 @@ class Hover_Box extends Widget_Base {
 						'selected_icon'  => ['value' => 'fas fa-cog', 'library' => 'fa-solid'],
 						'slide_image' => ['url' => BDTEP_ASSETS_URL . 'images/slide/item-6.jpg']
 					],
-				],
-				'fields' => [
-
-					[
-						'name'             => 'selected_icon',
-						'label'            => __( 'Icon', 'bdthemes-element-pack' ),
-						'type'             => Controls_Manager::ICONS,
-						'default' => [
-							'value' => 'fas fa-star',
-							'library' => 'fa-solid',
-						],
-					],
-			
-					[
-						'name'        => 'hover_box_title',
-						'label'       => __( 'Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => __( 'Tab Title' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-					],
-
-					[
-						'name'          => 'title_link',
-						'label'         => esc_html__( 'Title Link', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'default'       => ['url' => ''],
-						'show_external' => false,
-						'dynamic'       => [ 'active' => true ],
-						'condition'     => [
-							'hover_box_title!' => ''
-						]
-					],
-
-					[
-						'name'        => 'hover_box_sub_title',
-						'label'       => __( 'Sub Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'label_block' => true,
-					],
-					
-					[
-						'name'       => 'hover_box_content',
-						'type'       => Controls_Manager::WYSIWYG,
-						'dynamic'    => [ 'active' => true ],
-						'default'    => __( 'Box Content', 'bdthemes-element-pack' ),
-					],
-
-					[
-						'name'        => 'hover_box_button',
-						'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'default'     => esc_html__( 'Read More' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'dynamic'     => [ 'active' => true ],
-					],
-					
-					[
-						'name'          => 'button_link',
-						'label'         => esc_html__( 'Button Link', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'default'       => ['url' => '#'],
-						'show_external' => false,
-						'dynamic'       => [ 'active' => true ],
-						'condition'     => [
-							'hover_box_button!' => ''
-						]
-					],
-
-					[
-						'name'    => 'slide_image',
-						'label'   => esc_html__( 'Background Image', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::MEDIA,
-						'dynamic' => [ 'active' => true ],
-						'default' => [
-							'url' => BDTEP_ASSETS_URL . 'images/slide/item-'.rand(1,6).'.jpg',
-						],
-					],
-
 				],
 				'title_field' => '{{{ elementor.helpers.renderIcon( this, selected_icon, {}, "i", "panel" ) }}} {{{ hover_box_title }}}',
 			]
@@ -1415,6 +1435,30 @@ class Hover_Box extends Widget_Base {
 						}
 						
 						$this->add_render_attribute( 'bdt-hover-box-title', 'class', 'bdt-hover-box-title', true );
+					
+						$this->add_render_attribute(
+							[
+								'title-link' => [
+									'class' => [
+										'bdt-hover-box-title-link',
+									],
+									'href'   => $item['title_link']['url'] ? esc_url($item['title_link']['url']) : 'javascript:void(0);',
+									'target' => $item['title_link']['is_external'] ? '_blank' : '_self'
+								]
+							], '', '', true
+						);
+ 
+						$this->add_render_attribute(
+							[
+								'button-link' => [
+									'class' => [
+										'bdt-hover-box-title',
+									],
+									'href'   => $item['button_link']['url'] ? esc_url($item['button_link']['url']) : 'javascript:void(0);',
+									'target' => $item['button_link']['is_external'] ? '_blank' : '_self'
+								]
+							], '', '', true
+						);
 						
 						?>
 						<div>
@@ -1436,13 +1480,15 @@ class Hover_Box extends Widget_Base {
 
 								<?php if ( $item['hover_box_title'] && ( 'yes' == $settings['show_title'] ) ) : ?>
 									<<?php echo esc_html($settings['title_tags']); ?> <?php echo $this->get_render_attribute_string('bdt-hover-box-title'); ?>>
-										<?php if ( '' !== $item['title_link']['url'] ) : ?>
-											<a href="<?php echo esc_url( $item['title_link']['url'] ); ?>">
-										<?php endif; ?>
-											<?php echo wp_kses( $item['hover_box_title'], element_pack_allow_tags('title') ); ?>
-										<?php if ( '' !== $item['title_link']['url'] ) : ?>
-											</a>
-										<?php endif; ?>
+										
+											<?php if ( '' !== $item['title_link']['url'] ) : ?>
+												<a <?php echo $this->get_render_attribute_string( 'title-link' ); ?>>
+											<?php endif; ?>
+												<?php echo wp_kses( $item['hover_box_title'], element_pack_allow_tags('title') ); ?>
+											<?php if ( '' !== $item['title_link']['url'] ) : ?>
+												</a>
+											<?php endif; ?>
+										
 									</<?php echo esc_html($settings['title_tags']); ?>>
 								<?php endif; ?>
 
@@ -1454,13 +1500,9 @@ class Hover_Box extends Widget_Base {
 
 								<?php if ($item['hover_box_button'] && ( 'yes' == $settings['show_button'] )) : ?>
 									<div class="bdt-hover-box-button">
-										<?php if ( '' !== $item['button_link']['url'] ) : ?>
-											<a href="<?php echo esc_url( $item['button_link']['url'] ); ?>">
-										<?php endif; ?>
+										<a <?php echo $this->get_render_attribute_string( 'button-link' ); ?>>
 											<?php echo wp_kses_post($item['hover_box_button']); ?>
-										<?php if ( '' !== $item['button_link']['url'] ) : ?>
-											</a>
-										<?php endif; ?>
+										</a>
 									</div>
 								<?php endif; ?>
 

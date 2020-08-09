@@ -333,7 +333,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'sub_heading_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-sub-heading',
 			]
 		);
@@ -553,7 +553,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'main_heading_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading > div',
 			]
 		);
@@ -681,7 +681,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'mainh_split_text_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .bdt-advanced-heading .bdt-main-heading .bdt-mainh-split-text',
 				'condition' => [
 					'split_main_heading' => 'yes',
@@ -910,7 +910,7 @@ class AdvancedHeading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'advanced_heading_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-advanced-heading .bdt-advanced-heading-content > div',
 				'separator' => 'before',
 			]

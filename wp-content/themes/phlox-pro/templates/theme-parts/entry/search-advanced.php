@@ -16,7 +16,7 @@ $args = array(
         'posts_per_page'    => '12',
     );
 $category_slug = auxin_general_post_types_category_slug();
-if ( isset( $_GET['cat'] ) && !empty($_GET['cat']) ) {
+if ( isset( $_GET['cat'] ) && !empty($_GET['cat']) && isset( $category_slug[ $first_post_type ] ) ) {
     $args['tax_query'] = array(
         array(
             'taxonomy'  => $category_slug[$first_post_type],
@@ -61,7 +61,7 @@ foreach( $available_post_types as $key => $post_type ) {
 
     // Modify args to match current post type
     $args['post_type'] = $post_type;
-    if ( isset( $_GET['cat'] ) && !empty($_GET['cat']) ) {
+    if ( isset( $_GET['cat'] ) && !empty($_GET['cat']) && isset( $category_slug[ $post_type ] ) ) {
         $args['tax_query']['0']['taxonomy'] = $category_slug[$post_type];
         $args['wp_query_args']['tax_query']['0']['taxonomy'] = $category_slug[$post_type];
     }

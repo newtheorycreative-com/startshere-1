@@ -101,7 +101,7 @@ class Skin_Abetis extends Elementor_Skin_Base {
 			[
 				'name'      => 'title_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .bdt-gallery-item .bdt-gallery-item-title',
 			]
 		);

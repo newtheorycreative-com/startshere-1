@@ -207,7 +207,7 @@ class Progress_Pie extends Widget_Base {
 				'label'     => esc_html__( 'Before Text Typography', 'bdthemes-element-pack' ),
 				'name'      => 'before_text_typography',
 				'selector'  => '{{WRAPPER}} .bdt-progress-pie-before',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'before!' => '',
 				],
@@ -235,7 +235,7 @@ class Progress_Pie extends Widget_Base {
 				'label'     => esc_html__( 'Middle Text Typography', 'bdthemes-element-pack' ),
 				'name'      => 'middle_text_typography',
 				'selector'  => '{{WRAPPER}} .bdt-progress-pie-text',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'text!' => '',
 				],
@@ -263,7 +263,7 @@ class Progress_Pie extends Widget_Base {
 				'label'     => esc_html__( 'Percentage Typography', 'bdthemes-element-pack' ),
 				'name'      => 'percentage_typography',
 				'selector'  => '{{WRAPPER}} .bdt-progress-pie-number',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'text' => '',
 				],
@@ -290,7 +290,7 @@ class Progress_Pie extends Widget_Base {
 				'label'     => esc_html__( 'After Text Typography', 'bdthemes-element-pack' ),
 				'name'      => 'after_text_typography',
 				'selector'  => '{{WRAPPER}} .bdt-progress-pie-after',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'after!' => '',
 				],
@@ -390,7 +390,7 @@ class Progress_Pie extends Widget_Base {
 			[
 				'name'      => 'title_typography',
 				'selector'  => '{{WRAPPER}} .bdt-progress-pie-wrapper .bdt-progress-pie-title',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'title!' => '',
 				],

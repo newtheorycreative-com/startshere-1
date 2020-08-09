@@ -241,7 +241,7 @@ class Call_Out extends Widget_Base {
 			[
 				'name'      => 'title_typography',
 				'selector'  => '{{WRAPPER}} .bdt-callout .bdt-callout-title',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_2,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_2,
 				'condition' => [
 					'title!' => '',
 				],
@@ -269,7 +269,7 @@ class Call_Out extends Widget_Base {
 			[
 				'name'      => 'description_typography',
 				'selector'  => '{{WRAPPER}} .bdt-callout .bdt-callout-description',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_2,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_2,
 				'condition' => [
 					'description!' => '',
 				],
@@ -402,7 +402,7 @@ class Call_Out extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-callout a.bdt-callout-button',
 				'condition' => [
 					'button_text!' => '',

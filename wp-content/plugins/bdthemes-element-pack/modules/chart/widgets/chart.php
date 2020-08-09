@@ -1,6 +1,7 @@
 <?php
 namespace ElementPack\Modules\Chart\Widgets;
 
+use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use ElementPack\Modules\Chart\Module;
@@ -102,11 +103,107 @@ class Chart extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'label', 
+			[
+				'label'       => __( 'Label', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => __( 'Dataset Label', 'bdthemes-element-pack' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'data',
+			[
+				'label'       => __( 'Data', 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => __( '2; 4; 8; 16; 32', 'bdthemes-element-pack' ),
+				'description' => __( 'Enter data values by semicolon separated(;). Example: 2; 4; 8; 16; 32 etc', 'bdthemes-element-pack' ),
+			]
+		);
+
+		$repeater->add_control(
+			'advanced_bg_color',
+			[
+				'label'   => __( 'Advanced Background Color', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'no'
+			]
+		);
+
+		$repeater->add_control(
+			'bg_color',
+			[
+				'label'       => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'default'     => 'rgba(255, 99, 132, 0.2)',
+				'type'        => Controls_Manager::COLOR,
+				'condition'   => [
+					'advanced_bg_color!' => 'yes'
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'bg_colors',
+			[
+				'type'        => Controls_Manager::TEXT,
+				'label'       => __( 'Background Colors', 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'description' => __( 'Write multiple color values by semicolon separated(;). Example: #dddddd; #ff8844; #232323 etc<br><strong>N.B: it will not work for line, radar charts</strong>', 'bdthemes-element-pack' ),
+				'condition'   => [
+					'advanced_bg_color' => 'yes'
+				]
+			]
+		); 
+
+		$repeater->add_control(
+			'advanced_border_color',
+			[
+				'label'     => __( 'Advanced Color', 'bdthemes-element-pack' ),
+				'separator' => 'before',
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'no'
+			]
+		);
+
+		$repeater->add_control(
+			'border_color',
+			[
+				'label'       => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::COLOR,
+				'condition'   => [
+					'advanced_border_color!' => 'yes'
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'border_colors',
+			[
+				'type'        => Controls_Manager::TEXT,
+				'label'       => __( 'Border Colors', 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'description' => __( 'Write multiple color values by semicolon separated(;). Example: #dddddd; #ff8844; #232323 etc<br><strong>N.B: it will not work for line, radar charts</strong>', 'bdthemes-element-pack' ),
+				'condition'   => [
+					'advanced_border_color' => 'yes'
+				]
+			]
+		);
+
 		$this->add_control(
 			'datasets',
 			[
 				'label'   => __( 'Datasets', 'bdthemes-element-pack' ),
-				'type'    => Controls_Manager::REPEATER,
+				'type'   => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'label'     => __( 'Dataset Label #1', 'bdthemes-element-pack' ),
@@ -137,77 +234,6 @@ class Chart extends Widget_Base {
 						'data'      => __( '32; 15; 8; 4; 2', 'bdthemes-element-pack' ),
 						'bg_color'  => 'rgba(153, 102, 255, 0.2)',
 						'bg_colors' => 'rgba(255, 99, 132, 0.2); rgba(54, 162, 235, 0.2); rgba(255, 206, 86, 0.2); rgba(75, 192, 192, 0.2); rgba(153, 102, 255, 0.2)',
-					],
-				],
-				'fields' => [
-					[
-						'name'        => 'label',
-						'label'       => __( 'Label', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => __( 'Dataset Label', 'bdthemes-element-pack' ),
-						'label_block' => true,
-					],
-					[
-						'name'        => 'data',
-						'label'       => __( 'Data', 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => __( '2; 4; 8; 16; 32', 'bdthemes-element-pack' ),
-						'description' => __( 'Enter data values by semicolon separated(;). Example: 2; 4; 8; 16; 32 etc', 'bdthemes-element-pack' ),
-					],
-					[
-						'name'    => 'advanced_bg_color',
-						'label'   => __( 'Advanced Background Color', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::SWITCHER,
-						'default' => 'no'
-					],
-					[
-						'name'        => 'bg_color',
-						'label'       => __( 'Background Color', 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'default'     => 'rgba(255, 99, 132, 0.2)',
-						'type'        => Controls_Manager::COLOR,
-						'condition'   => [
-							'advanced_bg_color!' => 'yes'
-						]
-					],
-					[
-						'name'        => 'bg_colors',
-						'type'        => Controls_Manager::TEXT,
-						'label'       => __( 'Background Colors', 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'description' => __( 'Write multiple color values by semicolon separated(;). Example: #dddddd; #ff8844; #232323 etc<br><strong>N.B: it will not work for line, radar charts</strong>', 'bdthemes-element-pack' ),
-						'condition'   => [
-							'advanced_bg_color' => 'yes'
-						]
-					],
-					[
-						'name'      => 'advanced_border_color',
-						'label'     => __( 'Advanced Color', 'bdthemes-element-pack' ),
-						'separator' => 'before',
-						'type'      => Controls_Manager::SWITCHER,
-						'default'   => 'no'
-					],
-					[
-						'name'        => 'border_color',
-						'label'       => __( 'Border Color', 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'type'        => Controls_Manager::COLOR,
-						'condition'   => [
-							'advanced_border_color!' => 'yes'
-						]
-					],
-					[
-						'name'        => 'border_colors',
-						'type'        => Controls_Manager::TEXT,
-						'label'       => __( 'Border Colors', 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'description' => __( 'Write multiple color values by semicolon separated(;). Example: #dddddd; #ff8844; #232323 etc<br><strong>N.B: it will not work for line, radar charts</strong>', 'bdthemes-element-pack' ),
-						'condition'   => [
-							'advanced_border_color' => 'yes'
-						]
 					],
 				],
 				'title_field' => '{{{ label }}}',
@@ -283,11 +309,107 @@ class Chart extends Widget_Base {
 		);
 
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'label',
+			[
+				'label'       => __( 'Label', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => __( 'Bubble Dataset Label', 'bdthemes-element-pack' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'data',
+			[
+				'label'       => __( 'Data', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => __( '[20;30;15][40;10;10]', 'bdthemes-element-pack' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'advanced_bg_color',
+			[
+				'label'   => __( 'Advanced Background Color', 'bdthemes-element-pack' ),
+				'default' => 'no',
+				'type'    => Controls_Manager::SWITCHER,
+			]
+		);
+
+		$repeater->add_control(
+			'bg_color',
+			[
+				'label'       => __( 'Background Color', 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'default'     => 'rgba(255, 99, 132, 0.2)',
+				'type'        => Controls_Manager::COLOR,
+				'condition'   => [
+					'advanced_bg_color!' => 'yes'
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'bg_colors',
+			[
+				'type'        => Controls_Manager::TEXT,
+				'label'       => __( 'Background Colors', 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'description' => __( 'Write multiple color values by semicolon separated(,). Example: #dddddd, #ff8844, #232323 etc<br><strong>N.B: it will not work for line, radar charts</strong>', 'bdthemes-element-pack' ),
+				'condition'   => [
+					'advanced_bg_color' => 'yes'
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'advanced_border_color',
+			[
+				'label'     => __( 'Advanced Border Color', 'bdthemes-element-pack' ),
+				'separator' => 'before',
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'no'
+			]
+		);
+
+		$repeater->add_control(
+			'border_color',
+			[
+				'label'       => __( 'Border Color', 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::COLOR,
+				'condition'   => [
+					'advanced_border_color!' => 'yes'
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'border_colors',
+			[
+				'type'        => Controls_Manager::TEXT,
+				'label'       => __( 'Border Colors', 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'description' => __( 'Write multiple color values by semicolon separated(;). Example: #dddddd; #ff8844; #232323 etc<br><strong>N.B: it will not work for line, radar charts</strong>', 'bdthemes-element-pack' ),
+				'condition'   => [
+					'advanced_border_color' => 'yes'
+				]
+			]
+		);
+
+
 		$this->add_control(
 			'bubble_datasets',
 			[
 				'label'   => __( 'Bubble Datasets', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'label'     => __( 'Bubble Dataset Label #1', 'bdthemes-element-pack' ),
@@ -306,76 +428,6 @@ class Chart extends Widget_Base {
 						'data'      => __( '[60;5;20][100;50;15]', 'bdthemes-element-pack' ),
 						'bg_color'  => 'rgba(75, 192, 192, 0.2)',
 						'bg_colors' => 'rgba(255, 99, 132, 0.2); rgba(54, 162, 235, 0.2); rgba(255, 206, 86, 0.2);',
-					],
-				],
-				'fields' => [
-					[
-						'name'        => 'label',
-						'label'       => __( 'Label', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => __( 'Bubble Dataset Label', 'bdthemes-element-pack' ),
-						'label_block' => true,
-					],
-					[
-						'name'        => 'data',
-						'label'       => __( 'Data', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => __( '[20;30;15][40;10;10]', 'bdthemes-element-pack' ),
-						'label_block' => true,
-					],
-					[
-						'name'    => 'advanced_bg_color',
-						'label'   => __( 'Advanced Background Color', 'bdthemes-element-pack' ),
-						'default' => 'no',
-						'type'    => Controls_Manager::SWITCHER,
-					],
-					[
-						'name'        => 'bg_color',
-						'label'       => __( 'Background Color', 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'default'     => 'rgba(255, 99, 132, 0.2)',
-						'type'        => Controls_Manager::COLOR,
-						'condition'   => [
-							'advanced_bg_color!' => 'yes'
-						]
-					],
-					[
-						'name'        => 'bg_colors',
-						'type'        => Controls_Manager::TEXT,
-						'label'       => __( 'Background Colors', 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'description' => __( 'Write multiple color values by semicolon separated(,). Example: #dddddd, #ff8844, #232323 etc<br><strong>N.B: it will not work for line, radar charts</strong>', 'bdthemes-element-pack' ),
-						'condition'   => [
-							'advanced_bg_color' => 'yes'
-						]
-					],
-					[
-						'name'      => 'advanced_border_color',
-						'label'     => __( 'Advanced Border Color', 'bdthemes-element-pack' ),
-						'separator' => 'before',
-						'type'      => Controls_Manager::SWITCHER,
-						'default'   => 'no'
-					],
-					[
-						'name'        => 'border_color',
-						'label'       => __( 'Border Color', 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'type'        => Controls_Manager::COLOR,
-						'condition'   => [
-							'advanced_border_color!' => 'yes'
-						]
-					],
-					[
-						'name'        => 'border_colors',
-						'type'        => Controls_Manager::TEXT,
-						'label'       => __( 'Border Colors', 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'description' => __( 'Write multiple color values by semicolon separated(;). Example: #dddddd; #ff8844; #232323 etc<br><strong>N.B: it will not work for line, radar charts</strong>', 'bdthemes-element-pack' ),
-						'condition'   => [
-							'advanced_border_color' => 'yes'
-						]
 					],
 				],
 				'title_field' => '{{{ label }}}',
@@ -534,7 +586,7 @@ class Chart extends Widget_Base {
 			]
 		);
 
-			
+		
 		$this->add_control(
 			'y_custom_suffix',
 			[
@@ -741,7 +793,7 @@ class Chart extends Widget_Base {
 				}
 			}
 		}
- 
+		
 
 		if ($settings['aspect_ratio']) {
 			$options['aspectRatio'] = 1;
@@ -771,21 +823,21 @@ class Chart extends Widget_Base {
 		);
 
 		$this->add_render_attribute(
-            [
-                'chart' => [
-                    'data-suffixPrefix' => [
-                        wp_json_encode(array_filter([
-                            "id"           			=> 'bdt-chart-' . $this->get_id(),
-                            "suffix_prefix_status"	=> ($settings['show_prefix'] == 'yes' || $settings['show_suffix']  == 'yes') ? 'yes' : 'no',
-                            "x_custom_prefix" 		=> $settings['x_custom_prefix'],
-                            "x_custom_suffix" 		=> $settings['x_custom_suffix'],
-                            "y_custom_prefix" 		=> $settings['y_custom_prefix'],
-                            "y_custom_suffix" 		=> $settings['y_custom_suffix'],
-                        ])),
-                    ],
-                ],
-            ]
-        );
+			[
+				'chart' => [
+					'data-suffixPrefix' => [
+						wp_json_encode(array_filter([
+							"id"           			=> 'bdt-chart-' . $this->get_id(),
+							"suffix_prefix_status"	=> ($settings['show_prefix'] == 'yes' || $settings['show_suffix']  == 'yes') ? 'yes' : 'no',
+							"x_custom_prefix" 		=> $settings['x_custom_prefix'],
+							"x_custom_suffix" 		=> $settings['x_custom_suffix'],
+							"y_custom_prefix" 		=> $settings['y_custom_prefix'],
+							"y_custom_suffix" 		=> $settings['y_custom_suffix'],
+						])),
+					],
+				],
+			]
+		);
 		
 		?>
 		<div class="bdt-chart" <?php echo $this->get_render_attribute_string( 'chart' ); ?>>

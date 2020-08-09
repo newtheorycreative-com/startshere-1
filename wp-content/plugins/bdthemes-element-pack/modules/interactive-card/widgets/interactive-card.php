@@ -27,7 +27,7 @@ class Interactive_Card extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'bdt-wi-interactive-card bdt-new';
+        return 'bdt-wi-interactive-card';
     }
 
     public function get_categories() {
@@ -44,6 +44,10 @@ class Interactive_Card extends Widget_Base {
 
     public function get_script_depends() {
         return ['gsap', 'wavify', 'ep-interactive-card'];
+    }
+
+    public function get_custom_help_url() {
+        return 'https://youtu.be/r8IXJUD3PA4';
     }
 
     protected function _register_controls() {
@@ -243,6 +247,9 @@ class Interactive_Card extends Widget_Base {
             'hr_divider_1',
             [
                 'type' => Controls_Manager::DIVIDER,
+                'condition' => [
+                    'content_position' => ['top', 'bottom']
+                ]
             ]
         );
 
@@ -251,7 +258,9 @@ class Interactive_Card extends Widget_Base {
             [
                 'label'   => __('Show Wavify Effect', 'bdthemes-element-pack'),
                 'type'    => Controls_Manager::SWITCHER,
-                //'default' => 'yes'
+                'condition' => [
+                    'content_position' => ['top', 'bottom']
+                ]
             ]
         );
 
@@ -262,7 +271,8 @@ class Interactive_Card extends Widget_Base {
                 'type'         => Controls_Manager::POPOVER_TOGGLE,
                 'return_value' => 'yes',
                 'condition'    => [
-                    'show_wavify_effect' => 'yes'
+                    'show_wavify_effect' => 'yes',
+                    'content_position' => ['top', 'bottom']
                 ]
             ]
         );
@@ -662,7 +672,31 @@ class Interactive_Card extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image, {{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'card_iamge_padding',
+            [
+                'label'      => __('Padding', 'bdthemes-element-pack'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'card_iamge_margin',
+            [
+                'label'      => __('Margin', 'bdthemes-element-pack'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -682,6 +716,15 @@ class Interactive_Card extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .bdt-interactive-card .bdt-interactive-card-image img' => 'opacity: {{SIZE}};',
                 ],
+            ]
+        );
+
+        $this->add_control(
+            'image_hover_effect',
+            [
+                'label'   => __('Image Hover Effect', 'bdthemes-element-pack'),
+                'type'    => Controls_Manager::SWITCHER,
+                'default' => 'yes',
             ]
         );
 
@@ -1357,10 +1400,16 @@ class Interactive_Card extends Widget_Base {
         if ( !$thumb_url ) {
             $thumb_url = $settings['image']['url'];
         }
+
+        if ( $settings['image_hover_effect'] == 'yes') {
+            $this->add_render_attribute('image-effect', 'class', 'bdt-image-hover-effect');
+        }
+        $this->add_render_attribute('image-effect', 'class', 'bdt-interactive-card-image');
+
         ?>
         <div class="bdt-position-relative bdt-overflow-hidden">
             <?php $this->render_interactive_card_badge(); ?>
-            <div class="bdt-interactive-card-image">
+            <div <?php echo $this->get_render_attribute_string('image-effect'); ?>>
                 <div class="bdt-position-relative">
                     <img src="<?php echo esc_url($thumb_url); ?>"
                          alt="<?php echo esc_html($settings['title_text']); ?>">

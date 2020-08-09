@@ -451,10 +451,10 @@ class User_Register extends Widget_Base {
 					'#bdt-user-register{{ID}} .bdt-field-group > a'                                 => 'color: {{VALUE}};',
 					'#bdt-user-register{{ID}} .bdt-user-register-password a:not(:last-child):after' => 'background-color: {{VALUE}};',
 				],
-				'scheme'    => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
-				],
+				// 'scheme'    => [
+				// 	'type'  => Schemes\Color::get_type(),
+				// 	'value' => Schemes\Color::COLOR_3,
+				// ],
 			]
 		);
 
@@ -466,10 +466,10 @@ class User_Register extends Widget_Base {
 				'selectors' => [
 					'#bdt-user-register{{ID}} .bdt-field-group > a:hover' => 'color: {{VALUE}};',
 				],
-				'scheme'    => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_4,
-				],
+				// 'scheme'    => [
+				// 	'type'  => Schemes\Color::get_type(),
+				// 	'value' => Schemes\Color::COLOR_4,
+				// ],
 			]
 		);
 
@@ -511,10 +511,10 @@ class User_Register extends Widget_Base {
 				'selectors' => [
 					'#bdt-user-register{{ID}} .bdt-form-label' => 'color: {{VALUE}};',
 				],
-				'scheme'    => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
-				],
+				// 'scheme'    => [
+				// 	'type'  => Schemes\Color::get_type(),
+				// 	'value' => Schemes\Color::COLOR_3,
+				// ],
 			]
 		);
 
@@ -523,7 +523,7 @@ class User_Register extends Widget_Base {
 			[
 				'name'     => 'label_typography',
 				'selector' => '#bdt-user-register{{ID}} .bdt-form-label',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -631,7 +631,7 @@ class User_Register extends Widget_Base {
 			[
 				'name'      => 'field_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '#bdt-user-register{{ID}} .bdt-field-group .bdt-input',
 				'separator' => 'before',
 			]
@@ -707,10 +707,10 @@ class User_Register extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme'    => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_4,
-				],
+				// 'scheme'    => [
+				// 	'type'  => Schemes\Color::get_type(),
+				// 	'value' => Schemes\Color::COLOR_4,
+				// ],
 				'selectors' => [
 					'#bdt-user-register{{ID}} .bdt-button' => 'background-color: {{VALUE}};',
 				],
@@ -837,7 +837,7 @@ class User_Register extends Widget_Base {
 			[
 				'name'      => 'additional_text_typography',
 				'label'     => esc_html__( 'Additional Message Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '#bdt-user-register{{ID}} .bdt-register-additional-message',
 				'separator' => 'before',
 			]
@@ -902,6 +902,12 @@ class User_Register extends Widget_Base {
 				],
 				'email_label'         => [
 					'for'   => 'user_email' . esc_attr( $id ),
+					'class' => [
+						'bdt-form-label',
+					]
+				],
+				'password_label' => [
+					'for'   => 'password' . esc_attr($id),
 					'class' => [
 						'bdt-form-label',
 					]

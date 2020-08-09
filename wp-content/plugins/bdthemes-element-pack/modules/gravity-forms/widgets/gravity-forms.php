@@ -76,6 +76,18 @@ class Gravity_Forms extends Widget_Base {
 				'default' => 'yes',
 		    ]
 		);
+
+		$this->add_control(
+		    'show_sub_label',
+		    [
+				'label'   => __( 'Sub label', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'selectors' => [
+					'{{WRAPPER}} .bdt-gravity-forms .gform_wrapper .field_sublabel_above .ginput_complex.ginput_container label, {{WRAPPER}} .bdt-gravity-forms .gform_wrapper .field_sublabel_below .ginput_complex.ginput_container label, {{WRAPPER}} .bdt-gravity-forms .gform_wrapper .field_sublabel_above div[class*="gfield_time_"].ginput_container label, {{WRAPPER}} .bdt-gravity-forms .gform_wrapper .field_sublabel_below div[class*="gfield_time_"].ginput_container label, {{WRAPPER}} .bdt-gravity-forms .gform_wrapper .field_sublabel_above div[class*="gfield_date_"].ginput_container label, {{WRAPPER}} .bdt-gravity-forms .gform_wrapper .field_sublabel_below div[class*="gfield_date_"].ginput_container label' => 'display: block;',
+				],
+		    ]
+		);
 		
 		$this->add_control(
 		    'form_ajax',
@@ -213,7 +225,8 @@ class Gravity_Forms extends Widget_Base {
                 ],
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
-                    '{{WRAPPER}} .bdt-gravity-forms .gfield' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .bdt-gravity-forms .gfield, {{WRAPPER}} .bdt-gravity-forms .ginput_container_address span *' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .bdt-gravity-forms .gform_wrapper .field_sublabel_above .ginput_complex.ginput_container_address label, {{WRAPPER}} .bdt-gravity-forms .gform_wrapper .field_sublabel_below .ginput_complex.ginput_container_address label' => 'margin-top: -{{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -353,7 +366,8 @@ class Gravity_Forms extends Widget_Base {
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors'  => [
 					'{{WRAPPER}} .bdt-gravity-forms .gfield input[type="text"], 
-					 {{WRAPPER}} .bdt-gravity-forms .gfield textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					 {{WRAPPER}} .bdt-gravity-forms .gfield textarea, 
+                     {{WRAPPER}} .bdt-gravity-forms .gfield select' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -363,7 +377,7 @@ class Gravity_Forms extends Widget_Base {
             [
 				'name'      => 'field_typography',
 				'label'     => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-gravity-forms .gfield input[type="text"], 
 								{{WRAPPER}} .bdt-gravity-forms .gfield textarea, {{WRAPPER}} .bdt-gravity-forms .gfield select',
 				'separator' => 'before',
@@ -502,7 +516,7 @@ class Gravity_Forms extends Widget_Base {
             [
 				'name'      => 'section_field_typography',
 				'label'     => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-gravity-forms .gfield.gsection .gsection_title',
 				'separator' => 'before',
             ]
@@ -1041,7 +1055,7 @@ class Gravity_Forms extends Widget_Base {
             [
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-gravity-forms .gform_footer input[type="submit"]',
 				'separator' => 'before',
             ]
@@ -1182,10 +1196,10 @@ class Gravity_Forms extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Fullwidth Input', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'selectors' => [
-					'{{WRAPPER}} .field-wrap>div input:not([type*="button"])' => 'width: 100%;',
-					'{{WRAPPER}} .field-wrap select'                        => 'width: 100%;',
-				],
+				'selectors'  => [
+                    '{{WRAPPER}} .bdt-gravity-forms .gfield input[type="text"], 
+                     {{WRAPPER}} .bdt-gravity-forms .gfield select' => 'width: 100%;',
+                ],
 			]
 		);
 		
@@ -1195,18 +1209,7 @@ class Gravity_Forms extends Widget_Base {
 				'label'     => esc_html__( 'Fullwidth Texarea', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => [
-					'{{WRAPPER}} .field-wrap textarea' => 'width: 100%;',
-				],
-			]
-		);
-		
-		$this->add_control(
-			'fullwidth_button',
-			[
-				'label'     => esc_html__( 'Fullwidth Button', 'bdthemes-element-pack' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'selectors' => [
-					'{{WRAPPER}} .field-wrap>div input[type*="button"]' => 'width: 100%;',
+					'{{WRAPPER}} .bdt-gravity-forms .gfield textarea' => 'width: 100%;',
 				],
 			]
 		);

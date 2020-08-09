@@ -6,7 +6,6 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Icons_Manager;
-use Elementor\Core\Files\Assets\Svg\Svg_Handler;
 
 use Elementor\Skin_Base as Elementor_Skin_Base;
 
@@ -206,7 +205,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'event_button_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				//'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-event-button',
 			]
 		);
@@ -446,7 +445,7 @@ class Skin_Event_Countdown extends Elementor_Skin_Base {
 			[
 				'name'     => 'event_title_typography',
 				'selector' => '{{WRAPPER}} .bdt-countdown-event-title',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				//'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 

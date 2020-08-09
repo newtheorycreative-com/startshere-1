@@ -919,7 +919,7 @@ class Flip_Box extends Widget_Base {
 			[
 				'name'     => 'front_title_typography',
 				'label'    => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-flip-box-front .bdt-flip-box-layer-title',
 			]
 		);
@@ -954,7 +954,7 @@ class Flip_Box extends Widget_Base {
 			[
 				'name'     => 'front_description_typography',
 				'label'    => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .bdt-flip-box-front .bdt-flip-box-layer-desc',
 			]
 		);
@@ -1107,7 +1107,7 @@ class Flip_Box extends Widget_Base {
 			[
 				'name'      => 'back_title_typography',
 				'label'     => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .bdt-flip-box-back .bdt-flip-box-layer-title',
 				'condition' => [
 					'back_title_text!' => '',
@@ -1164,7 +1164,7 @@ class Flip_Box extends Widget_Base {
 			[
 				'name'      => 'description_typography_b',
 				'label'     => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_3,
 				'selector'  => '{{WRAPPER}} .bdt-flip-box-back .bdt-flip-box-layer-desc',
 			]
 		);
@@ -1274,7 +1274,7 @@ class Flip_Box extends Widget_Base {
 			[
 				'name'     => 'button_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-flip-box-button',
 			]
 		);

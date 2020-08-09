@@ -8,6 +8,7 @@ use Elementor\Core\Schemes;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Background;
 
 if ( !defined('ABSPATH') ) exit; // Exit if accessed directly
 class Testimonial_Grid extends Widget_Base {
@@ -94,13 +95,13 @@ class Testimonial_Grid extends Widget_Base {
             ]
         );
 
-        // $this->add_control(
-        // 	'show_pagination',
-        // 	[
-        // 		'label' => esc_html__( 'Pagination', 'bdthemes-element-pack' ),
-        // 		'type'  => Controls_Manager::SWITCHER,
-        // 	]
-        // );
+        $this->add_control(
+        	'show_pagination',
+        	[
+        		'label' => esc_html__( 'Pagination', 'bdthemes-element-pack' ),
+        		'type'  => Controls_Manager::SWITCHER,
+        	]
+        );
 
         $this->add_responsive_control(
             'item_gap',
@@ -554,7 +555,7 @@ class Testimonial_Grid extends Widget_Base {
             [
                 'name'     => 'title_typography',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-title',
             ]
         );
@@ -600,7 +601,7 @@ class Testimonial_Grid extends Widget_Base {
             [
                 'name'     => 'address_typography',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-address',
             ]
         );
@@ -646,7 +647,7 @@ class Testimonial_Grid extends Widget_Base {
             [
                 'name'     => 'text_typography',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .bdt-testimonial-grid .bdt-testimonial-grid-text',
             ]
         );
@@ -748,7 +749,7 @@ class Testimonial_Grid extends Widget_Base {
             [
                 'name'     => 'typography_filter',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li',
             ]
         );
@@ -995,7 +996,7 @@ class Testimonial_Grid extends Widget_Base {
             [
                 'name'     => 'filter_mbtn_dropdown_typography',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .bdt-dropdown-nav li',
             ]
         );
@@ -1005,6 +1006,205 @@ class Testimonial_Grid extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+
+        $this->start_controls_section(
+			'section_style_pagination',
+			[
+				'label'     => esc_html__( 'Pagination', 'bdthemes-element-pack' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'show_pagination' => 'yes',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'tabs_pagination_style' );
+
+		$this->start_controls_tab(
+			'tab_pagination_normal',
+			[
+				'label' => esc_html__( 'Normal', 'bdthemes-element-pack' ),
+			]
+		);
+
+		$this->add_control(
+			'pagination_color',
+			[
+				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} ul.bdt-pagination li a, {{WRAPPER}} ul.bdt-pagination li span' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'pagination_background',
+				'selector'  => '{{WRAPPER}} ul.bdt-pagination li a',
+				'separator' => 'after',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'     => 'pagination_border',
+				'label'    => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'selector' => '{{WRAPPER}} ul.bdt-pagination li a',
+			]
+		);
+
+		$this->add_responsive_control(
+			'pagination_offset',
+			[
+				'label'     => esc_html__( 'Offset', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .bdt-pagination' => 'margin-top: {{SIZE}}px;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'pagination_space',
+			[
+				'label'     => esc_html__( 'Spacing', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .bdt-pagination'     => 'margin-left: {{SIZE}}px;',
+					'{{WRAPPER}} .bdt-pagination > *' => 'padding-left: {{SIZE}}px;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'pagination_padding',
+			[
+				'label'     => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::DIMENSIONS,
+				'selectors' => [
+					'{{WRAPPER}} ul.bdt-pagination li a' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'pagination_radius',
+			[
+				'label'     => esc_html__( 'Radius', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::DIMENSIONS,
+				'selectors' => [
+					'{{WRAPPER}} ul.bdt-pagination li a' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'pagination_arrow_size',
+			[
+				'label'     => esc_html__( 'Arrow Size', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} ul.bdt-pagination li a svg' => 'height: {{SIZE}}px; width: auto;',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'pagination_typography',
+				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				'selector' => '{{WRAPPER}} ul.bdt-pagination li a, {{WRAPPER}} ul.bdt-pagination li span',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_pagination_hover',
+			[
+				'label' => esc_html__( 'Hover', 'bdthemes-element-pack' ),
+			]
+		);
+
+		$this->add_control(
+			'pagination_hover_color',
+			[
+				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} ul.bdt-pagination li a:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'pagination_hover_border_color',
+			[
+				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} ul.bdt-pagination li a:hover' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'     => 'pagination_hover_background',
+				'selector' => '{{WRAPPER}} ul.bdt-pagination li a:hover',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab(
+			'tab_pagination_active',
+			[
+				'label' => esc_html__( 'Active', 'bdthemes-element-pack' ),
+			]
+		);
+
+		$this->add_control(
+			'pagination_active_color',
+			[
+				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} ul.bdt-pagination li.bdt-active a' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'pagination_active_border_color',
+			[
+				'label'     => esc_html__( 'Border Color', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} ul.bdt-pagination li.bdt-active a' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'     => 'pagination_active_background',
+				'selector' => '{{WRAPPER}} ul.bdt-pagination li.bdt-active a',
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();		
+
+		$this->end_controls_section();
     }
 
     public function render_image($image_id) {
@@ -1164,19 +1364,10 @@ class Testimonial_Grid extends Widget_Base {
 
         $this->add_render_attribute('testimonial-grid-wrapper', 'class', ['bdt-testimonial-grid-layout-' . $settings['layout'], 'bdt-testimonial-grid', 'bdt-ep-grid-filter-container']);
 
-        $this->add_render_attribute('testimonial-grid', 'bdt-grid', '');
-        $this->add_render_attribute('testimonial-grid', 'class', 'bdt-grid');
+        
 
         if ( $settings['show_filter_bar'] ) {
             $this->add_render_attribute('testimonial-grid-wrapper', 'bdt-filter', 'target: #bdt-testimonial-grid-' . $this->get_id());
-        }
-
-        if ( $settings['item_match_height'] ) {
-            $this->add_render_attribute('testimonial-grid', 'bdt-height-match', 'div > .bdt-testimonial-grid-item-inner');
-        }
-
-        if ( $settings['item_masonry'] ) {
-            $this->add_render_attribute('testimonial-grid', 'bdt-grid', 'masonry: true;');
         }
 
         ?>
@@ -1187,13 +1378,12 @@ class Testimonial_Grid extends Widget_Base {
         }
 
         ?>
-        <div id="bdt-testimonial-grid-<?php echo $this->get_id(); ?>" <?php echo $this->get_render_attribute_string('testimonial-grid'); ?>>
+        
         <?php
     }
 
     public function render_footer() {
         ?>
-        </div>
         </div>
         <?php
     }
@@ -1201,12 +1391,17 @@ class Testimonial_Grid extends Widget_Base {
     public function render_query() {
         $settings = $this->get_settings_for_display();
 
+        if ( get_query_var('paged') ) { $paged = get_query_var('paged'); } 
+		elseif ( get_query_var('page') ) { $paged = get_query_var('page'); } 
+		else { $paged = 1; }
+
         $args = array(
             'post_type'      => 'bdthemes-testimonial',
             'posts_per_page' => $settings['posts'],
             'orderby'        => $settings['orderby'],
             'order'          => $settings['order'],
-            'post_status'    => 'publish'
+            'post_status'    => 'publish',
+            'paged'          => $paged,
         );
 
         if ( 'by_name' === $settings['source'] and !empty($settings['post_categories']) ) {
@@ -1226,8 +1421,23 @@ class Testimonial_Grid extends Widget_Base {
         $settings = $this->get_settings_for_display();
         $wp_query = $this->render_query();
 
+        $this->add_render_attribute('testimonial-grid', 'bdt-grid', '');
+        $this->add_render_attribute('testimonial-grid', 'class', 'bdt-grid');
+
+        if ( $settings['item_match_height'] ) {
+            $this->add_render_attribute('testimonial-grid', 'bdt-height-match', 'div > .bdt-testimonial-grid-item-inner');
+        }
+
+        if ( $settings['item_masonry'] ) {
+            $this->add_render_attribute('testimonial-grid', 'bdt-grid', 'masonry: true;');
+        }
+
         if ( $wp_query->have_posts() ) {
 
+
+            ?>
+            <div id="bdt-testimonial-grid-<?php echo $this->get_id(); ?>" <?php echo $this->get_render_attribute_string('testimonial-grid'); ?>>
+            <?php
             $this->add_render_attribute('testimonial-grid-item', 'class', 'bdt-testimonial-grid-item');
             $this->add_render_attribute('testimonial-grid-item', 'class', 'bdt-width-1-' . $settings['columns_mobile']);
             $this->add_render_attribute('testimonial-grid-item', 'class', 'bdt-width-1-' . $settings['columns_tablet'] . '@s');
@@ -1320,11 +1530,17 @@ class Testimonial_Grid extends Widget_Base {
                         </div>
                     <?php endif; ?>
                 </div>
-            <?php endwhile;
+            <?php endwhile; ?>
 
-            // if ($settings['show_pagination']) {
-            // 	element_pack_post_pagination($wp_query);
-            // }
+            </div>
+
+            <?php
+            if ($settings['show_pagination']) { ?>
+                <div class="ep-pagination">
+                    <?php element_pack_post_pagination($wp_query); ?>
+                </div>
+                <?php
+            }
 
             wp_reset_postdata();
 

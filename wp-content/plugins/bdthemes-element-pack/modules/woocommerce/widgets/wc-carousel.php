@@ -1082,7 +1082,7 @@ class WC_Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'badge_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-carousel .bdt-badge',
 			]
 		);
@@ -1130,7 +1130,7 @@ class WC_Carousel extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-carousel .bdt-wc-carousel-title',
 			]
 		);
@@ -1184,7 +1184,7 @@ class WC_Carousel extends Widget_Base {
 			[
 				'name'     => 'old_price_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-carousel .bdt-products-skin-price del',
 			]
 		);
@@ -1226,7 +1226,7 @@ class WC_Carousel extends Widget_Base {
 			[
 				'name'     => 'sale_price_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-carousel .bdt-products-skin-price, {{WRAPPER}} .bdt-wc-carousel .bdt-products-skin-price ins',
 			]
 		);
@@ -1399,7 +1399,7 @@ class WC_Carousel extends Widget_Base {
 			[
 				'name'     => 'button_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-carousel .bdt-wc-add-to-cart a',
 			]
 		);
@@ -1825,7 +1825,7 @@ class WC_Carousel extends Widget_Base {
 			[
 				'name'      => 'fraction_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-wc-carousel .swiper-pagination-fraction',
 				'condition' => [
 					'navigation!' => [ 'arrows', 'dots', 'progressbar', 'none' ],

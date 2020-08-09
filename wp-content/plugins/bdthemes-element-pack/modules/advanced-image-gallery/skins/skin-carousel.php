@@ -42,13 +42,13 @@ class Skin_Carousel extends Elementor_Skin_Base {
 						( 'dots' == $settings['navigation'] ) ? 'bdt-dots-align-'. $settings['dots_position'] : '',
 					],
 					'bdt-slider' => [
-						wp_json_encode(array_filter([
+						wp_json_encode( [
 							"autoplay"          => ( $settings["autoplay"] ) ? true : false,
 							"autoplay-interval" => $settings["autoplay_interval"],
 							"finite"            => ($settings["loop"]) ? false : true,
-							"pause-on-hover"    => ( $settings["pause_on_hover"] ) ? true : false,
+							"pause-on-hover"    => ( $settings["pause_on_hover"] ) ? true : false, 
 							"center"            => ( $settings["center_slide"] ) ? true : false
-						]))
+						] )
 					]
 				]
 			]

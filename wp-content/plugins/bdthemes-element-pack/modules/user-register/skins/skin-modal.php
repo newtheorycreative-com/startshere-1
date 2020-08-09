@@ -178,7 +178,7 @@ class Skin_Modal extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'modal_button_typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				//'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-button-modal',
 			]
 		);

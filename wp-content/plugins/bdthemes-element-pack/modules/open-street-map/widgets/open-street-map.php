@@ -208,7 +208,7 @@ class Open_Street_Map extends Widget_Base {
 			'markers',
 			[
 				'type'    => Controls_Manager::REPEATER,
-				'fields'  => array_values( $repeater->get_controls() ),
+				'fields'  => $repeater->get_controls(),
 				'default' => [
 					[
 						'marker_lat'     => '24.82391',

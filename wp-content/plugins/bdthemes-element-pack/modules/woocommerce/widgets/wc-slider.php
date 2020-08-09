@@ -779,7 +779,7 @@ class WC_Slider extends Widget_Base {
 			[
 				'name'     => 'old_price_typography',
 				'label'    => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-slider .bdt-wc-slider-price del, .bdt-wc-slider .bdt-slider-skin-price del',
 			]
 		);
@@ -821,7 +821,7 @@ class WC_Slider extends Widget_Base {
 			[
 				'name'     => 'sale_price_typography',
 				'label'    => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-slider .bdt-wc-slider-price, .bdt-wc-slider .bdt-slider-skin-price, {{WRAPPER}} .bdt-wc-slider .bdt-wc-slider-price ins, .bdt-wc-slider .bdt-slider-skin-price ins',
 			]
 		);
@@ -910,7 +910,7 @@ class WC_Slider extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-slider .bdt-slideshow-items .bdt-wc-slider-title',
 			]
 		);
@@ -1045,7 +1045,7 @@ class WC_Slider extends Widget_Base {
 			[
 				'name'     => 'text_typography',
 				'label'    => __( 'Text Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-slider .bdt-slideshow-items .bdt-wc-slider-text, .bdt-wc-slider .bdt-slideshow-items .bdt-wc-slider-text p',
 			]
 		);
@@ -1167,7 +1167,7 @@ class WC_Slider extends Widget_Base {
 			[
 				'name'     => 'button_typography',
 				'label'    => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-slider .bdt-wc-add-to-cart a',
 			]
 		);
@@ -1327,7 +1327,7 @@ class WC_Slider extends Widget_Base {
 			[
 				'name'     => 'readmore_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-slider-readmore',
 			]
 		);
@@ -1477,7 +1477,7 @@ class WC_Slider extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'badge_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-slider .bdt-badge',
 			]
 		);

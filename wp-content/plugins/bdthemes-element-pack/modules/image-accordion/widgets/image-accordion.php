@@ -9,6 +9,7 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Icons_Manager;
+use Elementor\Repeater;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -23,7 +24,7 @@ class Image_Accordion extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'bdt-wi-image-accordion';
+		return 'bdt-wi-image-accordion bdt-new';
 	}
 
 	public function get_categories() {
@@ -42,6 +43,14 @@ class Image_Accordion extends Widget_Base {
 		return [ 'ep-image-accordion' ];
 	}
 
+	public function get_script_depends() {
+		return [ 'ep-image-accordion' ];
+	}
+
+	public function get_custom_help_url() {
+		return 'https://youtu.be/jQWU4kxXJpM';
+	}
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(
@@ -51,10 +60,94 @@ class Image_Accordion extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'image_accordion_title', 
+			[
+				'label'       => __( 'Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => __( 'Tab Title' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'title_link', 
+			[
+				'label'         => esc_html__( 'Title Link', 'bdthemes-element-pack' ),
+				'type'          => Controls_Manager::URL,
+				'default'       => ['url' => ''],
+				'show_external' => false,
+				'dynamic'       => [ 'active' => true ],
+				'condition'     => [
+					'image_accordion_title!' => ''
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'image_accordion_sub_title', 
+			[
+				'label'       => __( 'Sub Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'image_accordion_text', 
+			[
+				'type'       => Controls_Manager::WYSIWYG,
+				'dynamic'    => [ 'active' => true ],
+				'default'    => __( 'Box Content', 'bdthemes-element-pack' ),
+			]
+		);
+
+		$repeater->add_control(
+			'image_accordion_button', 
+			[
+				'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__( 'Read More' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'button_link', 
+			[
+				'label'         => esc_html__( 'Button Link', 'bdthemes-element-pack' ),
+				'type'          => Controls_Manager::URL,
+				'default'       => ['url' => '#'],
+				'show_external' => false,
+				'dynamic'       => [ 'active' => true ],
+				'condition'     => [
+					'image_accordion_button!' => ''
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'slide_image', 
+			[
+				'label'   => esc_html__( 'Background Image', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::MEDIA,
+				'dynamic' => [ 'active' => true ],
+				'default' => [
+					'url' => BDTEP_ASSETS_URL . 'images/slide/item-'.rand(1,4).'.jpg',
+				],
+			]
+		);
+
 		$this->add_control(
 			'image_accordion_items',
 			[
 				'type'    => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'image_accordion_sub_title'   => __( 'This is a label', 'bdthemes-element-pack' ),
@@ -80,88 +173,18 @@ class Image_Accordion extends Widget_Base {
 						'image_accordion_text' => __( 'Lorem ipsum dolor sit amet consect voluptate repell endus kilo gram magni illo ea animi.', 'bdthemes-element-pack' ),
 						'slide_image' => ['url' => BDTEP_ASSETS_URL . 'images/slide/item-4.jpg']
 					],
-					[
-						'image_accordion_sub_title'   => __( 'This is a label', 'bdthemes-element-pack' ),
-						'image_accordion_title'   => __( 'Image Accordion Five', 'bdthemes-element-pack' ),
-						'image_accordion_text' => __( 'Lorem ipsum dolor sit amet consect voluptate repell endus kilo gram magni illo ea animi.', 'bdthemes-element-pack' ),
-						'slide_image' => ['url' => BDTEP_ASSETS_URL . 'images/slide/item-5.jpg']
-					],
-					[
-						'image_accordion_sub_title'   => __( 'This is a label', 'bdthemes-element-pack' ),
-						'image_accordion_title'   => __( 'Image Accordion Six', 'bdthemes-element-pack' ),
-						'image_accordion_text' => __( 'Lorem ipsum dolor sit amet consect voluptate repell endus kilo gram magni illo ea animi.', 'bdthemes-element-pack' ),
-						'slide_image' => ['url' => BDTEP_ASSETS_URL . 'images/slide/item-6.jpg']
-					],
-				],
-				'fields' => [
-
-					[
-						'name'        => 'image_accordion_title',
-						'label'       => __( 'Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => __( 'Tab Title' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-					],
-
-					[
-						'name'          => 'title_link',
-						'label'         => esc_html__( 'Title Link', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'default'       => ['url' => ''],
-						'show_external' => false,
-						'dynamic'       => [ 'active' => true ],
-						'condition'     => [
-							'image_accordion_title!' => ''
-						]
-					],
-
-					[
-						'name'        => 'image_accordion_sub_title',
-						'label'       => __( 'Sub Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'label_block' => true,
-					],
-					
-					[
-						'name'       => 'image_accordion_text',
-						'type'       => Controls_Manager::WYSIWYG,
-						'dynamic'    => [ 'active' => true ],
-						'default'    => __( 'Box Content', 'bdthemes-element-pack' ),
-					],
-
-					[
-						'name'        => 'image_accordion_button',
-						'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'default'     => esc_html__( 'Read More' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'dynamic'     => [ 'active' => true ],
-					],
-					
-					[
-						'name'          => 'button_link',
-						'label'         => esc_html__( 'Button Link', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'default'       => ['url' => '#'],
-						'show_external' => false,
-						'dynamic'       => [ 'active' => true ],
-						'condition'     => [
-							'image_accordion_button!' => ''
-						]
-					],
-
-					[
-						'name'    => 'slide_image',
-						'label'   => esc_html__( 'Background Image', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::MEDIA,
-						'dynamic' => [ 'active' => true ],
-						'default' => [
-							'url' => BDTEP_ASSETS_URL . 'images/slide/item-'.rand(1,6).'.jpg',
-						],
-					],
-
+					// [
+					// 	'image_accordion_sub_title'   => __( 'This is a label', 'bdthemes-element-pack' ),
+					// 	'image_accordion_title'   => __( 'Image Accordion Five', 'bdthemes-element-pack' ),
+					// 	'image_accordion_text' => __( 'Lorem ipsum dolor sit amet consect voluptate repell endus kilo gram magni illo ea animi.', 'bdthemes-element-pack' ),
+					// 	'slide_image' => ['url' => BDTEP_ASSETS_URL . 'images/slide/item-5.jpg']
+					// ],
+					// [
+					// 	'image_accordion_sub_title'   => __( 'This is a label', 'bdthemes-element-pack' ),
+					// 	'image_accordion_title'   => __( 'Image Accordion Six', 'bdthemes-element-pack' ),
+					// 	'image_accordion_text' => __( 'Lorem ipsum dolor sit amet consect voluptate repell endus kilo gram magni illo ea animi.', 'bdthemes-element-pack' ),
+					// 	'slide_image' => ['url' => BDTEP_ASSETS_URL . 'images/slide/item-6.jpg']
+					// ],
 				],
 				'title_field' => '{{{ image_accordion_title }}}',
 			]
@@ -176,6 +199,19 @@ class Image_Accordion extends Widget_Base {
 				'default'      => 'full',
 				'prefix_class' => 'bdt-image-accordion--thumbnail-size-',
 			]
+		);
+
+		$this->add_control(
+            'image_accordion_event',
+            [
+                'label'   => __('Select Event', 'bdthemes-element-pack'),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'mouseover',
+                'options' => [
+                    'click'     => __('Click', 'bdthemes-element-pack'),
+                    'mouseover' => __('Hover', 'bdthemes-element-pack'),
+                ],
+            ]
 		);
 
 		$this->end_controls_section();
@@ -217,7 +253,7 @@ class Image_Accordion extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-image-accordion .bdt-box-item-wrapper' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bdt-image-accordion .bdt-image-accordion-item .bdt-image-accordion-content' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -741,7 +777,26 @@ class Image_Accordion extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$id       = $this->get_id();
 
-		$this->add_render_attribute( 'image-accordion', 'class', 'bdt-image-accordion' );
+		if ($settings['image_accordion_event']) {
+			$imageAccordionEvent = $settings['image_accordion_event'];
+		} else {
+			$imageAccordionEvent = false;
+		}
+
+		$this->add_render_attribute(
+			[
+				'image-accordion' => [
+					'id' => 'bdt-image-accordion-' . $this->get_id(),
+					'class' => 'bdt-image-accordion',
+					'data-settings' => [
+						wp_json_encode(array_filter([
+					        'tabs_id' => 'bdt-image-accordion-' . $this->get_id(),
+							'mouse_event' => $imageAccordionEvent,
+						]))
+					]
+				]
+			]
+		);
 
 		?>
 
@@ -774,7 +829,7 @@ class Image_Accordion extends Widget_Base {
 
 				?>
 
-				<div id="<?php echo esc_attr($id); ?>" <?php echo ( $this->get_render_attribute_string( 'image-accordion-item' ) ); ?> style="background-image: url('<?php echo esc_url( $slide_image); ?>');">
+				<div   <?php echo ( $this->get_render_attribute_string( 'image-accordion-item' ) ); ?> style="background-image: url('<?php echo esc_url( $slide_image); ?>');">
 
 					<div class="bdt-image-accordion-content">
 						<?php if ( $item['image_accordion_sub_title'] && ( 'yes' == $settings['show_sub_title'] ) ) : ?>
@@ -784,15 +839,15 @@ class Image_Accordion extends Widget_Base {
 						<?php endif; ?>
 	
 						<?php if ( $item['image_accordion_title'] && ( 'yes' == $settings['show_title'] ) ) : ?>
-							<<?php echo esc_html($settings['title_tags']); ?> <?php echo $this->get_render_attribute_string('bdt-image-accordion-title'); ?>>
-								<?php if ( '' !== $item['title_link']['url'] ) : ?>
-									<a href="<?php echo esc_url( $item['title_link']['url'] ); ?>">
-								<?php endif; ?>
+							<?php if ( '' !== $item['title_link']['url'] ) : ?>
+								<a href="<?php echo esc_url( $item['title_link']['url'] ); ?>">
+							<?php endif; ?>
+								<<?php echo esc_html($settings['title_tags']); ?> <?php echo $this->get_render_attribute_string('bdt-image-accordion-title'); ?>>
 									<?php echo wp_kses( $item['image_accordion_title'], element_pack_allow_tags('title') ); ?>
-								<?php if ( '' !== $item['title_link']['url'] ) : ?>
-									</a>
-								<?php endif; ?>
-							</<?php echo esc_html($settings['title_tags']); ?>>
+								</<?php echo esc_html($settings['title_tags']); ?>>
+							<?php if ( '' !== $item['title_link']['url'] ) : ?>
+								</a>
+							<?php endif; ?>
 						<?php endif; ?>
 	
 						<?php if ( $item['image_accordion_text'] && ( 'yes' == $settings['show_text'] ) ) : ?>

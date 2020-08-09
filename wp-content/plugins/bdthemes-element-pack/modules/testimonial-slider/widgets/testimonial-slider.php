@@ -690,7 +690,7 @@ class Testimonial_Slider extends Widget_Base {
             [
                 'name'     => 'quatation_typography',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .bdt-testimonial-text:after',
             ]
         );
@@ -720,7 +720,7 @@ class Testimonial_Slider extends Widget_Base {
             [
                 'name'     => 'text_typography',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .bdt-testimonial-text',
             ]
         );
@@ -769,7 +769,7 @@ class Testimonial_Slider extends Widget_Base {
             [
                 'name'      => 'title_typography',
                 'label'     => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
                 'selector'  => '{{WRAPPER}} .bdt-testimonial-meta .bdt-testimonial-title',
                 'condition' => ['title' => 'yes'],
             ]
@@ -806,7 +806,7 @@ class Testimonial_Slider extends Widget_Base {
             [
                 'name'      => 'address_typography',
                 'label'     => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
                 'selector'  => '{{WRAPPER}} .bdt-testimonial-meta .bdt-testimonial-address',
                 'condition' => [
                     'company_name' => 'yes',

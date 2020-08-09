@@ -4,7 +4,6 @@ namespace ElementPack\Modules\VideoGallery\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Css_Filter;
@@ -188,7 +187,7 @@ class Video_Gallery extends Widget_Base {
 			'video_gallery',
 			[
 				'type'    => Controls_Manager::REPEATER,
-				'fields'  => array_values( $repeater->get_controls() ),
+				'fields'  => $repeater->get_controls(),
 				'default' => [
 					[
 						'title'      => esc_html__( 'Youtube Video', 'bdthemes-element-pack' ),
@@ -287,7 +286,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_content_thumbnail',
 			[
-				'label' => esc_html__( 'Thumbnail', 'bdthemes-element-pack' ),
+				'label' => esc_html__( 'Playlist', 'bdthemes-element-pack' ),
 			]
 		);
 
@@ -297,7 +296,7 @@ class Video_Gallery extends Widget_Base {
 				'label'        => esc_html__( 'Thumbnail', 'bdthemes-element-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'prefix_class' => 'bdt-video-gallery-thumbnail-',
+				// 'prefix_class' => 'bdt-video-gallery-thumbnail-',
 			]
 		);
 
@@ -307,7 +306,7 @@ class Video_Gallery extends Widget_Base {
 				'label'        => esc_html__( 'Title', 'bdthemes-element-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'prefix_class' => 'bdt-video-gallery-title-',
+				// 'prefix_class' => 'bdt-video-gallery-title-',
 			]
 		);
 
@@ -340,7 +339,7 @@ class Video_Gallery extends Widget_Base {
 				'label'        => esc_html__( 'Description', 'bdthemes-element-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
-				'prefix_class' => 'bdt-video-gallery-desc-',
+				// 'prefix_class' => 'bdt-video-gallery-desc-',
 			]
 		);
 		
@@ -425,7 +424,7 @@ class Video_Gallery extends Widget_Base {
 			[
 				'name'     => 'video_title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .rvs-item-text h2',
 			]
 		);
@@ -488,7 +487,7 @@ class Video_Gallery extends Widget_Base {
 			[
 				'name'     => 'video_desc_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-vg-video-desc',
 			]
 		);
@@ -498,7 +497,7 @@ class Video_Gallery extends Widget_Base {
 		$this->start_controls_section(
 			'section_style_thumb_item',
 			[
-				'label' => __( 'Thumb Item', 'bdthemes-element-pack' ),
+				'label' => __( 'Playlist', 'bdthemes-element-pack' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -529,7 +528,7 @@ class Video_Gallery extends Widget_Base {
 				'label'      => __( 'Padding', 'bdthemes-element-pack' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'selectors'  => [
-					'{{WRAPPER}} .rvs-nav-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .rvs-nav-container a.rvs-nav-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -549,7 +548,6 @@ class Video_Gallery extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'thumb_item_border',
-				'separator' => 'before',
 				'selector'  => '{{WRAPPER}} .rvs-nav-item',
 				'separator' => 'before',
 			]
@@ -817,7 +815,6 @@ class Video_Gallery extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'thumbnail_border',
-				'separator' => 'before',
 				'selector'  => '{{WRAPPER}} .rvs-nav-item span',
 				'separator' => 'before',
 			]
@@ -883,7 +880,7 @@ class Video_Gallery extends Widget_Base {
 			[
 				'name'     => 'thumbnail_title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .rvs-nav-container .rvs-nav-item-title',
 			]
 		);
@@ -928,8 +925,8 @@ class Video_Gallery extends Widget_Base {
 			[
 				'name'     => 'thumbnail_desc_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
-				'selector' => '{{WRAPPER}} .rvs-nav-item-credits',
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				'selector' => '{{WRAPPER}} .rvs-nav-container .rvs-nav-item-credits',
 			]
 		);
 
@@ -1191,9 +1188,8 @@ class Video_Gallery extends Widget_Base {
 		$this->render_footer();
 	}
 
-	public function render_header($skin = 'default') {
+	public function render_header() {
 		$settings = $this->get_settings_for_display();
-		$id       = $this->get_id();
 
 		$this->add_render_attribute( 'video-gallery', 'class', ['bdt-video-gallery', 'rvs-container', 'rvs-flat-circle-play'] );
 		
@@ -1221,8 +1217,6 @@ class Video_Gallery extends Widget_Base {
 	}
 
 	public function render_footer() {
-		$settings = $this->get_settings_for_display();
-
 				?>
 				</div>
 				<a class="rvs-nav-next"></a>

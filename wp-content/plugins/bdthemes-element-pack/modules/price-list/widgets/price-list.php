@@ -7,6 +7,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Core\Schemes;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
+use Elementor\Repeater;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -48,47 +49,63 @@ class Price_List extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'price', 
+			[
+				'label'   => esc_html__( 'Price', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::TEXT,
+				'dynamic' => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'title', 
+			[
+				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'default'     => esc_html__( 'First item on the list', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => 'true',
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'item_description', 
+			[
+				'label'   => esc_html__( 'Description', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::TEXTAREA,
+				'dynamic' => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'image', 
+			[
+				'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => [],
+				'dynamic' => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'link', 
+			[
+				'label'   => esc_html__( 'Link', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::URL,
+				'default' => [ 'url' => '#' ],
+				'dynamic' => [ 'active' => true ],
+			]
+		);
+
 		$this->add_control(
 			'price_list',
 			[
 				'label'  => esc_html__( 'List Items', 'bdthemes-element-pack' ),
 				'type'   => Controls_Manager::REPEATER,
-				'fields' => [
-					[
-						'name'    => 'price',
-						'label'   => esc_html__( 'Price', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::TEXT,
-						'dynamic' => [ 'active' => true ],
-					],
-					[
-						'name'        => 'title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
-						'default'     => esc_html__( 'First item on the list', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'label_block' => 'true',
-						'dynamic'     => [ 'active' => true ],
-					],
-					[
-						'name'    => 'item_description',
-						'label'   => esc_html__( 'Description', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::TEXTAREA,
-						'dynamic' => [ 'active' => true ],
-					],
-					[
-						'name'    => 'image',
-						'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::MEDIA,
-						'default' => [],
-						'dynamic' => [ 'active' => true ],
-					],
-					[
-						'name'    => 'link',
-						'label'   => esc_html__( 'Link', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::URL,
-						'default' => [ 'url' => '#' ],
-						'dynamic' => [ 'active' => true ],
-					],
-				],
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'title' => esc_html__( 'First item on the list', 'bdthemes-element-pack' ),
@@ -183,7 +200,6 @@ class Price_List extends Widget_Base {
             [
                 'name'     => 'heading_typography',
                 'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .bdt-price-list-header',
             ]
         );
@@ -213,7 +229,6 @@ class Price_List extends Widget_Base {
             [
                 'name'     => 'description_typography',
                 'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
                 'selector' => '{{WRAPPER}} .bdt-price-list-description',
             ]
         );
@@ -401,7 +416,7 @@ class Price_List extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#14ABF4',
+				'default'   => '#4AB8F8',
 				'selectors' => [
 					'{{WRAPPER}} .bdt-price-list .bdt-price-list-price' => 'background-color: {{VALUE}};',
 				],
@@ -488,8 +503,6 @@ class Price_List extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'price_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-price-list .bdt-price-list-price',
 			]
 		);
@@ -514,7 +527,7 @@ class Price_List extends Widget_Base {
         if ( $url ) {
             $unique_link_id = 'item-link-' . $item_id;
 
-            $this->add_render_attribute( $unique_link_id, 'class', 'bdt-grid bdt-flex-'. esc_attr($settings['vertical_align']) );
+            $this->add_render_attribute( $unique_link_id, 'class', 'bdt-grid bdt-grid-collapse bdt-flex-'. esc_attr($settings['vertical_align']) );
             $this->add_render_attribute( $unique_link_id, 'class', esc_attr($bdt_has_image) );
 
 

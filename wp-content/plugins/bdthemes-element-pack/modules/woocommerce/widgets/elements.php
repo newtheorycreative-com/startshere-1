@@ -129,7 +129,7 @@ class Elements extends Widget_Base {
 			[
 				'name' => 'label_typography',
 				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce form .form-row label',
 			]
 		);
@@ -484,7 +484,7 @@ class Elements extends Widget_Base {
 			[
 				'name' => 'payment_button_typography',
 				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce input.button',
 				'separator' => 'before',
 			]
@@ -571,7 +571,7 @@ class Elements extends Widget_Base {
 			[
 				'name' => 'tracking_label_typography',
 				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce form .form-row label',
 			]
 		);
@@ -811,7 +811,7 @@ class Elements extends Widget_Base {
 			[
 				'name' => 'tracking_button_typography',
 				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce input.button, {{WRAPPER}} .woocommerce button.button, {{WRAPPER}} .woocommerce a.button',
 				'separator' => 'before',
 			]
@@ -1218,7 +1218,7 @@ class Elements extends Widget_Base {
 			[
 				'name' => 'cart_button_typography',
 				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .woocommerce table tr td button.button',
 				'separator' => 'before',
 			]
@@ -1379,7 +1379,7 @@ class Elements extends Widget_Base {
 			[
 				'name' => 'cart_checkout_button_typography',
 				'label' => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .wc-proceed-to-checkout a.checkout-button',
 				'separator' => 'before',
 			]

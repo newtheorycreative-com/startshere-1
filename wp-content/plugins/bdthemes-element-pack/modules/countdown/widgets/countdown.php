@@ -8,7 +8,6 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Core\Schemes;
 use Elementor\Utils;
-
 use Elementor\Schemes\Color;
 
 use ElementPack\Modules\Countdown\Skins;
@@ -47,6 +46,7 @@ class Countdown extends Widget_Base {
 
 	protected function _register_skins() {
 		$this->add_skin( new Skins\Skin_Event_Countdown( $this ) );
+		$this->add_skin( new Skins\Skin_Tiny_Countdown( $this ) );
 	}
 
 
@@ -66,7 +66,7 @@ class Countdown extends Widget_Base {
 				'default'     => date( 'Y-m-d H:i', strtotime( '+1 month' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) ),
 				'description' => sprintf( __( 'Date set according to your timezone: %s.', 'bdthemes-element-pack' ), Utils::get_timezone_string() ),
 				'condition'   => [
-					'_skin' => '',
+					'_skin!' => 'bdt-event-cowntdown',
 				],
 			]
 		);
@@ -91,6 +91,9 @@ class Countdown extends Widget_Base {
 					'medium'   => esc_html__( 'Medium', 'bdthemes-element-pack' ),
 					'large'    => esc_html__( 'Large', 'bdthemes-element-pack' ),
 					'collapse' => esc_html__( 'Collapse', 'bdthemes-element-pack' ),
+				],
+				'condition' => [
+					'_skin!' => 'bdt-tiny-countdown'
 				],
 			]
 		);
@@ -117,6 +120,58 @@ class Countdown extends Widget_Base {
 				],
 				'condition' => [
 					'show_labels!' => '',
+					'_skin!' => 'bdt-tiny-countdown'
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'tiny_item_spacing',
+			[
+				'label'   => esc_html__( 'Item Gap', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}}.elementor-widget-bdt-countdown .bdt-countdown-skin-tiny .bdt-countdown-item-wrapper'  => 'margin-left: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'_skin' => 'bdt-tiny-countdown'
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'tiny_number_label_gap',
+			[
+				'label'   => esc_html__( 'Number & Label Gap', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::SLIDER,
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}}.elementor-widget-bdt-countdown .bdt-countdown-skin-tiny .bdt-countdown-number'  => 'margin-right: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_labels!' => '',
+					'_skin' => 'bdt-tiny-countdown'
 				],
 			]
 		);
@@ -141,6 +196,39 @@ class Countdown extends Widget_Base {
 					],
 				],
 				'default'      => 'center',
+				'condition' => [
+					'_skin!' => 'bdt-tiny-countdown'
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'tiny_alignment',
+			[
+				'label'        => __( 'Alignment', 'bdthemes-element-pack' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
+					'left'   => [
+						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'icon'  => 'fas fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'bdthemes-element-pack' ),
+						'icon'  => 'fas fa-align-center',
+					],
+					'right'  => [
+						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'icon'  => 'fas fa-align-right',
+					],
+				],
+				'default'      => 'center',
+				'selectors'  => [
+					'{{WRAPPER}} .bdt-countdown-skin-tiny' => 'text-align: {{VALUE}};',
+				],
+				'condition' => [
+					'_skin' => 'bdt-tiny-countdown'
+				],
+				'render_type' => 'template'
 			]
 		);
 
@@ -173,6 +261,9 @@ class Countdown extends Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .bdt-countdown-wrapper' => 'max-width: {{SIZE}}{{UNIT}}; margin-left: auto; margin-right: auto;',
 				],
+				'condition' => [
+					'_skin!' => 'bdt-tiny-countdown'
+				],
 			]
 		);
 
@@ -193,6 +284,9 @@ class Countdown extends Widget_Base {
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .bdt-countdown-wrapper' => 'margin-{{VALUE}}: 0;',
+				],
+				'condition' => [
+					'_skin!' => 'bdt-tiny-countdown'
 				],
 			]
 		);
@@ -238,6 +332,9 @@ class Countdown extends Widget_Base {
 				],
 				'default'      => 'block',
 				'prefix_class' => 'bdt-countdown--label-',
+				'condition' => [
+					'_skin!' => 'bdt-tiny-countdown'
+				],
 			]
 		);
 
@@ -435,10 +532,10 @@ class Countdown extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
-				'scheme' => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_4,
-				],
+				// 'scheme' => [
+				// 	'type'  => Schemes\Color::get_type(),
+				// 	'value' => Schemes\Color::COLOR_4,
+				// ],
 				'selectors' => [
 					'{{WRAPPER}} .bdt-countdown-number' => 'background-color: {{VALUE}};',
 				],
@@ -503,7 +600,7 @@ class Countdown extends Widget_Base {
 			[
 				'name'     => 'number_typography',
 				'selector' => '{{WRAPPER}} .bdt-countdown-number',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -589,7 +686,7 @@ class Countdown extends Widget_Base {
 			[
 				'name'     => 'label_typography',
 				'selector' => '{{WRAPPER}} .bdt-countdown-label',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 

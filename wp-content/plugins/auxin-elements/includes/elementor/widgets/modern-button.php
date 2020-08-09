@@ -195,9 +195,12 @@ class ModernButton extends Widget_Base {
 					'justify' => [
 						'title' => __( 'Justified', 'auxin-elements' ),
 						'icon' => 'eicon-text-align-justify',
-					],
+					]
 				],
-				'default' => 'left',
+                'default' => 'left',
+                'selectors'  => [
+                    '{{WRAPPER}} .aux-modern-button-wrapper' => 'text-align:{{VALUE}};',
+                ]
 			]
         );
 
@@ -218,6 +221,7 @@ class ModernButton extends Widget_Base {
             'open_video_in_lightbox',
             array(
                 'label'        => __('Open Video in Lightbox','auxin-elements' ),
+                'description'  => __( 'To use this option, the above link option should be a video', 'auxin-elements' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'label_on'     => __( 'On', 'auxin-elements' ),
                 'label_off'    => __( 'Off', 'auxin-elements' ),

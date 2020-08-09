@@ -7,6 +7,8 @@ use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Icons_Manager;
+use Elementor\Repeater;
+
 use ElementPack\Modules\Iconnav\ep_offcanvas_walker;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -53,11 +55,48 @@ class Iconnav extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'iconnav_icon', 
+			[
+				'label'   => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default' => [
+					'value' => 'fas fa-home',
+					'library' => 'fa-solid',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'iconnav_title', 
+			[
+				'label'   => esc_html__( 'Iconnav Title', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Iconnav Title' , 'bdthemes-element-pack' ),
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'iconnav_link', 
+			[
+				'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::URL,
+				'default'     => [ 'url' => '#' ],
+				'description' => 'Add your section id WITH the # key. e.g: #my-id also you can add internal/external URL',
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
 		$this->add_control(
 			'iconnavs',
 			[
 				'label'   => esc_html__( 'Iconnav Items', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'iconnav_title' => esc_html__( 'Homepage', 'bdthemes-element-pack' ),
@@ -93,33 +132,6 @@ class Iconnav extends Widget_Base {
 						'iconnav_link'  => [
 							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
 						]
-					],
-				],
-				'fields' => [
-					[
-						'name'    => 'iconnav_icon',
-						'label'   => esc_html__( 'Icon', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::ICONS,
-						'fa4compatibility' => 'icon',
-						'default' => [
-							'value' => 'fas fa-home',
-							'library' => 'fa-solid',
-						],
-					],
-					[
-						'name'    => 'iconnav_title',
-						'label'   => esc_html__( 'Iconnav Title', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::TEXT,
-						'default' => esc_html__( 'Iconnav Title' , 'bdthemes-element-pack' ),
-						'dynamic'     => [ 'active' => true ],
-					],
-					[
-						'name'        => 'iconnav_link',
-						'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::URL,
-						'default'     => [ 'url' => '#' ],
-						'description' => 'Add your section id WITH the # key. e.g: #my-id also you can add internal/external URL',
-						'dynamic'     => [ 'active' => true ],
 					],
 				],
 				'title_field' => '{{{ iconnav_title }}}',
@@ -647,7 +659,7 @@ class Iconnav extends Widget_Base {
 				'label'     => esc_html__( 'Background Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-icon-nav .tippy-backdrop' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-widget-bdt-iconnav .tippy-backdrop' => 'background-color: {{VALUE}};',
 				],
 			]
 		);

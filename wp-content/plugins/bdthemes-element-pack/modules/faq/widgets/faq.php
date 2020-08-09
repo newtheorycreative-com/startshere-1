@@ -508,7 +508,7 @@ class FAQ extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-title',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -823,7 +823,7 @@ class FAQ extends Widget_Base {
 			[
 				'name'     => 'content_typography',
 				'selector' => '{{WRAPPER}} .bdt-accordion .bdt-accordion-content',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -871,7 +871,7 @@ class FAQ extends Widget_Base {
 			[
 				'name'     => 'typography_filter',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li',
 			]
 		);
@@ -1118,7 +1118,7 @@ class FAQ extends Widget_Base {
 			[
 				'name'     => 'filter_mbtn_dropdown_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-dropdown-nav li',
 			]
 		);
@@ -1272,7 +1272,7 @@ class FAQ extends Widget_Base {
 			[
 				'name'     => 'more_button_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-faq .bdt-faq-item .bdt-faq-button',
 			]
 		);

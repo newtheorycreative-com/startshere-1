@@ -218,7 +218,7 @@ class Mailchimp_For_WP extends Widget_Base {
 			[
 				'name'     => 'label_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .mc4wp-form label',
 			]
 		);
@@ -325,7 +325,7 @@ class Mailchimp_For_WP extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .mc4wp-form input[type*="submit"]',
 				'separator' => 'before',
 			]
@@ -409,7 +409,7 @@ class Mailchimp_For_WP extends Widget_Base {
 			[
 				'name'     => 'others_type_input_text_color_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .mc4wp-form label span',
 				'selector' => '{{WRAPPER}} .mc4wp-form p',
 			]

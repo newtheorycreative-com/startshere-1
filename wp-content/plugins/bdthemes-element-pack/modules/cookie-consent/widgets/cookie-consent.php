@@ -190,7 +190,7 @@ class Cookie_Consent extends Widget_Base {
 			[
 				'name'     => 'subtitle_typography',
 				'selector' => 'body .cc-window *',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 			]
 		);
 
@@ -327,7 +327,7 @@ class Cookie_Consent extends Widget_Base {
 			[
 				'name'      => 'dismiss_button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => 'body .cc-window .cc-btn.cc-dismiss',
 			]
 		);

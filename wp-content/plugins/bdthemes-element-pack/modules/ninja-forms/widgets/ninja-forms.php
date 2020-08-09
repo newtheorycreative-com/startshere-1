@@ -79,7 +79,7 @@ class Ninja_Forms extends Widget_Base {
 			[
 				'name'     => 'label_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .nf-field-label label',
 			]
 		);
@@ -305,7 +305,7 @@ class Ninja_Forms extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .field-wrap input[type*=button]',
 				'separator' => 'before',
 			]

@@ -1,4 +1,4 @@
-/*! Auxin WordPress Framework - v5.4.0 (2020-07-06)
+/*! Auxin WordPress Framework - v5.4.1 (2020-07-19)
  *  Scripts for initializing plugins 
  *  http://averta.net
  *  (c) 2014-2020 averta;
@@ -99,15 +99,15 @@ function auxin_get_contrast( color ){
 
         /* ------------------------------------------------------------------------------ */
         // animated goto
-        if ( $.fn.scrollTo ) {  
+        if ( $.fn.scrollTo ) {
             var allLinks = document.querySelectorAll('a:not([href^="\#elementor-"])');
 
             Array.prototype.slice.call(allLinks).forEach( function(link) {
                 if ( (link.href && link.href.indexOf('#') != -1) && ( (link.pathname == location.pathname) || ('/'+link.pathname == location.pathname) ) && (link.search == location.search) ) {
-                   
+
                     link.addEventListener('click', function(e) {
                         var isWCTabs     = this.closest('.woocommerce-tabs');
-                        
+
                         if ( !this.hash || isWCTabs ) {
                             return;
                         }
@@ -126,7 +126,7 @@ function auxin_get_contrast( color ){
                             $('#nav-burger').trigger('click');
                         }
                     });
-                    
+
                 }
             } );
 
@@ -243,10 +243,11 @@ function auxin_get_contrast( color ){
 
 })(jQuery, window, document);
 
-/* ------------------------------------------------------------ */
-// WP Ulike HearBeat Animation
-/* ------------------------------------------------------------ */
-var UlikeHeart  = document.querySelectorAll('.wp_ulike_btn');
+
+/** ------------------------------------------------------------
+ * WP Ulike HearBeat Animation
+ */
+ var UlikeHeart  = document.querySelectorAll('.wp_ulike_btn');
 
 function auxinUlikeHeartBeat(e){
     e.target.classList.add('aux-icon-heart');
@@ -259,7 +260,26 @@ for ( var i = 0 ; UlikeHeart.length > i; i++){
     UlikeHeart[i].addEventListener('click', auxinUlikeHeartBeat );
     UlikeHeart[i].addEventListener('animationend', removeAuxinUlikeHeartBeat );
 }
-;
+
+/** ------------------------------------------------------------
+ * A fix for elements with fixed-position animated panels.
+ */
+(function () {
+    // add more fixed elements here...
+    var target = ".aux-search-popup, .aux-fs-popup";
+    document.querySelectorAll(target).forEach(function (element) {
+      var closestAnimElement = element.closest(".aux-appear-watch-animation > .elementor-widget-container,.aux-appear-watch-animation > .elementor-column-wrap");
+
+      if (closestAnimElement) {
+        [closestAnimElement, closestAnimElement.parentElement].forEach(function (animElement) {
+          return animElement.addEventListener("animationstart", animElement.addEventListener("animationend", function () {
+            animElement.style.animationName = "none";
+            animElement.style.opacity = 1;
+          }));
+        });
+      }
+    });
+  })();
 
 
 /* ================== js/src/module.carousel-lightbox.js =================== */

@@ -82,7 +82,7 @@ class Caldera_Forms extends Widget_Base {
 			[
 				'name'     => 'label_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .caldera_forms_form label.control-label',
 			]
 		);
@@ -114,7 +114,7 @@ class Caldera_Forms extends Widget_Base {
 			[
 				'name'     => 'sub_label_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .caldera_forms_form .help-block',
 			]
 		);
@@ -358,7 +358,7 @@ class Caldera_Forms extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .caldera_forms_form input[type="submit"].btn',
 				'separator' => 'before',
 			]
@@ -450,7 +450,7 @@ class Caldera_Forms extends Widget_Base {
 			[
 				'name'     => 'error_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .caldera_forms_form .parsley-required',
 			]
 		);

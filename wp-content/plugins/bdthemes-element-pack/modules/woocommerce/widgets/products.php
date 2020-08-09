@@ -1114,7 +1114,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'table_header_typography',
 				'label'    => esc_html__( 'Header Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-products table th',
 				'condition' => [
 					'hide_header!' => 'yes'
@@ -1402,7 +1402,7 @@ class Products extends Widget_Base {
 			[
 				'name'      => 'search_text_typography',
 				'label'     => esc_html__( 'Text Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-wc-products .dataTables_filter label',
 				'separator' => 'before',
 			]
@@ -1594,7 +1594,7 @@ class Products extends Widget_Base {
 			[
 				'name'      => 'select_text_typography',
 				'label'     => esc_html__( 'Text Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-wc-products .dataTables_length label',
 				'separator' => 'before',
 			]
@@ -1721,7 +1721,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-products .bdt-wc-product-title',
 			]
 		);
@@ -1755,7 +1755,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'excerpt_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-products .bdt-wc-product-excerpt',
 			]
 		);
@@ -1850,7 +1850,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'old_price_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-products .bdt-wc-product-price del',
 			]
 		);
@@ -1892,7 +1892,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'sale_price_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-products .bdt-wc-product-price, {{WRAPPER}} .bdt-wc-products .bdt-wc-product-price ins',
 			]
 		);
@@ -2004,7 +2004,7 @@ class Products extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-wc-products .bdt-wc-add-to-cart a',
 				'separator' => 'before',
 			]
@@ -3075,7 +3075,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'pagination_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} ul.bdt-pagination li a, {{WRAPPER}} ul.bdt-pagination li span, {{WRAPPER}} .dataTables_paginate',
 			]
 		);
@@ -3125,7 +3125,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'info_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .dataTables_info',
 				'condition' => [
 					'_skin' => 'bdt-table'
@@ -3177,7 +3177,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'categories_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-product-categories, {{WRAPPER}} .bdt-wc-product-categories a',
 			]
 		);
@@ -3221,7 +3221,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'tags_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-wc-product-tags, {{WRAPPER}} .bdt-wc-product-tags a',
 			]
 		);
@@ -3270,7 +3270,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'typography_filter',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li',
 			]
 		);
@@ -3517,7 +3517,7 @@ class Products extends Widget_Base {
 			[
 				'name'     => 'filter_mbtn_dropdown_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-dropdown-nav li',
 			]
 		);
@@ -3853,8 +3853,11 @@ class Products extends Widget_Base {
 			</div>
 			<?php
 
-			if ($settings['show_pagination']) {
-				element_pack_post_pagination($wp_query);
+			if ($settings['show_pagination']) { ?>
+				<div class="ep-pagination">
+					<?php element_pack_post_pagination($wp_query); ?>
+				</div>
+				<?php
 			}
 
 			wp_reset_postdata();

@@ -491,7 +491,7 @@ class Search extends Widget_Base {
 			[
 				'name'     => 'input_typography',
 				'selector' => '{{WRAPPER}} .bdt-search-input, #modal-search-{{ID}} .bdt-search-input',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -551,10 +551,10 @@ class Search extends Widget_Base {
 			[
 				'label'  => esc_html__( 'Text Color', 'bdthemes-element-pack' ),
 				'type'   => Controls_Manager::COLOR,
-				'scheme' => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
-				],
+				// 'scheme' => [
+				// 	'type'  => Schemes\Color::get_type(),
+				// 	'value' => Schemes\Color::COLOR_3,
+				// ],
 				'selectors' => [
 					'{{WRAPPER}} .bdt-search-input,
 					 #modal-search-{{ID}} .bdt-search-icon svg' => 'color: {{VALUE}}',

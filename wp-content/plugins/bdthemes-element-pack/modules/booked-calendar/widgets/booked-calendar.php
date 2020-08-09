@@ -438,7 +438,7 @@ class BookedCalendar extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'list_heading_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .booked-appt-list > h2',
 			]
 		);
@@ -493,7 +493,7 @@ class BookedCalendar extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'list_time_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .timeslot-range',
 			]
 		);
@@ -589,7 +589,7 @@ class BookedCalendar extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'navigation_button_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} [class*="booked-list-view-date-"]',
 				'separator' => 'before',
 			]
@@ -735,7 +735,7 @@ class BookedCalendar extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'appointment_button_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .new-appt.button',
 				'separator' => 'before',
 			]

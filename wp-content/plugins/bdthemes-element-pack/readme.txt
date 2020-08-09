@@ -2,14 +2,14 @@
 Contributors: bdthemes, selimmw
 Donate link: http://bdthemes.com/
 Tags: elementor, element, pack, elementor addon, pagebuilder addon, addons, template library, live copy, live paste, bdthemes
-Stable tag: 5.1.1
+Stable tag: 5.3.1
 Requires PHP: 5.6.40
 Requires at least: 4.7.0
 Tested up to: 5.4.2
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Elementor requires at least: 2.9.0
-Elementor tested up to: 2.9.8
+Elementor tested up to: 3.0.0-beta2
 
 Best Addon for Elementor WordPress Plugin with 150+ Most Popular Elements that need your everyday website page building.
 
@@ -35,6 +35,82 @@ e.g.
 
  
 == Changelog ==
+
+
+== 5.3.1 [31st July 2020] ==
+
+= Fixed =
+
+* Element Pack tested for upcoming Elementor 3.0.0 and fixed all issues.
+* Pause on Hover issue fixed in Advanced Image Gallery Widget (Thanks Radu Irhasiu)
+* Layout broken on Firefox Browser fixed in Honeycombs Widget (Thanks Ingo Falk)
+
+== 5.3.0 [26th July 2020] ==
+
+= Added =
+
+* Visibility Control added for widget and section
+* Elementor Template Widget added in Appearance > widgets for show any pre*made template in sidebar
+* Skin Tiny Countdown Added in CountDown Widget
+* Icon Area Custom Width Option added in Fancy Tabs Widget
+* Sub Label show/hide option added in Gravity Forms Widget
+
+= Fixed =
+
+* Hover animation issue fixed in Scroll Button Widget
+* Playlist padding and Description Typography issue fixed in Video Gallery Widget
+* Border issue fixed in Logo Grid Widget
+* List left side spacing issue fixed in Price List Widget
+* Min Height issue fixed in Scroll Image Widget
+* Item spacing issue fixed in Table of content Widget
+* Input spacing, width, button width issue fixed in Gravity Forms Widget
+* Animation issue fixed in Advanced Progress Bar Widget (Thanks Abdoul Ouedraogo)
+
+
+== 5.2.0 [17th July 2020] ==
+
+= Added =
+
+* Hover Video Widget Added
+* Image Accordion Widget Added
+* Image Expand Widget Added
+* User Name show/hide option added in User Login Widget
+* Fancy Animation added in Scroll Button Widget
+* Arrows animation added in Step Flow Widget
+* Slide Per column option added in Testimonial Carousel Widget
+* Pagination Option Added in Testimonial Grid Widget
+* Header Text Color option added in Table Of Content Widget
+* Close Button some control option added in Modal Widget
+* Currency position & format option added in Price Table Widget
+
+= Fixed =
+
+* Avatar showing issue fixed in User Login Widget(Thanks Kornchai Dilokchareamkun)
+* Post Grid skin alite & Harold Text limit issue fixed(Thanks Adi Heutschi)
+* Title and button icon spacing issue fixed in Post Grid Tab Widget
+* Instagram API issue fixed you need to use new Access token system for get work it
+* Pagination offset issue fixed
+* Meta color issue fixed in Post Slider Widget
+* Some control option added in Interactive Card Widget
+* Icon position & spacing issue fixed in Modal Widget
+* Minor issue solved in Animated Heading Widget
+* Label & Placeholder default not showing issue fixed in Simple Contact Form Widget
+* Button svg icon default color issue fixed in Slider, SlideShow Widget
+* Svg icon default color issue fixed in Toggle Widget
+* Wc Add To Cart Not showing issue fixed in Add to cart Widget(Thanks Gerson Ruano)
+* Icon Horizontal/vartical Offset issue fixed in Advanced Counter Widget
+* Dropdown background color issue fixed in Table of Content Widgets
+
+= Updated =
+
+* Description control option updated in Advanced Icon Box Widget
+* Instagram Widget API Key System Updated [Note: New updated system do not have like & comment options, so we removed Like & Comment Options ]
+
+= Removed =
+
+* Content Position default option removed in Slider, SlideShow widget
+* Instagram widget comment and like count feature remove due to new API don't support like and comment count features.
+
 
 == 5.1.1 [29th June 2020] ==
 

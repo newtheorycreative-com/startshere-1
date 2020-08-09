@@ -10,13 +10,13 @@
  * Plugin Name:       WP ULike
  * Plugin URI:        https://wpulike.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash
  * Description:       WP ULike plugin allows to integrate a beautiful Ajax Like Button into your wordPress website to allow your visitors to like and unlike pages, posts, comments AND buddypress activities. Its very simple to use and supports many options.
- * Version:           4.2.7
+ * Version:           4.3.3
  * Author:            Ali Mirzaei
  * Author URI:        https://wpulike.com/?utm_source=wp-plugins&utm_campaign=author-uri&utm_medium=wp-dash
  * Text Domain:       wp-ulike
  * License:           GPL2
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Domain Path:       languages
+ * Domain Path:       /languages/
  * Tested up to: 	  5.4.2
 
  /------------------------------------------\
@@ -46,7 +46,7 @@ if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 
 // Do not change these values
 define( 'WP_ULIKE_PLUGIN_URI'   , 'https://wpulike.com/' 		 );
-define( 'WP_ULIKE_VERSION'      , '4.2.7' 					 	 );
+define( 'WP_ULIKE_VERSION'      , '4.3.3' 					 	 );
 define( 'WP_ULIKE_DB_VERSION'   , '2.1' 					 	 );
 define( 'WP_ULIKE_SLUG'         , 'wp-ulike' 					 );
 define( 'WP_ULIKE_NAME'         , __( 'WP ULike', WP_ULIKE_SLUG ));
@@ -55,13 +55,13 @@ define( 'WP_ULIKE_DIR'          , plugin_dir_path( __FILE__ ) 	 );
 define( 'WP_ULIKE_URL'          , plugins_url( '', __FILE__ ) 	 );
 define( 'WP_ULIKE_BASENAME'     , plugin_basename( __FILE__ ) 	 );
 
-define( 'WP_ULIKE_ADMIN_DIR'    , WP_ULIKE_DIR . '/admin' 		 );
+define( 'WP_ULIKE_ADMIN_DIR'    , WP_ULIKE_DIR . 'admin' 		 );
 define( 'WP_ULIKE_ADMIN_URL'    , WP_ULIKE_URL . '/admin' 		 );
 
-define( 'WP_ULIKE_INC_DIR'      , WP_ULIKE_DIR . '/inc' 		 );
+define( 'WP_ULIKE_INC_DIR'      , WP_ULIKE_DIR . 'inc' 		 );
 define( 'WP_ULIKE_INC_URL'      , WP_ULIKE_URL . '/inc' 		 );
 
-define( 'WP_ULIKE_ASSETS_DIR'   , WP_ULIKE_DIR . '/assets' 		 );
+define( 'WP_ULIKE_ASSETS_DIR'   , WP_ULIKE_DIR . 'assets' 		 );
 define( 'WP_ULIKE_ASSETS_URL'   , WP_ULIKE_URL . '/assets' 		 );
 
 /**
@@ -89,7 +89,7 @@ if ( ! class_exists( 'WpUlikeInit' ) ) :
 	    */
 	    private function __construct() {
 			// init plugin
-			add_action( 'plugins_loaded', array( $this, 'init' ) );
+			$this->init();
 
 	    	add_action( 'admin_enqueue_scripts', array( $this, 'admin_assets' ) );
 	    	add_action( 'wp_enqueue_scripts', array( $this, 'frontend_assets' ) );
@@ -137,8 +137,8 @@ if ( ! class_exists( 'WpUlikeInit' ) ) :
 	    	// Include Files
 	    	$this->includes();
 
-			// Load plugin text domain
-			$this->load_plugin_textdomain();
+			// This hook is called once any activated plugins have been loaded.
+			add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 
 			// Loaded action
 			do_action( 'wp_ulike_loaded' );
@@ -148,6 +148,11 @@ if ( ! class_exists( 'WpUlikeInit' ) ) :
 			// a custom directory in uploads directory for storing custom files. Default uploads/{TWT_DOMAIN}
 			$uploads = wp_get_upload_dir();
 			define( 'WP_ULIKE_CUSTOM_DIR' , $uploads['basedir'] . '/' . WP_ULIKE_SLUG );
+		}
+
+		public function plugins_loaded(){
+			// Load plugin text domain
+			$this->load_plugin_textdomain();
 		}
 
 	    /**
@@ -196,11 +201,9 @@ if ( ! class_exists( 'WpUlikeInit' ) ) :
 	                include_once( $path . $file );
 	                return;
 	            }
-
 	        }
 
 	    }
-
 
 	    /**
 	     * Include Files
@@ -208,10 +211,6 @@ if ( ! class_exists( 'WpUlikeInit' ) ) :
 	     * @return void
 	    */
 	    private function includes() {
-
-	    	// Global Variables
-	    	global $wp_user_IP, $wp_ulike_class;
-
 	        // Auto-load classes on demand
 	        if ( function_exists( "__autoload" ) ) {
 	            spl_autoload_register( "__autoload" );
@@ -220,12 +219,6 @@ if ( ! class_exists( 'WpUlikeInit' ) ) :
 
 			// load common functionalities
 			include_once( WP_ULIKE_INC_DIR . '/index.php' );
-
-			// global variable of user IP
-			$wp_user_IP     = $this->get_ip();
-
-			// global wp_ulike_class
-			$wp_ulike_class = wp_ulike::get_instance();
 
 	        // Dashboard and Administrative Functionality
 	        if ( is_admin() ) {
@@ -238,59 +231,18 @@ if ( ! class_exists( 'WpUlikeInit' ) ) :
 	            // Load admin specific codes
 	            include( WP_ULIKE_ADMIN_DIR . '/index.php' );
 	        }
-
 	    }
 
 	    /**
 	     * Get Client IP address
 	     *
-	     * @since    3.1
-	     *
 	     * @return   String
 	    */
 		public function get_ip() {
+			_deprecated_function( 'get_ip', '4.2.7', 'wp_ulike_get_user_ip' );
 			// Get user IP
-			$user_ip = wp_ulike_get_user_ip();
-			// Check GDPR anonymise
-			if ( wp_ulike_is_true( wp_ulike_get_option( 'enable_anonymise_ip', false ) ) ) {
-				return $this->anonymise_ip( $user_ip );
-			} else {
-				return $user_ip;
-			}
+			return wp_ulike_get_user_ip();
 		}
-
-	    /**
-	     * Anonymise IP address
-	     *
-	     * @since    3.3
-	     *
-	     * @return   String
-	    */
-		public function anonymise_ip( $ip_address ) {
-			if ( strpos( $ip_address, "." ) == true ) {
-				return preg_replace('~[0-9]+$~', '0', $ip_address);
-			} else {
-				return preg_replace('~[0-9]*:[0-9]+$~', '0000:0000', $ip_address);
-			}
-		}
-
-	   /**
-	    * Return an instance of this class.
-	    *
-	    * @since     3.1
-	    *
-	    * @return    object    A single instance of this class.
-	    */
-	    public static function get_instance() {
-
-	        // If the single instance hasn't been set, set it now.
-	        if ( null == self::$instance ) {
-	          self::$instance = new self;
-	        }
-
-	        return self::$instance;
-	    }
-
 
 	   /**
 	    * Fired when the plugin is activated.
@@ -562,15 +514,51 @@ if ( ! class_exists( 'WpUlikeInit' ) ) :
 	        return $wpdb->get_col( $sql );
 	    }
 
-	    /**
-	     * Load the plugin text domain for translation.
-	     *
-	     * @since    3.1
-	     */
+		/**
+		 * Load the plugin text domain for translation.
+		 *
+		 * @return void
+		 */
 	    public function load_plugin_textdomain() {
-	        $locale = apply_filters( 'plugin_locale', get_locale(), WP_ULIKE_SLUG );
-	        load_textdomain( WP_ULIKE_SLUG, trailingslashit( WP_LANG_DIR ) . WP_ULIKE_SLUG . '/' . WP_ULIKE_SLUG . '-' . $locale . '.mo' );
-	        load_plugin_textdomain( WP_ULIKE_SLUG, FALSE, dirname( WP_ULIKE_BASENAME ) . '/languages' );
+			// Set filter for language directory
+			$lang_dir = WP_ULIKE_DIR . 'languages/';
+			$lang_dir = apply_filters( 'wp_ulike_languages_directory', $lang_dir );
+
+			// Traditional WordPress plugin locale filter
+			$locale = apply_filters( 'plugin_locale', get_locale(), WP_ULIKE_SLUG );
+			$mofile = sprintf( '%1$s-%2$s.mo', WP_ULIKE_SLUG, $locale );
+
+			// Setup paths to current locale file
+			$mofile_local   = $lang_dir . $mofile;
+			$mofile_global  = WP_LANG_DIR . '/plugins/' . WP_ULIKE_SLUG . '/' . $mofile;
+
+			if( file_exists( $mofile_global ) ) {
+				// Look in global /wp-content/languages/plugins/wp-ulike/ folder
+				load_textdomain( WP_ULIKE_SLUG, $mofile_global );
+			} elseif( file_exists( $mofile_local ) ) {
+				// Look in local /wp-content/plugins/wp-ulike/languages/ folder
+				load_textdomain( WP_ULIKE_SLUG, $mofile_local );
+			} else {
+				// Load the default language files
+				load_plugin_textdomain( WP_ULIKE_SLUG, false, $lang_dir );
+			}
+		}
+
+	   /**
+	    * Return an instance of this class.
+	    *
+	    * @since     3.1
+	    *
+	    * @return    object    A single instance of this class.
+	    */
+	    public static function get_instance() {
+
+	        // If the single instance hasn't been set, set it now.
+	        if ( null == self::$instance ) {
+	          self::$instance = new self;
+	        }
+
+	        return self::$instance;
 	    }
 
 	}

@@ -9,6 +9,7 @@ use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Icons_Manager;
+use Elementor\Repeater;
 
 use ElementPack\Modules\PanelSlider\Skins;
 
@@ -283,11 +284,59 @@ class Panel_Slider extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'tab_title', 
+			[
+				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'tab_image', 
+			[
+				'label'       => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::MEDIA,
+				'dynamic'     => [ 'active' => true ],
+				'description' => __('Use same size ratio image', 'bdthemes-element-pack'),
+			]
+		);
+
+		$repeater->add_control(
+			'tab_content', 
+			[
+				'label'      => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'type'       => Controls_Manager::WYSIWYG,
+				'dynamic'     => [ 'active' => true ],
+				'default'    => esc_html__( 'Slide Content', 'bdthemes-element-pack' ),
+				'show_label' => false,
+			]
+		);
+
+		$repeater->add_control(
+			'tab_link', 
+			[
+				'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => [ 'active' => true ],
+				'placeholder' => 'http://your-link.com',
+				'default'     => [
+					'url' => '#',
+				],
+			]
+		);
+
 		$this->add_control(
 			'tabs',
 			[
 				'label' => esc_html__( 'Slider Items', 'bdthemes-element-pack' ),
 				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'tab_title'   => esc_html__( 'Slide #1', 'bdthemes-element-pack' ),
@@ -304,41 +353,6 @@ class Panel_Slider extends Widget_Base {
 					[
 						'tab_title'   => esc_html__( 'Slide #4', 'bdthemes-element-pack' ),
 						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'bdthemes-element-pack' ),
-					],
-				],
-				'fields' => [
-					[
-						'name'        => 'tab_title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-					],
-					[
-						'name'        => 'tab_image',
-						'label'       => esc_html__( 'Image', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::MEDIA,
-						'dynamic'     => [ 'active' => true ],
-						'description' => __('Use same size ratio image', 'bdthemes-element-pack'),
-					],
-					[
-						'name'       => 'tab_content',
-						'label'      => esc_html__( 'Content', 'bdthemes-element-pack' ),
-						'type'       => Controls_Manager::WYSIWYG,
-						'dynamic'     => [ 'active' => true ],
-						'default'    => esc_html__( 'Slide Content', 'bdthemes-element-pack' ),
-						'show_label' => false,
-					],
-					[
-						'name'        => 'tab_link',
-						'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::URL,
-						'dynamic'     => [ 'active' => true ],
-						'placeholder' => 'http://your-link.com',
-						'default'     => [
-							'url' => '#',
-						],
 					],
 				],
 				'title_field' => '{{{ tab_title }}}',
@@ -759,7 +773,7 @@ class Panel_Slider extends Widget_Base {
 			[
 				'name'     => 'typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-link',
 			]
 		);
@@ -793,7 +807,7 @@ class Panel_Slider extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-title',
 			]
 		);
@@ -824,7 +838,7 @@ class Panel_Slider extends Widget_Base {
 			[
 				'name'     => 'text_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-panel-slide-item .bdt-panel-slide-text',
 			]
 		);

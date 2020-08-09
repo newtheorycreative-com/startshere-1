@@ -3,18 +3,18 @@
  * Plugin Name: Element Pack
  * Plugin URI: https://elementpack.pro/
  * Description: Element Pack is a packed of elementor widgets. This plugin gives you extra widgets features for elementor page builder plugin.
- * Version: 5.1.1
+ * Version: 5.3.1
  * Author: BdThemes
  * Author URI: https://bdthemes.com/
  * Text Domain: bdthemes-element-pack
  * Domain Path: /languages
  * License: GPL3
  * Elementor requires at least: 2.9.0
- * Elementor tested up to: 2.9.8
+ * Elementor tested up to: 3.0.0-beta2
  */
 
 // Some pre define value for easy use
-define( 'BDTEP_VER', '5.1.1' );
+define( 'BDTEP_VER', '5.3.1' );
 define( 'BDTEP__FILE__', __FILE__ );
 define( 'BDTEP_PNAME', basename( dirname(BDTEP__FILE__)) );
 define( 'BDTEP_PBNAME', plugin_basename(BDTEP__FILE__) );

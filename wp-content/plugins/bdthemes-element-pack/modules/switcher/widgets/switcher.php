@@ -527,7 +527,7 @@ class Switcher extends Widget_Base {
             [
                 'name'     => 'switch_a_title_typography',
                 'selector' => '{{WRAPPER}} .bdt-tab .bdt-tabs-item-a-title',
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
             ]
         );
 
@@ -687,7 +687,7 @@ class Switcher extends Widget_Base {
             [
                 'name'     => 'switch_b_title_typography',
                 'selector' => '{{WRAPPER}} .bdt-tab .bdt-tabs-item-b-title',
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
             ]
         );
 
@@ -924,7 +924,7 @@ class Switcher extends Widget_Base {
 			[
 				'name'     => 'content_typography',
 				'selector' => '{{WRAPPER}} .bdt-switchers .bdt-switcher-item-content',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 

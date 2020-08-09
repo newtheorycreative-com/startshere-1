@@ -171,6 +171,9 @@ class Carousel extends Widget_Base {
 				'label'        => __( 'Thumbnail Show Link?', 'bdthemes-element-pack' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'yes',
+				'condition' => [
+					'thumbnail_show' => 'yes',
+				],
 			]
 		);
 
@@ -1022,7 +1025,7 @@ class Carousel extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Overlay Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'	=> '#000;',
+				'default'	=> '#000',
 				'selectors' => [
 					'{{WRAPPER}} .bdt-carousel .bdt-custom-overlay' => 'background: {{VALUE}};',
 				],
@@ -1073,7 +1076,7 @@ class Carousel extends Widget_Base {
 			[
 				'label'     => __( 'Background', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
+				'default'   => '#fff',
 				'selectors' => [
 					'{{WRAPPER}} .bdt-carousel .bdt-carousel-item' => 'background-color: {{VALUE}};',
 				],
@@ -1221,7 +1224,7 @@ class Carousel extends Widget_Base {
 			'item_shadow_padding',
 			[
 				'label'       => __( 'Match Padding', 'bdthemes-element-pack' ),
-				'description' => __( 'You have to add padding for matching overlaping hover shadow', 'bdthemes-element-pack' ),
+				'description' => __( 'You have to add padding for matching overlaping normal/hover box shadow when you used Box Shadow option.', 'bdthemes-element-pack' ),
 				'type'        => Controls_Manager::SLIDER,
 				'range'       => [
 					'px' => [
@@ -1235,7 +1238,7 @@ class Carousel extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .swiper-container' => 'padding: {{SIZE}}{{UNIT}}; margin: 0 -{{SIZE}}{{UNIT}};'
-				]
+				],
 			]
 		);
 
@@ -1494,8 +1497,6 @@ class Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'category_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-carousel .bdt-carousel-categories a',
 			]
 		);
@@ -1555,8 +1556,6 @@ class Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'title_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-carousel .bdt-carousel-title',
 			]
 		);
@@ -1606,7 +1605,6 @@ class Carousel extends Widget_Base {
 			[
 				'name'     => 'date_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-carousel .bdt-carousel-date',
 			]
 		);
@@ -1641,7 +1639,7 @@ class Carousel extends Widget_Base {
 				'label'     => __( 'Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .bdt-carousel .bdt-carousel-meta span' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bdt-carousel .bdt-carousel-meta span *' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1653,6 +1651,7 @@ class Carousel extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .bdt-carousel .bdt-carousel-meta span:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bdt-carousel .bdt-carousel-meta span:hover a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1688,8 +1687,6 @@ class Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'meta_typography',
-				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-carousel .bdt-carousel-meta span',
 			]
 		);
@@ -1887,7 +1884,6 @@ class Carousel extends Widget_Base {
 			[
 				'name'     => 'button_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-carousel-button',
 			]
 		);
@@ -2236,8 +2232,6 @@ class Carousel extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'fraction_typography',
-				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-carousel .swiper-pagination-fraction',
 				'condition' => [
 					'navigation!' => [ 'arrows', 'dots', 'progressbar', 'none' ],

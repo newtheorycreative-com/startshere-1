@@ -1,6 +1,7 @@
 <?php
 namespace ElementPack\Modules\Slider\Widgets;
 
+use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -76,11 +77,87 @@ class Slider extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'source', 
+			[
+				'label'   => esc_html__( 'Select Source', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'custom',
+				'options' => [
+					'custom'        => esc_html__( 'Custom Content', 'bdthemes-element-pack' ),
+					"elementor"     => esc_html__( 'Elementor Template', 'bdthemes-element-pack' ),
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'template_id', 
+			[
+				'label'       => __( 'Select Template', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => '0',
+				'options'     => element_pack_et_options(),
+				'label_block' => 'true',
+				'condition'   => [ 'source' => "elementor" ],
+			]
+		);
+
+		$repeater->add_control(
+			'tab_title', 
+			[
+				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'condition' => [ 'source' => 'custom' ],
+			]
+		);
+
+		$repeater->add_control(
+			'tab_image', 
+			[
+				'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::MEDIA,
+				'dynamic' => [ 'active' => true ],
+				'condition' => [ 'source' => 'custom' ],
+			]
+		);
+
+		$repeater->add_control(
+			'tab_content', 
+			[
+				'label'      => esc_html__( 'Content', 'bdthemes-element-pack' ),
+				'type'       => Controls_Manager::WYSIWYG,
+				'dynamic'    => [ 'active' => true ],
+				'default'    => esc_html__( 'Slide Content', 'bdthemes-element-pack' ),
+				'show_label' => false,
+				'condition' => [ 'source' => 'custom' ],
+			]
+		);	
+
+		$repeater->add_control(
+			'tab_link', 
+			[
+				'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => [ 'active' => true ],
+				'placeholder' => 'http://your-link.com',
+				'default'     => [
+					'url' => '#',
+				],
+				'condition' => [ 'source' => 'custom' ],
+			]
+		);
+
 		$this->add_control(
 			'tabs',
 			[
 				'label' => esc_html__( 'Slider Items', 'bdthemes-element-pack' ),
 				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'tab_title'   => esc_html__( 'Slide #1', 'bdthemes-element-pack' ),
@@ -97,65 +174,6 @@ class Slider extends Widget_Base {
 					[
 						'tab_title'   => esc_html__( 'Slide #4', 'bdthemes-element-pack' ),
 						'tab_content' => esc_html__( 'I am item content. Click edit button to change this text.', 'bdthemes-element-pack' ),
-					],
-				],
-				'fields' => [
-
-					[
-						'name'    => 'source',
-						'label'   => esc_html__( 'Select Source', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::SELECT,
-						'default' => 'custom',
-						'options' => [
-							'custom'        => esc_html__( 'Custom Content', 'bdthemes-element-pack' ),
-							"elementor"     => esc_html__( 'Elementor Template', 'bdthemes-element-pack' ),
-						],
-					],
-					[
-						'name'        => 'template_id',
-						'label'       => __( 'Select Template', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::SELECT,
-						'default'     => '0',
-						'options'     => element_pack_et_options(),
-						'label_block' => 'true',
-						'condition'   => [ 'source' => "elementor" ],
-					],
-
-					[
-						'name'        => 'tab_title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'condition' => [ 'source' => 'custom' ],
-					],
-					[
-						'name'    => 'tab_image',
-						'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::MEDIA,
-						'dynamic' => [ 'active' => true ],
-						'condition' => [ 'source' => 'custom' ],
-					],
-					[
-						'name'       => 'tab_content',
-						'label'      => esc_html__( 'Content', 'bdthemes-element-pack' ),
-						'type'       => Controls_Manager::WYSIWYG,
-						'dynamic'    => [ 'active' => true ],
-						'default'    => esc_html__( 'Slide Content', 'bdthemes-element-pack' ),
-						'show_label' => false,
-						'condition' => [ 'source' => 'custom' ],
-					],
-					[
-						'name'        => 'tab_link',
-						'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::URL,
-						'dynamic'     => [ 'active' => true ],
-						'placeholder' => 'http://your-link.com',
-						'default'     => [
-							'url' => '#',
-						],
-						'condition' => [ 'source' => 'custom' ],
 					],
 				],
 				'title_field' => '{{{ tab_title }}}',
@@ -194,10 +212,20 @@ class Slider extends Widget_Base {
 		$this->add_control(
 			'origin',
 			[
-				'label'   => esc_html__( 'Origin', 'bdthemes-element-pack' ),
+				'label'   => esc_html__( 'Content Position', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'center',
-				'options' => element_pack_position(),
+				'options' => [
+					'top-left'      => esc_html__('Top Left', 'bdthemes-element-pack'),
+					'top-center'    => esc_html__('Top Center', 'bdthemes-element-pack'),
+					'top-right'     => esc_html__('Top Right', 'bdthemes-element-pack'),
+					'center'        => esc_html__('Center', 'bdthemes-element-pack'),
+					'center-left'   => esc_html__('Center Left', 'bdthemes-element-pack'),
+					'center-right'  => esc_html__('Center Right', 'bdthemes-element-pack'),
+					'bottom-left'   => esc_html__('Bottom Left', 'bdthemes-element-pack'),
+					'bottom-center' => esc_html__('Bottom Center', 'bdthemes-element-pack'),
+					'bottom-right'  => esc_html__('Bottom Right', 'bdthemes-element-pack'),
+				]
 			]
 		);
 
@@ -623,7 +651,7 @@ class Slider extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-slider .bdt-slide-item .bdt-slide-title',
 			]
 		);
@@ -694,7 +722,7 @@ class Slider extends Widget_Base {
 			[
 				'name'     => 'text_typography',
 				'label'    => esc_html__( 'Text Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-slider .bdt-slide-item .bdt-slide-text',
 			]
 		);
@@ -869,7 +897,7 @@ class Slider extends Widget_Base {
 			[
 				'name'     => 'typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-slider .bdt-slide-item .bdt-slide-link',
 			]
 		);

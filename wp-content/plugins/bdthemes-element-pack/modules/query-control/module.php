@@ -78,7 +78,7 @@ class Module extends Element_Pack_Module_Base {
 				}
 				break;
 			default:
-				$results = apply_filters( 'element_pack/query_control/get_value_titles/' . $request['filter_type'], [], $request );
+				$results = apply_filters( 'elementor/query/get_value_titles/' . $request['filter_type'], [], $request );
 		}
 
 		return $results;
@@ -174,7 +174,7 @@ class Module extends Element_Pack_Module_Base {
 				}
 				break;
 			default:
-				$results = apply_filters( 'element_pack/query_control/get_autocomplete/' . $data['filter_type'], [], $data );
+				$results = apply_filters( 'elementor/query/get_autocomplete/' . $data['filter_type'], [], $data );
 		} // End switch().
 
 		return [

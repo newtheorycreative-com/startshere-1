@@ -1,10 +1,10 @@
 <?php
 namespace ElementPack\Modules\CustomGallery\Widgets;
 
+use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Core\Schemes;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Box_Shadow;
@@ -60,11 +60,151 @@ class Custom_Gallery extends Widget_Base {
 			]
 		);
 
+      $repeater = new Repeater();
+
+      $repeater->add_control(
+          'image_title',
+          [
+              'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+              'type'    => Controls_Manager::TEXT,
+              'dynamic' => [ 'active' => true ],
+              'default' => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
+          ]
+      );
+
+      $repeater->add_control(
+          'gallery_image',
+          [
+              'name'    => 'gallery_image',
+              'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
+              'type'    => Controls_Manager::MEDIA,
+              'dynamic' => [ 'active' => true ],
+              'default' => [
+                  'url' => BDTEP_ASSETS_URL . 'images/gallery/item-'.rand(1,8).'.png',
+              ],
+          ]
+      ); 
+
+      $repeater->add_control(
+          'image_text',
+          [
+			'label'   => esc_html__( 'Content', 'bdthemes-element-pack' ),
+			'type'    => Controls_Manager::TEXTAREA,
+			'dynamic' => [ 'active' => true ],
+			'default' => esc_html__( 'Slide Content', 'bdthemes-element-pack' ),
+		]
+      );
+
+      $repeater->add_control(
+          'image_link_type',
+          [
+			'label'       => esc_html__( 'Lightbox/Link', 'bdthemes-element-pack' ),
+			'type'        => Controls_Manager::SELECT,
+			'default'     => '',
+			'label_block' => true,
+			'options'     => [
+				''           => esc_html__( 'Selected Image', 'bdthemes-element-pack' ),
+				'website'    => esc_html__( 'Website', 'bdthemes-element-pack' ),
+				'video'      => esc_html__( 'Video', 'bdthemes-element-pack' ),
+				'youtube'    => esc_html__( 'YouTube', 'bdthemes-element-pack' ),
+				'vimeo'      => esc_html__( 'Vimeo', 'bdthemes-element-pack' ),
+				'google-map' => esc_html__( 'Google Map', 'bdthemes-element-pack' ),
+			],
+		]
+      );
+
+      $repeater->add_control(
+          'image_link_video',
+          [
+			'label'         => __( 'Video Source', 'bdthemes-element-pack' ),
+			'type'          => Controls_Manager::URL,
+			'show_external' => false,
+			'default'       => [
+				'url' => '//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+			],
+			'placeholder'   => '//example.com/video.mp4',
+			'label_block'   => true,
+			'condition'     => [
+				'image_link_type' => 'video',
+			],
+			'dynamic'     => [ 'active' => true ],
+		]
+      );  
+
+      $repeater->add_control(
+          'image_link_youtube',
+          [
+			'label'         => __( 'YouTube Source', 'bdthemes-element-pack' ),
+			'type'          => Controls_Manager::URL,
+			'show_external' => false,
+			'default'       => [
+				'url' => 'https://www.youtube.com/watch?v=YE7VzlLtp-4',
+			],
+			'placeholder'   => 'https://youtube.com/watch?v=xyzxyz',
+			'label_block'   => true,
+			'condition'     => [
+				'image_link_type' => 'youtube',
+			],
+			'dynamic'     => [ 'active' => true ],
+		]
+      ); 
+
+      $repeater->add_control(
+          'image_link_vimeo',
+          [
+			'label'         => __( 'Vimeo Source', 'bdthemes-element-pack' ),
+			'type'          => Controls_Manager::URL,
+			'show_external' => false,
+			'default'       => [
+				'url' => 'https://vimeo.com/1084537',
+			],
+			'placeholder'   => 'https://vimeo.com/123123',
+			'label_block'   => true,
+			'condition'     => [
+				'image_link_type' => 'vimeo',
+			],
+			'dynamic'     => [ 'active' => true ],
+		]
+      );  
+
+      $repeater->add_control(
+          'image_link_google_map',
+          [
+			'label'         => __( 'Goggle Map Embed URL', 'bdthemes-element-pack' ),
+			'type'          => Controls_Manager::URL,
+			'show_external' => false,
+			'default'       => [
+				'url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4740.819266853735!2d9.99008871708242!3d53.550454675412404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3f9d24afe84a0263!2sRathaus!5e0!3m2!1sde!2sde!4v1499675200938',
+			],
+			'placeholder'   => '//google.com/maps/embed?pb',
+			'label_block'   => true,
+			'condition'     => [
+				'image_link_type' => 'google-map',
+			],
+			'dynamic'     => [ 'active' => true ],
+		]
+      );   
+
+      $repeater->add_control(
+          'image_link_website',
+          [
+			'name'          => 'image_link_website',
+			'label'         => esc_html__( 'Custom Link', 'bdthemes-element-pack' ),
+			'type'          => Controls_Manager::URL,
+			'show_external' => false,
+			'condition'     => [
+				'image_link_type' => 'website',
+			],
+			'dynamic' => [ 'active' => true ],
+		]
+      );
+
 		$this->add_control(
 			'gallery',
 			[
-				'label' => esc_html__( 'Gallery Items', 'bdthemes-element-pack' ),
-				'type' => Controls_Manager::REPEATER,
+				'label'  => esc_html__( 'Gallery Items', 'bdthemes-element-pack' ),
+				'type'   => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'image_title'   => esc_html__( 'Image #1', 'bdthemes-element-pack' ),
@@ -96,121 +236,6 @@ class Custom_Gallery extends Widget_Base {
 						'image_title'   => esc_html__( 'Image #6', 'bdthemes-element-pack' ),
 						'image_text'    => esc_html__( 'I am item content. Click edit button to change this text.', 'bdthemes-element-pack' ),
 						'gallery_image' => ['url' => BDTEP_ASSETS_URL . 'images/gallery/item-6.png'],
-					],
-				],
-				'fields' => [
-					[
-						'name'    => 'image_title',
-						'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::TEXT,
-						'dynamic' => [ 'active' => true ],
-						'default' => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
-					],
-					
-					[
-						'name'    => 'gallery_image',
-						'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::MEDIA,
-						'dynamic' => [ 'active' => true ],
-						'default' => [
-							'url' => BDTEP_ASSETS_URL . 'images/gallery/item-'.rand(1,8).'.png',
-						],
-					],
-
-					[
-						'name'    => 'image_text',
-						'label'   => esc_html__( 'Content', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::TEXTAREA,
-						'dynamic' => [ 'active' => true ],
-						'default' => esc_html__( 'Slide Content', 'bdthemes-element-pack' ),
-					],
-
-					[
-						'name'    => 'image_link_type',
-						'label'       => esc_html__( 'Lightbox/Link', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::SELECT,
-						'default'     => '',
-						'label_block' => true,
-						'options'     => [
-							''           => esc_html__( 'Selected Image', 'bdthemes-element-pack' ),
-							'website'    => esc_html__( 'Website', 'bdthemes-element-pack' ),
-							'video'      => esc_html__( 'Video', 'bdthemes-element-pack' ),
-							'youtube'    => esc_html__( 'YouTube', 'bdthemes-element-pack' ),
-							'vimeo'      => esc_html__( 'Vimeo', 'bdthemes-element-pack' ),
-							'google-map' => esc_html__( 'Google Map', 'bdthemes-element-pack' ),
-						],
-					],
-
-					[
-						'name'          => 'image_link_video',
-						'label'         => __( 'Video Source', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'show_external' => false,
-						'default'       => [
-							'url' => '//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
-						],
-						'placeholder'   => '//example.com/video.mp4',
-						'label_block'   => true,
-						'condition'     => [
-							'image_link_type' => 'video',
-						],
-						'dynamic'     => [ 'active' => true ],
-					],
-					[
-						'name'          => 'image_link_youtube',
-						'label'         => __( 'YouTube Source', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'show_external' => false,
-						'default'       => [
-							'url' => 'https://www.youtube.com/watch?v=YE7VzlLtp-4',
-						],
-						'placeholder'   => 'https://youtube.com/watch?v=xyzxyz',
-						'label_block'   => true,
-						'condition'     => [
-							'image_link_type' => 'youtube',
-						],
-						'dynamic'     => [ 'active' => true ],
-					],
-					[
-						'name'          => 'image_link_vimeo',
-						'label'         => __( 'Vimeo Source', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'show_external' => false,
-						'default'       => [
-							'url' => 'https://vimeo.com/1084537',
-						],
-						'placeholder'   => 'https://vimeo.com/123123',
-						'label_block'   => true,
-						'condition'     => [
-							'image_link_type' => 'vimeo',
-						],
-						'dynamic'     => [ 'active' => true ],
-					],
-					[
-						'name'          => 'image_link_google_map',
-						'label'         => __( 'Goggle Map Embed URL', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'show_external' => false,
-						'default'       => [
-							'url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4740.819266853735!2d9.99008871708242!3d53.550454675412404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3f9d24afe84a0263!2sRathaus!5e0!3m2!1sde!2sde!4v1499675200938',
-						],
-						'placeholder'   => '//google.com/maps/embed?pb',
-						'label_block'   => true,
-						'condition'     => [
-							'image_link_type' => 'google-map',
-						],
-						'dynamic'     => [ 'active' => true ],
-					],
-					
-					[
-						'name'          => 'image_link_website',
-						'label'         => esc_html__( 'Custom Link', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'show_external' => false,
-						'condition'     => [
-							'image_link_type' => 'website',
-						],
-						'dynamic' => [ 'active' => true ],
 					],
 				],
 				'title_field' => '{{{ image_title }}}',
@@ -747,7 +772,7 @@ class Custom_Gallery extends Widget_Base {
 			[
 				'name'      => 'title_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .bdt-gallery-item .bdt-gallery-item-title',
 				'condition' => [
 					'show_title' => 'yes',
@@ -775,7 +800,7 @@ class Custom_Gallery extends Widget_Base {
 			[
 				'name'      => 'text_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .bdt-gallery-item .bdt-gallery-item-text',
 				'condition' => [
 					'show_text' => 'yes',
@@ -877,7 +902,7 @@ class Custom_Gallery extends Widget_Base {
 			[
 				'name'      => 'typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-custom-gallery .bdt-gallery-item-link span.bdt-text, {{WRAPPER}} .bdt-custom-gallery .bdt-gallery-item-link span.bdt-icon',
 				'condition' => [
 					'show_lightbox' => 'yes',

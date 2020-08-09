@@ -558,7 +558,7 @@ class Products_Tab extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-title a',
 			]
 		);
@@ -654,7 +654,7 @@ class Products_Tab extends Widget_Base {
 			[
 				'name'     => 'old_price_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-price del',
 			]
 		);
@@ -696,7 +696,7 @@ class Products_Tab extends Widget_Base {
 			[
 				'name'     => 'sale_price_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-price, {{WRAPPER}} .bdt-products-tab .bdt-products-skin-price ins',
 			]
 		);
@@ -796,7 +796,7 @@ class Products_Tab extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-products-tab .bdt-products-skin-add-to-cart a',
 				'separator' => 'before',
 			]

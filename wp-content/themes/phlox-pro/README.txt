@@ -4,7 +4,7 @@ Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, grid-
 Requires PHP: 5.4
 Requires at least: 4.6
 Tested up to: 5.4.1
-Stable tag: 5.4.0
+Stable tag: 5.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,16 +82,25 @@ Phlox bundles the following third-party resources:
 
 == Changelog ==
 
+= 5.4.1 =
+- [Improvement]: Improvements for "Modern Search" element applied.
+- [New]: New color option for like buttons added.
+- [Fix]: Fixing a bug in the product edit page.
+
+
 = 5.4.0 =
 - [New]: New option for changing the character limit of last breadcrumb text added.
 - [New]: New meta options for single portfolio page about customizing header template added.
 - [New]: New options for customizing share and like buttons of single product page added.
+- [New]: New dynamic tags added to Elementor URL controller.
+- [New]: New option for changing background color of offcanvase menu added.
 - [Improvement]: Better options inheritance after switching from free to Pro version.
 - [Improvement]: Improvements for ajax add to cart applied.
 - [Improvement]: Improvements for demo importer applied.
 - [Fix]: An issue with add to cart URL for external products fixed.
 - [Fix]: A minor bug while using WordPress widgets in Elementor fixed.
 - [Fix]: Minor bugs fixed.
+
 
 
 

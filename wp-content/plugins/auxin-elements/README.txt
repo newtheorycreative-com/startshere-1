@@ -7,7 +7,7 @@ Tags: phlox, gallery, elementor, siteorigin, auxin, averta, auxin-elements, fram
 Requires PHP: 5.4
 Requires at least: 4.6
 Tested up to: 5.4.3
-Stable tag: 2.6.0
+Stable tag: 2.6.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -436,4 +436,5 @@ Bugs can be reported in our [support forums](https://docs.phlox.pro).
 
 == Upgrade Notice ==
 
-= 2.4.18 =
+= 2.6.1 =
+- Minor bugs fixed.

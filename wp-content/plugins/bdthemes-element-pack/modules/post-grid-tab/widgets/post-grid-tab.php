@@ -386,7 +386,7 @@ class Post_Grid_Tab extends Widget_Base {
 					'right' => esc_html__( 'After', 'bdthemes-element-pack' ),
 				],
 				'condition' => [
-					'icon!' => '',
+					'post_grid_tab_icon[value]!' => '',
 				],
 			]
 		);
@@ -405,7 +405,7 @@ class Post_Grid_Tab extends Widget_Base {
 					],
 				],
 				'condition' => [
-					'icon!' => '',
+					'post_grid_tab_icon[value]!' => '',
 				],
 				'selectors' => [
 					'{{WRAPPER}} .bdt-post-grid-tab .bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
@@ -493,7 +493,7 @@ class Post_Grid_Tab extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'tab_text_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-post-grid-tab .gridtab > dt',
 				'condition' => [
 					'grid_tab_item' => 'title',
@@ -638,7 +638,7 @@ class Post_Grid_Tab extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-item-title'   => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-item-title'   => 'padding-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -648,7 +648,7 @@ class Post_Grid_Tab extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-item-title',
 			]
 		);
@@ -680,7 +680,7 @@ class Post_Grid_Tab extends Widget_Base {
 			[
 				'name'     => 'meta_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-meta *',
 			]
 		);
@@ -867,7 +867,7 @@ class Post_Grid_Tab extends Widget_Base {
 			[
 				'name'     => 'readmore_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-grid-tab .bdt-post-grid-tab-readmore',
 			]
 		);

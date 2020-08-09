@@ -231,6 +231,18 @@ class Price_Table extends Widget_Base {
 		);
 
 		$this->add_control(
+			'currency_format',
+			[
+				'label' => __( 'Currency Format', 'bdthemes-element-pack' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'' => '1,234.56 (Default)',
+					',' => '1.234,56',
+				],
+			]
+		);
+
+		$this->add_control(
 			'sale',
 			[
 				'label' => __( 'Sale', 'bdthemes-element-pack' ),
@@ -356,7 +368,7 @@ class Price_Table extends Widget_Base {
 			'features_list',
 			[
 				'type'    => Controls_Manager::REPEATER,
-				'fields'  => array_values( $repeater->get_controls() ),
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'item_text' 			 => __( 'List Item #1', 'bdthemes-element-pack' ),
@@ -808,7 +820,7 @@ class Price_Table extends Widget_Base {
 			[
 				'name'     => 'heading_typography',
 				'selector' => '{{WRAPPER}} .bdt-price-table-heading',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -837,7 +849,7 @@ class Price_Table extends Widget_Base {
 			[
 				'name'     => 'sub_heading_typography',
 				'selector' => '{{WRAPPER}} .bdt-price-table-subheading',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_2,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_2,
 			]
 		);
 
@@ -891,7 +903,7 @@ class Price_Table extends Widget_Base {
 			[
 				'name'     => 'price_typography',
 				'selector' => '{{WRAPPER}} .bdt-price-table-price',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -920,6 +932,28 @@ class Price_Table extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .bdt-price-table-currency' => 'font-size: calc({{SIZE}}em/100)',
+				],
+				'condition' => [
+					'currency_symbol!' => '',
+				],
+			]
+		);
+
+		$this->add_control(
+			'currency_horizontal_position',
+			[
+				'label'   => __( 'Position', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'default' => 'left',
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'bdthemes-element-pack' ),
+						'icon'  => 'eicon-h-align-left',
+					],
+					'right' => [
+						'title' => __( 'Right', 'bdthemes-element-pack' ),
+						'icon'  => 'eicon-h-align-right',
+					],
 				],
 				'condition' => [
 					'currency_symbol!' => '',
@@ -967,6 +1001,9 @@ class Price_Table extends Widget_Base {
 				'label'     => __( 'Fractional Part', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
+				'condition' => [
+					'currency_format' => '',
+				]
 			]
 		);
 
@@ -984,6 +1021,9 @@ class Price_Table extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .bdt-price-table-fractional-part' => 'font-size: calc({{SIZE}}em/100)',
 				],
+				'condition' => [
+					'currency_format' => '',
+				]
 			]
 		);
 
@@ -1015,6 +1055,9 @@ class Price_Table extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .bdt-price-table-after-price' => 'justify-content: {{VALUE}}',
 				],
+				'condition' => [
+					'currency_format' => '',
+				]
 			]
 		);
 
@@ -1051,7 +1094,7 @@ class Price_Table extends Widget_Base {
 			[
 				'name'      => 'original_price_typography',
 				'selector'  => '{{WRAPPER}} .bdt-price-table-original-price',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'condition' => [
 					'sale'            => 'yes',
 					'original_price!' => '',
@@ -1125,7 +1168,7 @@ class Price_Table extends Widget_Base {
 			[
 				'name'      => 'period_typography',
 				'selector'  => '{{WRAPPER}} .bdt-price-table-period',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_2,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_2,
 				'condition' => [
 					'period!' => '',
 				],
@@ -1211,7 +1254,7 @@ class Price_Table extends Widget_Base {
 			[
 				'name'     => 'features_list_typography',
 				'selector' => '{{WRAPPER}} .bdt-price-table-features-list li, {{WRAPPER}} .edd_price_options li span',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -1688,7 +1731,7 @@ class Price_Table extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-price-table-button',
 				'condition' => [
 					'button_text!' => '',
@@ -1798,7 +1841,7 @@ class Price_Table extends Widget_Base {
 			[
 				'name'      => 'additional_info_typography',
 				'selector'  => '{{WRAPPER}} .bdt-price-table-additional_info',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_3,
 				'condition' => [
 					'footer_additional_info!' => '',
 					'_skin' => '',
@@ -1903,7 +1946,7 @@ class Price_Table extends Widget_Base {
 			[
 				'name'     => 'ribbon_typography',
 				'selector' => '{{WRAPPER}} .bdt-price-table-ribbon-inner',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 			]
 		);
 
@@ -1926,6 +1969,7 @@ class Price_Table extends Widget_Base {
 			'real'         => 'R$',
 			'ruble'        => '&#8381;',
 			'rupee'        => '&#8360;',
+			'bdt'          => '&#2547;',
 			'shekel'       => '&#8362;',
 			'won'          => '&#8361;',
 			'yen'          => '&#165;',
@@ -1984,17 +2028,29 @@ class Price_Table extends Widget_Base {
 			}
 		}
 
-		$price    = explode( '.', $settings['price'] );
-		$intpart  = $price[0];
-		$fraction = '';
 
-		if ( 2 === sizeof( $price ) ) {
+		$currency_format = empty( $settings['currency_format'] ) ? '.' : $settings['currency_format'];
+		$price = explode( $currency_format, $settings['price'] );
+		$intpart = $price[0];
+		$fraction = '';
+		if ( 2 === count( $price ) ) {
 			$fraction = $price[1];
 		}
+
+
+		// $price    = explode( '.', $settings['price'] );
+		// $intpart  = $price[0];
+		// $fraction = '';
+
+		// if ( 2 === sizeof( $price ) ) {
+		// 	$fraction = $price[1];
+		// }
 
 		$period_position = $settings['period_position'];
 		$period_class    = ($period_position == 'below') ? ' bdt-price-table-period-position-below' : ' bdt-price-table-period-position-beside';
 		$period_element  = '<span class="bdt-price-table-period elementor-typo-excluded'.$period_class.'">' . $settings['period'] . '</span>';
+
+		$currency_position = $settings['currency_horizontal_position'];
 
 		?>
 		<div class="bdt-price-table-price">
@@ -2004,7 +2060,7 @@ class Price_Table extends Widget_Base {
 				</div>
 			<?php endif; ?>
 
-			<?php if ( ! empty( $symbol ) && is_numeric( $intpart ) ) : ?>
+			<?php if ( ! empty( $symbol ) && is_numeric( $intpart ) && 'left' === $currency_position ) : ?>
 				<span class="bdt-price-table-currency">
 					<?php echo esc_attr($symbol); ?>
 				</span>
@@ -2025,6 +2081,12 @@ class Price_Table extends Widget_Base {
 						<?php echo wp_kses_post($period_element); ?>
 					<?php endif; ?>
 				</div>
+			<?php endif; ?>
+
+			<?php if ( ! empty( $symbol ) && is_numeric( $intpart ) && 'right' === $currency_position ) : ?>
+				<span class="bdt-price-table-currency">
+					<?php echo esc_attr($symbol); ?>
+				</span>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $settings['period'] ) && 'below' === $period_position ) : ?>
@@ -2343,9 +2405,11 @@ class Price_Table extends Widget_Base {
 				}
 			}
 
-			var price = settings.price.split( '.' ),
+			var currencyFormat = settings.currency_format || '.',
+				price = settings.price.split( currencyFormat ),
 				intpart = price[0],
 				fraction = price[1],
+
 				buttonSize = (settings.button_size) ? ' elementor-size-' + settings.button_size : '',
 				periodElement = '<span class="bdt-price-table-period elementor-typo-excluded">' + settings.period + '</span>',
 				
@@ -2400,9 +2464,10 @@ class Price_Table extends Widget_Base {
 					<div class="bdt-price-table-original-price elementor-typo-excluded">{{{ symbol + settings.original_price }}}</div>
 				<# } #>
 
-				<# if (  ! _.isEmpty( symbol ) && isFinite( intpart ) ) { #>
+				<# if (  ! _.isEmpty( symbol ) && isFinite( intpart ) && 'left' === settings.currency_horizontal_position ) { #>
 					<span class="bdt-price-table-currency">{{{ symbol }}}</span>
 				<# } #>
+
 				<# if ( intpart ) { #>
 					<span class="bdt-price-table-integer-part">{{{ intpart }}}</span>
 				<# } #>
@@ -2414,6 +2479,10 @@ class Price_Table extends Widget_Base {
 						{{{ periodElement }}}
 					<# } #>
 				</div>
+
+				<# if (  ! _.isEmpty( symbol ) && isFinite( intpart ) && 'right' === settings.currency_horizontal_position ) { #>
+					<span class="bdt-price-table-currency">{{{ symbol }}}</span>
+				<# } #>
 
 				<# if ( settings.period && 'below' === settings.period_position ) { #>
 					{{{ periodElement }}}

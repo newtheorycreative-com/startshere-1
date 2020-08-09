@@ -1,6 +1,7 @@
 <?php
 namespace ElementPack\Modules\Scrollnav\Widgets;
 
+use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -54,11 +55,44 @@ class Scrollnav extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'nav_title', 
+			[
+				'label'   => __( 'Nav Title', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::TEXT,
+				'dynamic' => [ 'active' => true ],
+				'default' => __( 'Nav Title' , 'bdthemes-element-pack' ),
+			]
+		);
+
+		$repeater->add_control(
+			'nav_link', 
+			[
+				'label'       => __( 'Link', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => [ 'url' => '#' ],
+				'description' => 'Add your section id WITH the # key. e.g: #my-id also you can add internal/external URL',
+			]
+		);
+
+		$repeater->add_control(
+			'scroll_nav_icon', 
+			[
+				'label' => __( 'Icon', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::ICONS,
+				'fa4compatibility' => 'nav_icon',
+			]
+		);
+
 		$this->add_control(
 			'navs',
 			[
 				'label' => __( 'Nav Items', 'bdthemes-element-pack' ),
 				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'nav_title' => __( 'Nav #1', 'bdthemes-element-pack' ),
@@ -90,29 +124,6 @@ class Scrollnav extends Widget_Base {
 							'url' => '#section-5',
 						]
 					],
-				],
-				'fields' => [
-					[
-						'name'    => 'nav_title',
-						'label'   => __( 'Nav Title', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::TEXT,
-						'dynamic' => [ 'active' => true ],
-						'default' => __( 'Nav Title' , 'bdthemes-element-pack' ),
-					],
-					[
-						'name'        => 'nav_link',
-						'label'       => __( 'Link', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::URL,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => [ 'url' => '#' ],
-						'description' => 'Add your section id WITH the # key. e.g: #my-id also you can add internal/external URL',
-					],
-					[
-						'name'  => 'scroll_nav_icon',
-						'label' => __( 'Icon', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::ICONS,
-						'fa4compatibility' => 'nav_icon',
-					],		
 				],
 				'title_field' => '{{{ nav_title }}}',
 			]
@@ -522,7 +533,7 @@ class Scrollnav extends Widget_Base {
 			[
 				'name'     => 'nav_typography',
 				'label'    => __( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-scrollnav ul li > a',
 			]
 		);

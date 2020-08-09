@@ -163,7 +163,7 @@ class EDD_Profile_Editor extends Widget_Base {
 			[
 				'name'     => 'caption_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} legend',
 			]
 		);
@@ -194,7 +194,7 @@ class EDD_Profile_Editor extends Widget_Base {
 			[
 				'name'     => 'label_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} #edd_profile_editor_form label',
 			]
 		);
@@ -443,7 +443,7 @@ class EDD_Profile_Editor extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} #edd_profile_editor_form #edd_profile_editor_submit',
 				'separator' => 'before',
 			]

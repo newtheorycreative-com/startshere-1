@@ -7,7 +7,7 @@ Tags: phlox, gallery, elementor, siteorigin, portfolio, averta, auxin, fullwidth
 Requires PHP: 5.4
 Requires at least: 4.6
 Tested up to: 5.4.3
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 

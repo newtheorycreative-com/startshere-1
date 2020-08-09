@@ -433,7 +433,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_download_title a',
 			]
 		);
@@ -479,7 +479,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			[
 				'name'     => 'edd_excerpt_typography',
 				'label'    => esc_html__( 'Excerpt Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_download_excerpt',
 			]
 		);
@@ -527,7 +527,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			[
 				'name'     => 'edd_price_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner span.edd_price, 
 				 {{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_price_options span',
 				'condition'	=> ['edd_price_show' => 'yes'],
@@ -639,7 +639,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .edd_downloads_list .edd_download .edd_download_inner .edd_purchase_submit_wrapper > .button',
 				'separator' => 'before',
 			]
@@ -800,7 +800,7 @@ class Easy_Digital_Downloads extends Widget_Base {
 			[
 				'name'      => 'pagination_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} #edd_download_pagination .page-numbers',
 				'separator' => 'before',
 			]

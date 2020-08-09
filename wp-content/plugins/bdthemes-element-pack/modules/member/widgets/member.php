@@ -422,7 +422,7 @@ class Member extends Widget_Base {
             'social_link_list',
             [
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values($repeater->get_controls()),
+                'fields' => $repeater->get_controls(),
                 'default'     => [
                     [
                         'social_link'       => esc_html__('http://www.facebook.com/bdthemes/', 'bdthemes-element-pack'),

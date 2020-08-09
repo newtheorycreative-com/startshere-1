@@ -322,7 +322,7 @@ class Post_Block_Modern extends Widget_Base {
 			[
 				'name'     => 'left_part_date_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-meta span',
 			]
 		);
@@ -362,7 +362,7 @@ class Post_Block_Modern extends Widget_Base {
 			[
 				'name'     => 'left_part_category_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-meta a',
 			]
 		);
@@ -391,7 +391,7 @@ class Post_Block_Modern extends Widget_Base {
 			[
 				'name'     => 'left_part_title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-title',
 			]
 		);
@@ -420,7 +420,7 @@ class Post_Block_Modern extends Widget_Base {
 			[
 				'name'     => 'left_part_excerpt_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block-modern .left-part .bdt-post-block-modern-excerpt',
 			]
 		);
@@ -459,7 +459,7 @@ class Post_Block_Modern extends Widget_Base {
 			[
 				'name'     => 'right_part_date_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-meta span',
 			]
 		);
@@ -511,7 +511,7 @@ class Post_Block_Modern extends Widget_Base {
 			[
 				'name'     => 'right_part_category_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-meta a',
 			]
 		);
@@ -540,7 +540,7 @@ class Post_Block_Modern extends Widget_Base {
 			[
 				'name'     => 'right_part_title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-title',
 			]
 		);
@@ -569,7 +569,7 @@ class Post_Block_Modern extends Widget_Base {
 			[
 				'name'     => 'right_part_excerpt_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block-modern .right-part .bdt-post-block-modern-excerpt',
 			]
 		);
@@ -728,7 +728,7 @@ class Post_Block_Modern extends Widget_Base {
 			[
 				'name'     => 'read_more_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block-modern .bdt-post-block-modern-read-more',
 			]
 		);
@@ -884,7 +884,7 @@ class Post_Block_Modern extends Widget_Base {
 
 					            	<?php if ('yes' == $settings['show_meta']) : ?>
 
-										<?php $meta_list = '<span><span>'.esc_attr(get_the_date('d F Y')).'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
+										<?php $meta_list = '<span><span>'.get_the_date().'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
 
 										<div class="bdt-post-block-modern-meta bdt-subnav bdt-flex-middle bdt-flex-center"><?php echo wp_kses_post($meta_list); ?></div>
 
@@ -910,7 +910,7 @@ class Post_Block_Modern extends Widget_Base {
 					  		<div class="bdt-post-block-modern-desc">
 
 								<?php if ('yes' == $settings['show_meta']) : ?>
-									<?php $meta_list = '<span><span>'.esc_attr(get_the_date('d F Y')).'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
+									<?php $meta_list = '<span><span>'.get_the_date().'</span></span><span>'.get_the_category_list(', ').'</span>'; ?>
 									
 									<div class="bdt-post-block-modern-meta bdt-subnav"><?php echo wp_kses_post($meta_list); ?></div>
 								<?php endif ?>

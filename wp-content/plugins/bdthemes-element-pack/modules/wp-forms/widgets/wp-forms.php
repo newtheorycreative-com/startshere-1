@@ -96,7 +96,7 @@ class Wp_Forms extends Widget_Base {
 			[
 				'name'     => 'label_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .wpforms-container-full .wpforms-form .wpforms-field-label',
 			]
 		);
@@ -128,7 +128,7 @@ class Wp_Forms extends Widget_Base {
 			[
 				'name'     => 'sub_label_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .wpforms-container-full .wpforms-form .wpforms-field-sublabel',
 			]
 		);
@@ -367,7 +367,7 @@ class Wp_Forms extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .wpforms-container-full .wpforms-submit',
 				'separator' => 'before',
 			]
@@ -449,7 +449,7 @@ class Wp_Forms extends Widget_Base {
 			[
 				'name'     => 'error_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .wpforms-container-full .wpforms-form .wpforms-error',
 			]
 		);

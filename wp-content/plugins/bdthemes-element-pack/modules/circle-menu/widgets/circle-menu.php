@@ -1,6 +1,7 @@
 <?php
 namespace ElementPack\Modules\CircleMenu\Widgets;
 
+use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
@@ -102,11 +103,48 @@ class Circle_Menu extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'title',
+			[
+				'label'   => esc_html__( 'Menu Title', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::TEXT,
+				'dynamic' => [ 'active' => true ],
+				'default' => 'Home',
+			]
+		);
+
+		$repeater->add_control(
+			'circle_menu_icon',
+			[
+				'label'   => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::ICONS,
+				'fa4compatibility' => 'icon',
+				'default' => [
+					'value' => 'fas fa-home',
+					'library' => 'fa-solid',
+				],
+			]
+		); 
+
+		$repeater->add_control(
+			'iconnav_link',
+			[
+				'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::URL,
+				'default'     => [ 'url' => '#' ],
+				'dynamic'     => [ 'active' => true ],
+				'description' => 'Add your section id WITH the # key. e.g: #my-id also you can add internal/external URL',
+			]
+		);
+
 		$this->add_control(
 			'circle_menu',
 			[
 				'label'   => esc_html__( 'Circle Menu Items', 'bdthemes-element-pack' ),
-				'type'    => Controls_Manager::REPEATER,
+				'type'   => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'separator' => 'before',
 				'default' => [
 					[
@@ -143,33 +181,6 @@ class Circle_Menu extends Widget_Base {
 							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
 						],
 						'title' 			=> esc_html__( 'Contact Us', 'bdthemes-element-pack' ) 
-					],
-				],
-				'fields' => [
-					[
-						'name'    => 'title',
-						'label'   => esc_html__( 'Menu Title', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::TEXT,
-						'dynamic' => [ 'active' => true ],
-						'default' => 'Home',
-					],
-					[
-						'name'    => 'circle_menu_icon',
-						'label'   => esc_html__( 'Icon', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::ICONS,
-						'fa4compatibility' => 'icon',
-						'default' => [
-							'value' => 'fas fa-home',
-							'library' => 'fa-solid',
-						],
-					],
-					[
-						'name'        => 'iconnav_link',
-						'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::URL,
-						'default'     => [ 'url' => '#' ],
-						'dynamic'     => [ 'active' => true ],
-						'description' => 'Add your section id WITH the # key. e.g: #my-id also you can add internal/external URL',
 					],
 				],
 				'title_field' => '{{{ title }}}',

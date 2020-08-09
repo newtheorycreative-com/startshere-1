@@ -59,7 +59,12 @@ if ( ! class_exists( 'wp_ulike_admin_panel' ) ) {
                 'sticky_header'      => true,
                 'save_defaults'      => true,
                 'ajax_save'          => true,
-                'footer_credit'      => 'Thank you for choosing <a href="https://wpulike.com/?utm_source=footer-link&amp;utm_campaign=plugin-uri&amp;utm_medium=wp-dash" title="Wordpress ULike" target="_blank">WP ULike</a>.',
+                'footer_credit'      => sprintf(
+                    '%s <a href="%s" title="TechnoWich" target="_blank">%s</a>',
+                    __( 'Proudly Powered By', WP_ULIKE_SLUG ),
+                    'https://technowich.com/?utm_source=footer-link&utm_campaign=wp-ulike&utm_medium=wp-dash',
+                    __( 'TechnoWich', WP_ULIKE_SLUG )
+                ),
                 'footer_after'       => '',
                 'enqueue_webfont'    => true,
                 'async_webfont'      => false,
@@ -146,6 +151,15 @@ if ( ! class_exists( 'wp_ulike_admin_panel' ) ) {
                             'woocommerce' => __('WooCommerce Pages', WP_ULIKE_SLUG)
                         )
                     ),
+                    array(
+                        'id'          => 'enable_admin_posts_columns',
+                        'type'        => 'select',
+                        'title'       => __( 'Enable Admin Columns',WP_ULIKE_SLUG ),
+                        'desc'        => __('Add counter stats column to the selected post types', WP_ULIKE_SLUG),
+                        'chosen'      => true,
+                        'multiple'    => true,
+                        'options'     => 'post_types'
+                    )
                 ) )
             ) );
 
@@ -241,10 +255,11 @@ if ( ! class_exists( 'wp_ulike_admin_panel' ) ) {
                 'fields' => array(
                     // Posts
                     array(
-                        'id'     => 'posts_group',
-                        'type'   => 'fieldset',
-                        'title'  => __('Posts'),
-                        'fields' => array_values( apply_filters( 'wp_ulike_panel_post_type_options', $get_content_fields['posts'] ) )
+                        'id'       => 'posts_group',
+                        'type'     => 'fieldset',
+                        'title'    => __('Posts'),
+                        'fields'   => array_values( apply_filters( 'wp_ulike_panel_post_type_options', $get_content_fields['posts'] ) ),
+                        'sanitize' => 'wp_ulike_sanitize_multiple_select'
                     ),
                     // Comments
                     array(
@@ -581,7 +596,7 @@ if ( ! class_exists( 'wp_ulike_admin_panel' ) ) {
                     'desc'        => __('With this option, you can disable automatic display on these pages.', WP_ULIKE_SLUG),
                     'chosen'      => true,
                     'multiple'    => true,
-                    // 'default'     => array( 'single', 'home' ),
+                    'default'     => array( 'single', 'home' ),
                     'options'     => array(
                         'home'     => __('Home', WP_ULIKE_SLUG),
                         'single'   => __('Singular', WP_ULIKE_SLUG),
@@ -601,7 +616,7 @@ if ( ! class_exists( 'wp_ulike_admin_panel' ) ) {
                     'desc'        => __( 'Make these post types an exception and display the button on them.',WP_ULIKE_SLUG ),
                     'chosen'      => true,
                     'multiple'    => true,
-                    // 'default'     => 'post',
+                    'default'     => 'post',
                     'options'     => 'post_types',
                     'dependency'  => array( 'auto_display_filter|enable_auto_display', 'any|==', 'single|true' ),
                 ),
@@ -612,7 +627,6 @@ if ( ! class_exists( 'wp_ulike_admin_panel' ) ) {
                     'options'     => array(
                         'do_not_log'  => __('Do Not Log', WP_ULIKE_SLUG),
                         'by_cookie'   => __('Logged By Cookie', WP_ULIKE_SLUG),
-                        'by_ip'       => __('Logged By IP', WP_ULIKE_SLUG),
                         'by_username' => __('Logged By Username', WP_ULIKE_SLUG)
                     ),
                     'default'     => 'by_username',
@@ -663,6 +677,13 @@ if ( ! class_exists( 'wp_ulike_admin_panel' ) ) {
                         'asc'  => __('Ascending', WP_ULIKE_SLUG),
                         'desc' => __('Descending', WP_ULIKE_SLUG)
                     ),
+                    'dependency' => array( 'enable_likers_box', '==', 'true' ),
+                ),
+                'hide_likers_for_anonymous_users' => array(
+                    'id'    => 'hide_likers_for_anonymous_users',
+                    'type'  => 'switcher',
+                    'default' => false,
+                    'title' => __('Hide For Anonymous Users', WP_ULIKE_SLUG),
                     'dependency' => array( 'enable_likers_box', '==', 'true' ),
                 ),
                 'disable_likers_pophover' => array(

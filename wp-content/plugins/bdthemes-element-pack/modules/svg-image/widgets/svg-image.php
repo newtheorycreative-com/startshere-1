@@ -542,10 +542,10 @@ class Svg_Image extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .widget-image-caption' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type' => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
-				],
+				// 'scheme' => [
+				// 	'type' => Schemes\Color::get_type(),
+				// 	'value' => Schemes\Color::COLOR_3,
+				// ],
 			]
 		);
 
@@ -577,7 +577,7 @@ class Svg_Image extends Widget_Base {
 			[
 				'name' => 'caption_typography',
 				'selector' => '{{WRAPPER}} .widget-image-caption',
-				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme' => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 

@@ -311,7 +311,7 @@ class Buddypress_Member extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'selector' => '{{WRAPPER}} .bdt-bp-member-title a',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 			]
 		);
 

@@ -53,6 +53,9 @@ class Testimonial_Carousel extends Widget_Base {
     }
 
     protected function _register_controls() {
+        $slides_per_view = range( 1, 10 );
+        $slides_per_view = array_combine( $slides_per_view, $slides_per_view );
+        
         $this->start_controls_section(
             'section_content_layout',
             [
@@ -466,6 +469,19 @@ class Testimonial_Carousel extends Widget_Base {
         );
 
         $this->add_control(
+			'slides_per_column',
+			[
+				'type'      => Controls_Manager::SELECT,
+				'label'     => esc_html__( 'Slides Per Column', 'bdthemes-element-pack' ),
+				'options'   => $slides_per_view,
+				'default'   => '1',
+				'condition' => [
+					'skin' => 'carousel',
+				]
+			]
+		);
+
+        $this->add_control(
             'grab_cursor',
             [
                 'label' => __('Grab Cursor', 'bdthemes-element-pack'),
@@ -869,7 +885,7 @@ class Testimonial_Carousel extends Widget_Base {
             [
                 'name'     => 'title_typography',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-title',
             ]
         );
@@ -903,7 +919,7 @@ class Testimonial_Carousel extends Widget_Base {
             [
                 'name'     => 'address_typography',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-address',
             ]
         );
@@ -951,7 +967,7 @@ class Testimonial_Carousel extends Widget_Base {
             [
                 'name'     => 'text_typography',
                 'label'    => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .bdt-testimonial-carousel .bdt-testimonial-carousel-text',
             ]
         );
@@ -1228,7 +1244,7 @@ class Testimonial_Carousel extends Widget_Base {
             [
                 'name'      => 'fraction_typography',
                 'label'     => esc_html__('Typography', 'bdthemes-element-pack'),
-                'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+                //'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
                 'selector'  => '{{WRAPPER}} .bdt-testimonial-carousel .swiper-pagination-fraction',
                 'condition' => [
                     'navigation!' => ['arrows', 'dots', 'progressbar', 'none'],
@@ -1938,6 +1954,7 @@ class Testimonial_Carousel extends Widget_Base {
                             "centeredSlides"  => ($settings["centered_slides"] === "yes") ? true : false,
                             "grabCursor"      => ($settings["grab_cursor"] === "yes") ? true : false,
                             "effect"          => $settings["skin"],
+                            "slidesPerColumn" => ($settings["slides_per_column"] > 1) ? $settings["slides_per_column"] : false,
                             "observer"        => ($settings["observer"]) ? true : false,
                             "observeParents"  => ($settings["observer"]) ? true : false,
                             "breakpoints"     => [

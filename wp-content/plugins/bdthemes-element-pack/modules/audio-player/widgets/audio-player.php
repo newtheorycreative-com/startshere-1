@@ -870,7 +870,7 @@ class Audio_Player extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'time_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .jp-audio .jp-current-time, {{WRAPPER}} .jp-audio .jp-duration',
 			]
 		);
@@ -993,7 +993,7 @@ class Audio_Player extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'audio_title_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-audio-title'
 			]
 		);
@@ -1291,7 +1291,7 @@ class Audio_Player extends Widget_Base {
 			[
 				'name'     => 'skin_audio_title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-audio-player-title',
 			]
 		);
@@ -1344,7 +1344,7 @@ class Audio_Player extends Widget_Base {
 			[
 				'name'     => 'skin_author_name_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-audio-player-artist span',
 			]
 		);

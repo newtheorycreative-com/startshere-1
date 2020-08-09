@@ -396,7 +396,7 @@ class Toggle extends Widget_Base {
             [
                 'name'     => 'title_typography',
                 'selector' => '{{WRAPPER}} .bdt-show-hide .bdt-show-hide-title',
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
             ]
         );
 
@@ -688,7 +688,8 @@ class Toggle extends Widget_Base {
                     </div>
 
                     <a <?php echo $this->get_render_attribute_string('tab_title'); ?> href='javascript:void(0)'>
-						<span class="bdt-toggle-open">
+						
+                        <span class="bdt-toggle-open">
 							<?php echo wp_kses($settings['toggle_title'], element_pack_allow_tags('title')); ?>
 						</span>
                         <span class="bdt-toggle-close">

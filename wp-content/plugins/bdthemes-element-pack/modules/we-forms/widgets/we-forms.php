@@ -153,7 +153,7 @@ class We_Forms extends Widget_Base {
 				'name'     => 'field_typography',
 				'label'    => __( 'Typography', 'bdthemes-element-pack' ),
 				'selector' => '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields input:not(.weforms_submit_btn), .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-fields textarea',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3
 			]
 		);
 
@@ -305,7 +305,7 @@ class We_Forms extends Widget_Base {
 				'name'     => 'desc_typography',
 				'label'    => __( 'Help Text Typography', 'bdthemes-element-pack' ),
 				'selector' => '{{WRAPPER}} .wpuf-fields .wpuf-help',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3
 			]
 		);
 
@@ -449,7 +449,7 @@ class We_Forms extends Widget_Base {
 			[
 				'name'     => 'submit_typography',
 				'selector' => '{{WRAPPER}} .wpuf-form-add.wpuf-style ul.wpuf-form .wpuf-submit input[type=submit]',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4
 			]
 		);
 

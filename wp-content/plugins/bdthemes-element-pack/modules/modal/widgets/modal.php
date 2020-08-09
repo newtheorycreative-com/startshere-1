@@ -177,7 +177,6 @@ class Modal extends Widget_Base {
 					],
 				],
 				'prefix_class' => 'elementor%s-align-',
-				'default'      => '',
 			]
 		);
 
@@ -233,8 +232,8 @@ class Modal extends Widget_Base {
 					'modal_button_icon[value]!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .bdt-modal-wrapper .bdt-modal-button-icon.bdt-flex-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .bdt-modal-wrapper .bdt-modal-button-icon.bdt-flex-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bdt-modal-wrapper .bdt-modal-button-icon.bdt-button-icon-align-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .bdt-modal-wrapper .bdt-modal-button-icon.bdt-button-icon-align-left'  => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -382,6 +381,7 @@ class Modal extends Widget_Base {
 
 		$this->end_controls_section();
 
+		//Style
 		$this->start_controls_section(
 			'section_style_button',
 			[
@@ -480,7 +480,7 @@ class Modal extends Widget_Base {
 			[
 				'name'     => 'button_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-modal-wrapper .bdt-modal-button',
 			]
 		);
@@ -524,6 +524,9 @@ class Modal extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .bdt-modal-wrapper .bdt-modal-button:hover' => 'border-color: {{VALUE}};',
+				],
+				'condition' => [
+					'button_border_border!' => '',
 				],
 			]
 		);
@@ -634,7 +637,7 @@ class Modal extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'selector' => '.bdt-modal-{{ID}}.bdt-modal .bdt-modal-title',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 			]
 		);
 
@@ -691,20 +694,89 @@ class Modal extends Widget_Base {
 			]
 		);
 
+		$this->end_controls_section();
+		
+		
+		$this->start_controls_section(
+			'tab_content_close_button',
+			[
+				'label'     => esc_html__( 'Close Button', 'bdthemes-element-pack' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'close_button!' => 'none',
+				],
+			]
+		);
+
 		$this->add_control(
 			'close_button_color',
 			[
-				'label'     => esc_html__( 'Close Button Color', 'bdthemes-element-pack' ),
+				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'.bdt-modal-{{ID}}.bdt-modal .bdt-modal-dialog button.bdt-close' => 'color: {{VALUE}};',
 				],
-				'separator' => 'before',
 			]
 		);
 
-		$this->end_controls_section();
+		$this->add_control(
+			'close_button_backgroun_color',
+			[
+				'label'     => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'.bdt-modal-{{ID}}.bdt-modal .bdt-modal-dialog button.bdt-close' => 'background: {{VALUE}};',
+				],
+			]
+		);
 
+		$this->add_group_control(
+			Group_Control_Border::get_type(), [
+				'name'        => 'close_button_border',
+				'label'       => esc_html__( 'Border', 'bdthemes-element-pack' ),
+				'placeholder' => '1px',
+				'default'     => '1px',
+				'selector'    => '.bdt-modal-{{ID}}.bdt-modal .bdt-modal-dialog button.bdt-close',
+			]
+		);
+
+		$this->add_control(
+			'close_button_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'bdthemes-element-pack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'.bdt-modal-{{ID}}.bdt-modal .bdt-modal-dialog button.bdt-close' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'close_button_padding',
+			[
+				'label'      => esc_html__( 'Padding', 'bdthemes-element-pack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'.bdt-modal-{{ID}}.bdt-modal .bdt-modal-dialog button.bdt-close' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'close_button_margin',
+			[
+				'label'      => esc_html__( 'Margin', 'bdthemes-element-pack' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'.bdt-modal-{{ID}}.bdt-modal .bdt-modal-dialog button.bdt-close' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+	
+		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'tab_content_footer',
@@ -798,7 +870,7 @@ class Modal extends Widget_Base {
 			[
 				'name'     => 'text_typography',
 				'selector' => '.bdt-modal-{{ID}}.bdt-modal .bdt-modal-footer',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 			]
 		);
 
@@ -919,14 +991,14 @@ class Modal extends Widget_Base {
 			return;
 		}
 
-		$this->add_render_attribute( 'content-wrapper', 'class', 'elementor-button-content-wrapper' );
+		// $this->add_render_attribute( 'content-wrapper', 'class', 'elementor-button-content-wrapper' );
 
-		if ( 'left' == $settings['button_icon_align'] or 'right' == $settings['button_icon_align'] ) {
-			$this->add_render_attribute( 'content-wrapper', 'class', 'bdt-flex bdt-flex-middle' );
-		}
+		// if ( 'left' == $settings['button_icon_align'] or 'right' == $settings['button_icon_align'] ) {
+		// 	$this->add_render_attribute( 'content-wrapper', 'class', 'bdt-flex bdt-flex-middle' );
+		// }
 
-		$this->add_render_attribute( 'icon-align', 'class', 'bdt-flex-align-' . $settings['button_icon_align'] );
-		$this->add_render_attribute( 'icon-align', 'class', 'bdt-modal-button-icon elementor-button-icon bdt-flex-inline' );
+		$this->add_render_attribute( 'icon-align', 'class', 'bdt-button-icon-align-' . $settings['button_icon_align'] );
+		$this->add_render_attribute( 'icon-align', 'class', 'bdt-modal-button-icon elementor-button-icon' );
 
 		$this->add_render_attribute( 'text', 'class', 'elementor-button-text' );
 
@@ -940,7 +1012,7 @@ class Modal extends Widget_Base {
 
 		?>
 		<a <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-			<span <?php echo $this->get_render_attribute_string( 'content-wrapper' ); ?>>
+			<!-- <span <?php //echo $this->get_render_attribute_string( 'content-wrapper' ); ?>> -->
 				<?php if ( ! empty( $settings['modal_button_icon']['value'] ) ) : ?>
 
 				<span <?php echo $this->get_render_attribute_string( 'icon-align' ); ?>>
@@ -955,7 +1027,7 @@ class Modal extends Widget_Base {
 
 				<?php endif; ?>
 				<span <?php echo $this->get_render_attribute_string( 'text' ); ?>><?php echo wp_kses( $settings['button_text'], element_pack_allow_tags('title') ); ?></span>
-			</span>
+			<!-- </span> -->
 		</a>
 		<?php
 	}

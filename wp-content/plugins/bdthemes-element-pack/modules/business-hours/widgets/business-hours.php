@@ -194,10 +194,10 @@ class Business_Hours extends Widget_Base {
             [
                 'label'     => esc_html__( 'Day Color', 'bdthemes-element-pack' ),
                 'type'      => Controls_Manager::COLOR,
-                'scheme'    => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_2,
-                ],
+                //'scheme'    => [
+                    //'type'  => Schemes\Color::get_type(),
+                    //'value' => Schemes\Color::COLOR_2,
+                //],
                 'default'   => '#db6159',
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .bdt-business-day-off' => 'color: {{VALUE}}',
@@ -214,10 +214,10 @@ class Business_Hours extends Widget_Base {
             [
                 'label'     => esc_html__( 'Time Color', 'bdthemes-element-pack' ),
                 'type'      => Controls_Manager::COLOR,
-                'scheme'    => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_4,
-                ],
+                //'scheme'    => [
+                    //'type'  => Schemes\Color::get_type(),
+                    //'value' => Schemes\Color::COLOR_4,
+                //],
                 'default'   => '#db6159',
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .bdt-business-time-off' => 'color: {{VALUE}}',
@@ -248,7 +248,7 @@ class Business_Hours extends Widget_Base {
             'business_days_times',
             [
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => [
                     [
                         'enter_day'  => esc_html__( 'Monday', 'bdthemes-element-pack' ),
@@ -466,10 +466,10 @@ class Business_Hours extends Widget_Base {
             [
                 'label'     => esc_html__( 'Day Color', 'bdthemes-element-pack' ),
                 'type'      => Controls_Manager::COLOR,
-                'scheme'    => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_2,
-                ],
+                //'scheme'    => [
+                    //'type'  => Schemes\Color::get_type(),
+                    //'value' => Schemes\Color::COLOR_2,
+                //],
                 'default'   => '#db6159',
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .bdt-business-day-off' => 'color: {{VALUE}}',
@@ -486,10 +486,10 @@ class Business_Hours extends Widget_Base {
             [
                 'label'     => esc_html__( 'Time Color', 'bdthemes-element-pack' ),
                 'type'      => Controls_Manager::COLOR,
-                'scheme'    => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_4,
-                ],
+                //'scheme'    => [
+                    //'type'  => Schemes\Color::get_type(),
+                    //'value' => Schemes\Color::COLOR_4,
+                //],
                 'default'   => '#db6159',
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .bdt-business-time-off' => 'color: {{VALUE}}',
@@ -521,7 +521,7 @@ class Business_Hours extends Widget_Base {
             'dynamic_days_times',
             [
                 'type'        => Controls_Manager::REPEATER,
-                'fields'      => array_values( $repeater->get_controls() ),
+                'fields'      => $repeater->get_controls(),
                 'default'     => [
 
                     [
@@ -988,10 +988,10 @@ class Business_Hours extends Widget_Base {
             [
                 'label'     => esc_html__( 'Day Color', 'bdthemes-element-pack' ),
                 'type'      => Controls_Manager::COLOR,
-                'scheme'    => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_3,
-                ],
+                // 'scheme'    => [
+                //     'type'  => Schemes\Color::get_type(),
+                //     'value' => Schemes\Color::COLOR_3,
+                // ],
                 'selectors' => [
                     '{{WRAPPER}} .bdt-business-day' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .elementor-widget-container' => 'overflow: hidden;',
@@ -1004,7 +1004,7 @@ class Business_Hours extends Widget_Base {
             [
                 'label'    => esc_html__( 'Day Typography', 'bdthemes-element-pack' ),
                 'name'     => 'business_day_typography',
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
                 'selector' => '{{WRAPPER}} .heading-date',
             ]
         );
@@ -1014,10 +1014,10 @@ class Business_Hours extends Widget_Base {
             [
                 'label'     => esc_html__( 'Time Color', 'bdthemes-element-pack' ),
                 'type'      => Controls_Manager::COLOR,
-                'scheme'    => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_3,
-                ],
+                // 'scheme'    => [
+                //     'type'  => Schemes\Color::get_type(),
+                //     'value' => Schemes\Color::COLOR_3,
+                // ],
                 'selectors' => [
                     '{{WRAPPER}} .bdt-business-time' => 'color: {{VALUE}};',
                 ],
@@ -1029,7 +1029,7 @@ class Business_Hours extends Widget_Base {
             [
                 'label'    => esc_html__( 'Time Typography', 'bdthemes-element-pack' ),
                 'name'     => 'business_timings_typography',
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
                 'selector' => '{{WRAPPER}} .heading-time',
             ]
         );
@@ -1117,7 +1117,7 @@ class Business_Hours extends Widget_Base {
             [
                 'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
                 'name'     => 'business_dynamic_msg_typography',
-                'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+                //'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
                 'selector' => '{{WRAPPER}} .bdt-business-hours .bdt-live-status',
             ]
         );

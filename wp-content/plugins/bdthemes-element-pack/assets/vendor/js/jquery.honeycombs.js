@@ -1,5 +1,5 @@
 (function ($) {
-
+ 
     $.fn.honeycombs = function (options) {
 
         // Establish our default settings
@@ -53,9 +53,9 @@
                 });
 
                 // Fix Firefox padding error
-                if (navigator.userAgent.search("Firefox") > -1) {
-                    $('.bdt-comb span').addClass('firefox');
-                }
+                // if (navigator.userAgent.search("Firefox") > -1) {
+                //     $('.bdt-comb span').addClass('firefox');
+                // }
             }
 
             /**

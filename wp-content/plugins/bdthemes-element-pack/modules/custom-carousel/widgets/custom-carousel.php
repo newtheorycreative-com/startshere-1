@@ -1147,7 +1147,7 @@ class Custom_Carousel extends Widget_Base {
 			[
 				'name'      => 'fraction_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-custom-carousel .swiper-pagination-fraction',
 				'condition' => [
 					'navigation!' => [ 'arrows', 'dots', 'progressbar', 'none' ],
@@ -1768,7 +1768,7 @@ class Custom_Carousel extends Widget_Base {
 			[
 				'name'      => 'caption_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-custom-carousel-item .bdt-overlay',
 				'condition' => [
 					'overlay' => 'text',

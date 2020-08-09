@@ -500,7 +500,7 @@ class Post_List extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-list .list-part .bdt-post-list-title .bdt-post-list-link',
 			]
 		);
@@ -550,7 +550,7 @@ class Post_List extends Widget_Base {
 			[
 				'name'      => 'date_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-post-list .list-part .bdt-post-list-meta span',
 				'condition' => [
 					'show_date' => 'yes',
@@ -604,7 +604,7 @@ class Post_List extends Widget_Base {
 			[
 				'name'      => 'category_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-post-list .list-part .bdt-post-list-meta a',
 				'condition' => [
 					'show_category' => 'yes',
@@ -710,7 +710,7 @@ class Post_List extends Widget_Base {
 
 												<div class="bdt-post-list-meta bdt-subnav bdt-flex-middle">
 													<?php if ($settings['show_date']) : ?>
-														<?php echo '<span>'.esc_attr(get_the_date('d F Y')).'</span>'; ?>
+														<?php echo '<span>'.get_the_date().'</span>'; ?>
 													<?php endif ?>
 
 													<?php if ($settings['show_category']) : ?>

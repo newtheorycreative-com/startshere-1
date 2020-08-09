@@ -584,7 +584,7 @@ class DualButton extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'dual_button_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-dual-button a',
 			]
 		);
@@ -1330,7 +1330,7 @@ class DualButton extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'middle_text_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-dual-button span',
 			]
 		);

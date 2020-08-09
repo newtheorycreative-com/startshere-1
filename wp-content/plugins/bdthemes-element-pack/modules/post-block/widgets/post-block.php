@@ -700,7 +700,7 @@ class Post_Block extends Widget_Base {
 			[
 				'name'      => 'tag_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'condition' => [
 					'featured_show_tag' => 'yes',
 					'_skin'             => 'trinity',
@@ -739,7 +739,7 @@ class Post_Block extends Widget_Base {
 			[
 				'name'      => 'featured_title_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-post-block .featured-part .bdt-post-block-title a',
 				'condition' => [
 					'featured_show_title' => 'yes',
@@ -777,7 +777,7 @@ class Post_Block extends Widget_Base {
 			[
 				'name'      => 'featured_date_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-post-block .featured-part .bdt-post-block-meta span',
 				'condition' => [
 					'featured_show_date' => 'yes',
@@ -815,7 +815,7 @@ class Post_Block extends Widget_Base {
 			[
 				'name'      => 'featured_category_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-post-block .featured-part .bdt-post-block-meta a',
 				'condition' => [
 					'featured_show_category' => 'yes',
@@ -855,7 +855,7 @@ class Post_Block extends Widget_Base {
 			[
 				'name'      => 'featured_excerpt_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-post-block .featured-part .bdt-post-block-excerpt',
 				'condition' => [
 					'featured_show_excerpt' => 'yes',
@@ -933,7 +933,7 @@ class Post_Block extends Widget_Base {
 			[
 				'name'     => 'list_layout_title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block .list-part .bdt-post-block-title .bdt-post-block-link',
 			]
 		);
@@ -968,7 +968,7 @@ class Post_Block extends Widget_Base {
 			[
 				'name'      => 'list_layout_date_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-post-block .list-part .bdt-post-block-meta span',
 				'condition' => [
 					'list_show_date' => 'yes',
@@ -1006,7 +1006,7 @@ class Post_Block extends Widget_Base {
 			[
 				'name'      => 'list_layout_category_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-post-block .list-part .bdt-post-block-meta a',
 				'condition' => [
 					'list_show_category' => 'yes',
@@ -1125,7 +1125,7 @@ class Post_Block extends Widget_Base {
 			[
 				'name'     => 'read_more_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-block .bdt-post-block-read-more',
 			]
 		);
@@ -1341,7 +1341,7 @@ class Post_Block extends Widget_Base {
 
             						<div class="bdt-post-block-meta bdt-subnav bdt-flex-middle">
             							<?php if ($settings['featured_show_date']) : ?>
-            								<?php echo '<span>'.esc_attr(get_the_date('d F Y')).'</span>'; ?>
+            								<?php echo '<span>'.get_the_date().'</span>'; ?>
             							<?php endif ?>
 
             							<?php if ($settings['featured_show_category']) : ?>

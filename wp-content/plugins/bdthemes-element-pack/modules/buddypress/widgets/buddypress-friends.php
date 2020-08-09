@@ -313,7 +313,7 @@ class Buddypress_Friends extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'selector' => '{{WRAPPER}} .bdt-bp-friend-title a',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 			]
 		);
 

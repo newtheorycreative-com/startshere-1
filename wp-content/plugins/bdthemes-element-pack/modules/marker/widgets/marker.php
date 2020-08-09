@@ -650,10 +650,10 @@ class Marker extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .marker-caption-text' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type'  => Schemes\Color::get_type(),
-					'value' => Schemes\Color::COLOR_3,
-				],
+				// 'scheme' => [
+				// 	'type'  => Schemes\Color::get_type(),
+				// 	'value' => Schemes\Color::COLOR_3,
+				// ],
 			]
 		);
 
@@ -662,7 +662,7 @@ class Marker extends Widget_Base {
 			[
 				'name'     => 'caption_typography',
 				'selector' => '{{WRAPPER}} .marker-caption-text',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 

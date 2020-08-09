@@ -102,11 +102,15 @@ final class Manager {
             'helpdesk',
             'honeycombs',
             'hover-box',
+            'hover-video',
             'image-compare',
             'image-magnifier',
-            'instagram',
+            'image-accordion',
+            'image-expand',
             'iconnav',
             'iframe',
+            'instagram',
+            'interactive-card',
             'lightbox',
             'lottie-image',
             'lottie-icon-box',
@@ -146,6 +150,7 @@ final class Manager {
             'scroll-image',
             'scroll-button',
             'source-code',
+            'step-flow',
             'switcher',
             'svg-image',
             'tabs',
@@ -166,13 +171,6 @@ final class Manager {
             'twitter-grid',
             'video-gallery',
             'weather',
-            'portfolio-list',
-            'portfolio-carousel',
-            'step-flow',
-            'interactive-card',
-            // 'image-accordion',
-            // 'fancy-wide',
-            // 'hover-video',
         ];
 
         $faq               = element_pack_option('faq', 'element_pack_third_party_widget', 'on');
@@ -200,6 +198,8 @@ final class Manager {
         $ed_downloads      = element_pack_option('easy-digital-downloads', 'element_pack_third_party_widget', 'on');
         $tablepress        = element_pack_option('tablepress', 'element_pack_third_party_widget', 'on');
         $portfolio_gallery = element_pack_option('portfolio-gallery', 'element_pack_third_party_widget', 'off');
+        $portfolio_list = element_pack_option('portfolio-list', 'element_pack_third_party_widget', 'off');
+        $portfolio_carousel = element_pack_option('portfolio-carousel', 'element_pack_third_party_widget', 'off');
 
         // elementor extend
         $widget_parallax     = element_pack_option('widget_parallax_show', 'element_pack_elementor_extend', 'on');
@@ -211,6 +211,7 @@ final class Manager {
         $widget_tooltip      = element_pack_option('widget_tooltip_show', 'element_pack_elementor_extend', 'on');
         $transform_effects   = element_pack_option('widget_transform_effects', 'element_pack_elementor_extend', 'on');
         $widget_equal_height = element_pack_option('widget_equal_height', 'element_pack_elementor_extend', 'off');
+        $visibility_control  = element_pack_option('visibility_control', 'element_pack_elementor_extend', 'off');
 
         if ( 'on' === $transform_effects ) {
             $modules[] = 'transform-effects';
@@ -247,12 +248,24 @@ final class Manager {
             $modules[] = 'equal-height';
         }
 
+        if ( 'on' === $visibility_control ) {
+            $modules[] = 'visibility-control';
+        }
+
         if ( is_plugin_active('booked/booked.php') and 'on' === $booked_calendar ) {
             $modules[] = 'booked-calendar';
         }
 
         if ( is_plugin_active('bdthemes-portfolio/bdthemes-portfolio.php') and 'on' === $portfolio_gallery ) {
             $modules[] = 'portfolio-gallery';
+        }
+
+        if ( is_plugin_active('bdthemes-portfolio/bdthemes-portfolio.php') and 'on' === $portfolio_list ) {
+            $modules[] = 'portfolio-list';
+        }
+
+        if ( is_plugin_active('bdthemes-portfolio/bdthemes-portfolio.php') and 'on' === $portfolio_carousel ) {
+            $modules[] = 'portfolio-carousel';
         }
 
         if ( is_plugin_active('bbpress/bbpress.php') and 'on' === $bbpress ) {

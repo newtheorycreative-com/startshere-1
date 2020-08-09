@@ -9,6 +9,7 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
+use Elementor\Repeater;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -60,11 +61,99 @@ class Fancy_Slider extends Widget_Base {
 			]
 		);
 
+
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'sub_title', 
+			[
+				'label'       => esc_html__( 'Sub Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__( 'Subtitle Goes Here' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'title', 
+			[
+				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__( 'Slide Title Here' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'title_link', 
+			[
+				'label'         => esc_html__( 'Title Link', 'bdthemes-element-pack' ),
+				'type'          => Controls_Manager::URL,
+				'default'       => ['url' => ''],
+				'show_external' => false,
+				'dynamic'       => [ 'active' => true ],
+				'condition'     => [
+					'title!' => ''
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'description', 
+			[
+				'label'       => esc_html__( 'Description', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXTAREA,
+				'default'     => esc_html__( 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'slide_button', 
+			[
+				'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__( 'Read More' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'button_link', 
+			[
+				'label'         => esc_html__( 'Button Link', 'bdthemes-element-pack' ),
+				'type'          => Controls_Manager::URL,
+				'default'       => ['url' => '#'],
+				'show_external' => false,
+				'dynamic'       => [ 'active' => true ],
+				'condition'     => [
+					'slide_button!' => ''
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'slide_image', 
+			[
+				'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::MEDIA,
+				'dynamic' => [ 'active' => true ],
+				'default' => [
+					'url' => BDTEP_ASSETS_URL . 'images/gallery/item-'.rand(1,3).'.png',
+				],
+			]
+		);
+
 		$this->add_control(
 			'slides',
 			[
 				'label' => esc_html__( 'Item', 'bdthemes-element-pack' ),
 				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'title' => esc_html__( 'Fancy Slider Item One', 'bdthemes-element-pack' ),
@@ -78,79 +167,6 @@ class Fancy_Slider extends Widget_Base {
 						'title' => esc_html__( 'Fancy Slider Item Three', 'bdthemes-element-pack' ),
 						'slide_image' => ['url' => BDTEP_ASSETS_URL . 'images/gallery/item-7.png']
 					],
-				],
-				'fields' => [
-					
-					[
-						'name'        => 'sub_title',
-						'label'       => esc_html__( 'Sub Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'default'     => esc_html__( 'Subtitle Goes Here' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'dynamic'     => [ 'active' => true ],
-					],
-
-					[
-						'name'        => 'title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'default'     => esc_html__( 'Slide Title Here' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'dynamic'     => [ 'active' => true ],
-					],
-					
-					[
-						'name'          => 'title_link',
-						'label'         => esc_html__( 'Title Link', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'default'       => ['url' => ''],
-						'show_external' => false,
-						'dynamic'       => [ 'active' => true ],
-						'condition'     => [
-							'title!' => ''
-						]
-					],
-
-					[
-						'name'        => 'description',
-						'label'       => esc_html__( 'Description', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXTAREA,
-						'default'     => esc_html__( 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'dynamic'     => [ 'active' => true ],
-					],
-
-					[
-						'name'        => 'slide_button',
-						'label'       => esc_html__( 'Button Text', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'default'     => esc_html__( 'Read More' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'dynamic'     => [ 'active' => true ],
-					],
-					
-					[
-						'name'          => 'button_link',
-						'label'         => esc_html__( 'Button Link', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'default'       => ['url' => '#'],
-						'show_external' => false,
-						'dynamic'       => [ 'active' => true ],
-						'condition'     => [
-							'slide_button!' => ''
-						]
-					],
-
-					[
-						'name'    => 'slide_image',
-						'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::MEDIA,
-						'dynamic' => [ 'active' => true ],
-						'default' => [
-							'url' => BDTEP_ASSETS_URL . 'images/gallery/item-'.rand(1,3).'.png',
-						],
-					],
-
 				],
 				'title_field' => '{{{ title }}}',
 			]

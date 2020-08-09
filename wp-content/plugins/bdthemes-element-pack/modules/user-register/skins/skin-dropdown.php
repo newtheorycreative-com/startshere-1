@@ -172,7 +172,7 @@ class Skin_Dropdown extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'dropdown_button_typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				//'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-button-dropdown',
 			]
 		);

@@ -22,7 +22,6 @@ class Social_Share extends Widget_Base {
 		if ( isset( self::$medias_class[ $media_name ] ) ) {
 			return self::$medias_class[ $media_name ];
 		}
-
 		return 'ep-' . $media_name;
 	}
 
@@ -99,7 +98,7 @@ class Social_Share extends Widget_Base {
 			'share_buttons',
 			[
 				'type'    => Controls_Manager::REPEATER,
-				'fields'  => array_values( $repeater->get_controls() ),
+				'fields'  => $repeater->get_controls(),
 				'default' => [
 					[ 'button' => 'facebook' ],
 					[ 'button' => 'linkedin' ],

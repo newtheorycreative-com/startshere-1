@@ -309,7 +309,7 @@ class Scroll_Button extends Widget_Base {
 			[
 				'name'     => 'scroll_button_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-scroll-button',
 			]
 		);
@@ -365,6 +365,67 @@ class Scroll_Button extends Widget_Base {
 			[
 				'label' => esc_html__( 'Button Animation', 'bdthemes-element-pack' ),
 				'type'  => Controls_Manager::HOVER_ANIMATION,
+				'condition' => [
+					'show_fancy_animation' => '',
+				],
+				'render_type' => 'template',
+			]
+		);
+
+		$this->add_control(
+			'show_fancy_animation',
+			[
+				'label' => __( 'Show Fancy Animation', 'bdthemes-element-pack' ),
+				'type'  => Controls_Manager::SWITCHER,
+				'render_type' => 'template',
+			]
+		);
+
+		$this->add_control(
+			'fancy_animation',
+			[
+				'label'       => esc_html__( 'Fancy Animation', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'shadow-pulse',
+				'options'     => [
+					'shadow-pulse' => esc_html__( 'Shadow Pulse', 'bdthemes-element-pack' ),
+					'multi-shadow' => esc_html__( 'Multi Shadow', 'bdthemes-element-pack' ),
+					'line-bounce' => esc_html__( 'Line Bounce', 'bdthemes-element-pack' ),
+				],
+				'condition' => [
+					'show_fancy_animation' => 'yes',
+				],
+				'render_type' => 'template',
+			]
+		);
+
+		$this->add_control(
+			'fancy_border_color',
+			[
+				'label'     => esc_html__( 'Animated Border Color', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .bdt-scroll-button-wrapper .bdt-scroll-button:before, {{WRAPPER}} .bdt-scroll-button-wrapper .bdt-scroll-button:after' => 'border-color: {{VALUE}};',
+				],
+				'condition' => [
+					'show_fancy_animation' => 'yes',
+					'fancy_animation' => 'line-bounce',
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_shadow_color',
+			[
+				'label'     => esc_html__( 'Animated Shadow Color', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .bdt-scroll-button-wrapper .bdt-scroll-button' => '--box-shadow-color: {{VALUE}};',
+				],
+				'condition' => [
+					'show_fancy_animation' => 'yes',
+					'fancy_animation!' => 'line-bounce',
+				],
 			]
 		);
 
@@ -431,13 +492,21 @@ class Scroll_Button extends Widget_Base {
 			]
 		);
 
+		$this->add_render_attribute( 'bdt-scroll-button', 'data-selector', '#' . esc_attr($settings['section_id']) );
+
 		if ( '' !== $settings['scroll_button_position'] ) {
 			$this->add_render_attribute( 'bdt-scroll-wrapper', 'class', ['bdt-position-fixed', 'bdt-position-' . $settings['scroll_button_position']] );
 		}
 
-		$this->add_render_attribute( 'bdt-scroll-button', 'data-selector', '#' . esc_attr($settings['section_id']) );
-
-		$this->add_render_attribute( 'bdt-scroll-wrapper', 'class', 'bdt-scroll-button-wrapper' );
+		if ( 'shadow-pulse' == $settings['fancy_animation'] ) {
+			$this->add_render_attribute( 'bdt-scroll-wrapper', 'class', 'bdt-scroll-button-wrapper bdt-shadow-pulse' );
+		} elseif ( 'line-bounce' == $settings['fancy_animation'] ) {
+			$this->add_render_attribute( 'bdt-scroll-wrapper', 'class', 'bdt-scroll-button-wrapper bdt-line-bounce' );
+		} elseif ( 'multi-shadow' == $settings['fancy_animation'] ) {
+			$this->add_render_attribute( 'bdt-scroll-wrapper', 'class', 'bdt-scroll-button-wrapper bdt-multi-shadow' );
+		} else {
+			$this->add_render_attribute( 'bdt-scroll-wrapper', 'class', 'bdt-scroll-button-wrapper' );
+		}
 
 		?>
 		<div <?php echo $this->get_render_attribute_string( 'bdt-scroll-wrapper' ); ?>>
@@ -453,7 +522,6 @@ class Scroll_Button extends Widget_Base {
 		?>
 		
 		<#
-		var scroll_button_position = (settings.scroll_button_position) ? ' bdt-position-fixed bdt-position-' + settings.scroll_button_position : '';
 		var scroll_button_duration = (settings.duration.size) ? 'duration:' + settings.duration.size + ';' : '';
 		var scroll_button_offset = (settings.offset.size) ? 'offset:' + settings.offset.size + ';' : '';
 
@@ -461,9 +529,26 @@ class Scroll_Button extends Widget_Base {
 
 		var migrated = elementor.helpers.isIconMigrated( settings, 'button_icon' );
 
-		#>
 
-		<div class="bdt-scroll-button-wrapper{{scroll_button_position}}">
+		if ( '' !== settings.scroll_button_position ) {
+			view.addRenderAttribute( 'bdt-scroll-wrapper', 'class', 'bdt-position-fixed bdt-position-' + settings.scroll_button_position ); 
+		}
+
+		view.addRenderAttribute( 'bdt-scroll-wrapper', 'class', 'bdt-scroll-button-wrapper' );
+
+		if ( 'yes' == settings.show_fancy_animation ) {
+			if ( 'shadow-pulse' == settings.fancy_animation ) {
+				view.addRenderAttribute( 'bdt-scroll-wrapper', 'class', 'bdt-shadow-pulse' );
+			} else if ( 'line-bounce' == settings.fancy_animation ) {
+				view.addRenderAttribute( 'bdt-scroll-wrapper', 'class', 'bdt-line-bounce' );
+			} else if ( 'multi-shadow' == settings.fancy_animation ) {
+				view.addRenderAttribute( 'bdt-scroll-wrapper', 'class', 'bdt-multi-shadow' );
+			}
+		}
+		
+
+		#>
+		<div <# print( view.getRenderAttributeString( 'bdt-scroll-wrapper' ) ); #> >
 			<button class="bdt-scroll-button bdt-button bdt-button-primary elementor-animation-{{ settings.scroll_button_hover_animation }}" data-selector="#{{ settings.section_id }}" data-settings="{{scroll_button_duration}}{{scroll_button_offset}}">
 				<span class="bdt-scrollr-button-content-wrapper">
 					<# if ( settings.button_icon.value ) { #>

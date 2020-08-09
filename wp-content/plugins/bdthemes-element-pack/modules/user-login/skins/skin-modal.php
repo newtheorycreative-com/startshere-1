@@ -184,7 +184,7 @@ class Skin_Modal extends Elementor_Skin_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'modal_button_typography',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
+				//'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-button-modal',
 			]
 		);
@@ -466,13 +466,16 @@ class Skin_Modal extends Elementor_Skin_Base {
 
                         <span class="bdt-user-name bdt-visible@l">
                             <?php if ( $settings['show_logged_in_message'] ) : ?>
-                                <?php if ( $settings['logged_in_custom_message'] and $settings['show_custom_message'] ) : ?>
+                                <?php if ( $settings['logged_in_custom_message'] and $settings['custom_labels'] ) : ?>
                                     <?php echo esc_html($settings['logged_in_custom_message']); ?>
                                 <?php else : ?>
                                     <?php esc_html_e( 'Hi', 'bdthemes-element-pack' ); ?>,
                                 <?php endif; ?>
                             <?php endif; ?>
-                            <?php echo esc_html($current_user->display_name); ?>
+							
+                            <?php if ( $settings['show_user_name'] ) : ?>
+								<?php echo esc_html($current_user->display_name); ?>
+							<?php endif; ?>
                         </span>
 
 						<span class="bdt-user-login-button-avatar<?php echo ( '' == $settings['show_avatar_in_button'] ) ? ' bdt-hidden@l' : ''; ?>"><?php echo get_avatar( $current_user->user_email, 32 ); ?></span>

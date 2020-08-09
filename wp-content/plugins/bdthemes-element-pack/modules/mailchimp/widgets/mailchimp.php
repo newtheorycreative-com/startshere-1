@@ -365,7 +365,7 @@ class Mailchimp extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'before_icon_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-newsletter-before-icon',
 				'separator' => 'before',
 			]
@@ -610,7 +610,7 @@ class Mailchimp extends Widget_Base {
 			[
 				'name'      => 'button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-newsletter-wrapper .bdt-button.bdt-button-primary',
 				'separator' => 'before',
 			]
@@ -763,7 +763,7 @@ class Mailchimp extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'signup_btn_icon_typography',
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-newsletter-btn .bdt-newsletter-btn-icon',
 				'separator' => 'before',
 			]
@@ -863,7 +863,7 @@ class Mailchimp extends Widget_Base {
 			[
 				'name'     => 'before_text_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-newsletter-wrapper .bdt-newsletter-before-text',
 			]
 		);
@@ -913,7 +913,7 @@ class Mailchimp extends Widget_Base {
 			[
 				'name'     => 'after_text_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-newsletter-wrapper .bdt-newsletter-after-text',
 			]
 		);

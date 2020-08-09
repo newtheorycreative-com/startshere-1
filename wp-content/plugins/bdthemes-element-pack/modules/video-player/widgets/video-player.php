@@ -496,7 +496,7 @@ class Video_Player extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'time_typography',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .jp-video .jp-current-time, {{WRAPPER}} .jp-video .jp-duration',
 			]
 		);

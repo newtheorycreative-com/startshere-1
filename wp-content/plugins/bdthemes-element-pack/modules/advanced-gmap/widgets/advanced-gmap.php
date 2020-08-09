@@ -42,7 +42,7 @@ class Advanced_Gmap extends Widget_Base {
 	}
 
 	public function get_custom_help_url() {
-		return 'https://youtu.be/_BFYCXaO4lU';
+		return 'https://youtu.be/qaZ-hv6UPDY';
 	}
 
 	protected function _register_controls() {
@@ -256,7 +256,7 @@ class Advanced_Gmap extends Widget_Base {
 			'marker',
 			[
 				'type'    => Controls_Manager::REPEATER,
-				'fields'  => array_values( $repeater->get_controls() ),
+				'fields'  => $repeater->get_controls(),
 				'default' => [
 					[
 						'marker_lat'     => '24.8248746',
@@ -285,7 +285,7 @@ class Advanced_Gmap extends Widget_Base {
 				'label'   => esc_html__( 'Style Json Code', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::TEXTAREA,
 				'default' => '',
-		        'description' => esc_html__( 'Go to this link: <a href="https://snazzymaps.com/" target="_blank">snazzymaps.com</a> and pick a style, copy the json code from first with \'[\' to last with \']\' then come back and paste here', 'bdthemes-element-pack' ),
+				'description'   => sprintf( __( 'Go to this link: %1s snazzymaps.com %2s and pick a style, copy the json code from first with [ to last with ] then come back and paste here', 'bdthemes-element-pack' ), '<a href="https://snazzymaps.com/" target="_blank">', '</a>' ),
 			]
 		);
 

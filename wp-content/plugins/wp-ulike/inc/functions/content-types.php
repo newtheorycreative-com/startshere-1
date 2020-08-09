@@ -51,6 +51,8 @@ if( ! function_exists( 'wp_ulike' ) ){
 			"method"               => 'likeThis',
 			"type"                 => 'post',
 			"wrapper_class"        => '',
+			"up_vote_inner_text"   => '',
+			"down_vote_inner_text" => '',
 			"options_group"        => 'posts_group',
 			"attributes"           => $attributes,
 			"logging_method"       => isset( $options['logging_method'] ) ? $options['logging_method'] : 'by_username',
@@ -133,7 +135,8 @@ if( ! function_exists( 'wp_ulike_get_post_likes' ) ){
 	 * @return          String
 	 */
 	function wp_ulike_get_post_likes( $post_ID, $status = 'like' ){
-		return wp_ulike_get_counter_value( $post_ID, 'post', $status );
+		$is_distinct = wp_ulike_setting_repo::isDistinct( 'post' );
+		return wp_ulike_get_counter_value( $post_ID, 'post', $status, $is_distinct );
 	}
 }
 
@@ -164,6 +167,8 @@ if( ! function_exists( 'wp_ulike_comments' ) ){
 			"method"               => 'likeThisComment',
 			"type"                 => 'post',
 			"wrapper_class"        => '',
+			"up_vote_inner_text"   => '',
+			"down_vote_inner_text" => '',
 			"options_group"        => 'comments_group',
 			"attributes"           => $attributes,
 			"logging_method"       => isset( $options['logging_method'] ) ? $options['logging_method'] : 'by_username',
@@ -239,8 +244,9 @@ if( ! function_exists( 'wp_ulike_get_comment_likes' ) ){
 	 * @since           2.5
 	 * @return          String
 	 */
-	function wp_ulike_get_comment_likes( $comment_ID ){
-		return wp_ulike_get_counter_value( $comment_ID, 'comment' );
+	function wp_ulike_get_comment_likes( $comment_ID, $status = 'like' ){
+		$is_distinct = wp_ulike_setting_repo::isDistinct( 'comment' );
+		return wp_ulike_get_counter_value( $comment_ID, 'comment', $status, $is_distinct );
 	}
 }
 
@@ -275,6 +281,8 @@ if( ! function_exists( 'wp_ulike_buddypress' ) ){
 			"method"               => 'likeThisActivity',
 			"type"                 => 'post',
 			"wrapper_class"        => '',
+			"up_vote_inner_text"   => '',
+			"down_vote_inner_text" => '',
 			"options_group"        => 'buddypress_group',
 			"attributes"           => $attributes,
 			"logging_method"       => isset( $options['logging_method'] ) ? $options['logging_method'] : 'by_username',
@@ -429,6 +437,8 @@ if( ! function_exists( 'wp_ulike_bbpress' ) ){
 			"method"               => 'likeThisTopic',
 			"type"                 => 'post',
 			"wrapper_class"        => '',
+			"up_vote_inner_text"   => '',
+			"down_vote_inner_text" => '',
 			"options_group"        => 'bbpress_group',
 			"attributes"           => $attributes,
 			"logging_method"       => isset( $options['logging_method'] ) ? $options['logging_method'] : 'by_username',

@@ -322,7 +322,7 @@ class Weather extends Widget_Base {
 			[
 				'name'     => 'tiny_text_typography',
 				'selector' => '{{WRAPPER}} .bdt-weather',
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 

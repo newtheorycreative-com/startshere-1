@@ -28,14 +28,15 @@ if( ! function_exists( 'wp_ulike_get_popular_items_info' ) ){
 		global $wpdb;
 		//Main data
 		$defaults = array(
-			"type"     => 'post',
-			"rel_type" => 'post',
-			"status"   => 'like',
-			"user_id"  => '',
-			"order"    => 'DESC',
-			"period"   => 'all',
-			"offset"   => 1,
-			"limit"    => 10
+			"type"       => 'post',
+			"rel_type"   => 'post',
+			"status"     => 'like',
+			"user_id"    => '',
+			"order"      => 'DESC',
+			"is_popular" => true,
+			"period"     => 'all',
+			"offset"     => 1,
+			"limit"      => 10
 		);
 		$parsed_args  = wp_parse_args( $args, $defaults );
 		$info_args    = wp_ulike_get_table_info( $parsed_args['type'] );
@@ -78,14 +79,15 @@ if( ! function_exists( 'wp_ulike_get_popular_items_info' ) ){
 		 */
 		if( empty( $period_limit ) && empty( $user_condition ) ){
 			// create query condition from status
-			$status_type  = '';
+			$status_type = '';
+			$meta_prefix = wp_ulike_setting_repo::isDistinct( $parsed_args['type'] ) ? 'count_distinct_' : 'count_total_';
 			if( is_array( $parsed_args['status'] ) ){
 				foreach ($parsed_args['status'] as $key => $value) {
-					$status_type .= $key === 0 ? sprintf( "t.meta_key LIKE '%%\_%s'", $value ) : sprintf( " OR t.meta_key LIKE '%%\_%s'", $value );
+					$status_type .= $key === 0 ? sprintf( "t.meta_key LIKE '%s'", $meta_prefix . $value ) : sprintf( " OR t.meta_key LIKE '%s'", $meta_prefix . $value );
 				}
 				$status_type = sprintf( " AND (%s)",  $status_type );
 			} else {
-				$status_type = sprintf( " AND t.meta_key LIKE '%%\_%s'", $parsed_args['status'] );
+				$status_type = sprintf( " AND t.meta_key LIKE '%s'",  $meta_prefix . $parsed_args['status'] );
 			}
 
 			// generate query string
@@ -95,14 +97,15 @@ if( ! function_exists( 'wp_ulike_get_popular_items_info' ) ){
 				INNER JOIN %2$s r ON t.item_id = r.%3$s %4$s
 				WHERE t.meta_group = "%5$s" AND t.meta_value > 0 %6$s
 				GROUP BY item_ID
-				ORDER BY counter
-				%7$s %8$s',
+				ORDER BY %7$s
+				%8$s %9$s',
 				$wpdb->prefix . 'ulike_meta',
 				$wpdb->prefix . $info_args['related_table'],
 				$info_args['related_column'],
 				$related_condition,
 				$parsed_args['type'],
 				$status_type,
+				$parsed_args['is_popular'] ? 'counter' : 'item_ID',
 				$parsed_args['order'],
 				$limit_records
 			);
@@ -125,8 +128,8 @@ if( ! function_exists( 'wp_ulike_get_popular_items_info' ) ){
 				WHERE %5$s %6$s
 				%7$s
 				GROUP BY item_ID
-				ORDER BY counter
-				%8$s %9$s',
+				ORDER BY %8$s
+				%9$s %10$s',
 				$info_args['column'],
 				$wpdb->prefix . $info_args['table'],
 				$wpdb->prefix . $info_args['related_table'],
@@ -134,6 +137,7 @@ if( ! function_exists( 'wp_ulike_get_popular_items_info' ) ){
 				$status_type,
 				$user_condition,
 				$period_limit,
+				$parsed_args['is_popular'] ? 'counter' : 'item_ID',
 				$parsed_args['order'],
 				$limit_records
 			);
@@ -154,14 +158,15 @@ if( ! function_exists( 'wp_ulike_get_popular_items_ids' ) ){
 	function wp_ulike_get_popular_items_ids( $args = array() ){
 		//Main data
 		$defaults = array(
-			"type"     => 'post',
-			"rel_type" => 'post',
-			"status"   => 'like',
-			"user_id"  => '',
-			"order"    => 'DESC',
-			"period"   => 'all',
-			"offset"   => 1,
-			"limit"    => 10
+			"type"       => 'post',
+			"rel_type"   => 'post',
+			"status"     => 'like',
+			"user_id"    => '',
+			"order"      => 'DESC',
+			"is_popular" => true,
+			"period"     => 'all',
+			"offset"     => 1,
+			"limit"      => 10
 		);
 		$parsed_args = wp_parse_args( $args, $defaults );
 		$item_info   = wp_ulike_get_popular_items_info( $parsed_args );
@@ -228,22 +233,21 @@ if( ! function_exists( 'wp_ulike_get_popular_items_total_number' ) ){
 		 */
 		if( empty( $period_limit ) && empty( $user_condition ) ){
 			// create query condition from status
-			$status_type  = '';
+			$meta_prefix = wp_ulike_setting_repo::isDistinct( $parsed_args['type'] ) ? 'count_distinct_' : 'count_total_';
 			if( is_array( $parsed_args['status'] ) ){
 				foreach ($parsed_args['status'] as $key => $value) {
-					$status_type.= $key === 0 ? sprintf( "t.meta_key LIKE '%%\_%s'", $value ) : sprintf( " OR t.meta_key LIKE '%%\_%s'", $value );
+					$status_type .= $key === 0 ? sprintf( "t.meta_key LIKE '%s'", $meta_prefix . $value ) : sprintf( " OR t.meta_key LIKE '%s'", $meta_prefix . $value );
 				}
 				$status_type = sprintf( " AND (%s)",  $status_type );
 			} else {
-				$status_type = sprintf( " AND t.meta_key LIKE '%%\_%s'", $parsed_args['status'] );
+				$status_type = sprintf( " AND t.meta_key LIKE '%s'",  $meta_prefix . $parsed_args['status'] );
 			}
-
 			// generate query string
 			$query  = sprintf( '
 				SELECT COUNT(DISTINCT t.item_id)
 				FROM %1$s t
 				INNER JOIN %2$s r ON t.item_id = r.%3$s %4$s
-				WHERE t.meta_group = "%5$s" %6$s',
+				WHERE t.meta_value > 0 AND t.meta_group = "%5$s" %6$s',
 				$wpdb->prefix . 'ulike_meta',
 				$wpdb->prefix . $info_args['related_table'],
 				$info_args['related_column'],
@@ -326,7 +330,9 @@ if( ! function_exists( 'wp_ulike_get_likers_list_per_post' ) ){
 			$get_likers = array_reverse( $get_likers );
 		}
 
-		return ! empty( $get_likers ) ? array_slice( $get_likers, 0, $limit ) : array();
+		$output = ! empty( $get_likers ) ? array_slice( $get_likers, 0, $limit ) : array();
+
+		return apply_filters( 'wp_ulike_get_likers_list', $output, $item_type, $item_ID );
 	}
 }
 

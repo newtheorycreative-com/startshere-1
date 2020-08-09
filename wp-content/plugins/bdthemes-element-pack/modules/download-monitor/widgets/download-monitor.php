@@ -326,7 +326,7 @@ class DownloadMonitor extends Widget_Base {
 			[
 				'name' => 'button_typography',
 				'label' => esc_html__( 'Title Typography', 'bdthemes-element-pack' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} a.bdt-download-monitor-button .bdt-dm-title',
 			]
 		);
@@ -336,7 +336,7 @@ class DownloadMonitor extends Widget_Base {
 			[
 				'name' => 'button_meta_typography',
 				'label' => esc_html__( 'Meta Typography', 'bdthemes-element-pack' ),
-				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} a.bdt-download-monitor-button .bdt-dm-meta > *',
 			]
 		);

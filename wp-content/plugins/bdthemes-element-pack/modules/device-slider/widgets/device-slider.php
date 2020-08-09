@@ -1,6 +1,7 @@
 <?php
 namespace ElementPack\Modules\DeviceSlider\Widgets;
 
+use Elementor\Repeater;
 use element_pack_helper;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -83,12 +84,122 @@ class Device_Slider extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'title', 
+			[
+				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'title_link', 
+			[
+				'label'         => esc_html__( 'Title Link', 'bdthemes-element-pack' ),
+				'type'          => Controls_Manager::URL,
+				'default'       => ['url' => ''],
+				'show_external' => false,
+				'dynamic'       => [ 'active' => true ],
+				'condition'     => [
+					'title!' => ''
+				]
+			]
+		);
+
+		$repeater->add_control(
+			'background', 
+			[
+				'label'   => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'default' => 'color',
+				'options' => [
+					'color' => [
+						'title' => esc_html__( 'Color', 'bdthemes-element-pack' ),
+						'icon'  => 'fas fa-paint-brush',
+					],
+					'image' => [
+						'title' => esc_html__( 'Image', 'bdthemes-element-pack' ),
+						'icon'  => 'fas fa-image',
+					],
+					'video' => [
+						'title' => esc_html__( 'Video', 'bdthemes-element-pack' ),
+						'icon'  => 'fas fa-play-circle',
+					],
+					'youtube' => [
+						'title' => esc_html__( 'Youtube', 'bdthemes-element-pack' ),
+						'icon'  => 'fab fa-youtube',
+					],
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'color', 
+			[
+				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#14ABF4',
+				'condition' => [
+					'background' => 'color'
+				],
+				'selectors' => [
+					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'image', 
+			[
+				'label'     => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::MEDIA,
+				'default' => [
+					'url' => Utils::get_placeholder_image_src(),
+				],
+				'condition' => [
+					'background' => 'image'
+				],
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'video_link', 
+			[
+				'label'     => esc_html__( 'Video Link', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::TEXT,
+				'condition' => [
+					'background' => 'video'
+				],
+				'default' => '//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'youtube_link', 
+			[
+				'label'     => esc_html__( 'Youtube Link', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::TEXT,
+				'condition' => [
+					'background' => 'youtube'
+				],
+				'default' => 'https://youtu.be/YE7VzlLtp-4',
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
 
 		$this->add_control(
 			'slides',
 			[
 				'label' => esc_html__( 'Slider Items', 'bdthemes-element-pack' ),
 				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'title' => esc_html__( 'Slide Item 1', 'bdthemes-element-pack' ),
@@ -101,97 +212,6 @@ class Device_Slider extends Widget_Base {
 					],
 					[
 						'title' => esc_html__( 'Slide Item 4', 'bdthemes-element-pack' ),
-					],
-				],
-				'fields' => [
-					
-					[
-						'name'        => 'title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-						'dynamic'     => [ 'active' => true ],
-					],
-					
-					[
-						'name'          => 'title_link',
-						'label'         => esc_html__( 'Title Link', 'bdthemes-element-pack' ),
-						'type'          => Controls_Manager::URL,
-						'default'       => ['url' => ''],
-						'show_external' => false,
-						'dynamic'       => [ 'active' => true ],
-						'condition'     => [
-							'title!' => ''
-						]
-					],
-					[
-						'name'    => 'background',
-						'label'   => esc_html__( 'Background', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::CHOOSE,
-						'default' => 'color',
-						'options' => [
-							'color' => [
-								'title' => esc_html__( 'Color', 'bdthemes-element-pack' ),
-								'icon'  => 'fas fa-paint-brush',
-							],
-							'image' => [
-								'title' => esc_html__( 'Image', 'bdthemes-element-pack' ),
-								'icon'  => 'fas fa-image',
-							],
-							'video' => [
-								'title' => esc_html__( 'Video', 'bdthemes-element-pack' ),
-								'icon'  => 'fas fa-play-circle',
-							],
-							'youtube' => [
-								'title' => esc_html__( 'Youtube', 'bdthemes-element-pack' ),
-								'icon'  => 'fab fa-youtube',
-							],
-						],
-					],
-					[
-						'name'      => 'color',
-						'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '#14ABF4',
-						'condition' => [
-							'background' => 'color'
-						],
-						'selectors' => [
-							'{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
-						],
-					],
-					[
-						'name'      => 'image',
-						'label'     => esc_html__( 'Image', 'bdthemes-element-pack' ),
-						'type'      => Controls_Manager::MEDIA,
-						'default' => [
-							'url' => Utils::get_placeholder_image_src(),
-						],
-						'condition' => [
-							'background' => 'image'
-						],
-						'dynamic'     => [ 'active' => true ],
-					],
-					[
-						'name'      => 'video_link',
-						'label'     => esc_html__( 'Video Link', 'bdthemes-element-pack' ),
-						'type'      => Controls_Manager::TEXT,
-						'condition' => [
-							'background' => 'video'
-						],
-						'default' => '//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
-						'dynamic'     => [ 'active' => true ],
-					],
-					[
-						'name'      => 'youtube_link',
-						'label'     => esc_html__( 'Youtube Link', 'bdthemes-element-pack' ),
-						'type'      => Controls_Manager::TEXT,
-						'condition' => [
-							'background' => 'youtube'
-						],
-						'default' => 'https://youtu.be/YE7VzlLtp-4',
-						'dynamic'     => [ 'active' => true ],
 					],
 				],
 				'title_field' => '{{{ title }}}',
@@ -452,7 +472,7 @@ class Device_Slider extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-device-slider-container .bdt-slideshow-items .bdt-device-slider-title',
 			]
 		);

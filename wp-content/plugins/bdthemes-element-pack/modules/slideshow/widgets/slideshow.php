@@ -1,6 +1,7 @@
 <?php
 namespace ElementPack\Modules\Slideshow\Widgets;
 
+use Elementor\Repeater;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -78,11 +79,149 @@ class Slideshow extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'pre_title', 
+			[
+				'label'       => esc_html__( 'Pre Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => esc_html__( 'Slide Pre Title' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'title', 
+			[
+				'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'post_title', 
+			[
+				'label'       => esc_html__( 'Post Title', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'label_block' => true,
+			]
+		);
+
+		$repeater->add_control(
+			'background', 
+			[
+				'label'   => esc_html__( 'Background', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'default' => 'color',
+				'options' => [
+					'color' => [
+						'title' => esc_html__( 'Color', 'bdthemes-element-pack' ),
+						'icon'  => 'fas fa-paint-brush',
+					],
+					'image' => [
+						'title' => esc_html__( 'Image', 'bdthemes-element-pack' ),
+						'icon'  => 'fas fa-image',
+					],
+					'video' => [
+						'title' => esc_html__( 'Video', 'bdthemes-element-pack' ),
+						'icon'  => 'fas fa-play-circle',
+					],
+					'youtube' => [
+						'title' => esc_html__( 'Youtube', 'bdthemes-element-pack' ),
+						'icon'  => 'fab fa-youtube',
+					],
+				],
+			]
+		);	
+
+		$repeater->add_control(
+			'color', 
+			[
+				'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#14ABF4',
+				'condition' => [
+					'background' => 'color'
+				],
+				'selectors' => [
+					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'image', 
+			[
+				'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::MEDIA,
+				'dynamic' => [ 'active' => true ],
+				'default' => [
+					'url' => Utils::get_placeholder_image_src(),
+				],
+				'condition' => [
+					'background' => 'image'
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'video_link', 
+			[
+				'label'     => esc_html__( 'Video Link', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::TEXT,
+				'condition' => [
+					'background' => 'video'
+				],
+				'default' => '//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+			]
+		);
+
+		$repeater->add_control(
+			'youtube_link', 
+			[
+				'label'     => esc_html__( 'Youtube Link', 'bdthemes-element-pack' ),
+				'type'      => Controls_Manager::TEXT,
+				'condition' => [
+					'background' => 'youtube'
+				],
+				'default' => 'https://youtu.be/YE7VzlLtp-4',
+			]
+		);	
+
+		$repeater->add_control(
+			'button_link', 
+			[
+				'label'       => esc_html__( 'Button Link', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::URL,
+				'dynamic'     => [ 'active' => true ],
+				'separator'   => 'before',
+				'placeholder' => 'https://bdthemes.com',
+			]
+		);
+
+		$repeater->add_control(
+			'text', 
+			[
+				'label'      => esc_html__( 'Text', 'bdthemes-element-pack' ),
+				'type'       => Controls_Manager::TEXTAREA,
+				'dynamic'    => [ 'active' => true ],
+				'default'    => esc_html__( 'I am slideshow description text, you can edit this text from slider items of slideshow content.', 'bdthemes-element-pack' ),
+				'show_label' => false,
+			]
+		);
+
 		$this->add_control(
 			'slides',
 			[
 				'label' => esc_html__( 'Slider Items', 'bdthemes-element-pack' ),
 				'type' => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'title'       => esc_html__( 'Slide Item 1', 'bdthemes-element-pack' ),
@@ -99,113 +238,6 @@ class Slideshow extends Widget_Base {
 					[
 						'title'       => esc_html__( 'Slide Item 4', 'bdthemes-element-pack' ),
 						'button_link' => ['url' => '#'],
-					],
-				],
-				'fields' => [
-					[
-						'name'        => 'pre_title',
-						'label'       => esc_html__( 'Pre Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => esc_html__( 'Slide Pre Title' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-					],
-					[
-						'name'        => 'title',
-						'label'       => esc_html__( 'Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'default'     => esc_html__( 'Slide Title' , 'bdthemes-element-pack' ),
-						'label_block' => true,
-					],
-					[
-						'name'        => 'post_title',
-						'label'       => esc_html__( 'Post Title', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::TEXT,
-						'dynamic'     => [ 'active' => true ],
-						'label_block' => true,
-					],
-					[
-						'name'    => 'background',
-						'label'   => esc_html__( 'Background', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::CHOOSE,
-						'default' => 'color',
-						'options' => [
-							'color' => [
-								'title' => esc_html__( 'Color', 'bdthemes-element-pack' ),
-								'icon'  => 'fas fa-paint-brush',
-							],
-							'image' => [
-								'title' => esc_html__( 'Image', 'bdthemes-element-pack' ),
-								'icon'  => 'fas fa-image',
-							],
-							'video' => [
-								'title' => esc_html__( 'Video', 'bdthemes-element-pack' ),
-								'icon'  => 'fas fa-play-circle',
-							],
-							'youtube' => [
-								'title' => esc_html__( 'Youtube', 'bdthemes-element-pack' ),
-								'icon'  => 'fab fa-youtube',
-							],
-						],
-					],
-					[
-						'name'      => 'color',
-						'label'     => esc_html__( 'Color', 'bdthemes-element-pack' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '#14ABF4',
-						'condition' => [
-							'background' => 'color'
-						],
-						'selectors' => [
-							'{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
-						],
-					],
-					[
-						'name'    => 'image',
-						'label'   => esc_html__( 'Image', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::MEDIA,
-						'dynamic' => [ 'active' => true ],
-						'default' => [
-							'url' => Utils::get_placeholder_image_src(),
-						],
-						'condition' => [
-							'background' => 'image'
-						],
-					],
-					[
-						'name'      => 'video_link',
-						'label'     => esc_html__( 'Video Link', 'bdthemes-element-pack' ),
-						'type'      => Controls_Manager::TEXT,
-						'condition' => [
-							'background' => 'video'
-						],
-						'default' => '//clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
-					],
-					[
-						'name'      => 'youtube_link',
-						'label'     => esc_html__( 'Youtube Link', 'bdthemes-element-pack' ),
-						'type'      => Controls_Manager::TEXT,
-						'condition' => [
-							'background' => 'youtube'
-						],
-						'default' => 'https://youtu.be/YE7VzlLtp-4',
-					],
-					[
-						'name'        => 'button_link',
-						'label'       => esc_html__( 'Button Link', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::URL,
-						'dynamic'     => [ 'active' => true ],
-						'separator'   => 'before',
-						'placeholder' => 'https://bdthemes.com',
-					],
-					[
-						'name'       => 'text',
-						'label'      => esc_html__( 'Text', 'bdthemes-element-pack' ),
-						'type'       => Controls_Manager::TEXTAREA,
-						'dynamic'    => [ 'active' => true ],
-						'default'    => esc_html__( 'I am slideshow description text, you can edit this text from slider items of slideshow content.', 'bdthemes-element-pack' ),
-						'show_label' => false,
 					],
 				],
 				'title_field' => '{{{ title }}}',
@@ -227,7 +259,17 @@ class Slideshow extends Widget_Base {
 				'label'   => esc_html__( 'Content Position', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'center',
-				'options' => element_pack_position(),
+				'options' => [
+					'top-left'      => esc_html__('Top Left', 'bdthemes-element-pack'),
+					'top-center'    => esc_html__('Top Center', 'bdthemes-element-pack'),
+					'top-right'     => esc_html__('Top Right', 'bdthemes-element-pack'),
+					'center'        => esc_html__('Center', 'bdthemes-element-pack'),
+					'center-left'   => esc_html__('Center Left', 'bdthemes-element-pack'),
+					'center-right'  => esc_html__('Center Right', 'bdthemes-element-pack'),
+					'bottom-left'   => esc_html__('Bottom Left', 'bdthemes-element-pack'),
+					'bottom-center' => esc_html__('Bottom Center', 'bdthemes-element-pack'),
+					'bottom-right'  => esc_html__('Bottom Right', 'bdthemes-element-pack'),
+				]
 			]
 		);
 

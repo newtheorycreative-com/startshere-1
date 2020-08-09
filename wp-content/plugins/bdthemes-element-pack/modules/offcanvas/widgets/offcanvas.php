@@ -658,7 +658,7 @@ class Offcanvas extends Widget_Base {
 			[
 				'name'      => 'offcanvas_button_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-offcanvas-button',
 				'separator' => 'before',
 			]

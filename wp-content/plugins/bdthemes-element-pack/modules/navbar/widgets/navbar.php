@@ -394,7 +394,7 @@ class Navbar extends Widget_Base {
 			[
 				'name'     => 'menu_typography_normal',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-navbar-nav > li > a',
 			]
 		);
@@ -480,7 +480,7 @@ class Navbar extends Widget_Base {
 			[
 				'name'     => 'menu_typography_hover',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-navbar-nav > li > a:hover',
 			]
 		);
@@ -565,7 +565,7 @@ class Navbar extends Widget_Base {
 			[
 				'name'     => 'menu_typography_active',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-navbar-nav > li.bdt-active > a',
 			]
 		);
@@ -691,7 +691,7 @@ class Navbar extends Widget_Base {
 			[
 				'name'     => 'dropdown_link_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-navbar-dropdown-nav > li > a',
 			]
 		);
@@ -763,7 +763,7 @@ class Navbar extends Widget_Base {
 			[
 				'name'     => 'dropdown_typography_hover',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-navbar-dropdown-nav > li > a:hover',
 			]
 		);
@@ -832,7 +832,7 @@ class Navbar extends Widget_Base {
 				[
 					'name'     => 'dropdown_typography_active',
 					'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-					'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+					//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 					'selector' => '{{WRAPPER}} .bdt-navbar-dropdown-nav > li.bdt-active > a',
 				]
 			);

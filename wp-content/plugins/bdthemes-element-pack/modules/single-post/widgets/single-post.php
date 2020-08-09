@@ -235,7 +235,7 @@ class Single_Post extends Widget_Base {
 			[
 				'name'     => 'tag_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-single-post .bdt-single-post-tag-wrap span',
 			]
 		);
@@ -270,7 +270,7 @@ class Single_Post extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-single-post .bdt-single-post-title',
 			]
 		);
@@ -305,7 +305,7 @@ class Single_Post extends Widget_Base {
 			[
 				'name'     => 'date_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-single-post .bdt-single-post-meta span',
 			]
 		);
@@ -340,7 +340,7 @@ class Single_Post extends Widget_Base {
 			[
 				'name'     => 'category_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-single-post .bdt-single-post-meta a',
 			]
 		);
@@ -397,7 +397,7 @@ class Single_Post extends Widget_Base {
 			[
 				'name'     => 'excerpt_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .bdt-single-post .bdt-single-post-excerpt',
 			]
 		);

@@ -767,7 +767,7 @@ class Portfolio_Gallery extends Widget_Base {
 			[
 				'name'      => 'title_typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .bdt-gallery-item .bdt-gallery-item-title',
 				'condition' => [
 					'show_title' => 'yes',
@@ -830,7 +830,7 @@ class Portfolio_Gallery extends Widget_Base {
 			[
 				'name'     => 'excerpt_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-portfolio-gallery .bdt-portfolio-excerpt',
 			]
 		);
@@ -955,7 +955,7 @@ class Portfolio_Gallery extends Widget_Base {
 			[
 				'name'      => 'typography',
 				'label'     => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'    => Schemes\Typography::TYPOGRAPHY_4,
 				'selector'  => '{{WRAPPER}} .bdt-portfolio-gallery .bdt-gallery-item-link',
 				'condition' => [
 					'link_type' => 'text',
@@ -1057,7 +1057,7 @@ class Portfolio_Gallery extends Widget_Base {
 			[
 				'name'     => 'typography_filter',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-ep-grid-filters li',
 			]
 		);
@@ -1304,7 +1304,7 @@ class Portfolio_Gallery extends Widget_Base {
 			[
 				'name'     => 'filter_mbtn_dropdown_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .bdt-dropdown-nav li',
 			]
 		);
@@ -1406,7 +1406,7 @@ class Portfolio_Gallery extends Widget_Base {
 			[
 				'name'     => 'category_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .bdt-portfolio-gallery .bdt-gallery-item-tag',
 			]
 		);
@@ -1523,7 +1523,7 @@ class Portfolio_Gallery extends Widget_Base {
 			[
 				'name'     => 'pagination_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} ul.bdt-pagination li a, {{WRAPPER}} ul.bdt-pagination li span',
 			]
 		);

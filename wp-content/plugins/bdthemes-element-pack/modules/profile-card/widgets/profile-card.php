@@ -492,7 +492,7 @@ class Profile_Card extends Widget_Base {
 			'social_link_list',
 			[
 				'type'    => Controls_Manager::REPEATER,
-				'fields'  => array_values( $repeater->get_controls() ),
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'social_link'       => __( 'http://www.facebook.com/bdthemes/', 'bdthemes-element-pack' ),
@@ -536,11 +536,46 @@ class Profile_Card extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'custom_nav_title', 
+			[
+				'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
+				'type'    => Controls_Manager::TEXT,
+				'default' => esc_html__( 'Title' , 'bdthemes-element-pack' ),
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
+		$repeater->add_control(
+			'icon', 
+			[
+				'label'   => esc_html__( 'Icon', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-home',
+					'library' => ['fa-solid'],
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'custom_nav_link', 
+			[
+				'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
+				'type'        => Controls_Manager::URL,
+				'default'     => [ 'url' => '#' ],
+				'dynamic'     => [ 'active' => true ],
+			]
+		);
+
 		$this->add_control(
 			'custom_navs',
 			[
 				'label'   => esc_html__( 'Menus', 'bdthemes-element-pack' ),
 				'type'    => Controls_Manager::REPEATER,
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'custom_nav_title' => esc_html__( 'Billing', 'bdthemes-element-pack' ),
@@ -562,31 +597,6 @@ class Profile_Card extends Widget_Base {
 						'custom_nav_link'  => [
 							'url' => esc_html__( '#', 'bdthemes-element-pack' ),
 						]
-					],
-				],
-				'fields' => [
-					[
-						'name'    => 'custom_nav_title',
-						'label'   => esc_html__( 'Title', 'bdthemes-element-pack' ),
-						'type'    => Controls_Manager::TEXT,
-						'default' => esc_html__( 'Title' , 'bdthemes-element-pack' ),
-						'dynamic'     => [ 'active' => true ],
-					],
-					[
-						'name'    => 'icon',
-						'label'   => esc_html__( 'Icon', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::ICONS,
-						'default' => [
-							'value' => 'fas fa-home',
-							'library' => ['fa-solid'],
-						],
-					],
-					[
-						'name'        => 'custom_nav_link',
-						'label'       => esc_html__( 'Link', 'bdthemes-element-pack' ),
-						'type'        => Controls_Manager::URL,
-						'default'     => [ 'url' => '#' ],
-						'dynamic'     => [ 'active' => true ],
 					],
 				],
 				'title_field' => '{{{ custom_nav_title }}}',

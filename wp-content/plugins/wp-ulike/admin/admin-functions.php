@@ -101,7 +101,12 @@ function wp_ulike_get_number_of_new_likes() {
 
 	if( isset( $_GET["page"] ) && stripos( $_GET["page"], "wp-ulike-statistics" ) !== false && is_super_admin() ) {
         update_option( 'wpulike_lastvisit', current_time( 'mysql' ) );
-        wp_cache_delete( $cache_key, WP_ULIKE_SLUG );
+        // Fix object cache issue
+        if ( ! get_transient( 'wp_ulike_calculate_new_votes_cache' ) ) {
+            wp_cache_delete( $cache_key, WP_ULIKE_SLUG );
+            set_transient( 'wp_ulike_calculate_new_votes_cache', true, 300 );
+        }
+
     }
 
     // Get cached counter value
@@ -512,4 +517,26 @@ function wp_ulike_minify_css( $input ) {
             '$1$2'
         ),
     $input);
+}
+
+/**
+ * Fix multiple select issue
+ *
+ * @param   array  $value
+ *
+ * @return  array
+ */
+function wp_ulike_sanitize_multiple_select( $value ) {
+    $multiple_selects = array(
+        'auto_display_filter',
+        'auto_display_filter_post_types',
+    );
+
+    foreach ( $multiple_selects as $id ) {
+        if ( ! isset( $value[$id] ) ) {
+            $value[$id] = array();
+        }
+    }
+
+    return $value;
 }

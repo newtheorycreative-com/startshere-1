@@ -441,7 +441,7 @@ class Post_Card extends Widget_Base {
 			[
 				'name'     => 'tags_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-tag a',
 			]
 		);
@@ -475,7 +475,7 @@ class Post_Card extends Widget_Base {
 			[
 				'name'     => 'title_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-title',
 			]
 		);
@@ -520,7 +520,7 @@ class Post_Card extends Widget_Base {
 			[
 				'name'     => 'meta_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-meta *',
 			]
 		);
@@ -579,7 +579,7 @@ class Post_Card extends Widget_Base {
 			[
 				'name'     => 'excerpt_typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-excerpt',
 			]
 		);
@@ -737,7 +737,7 @@ class Post_Card extends Widget_Base {
 			[
 				'name'     => 'typography',
 				'label'    => esc_html__( 'Typography', 'bdthemes-element-pack' ),
-				'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
+				//'scheme'   => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .bdt-post-card .bdt-post-card-button',
 			]
 		);

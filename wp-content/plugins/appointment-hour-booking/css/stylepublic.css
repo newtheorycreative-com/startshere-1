@@ -1,5 +1,6 @@
 .clearer{clear:both;}
 #fbuilder *,#fbuilder ::after,#fbuilder ::before{box-sizing:border-box;}
+#fbuilder select{-webkit-appearance:menulist}
 #fbuilder{}
 #fbuilder .fields,#fbuilder .fform{padding:5px 0px;}
 #fbuilder .fform h1{margin:5px 0px;padding:0px;}
